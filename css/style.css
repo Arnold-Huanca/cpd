@@ -1501,7 +1501,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
 }
 input[type="text"], input[type="password"], input[type="email"], input[type="url"], textarea
 {
-   width: 80%;
+   width: auto;
    padding: 8px 0;
     font-size: 13px;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;

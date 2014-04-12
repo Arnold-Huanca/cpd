@@ -71,7 +71,7 @@ $listado=  mysql_query("select * from funcionario  where id = $idfuncionario");
                      {
                                echo '<tr id="fila-'.mb_convert_encoding($reg['id'], "UTF-8").'">';
                                echo '<td >'.mb_convert_encoding($reg['id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['ci_f'], "UTF-8").'</td>';
+                               echo '<td >'.mb_convert_encoding($reg['ci'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['apellido_p'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['apellido_m'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['nombre'], "UTF-8").'</td>';

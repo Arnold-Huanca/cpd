@@ -4,7 +4,7 @@ define ("MODULO", "Modulo");
   require('../_start.php');
   if(!isUserSession())
   header("Location: index.php"); 
-$listado=  mysql_query("select * from departamento");
+$listado=  mysql_query("select * from modulo");
 ?>
   <script type="text/javascript">
    $(document).ready(function(){

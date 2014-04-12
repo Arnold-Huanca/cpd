@@ -1,16 +1,174 @@
      <div class="art-layout-cell art-content clearfix">
-     <article class="art-post art-article">
+     <article >
                                 
           <h2></h2>                                        
-   <div class="art-postcontent art-postcontent-0 clearfix">
+   <div >
      
      
-      <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
+      <form  id="contact_form"  action="#" method="post" id="registro" name="registro" >
            
+          
+    
+<div>
+<table width="200" border="0" align="left">
+  <tr>
+    <th width="87" scope="col">&nbsp;</th>
+    <th colspan="3" scope="col">Datos Generales</th>
+    <th width="6" scope="col">&nbsp;</th>
+  </tr>
+  <tr>
+    <th colspan="3" scope="col" align="left">Datos Personales </th>
+    <td width="35"><input type="checkbox" name="validacion_datos_personales" id="validacion_datos_personales" />
+      <label for="validacion_datos_personales" hidden="true"></label></td>
+    <td width="35">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th scope="row">Apellidos:</th>
+    <td>&nbsp;</td>
+    <td><input type="text" name="Apellidos" id="Apellidos" placeholder="Apellidos"/></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td rowspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <th scope="row">Nombre:</th>
+    <td>&nbsp;</td>
+    <td> <input type="text" name="nombre" id="nombre" value="{$funcionario->nombre}"  placeholder="Nombre" size="100"  >
+            </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <th scope="row">CI:</th>
+    <td>&nbsp;</td>
+    <td><label for="ci"></label>
+    <input type="text" name="ci" id="ci" /></td>
+    <td>Extendido:</td>
+    <td>&nbsp;</td>
+    <td><input type="text" name="ci_extendido" id="ci_extendido" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Estado Civil:</th>
+    <td>&nbsp;</td>
+    <td><input type="text" name="estado_civil" id="estado_civil" /></td>
+    <td>Grupo Sanguineo:</td>
+    <td>&nbsp;</td>
+    <td><input type="text" name="grupo_sanguineo" id="grupo_sanguineo" /></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  </table>
+  </div>
+  <div>
+  <table width="200" border="0" align="left">
+  <tr>
+    <th colspan="2" scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th scope="row">Sexo:</th>
+    <td><select name="sexo" size="1" id="sexo">
+    <option value="ninguno" selected="selected">Ninguno</option>
+    <option value="Masculino">Masculino</option>
+    <option value="Femenino">Femenino</option>
+    </select></td>
+    <td>&nbsp;</td>
+    <td>Nacionalidad:</td>
+    <td><select name="nacionalidad" size="1" id="nacionalidad">
+    <option selected="selected" value="Boliviano">Boliviano</option>
+    </select></td>
+    <td>
+    </td>
+    <td>
+    Fecha de Nacimiento:
+    </td>
+    <td><input type="text" name="fecha_nacimiento" id="fecha_nacimiento" />
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">Pais de Nacimiento</th>
+    <td><select name="pais_nac" id="pais_nac">
+    </select></td>
+    <td>&nbsp;</td>
+    <td>Ciudad</td>
+    <td><select name="ciudad" id="ciudad">
+    </select></td>
+  </tr>
+  <tr hidden="true">
+    <th scope="row">Provincia</th>
+    <td><select name="provincia" id="provincia">
+    </select></td>
+    <td>&nbsp;</td>
+    <td>Municipio</td>
+    <td><label for="municipio"></label>
+      <select name="municipio" id="municipio">
+      </select></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</div>
+          <br/>
+<div>
+  <table width="200" border="0" align="left">
+  <tr>
+    <th colspan="2" scope="row" align="left">Domicilio:</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th scope="row"><h3>Tipo de vivienda:</h3></th>
+    <td>&nbsp;</td>
+    <td><select name="tipo_vivienda" id="tipo_vivienda">
+    </select></td>
+    <td>Zona:</td>
+    <td><input type="text" name="zona" id="zona" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Ubicacion:
+      (Calle\Avenida\Plazuela)</th>
+    <td>&nbsp;</td>
+    <td><label for="ubicacion"></label>
+      <input type="text" name="ubicacion" id="ubicacion" /></td>
+    <td>No:</td>
+    <td><input type="text" name="num" id="num" /></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
             
             <p>
-              <input type="text" name="ci_f" id="ci_f" value="{$funcionario->ci_f}"  placeholder="CI Funcionario" size="100"  >
-              <label for="nombre"><small>CI Funcionario</small></label>
+                <label for="nombre"><small>CI Funcionario</small></label>
             </p>
             <p>
               <input type="text" name="apellido_p" id="apellido_p" value="{$funcionario->apellido_p}"  placeholder="Apellido Paterno" size="100"  >
@@ -37,38 +195,15 @@
               <label for="nombre"><small>Estado Civil</small></label>
             </p>
             <p>
-              <input type="text" name="email" id="email" value="{$funcionario->email}"  placeholder="Email" size="100"  >
+              <input type="text" name="email" id="email" value="{$funcionario->email1}"  placeholder="Email" size="100"  >
               <label for="nombre"><small>Email</small></label>
             </p>
             <p>
               <input type="text" name="numero_hijos" id="numero_hijos" value="{$funcionario->numero_hijos}"  placeholder="Numero de Hijos" size="100"  >
               <label for="nombre"><small>Numero de Hijos</small></label>
             </p>
-            <p>
-              <input type="text" name="direccion_domicilio" id="direccion_domicilio" value="{$funcionario->direccion_domicilio}"  placeholder="Direccion de Domicilio" size="100"  >
-              <label for="nombre"><small>Direccion de Domicilio</small></label>
-            </p>
-            <p>
-              <input type="text" name="numero_domicilio" id="numero_domicilio" value="{$funcionario->numero_domicilio}"  placeholder="Numero de Domicilio" size="100"  >
-              <label for="nombre"><small>Numero de Domicilio</small></label>
-            </p>
-            <p>
-              <input type="text" name="telefono_domicilio" id="telefono_domicilio" value="{$funcionario->telefono_domicilio}"  placeholder="Telefono Domicilio" size="100"  >
-              <label for="nombre"><small>Telefono Domicilio</small></label>
-            </p>
-            <p>
-              <input type="text" name="casilla_correo" id="casilla_correo" value="{$funcionario->casilla_correo}"  placeholder="Casilla de Correo" size="100"  >
-              <label for="nombre"><small>Casilla de Correo</small></label>
-            </p>
-            <p>
-              <input type="text" name="colegio_egreso" id="colegio_egreso" value="{$funcionario->colegio_egreso}"  placeholder="Egreso de Colegio" size="100"  >
-              <label for="nombre"><small>Egreso de Colegio</small></label>
-            </p>
-            <p>
-              <input type="text" name="echa_titulo_bachiller" id="Fecha_titulo_bachiller" value="{$funcionario->fecha_titulo_bachiller}"  placeholder="Fecha Titulo Bachiller" size="100"  >
-              <label for="nombre"><small>Fecha Titulo Bachiller</small></label>
-            </p>
- 
+           
+              
             <p>
               <label for="rol"><small>Pais</small></label>
               <select  class="select-style gender" name="pais_id" id="pais_id" poblacioattri='' >
@@ -92,31 +227,8 @@
               
               
             </p>
-            <p>
-              <label for="rol"><small>Area Colegio</small></label>
-              <select  class="select-style gender" name="area_colegio_id" id="area_colegio_id" >
-              {html_options values=$area_colegios_values selected=$funcionario->area_colegio_id output=$area_colegios_output}
-              </select>
-              
-              
-            </p>
-            <p>
-              <label for="rol"><small>Dependencia Colegio</small></label>
-              <select  class="select-style gender" name="dependencia_colegio_id" id="dependencia_colegio_id" >
-              {html_options values=$dependencia_colegios_values selected=$funcionario->dependencia_colegio_id output=$dependencia_colegios_output}
-              </select>
-              
-              
-            </p>
+            
           
-            <p>
-              <label for="rol"><small>Usuario</small></label>
-              <select  class="select-style gender" name="usuario_id" id="usuario_id" >
-              {html_options values=$usuarios_values selected=$funcionario->usuario_id output=$usuarios_output}
-              </select>
-              
-              
-            </p>
             <p>
               <input type="text" name="descripcion" id="descripcion" value="{$funcionario->descripcion}"  placeholder="Descripcion" size="100"  >
               <label for="nombre"><small>Descripcion</small></label>

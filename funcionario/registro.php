@@ -15,7 +15,7 @@ try {
   //CSS
   $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
-   $CSS[]  = URL_CSS . "styleform.css";
+  // $CSS[]  = URL_CSS . "styleform.css";
     
   //$CSS[]  = URL_CSS . "pg.css";
  // $smarty->assign('CSS',$CSS);
@@ -87,36 +87,7 @@ $ERROR = '';
   }
   $smarty->assign("municipios_values", $municipios_values);
   $smarty->assign("municipios_output", $municipios_output);
-  
-  //combo box area_colegio
-  leerClase('Area_colegio');
-  $area_colegio    = new Area_colegio();
-  $area_colegios   = $area_colegio->getAll();  ///retorna todas las clases
-  $area_colegios_values[] = '';
-  $area_colegios_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($area_colegios[0])) 
-  {
-    $area_colegios_values[] = $row['id'];
-    $area_colegios_output[] = $row['nombre_area'];
-  }
-  $smarty->assign("area_colegios_values", $area_colegios_values);
-  $smarty->assign("area_colegios_output", $area_colegios_output);
-  
-  
-    //combo box dependencia_colegio
-  leerClase('Dependencia_colegio');
-  $dependencia_colegio    = new Dependencia_colegio();
-  $dependencia_colegios   = $dependencia_colegio->getAll();  ///retorna todas las clases
-  $dependencia_colegios_values[] = '';
-  $dependencia_colegios_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($dependencia_colegios[0])) 
-  {
-    $dependencia_colegios_values[] = $row['id'];
-    $dependencia_colegios_output[] = $row['nombre_colegio'];
-  }
-  $smarty->assign("dependencia_colegios_values", $dependencia_colegios_values);
-  $smarty->assign("dependencia_colegios_output", $dependencia_colegios_output);
- 
+
         //combo box usuario
   leerClase('Usuario');
   $usuario    = new Usuario();
