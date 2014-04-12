@@ -1,4 +1,4 @@
-<?php  
+<?php
 try {
   require('../_start.php');
  define ("MODULO", "Ambito");
