@@ -10,48 +10,37 @@ class Funcionario extends Objectbase
   * Nombre del usuario
   * @var VARCHAR(100)
   */
-    
-   var $ci_f;
+   var $nombre;
    
    var $apellido_p;
    
    var $apellido_m;
    
-   var $nombre;
+   var $ci;
    
-   var $fecha_nac;
-   
-   var $sexo;
-   
+   var $extendido_ci;
    var $estado_civil;
    
-   var $email;
-   
-   var $numero_hijos;
-   
-   var $direccion_domicilio;
-   
-   var $numero_domicilio;
-   
-   var $telefono_domicilio;
-   
-   var $casilla_correo;
-   
-   var $colegio_egreso;
-   
-   var $fecha_titulo_bachiller;
-   
+   var $num_libreta_militar;
+   var $grupo_sanguineo;
+   var $factor;
+   var $pais_id; // nacimiento
+      
    var $departamento_id;
-   
+   var $provincia_id;
    var $municipio_id;
    
-   var $area_colegio_id;
+   var $nacionalidad;
+   var $sexo;
    
-   var $dependencia_colegio_id;
-   
-   var $pais_id;
-   
+   var $fecha_nac;
+   var $email1;
+   var $email2;
+    var $numero_hijos;
+    
    var $usuario_id;
+    
+  
    
    var $descripcion;
    
