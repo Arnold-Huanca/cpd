@@ -27,7 +27,7 @@
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-                <button class="submit" type="reset" >Cancelar</button> 
+                <input class="submit"  type="button" value="Cancelar" onclick="enviar()">
 
             </p>
           </form>

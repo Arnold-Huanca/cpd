@@ -69,7 +69,8 @@
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-                <button class="submit" type="reset" >Cancelar</button> 
+                 <button class="submit" type="button" onclick="enviar()">Guardar</button>  
+          
 
             </p>
           </form>
@@ -77,6 +78,12 @@
         <p>{$ERROR}</p>
 </article>
 
-
+<script>
+  
+  function enviar(){
+    window.location.href="index.php";
+  
+  }
+</script>
 </div>
      

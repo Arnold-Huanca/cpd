@@ -22,13 +22,22 @@
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-                <button class="submit" type="reset" >Cancelar</button> 
+                <button class="submit" type="button" onclick="enviar()">Guardar</button>  
+         
 
             </p>
           </form>
         </div>
         <p>{$ERROR}</p>
 </article>
+
+<script>
+  
+  function enviar(){
+    window.location.href="index.php";
+  
+  }
+</script>
 <script>
 $(document).ready(function() {
 		$("#contact_form").validate({

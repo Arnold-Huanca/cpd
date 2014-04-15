@@ -239,14 +239,21 @@
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-                <button class="submit" type="reset" >Cancelar</button> 
+               <button class="submit" type="button" onclick="enviar()">Guardar</button>  
+         
 
             </p>
           </form>
         </div>
         <p>{$ERROR}</p>
 </article>
-
+<script>
+  
+  function enviar(){
+    window.location.href="index.php";
+  
+  }
+</script>
 <script>
 jQuery('#pais_id').change(function () {
 var numero =document.getElementById("pais_id").value;
