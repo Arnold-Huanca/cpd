@@ -95,7 +95,7 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
                 	$gruposmenus=$resultado["grupo"];
                 	$listadomenus=  mysql_query("select c.id,c.grupo, c.importancia,c.modulo_id , c.nivel, m.codigo
 					from secuencia c, modulo m,permiso p, grupo g, pertenece pe
-					where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and c.grupo='$gruposmenus' and  p.ver=1 and pe.usuario_id=$usuario->id ORDER BY c.nivel ASC
+					where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and c.grupo='$gruposmenus' and  p.ver=1 and pe.usuario_id=$usuario->id GROUP BY m.codigo ORDER BY c.nivel ASC
 					");
 						
 						
