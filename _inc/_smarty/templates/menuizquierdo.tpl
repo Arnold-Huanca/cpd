@@ -1,4 +1,22 @@
-                      
+    
+    
+    
+    {if (isset($menuizquierda))}
+
+{else}
+  
+{/if}
+
+ {literal}
+   <script type="text/javascript">
+    $(function(){
+      $("#menuizq>li ul").hide();
+      $('ul#menuizq>li').click(function() {$(this).children('ul').fadeIn(200);}); //Hand!
+    });
+   </script>
+{/literal}
+
+              
 <div class="art-layout-cell art-sidebar1 clearfix">
 <div class="art-vmenublock clearfix">
   
@@ -48,24 +66,30 @@
         <div class="art-vmenublockheader">
             <h3 class="t">Navigation</h3>
         </div>
+        
         <div class="art-vmenublockcontent">
-            
+             
  {if (isset($menuizquierda))}
-    <ul class="art-vmenu">
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='index.html'><span>Menu</span></a></li>
+   
     {section name=ic loop=$menuizquierda}
       {assign var="menu" value=$menuizquierda[ic]}
     
     
-         
-          <li><a href="{$URL}{$menu[0]}" title="{$menu[1]}" >{$menu[1]}</a>
+   <li class='has-sub'><a href='#'><span>{$menu->nombre_menu}</span></a>
+      <ul>
+        {section name=id loop=$menu->menu_items}
+          {assign var="menu_item" value=$menu->menu_items[id]}
+          <li><a href="{$URL}{$menu_item->link}" target="{$menu_item->target}" title="{$menu_item->descripcion}" >{$menu_item->titulo}</a>
           </li>
-          
+       {/section}
+      </ul>
+   </li>
+  
     {/section}
-    </ul>
-
-{else}
-  <div id="column">
- 
+   </ul>
 </div>
 
 {/if}

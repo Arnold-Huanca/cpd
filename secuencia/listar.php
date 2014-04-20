@@ -34,6 +34,7 @@
                     <tr>
                         <th>id</th><!--Estado-->
                         <th>Modulo</th>
+                        <th>Grupo</th>
                         <th>Importancia</th>
                         <th>Nivel</th><!--Estado-->
                          <th>Estado</th><!--Estado-->
@@ -52,6 +53,7 @@
                            <th></th>
                            <th></th>
                            <th></th>
+                            <th></th>
                         
                        
                      
@@ -73,12 +75,13 @@
                   	?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
-                           <td><?php echo $resultado['id'] ?></td>
-                            <td><?php echo $modulo->codigo; ?></td>
-			  <td><?php echo $resultado['importancia'] ?></td>
-			  <td><?php echo $resultado['nivel'] ?></td>
-                             <td><?php echo $resultado['estado'] ?></td>
-                            <td><span class="modi"><a href="detalle.php?ver=ver&distincion_id=<?php echo $resultado['id'] ?>"><img width="20" height="20" src="../images/view.png" title="Ver" alt="Ver" /></a></span></td>
+                  <td><?php echo $resultado['id'] ?></td>
+                  <td><?php echo $modulo->codigo; ?></td>
+                  <td><?php echo $resultado['grupo'] ?></td>
+			      <td><?php echo $resultado['importancia'] ?></td>
+			      <td><?php echo $resultado['nivel'] ?></td>
+                  <td><?php echo $resultado['estado'] ?></td>
+                  <td><span class="modi"><a href="detalle.php?ver=ver&distincion_id=<?php echo $resultado['id'] ?>"><img width="20" height="20" src="../images/view.png" title="Ver" alt="Ver" /></a></span></td>
 			   <td><span class="modi"><a href="registro.php?secuencia_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
 		  </tr>

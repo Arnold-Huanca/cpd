@@ -30,7 +30,8 @@ try {
   $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
   $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
          
-
+$CSS[]  = URL_CSS . "menu_styles.css";
+  $JS[]  = URL_JS . "menu_jquery.js";  
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
   leerClase('Menu');

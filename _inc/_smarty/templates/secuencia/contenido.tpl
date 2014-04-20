@@ -14,7 +14,10 @@
               {html_options values=$modulo_values selected=$secuencia->modulo_id output=$modulo_output}
               </select>
             </p>
-
+             <p>
+              <input type="text" name="grupo" id="grupo" value="{$secuencia->grupo}" placeholder="Grupo"  size="22" >
+              <label for="email"><small> Grupo</small></label>
+            </p>
            
             <p>
               <input type="text" name="importancia" id="importancia" value="{$secuencia->importancia}" placeholder="Importancia"  size="22" >

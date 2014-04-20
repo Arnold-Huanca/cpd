@@ -20,7 +20,7 @@ try {
   $CSS[]  = URL_CSS . "demo_table.css";
   $CSS[]  = URL_CSS . "style_table.css";
  // $CSS[] = '../css/editablegrid.css';
-  $smarty->assign('CSS',$CSS);
+
 leerClase('Menu');
   $menuizquierda = new Menu('');
   $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
@@ -33,6 +33,10 @@ leerClase('Menu');
    $JS[]  = URL_JS . "script/script.responsive.js";
    $JS[]  =URL_JS . 'table/jquery.dataTables.js';
   
+  $CSS[]  = URL_CSS . "menu_styles.css";
+  $JS[]  = URL_JS . "menu_jquery.js";
+   
+ $smarty->assign('CSS',$CSS);
   $smarty->assign('JS',$JS);
   
  

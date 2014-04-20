@@ -85,7 +85,7 @@ $ERROR = '';
             
             leerClase("Procedimiento");
         
-        $sqlr="    select s.* from  secuencia  s ORDER BY   s.nivel ASC;";
+        $sqlr="select s.* from  secuencia  s  where s.nivel >0  ORDER BY   s.nivel ASC;";
        $resultado = mysql_query($sqlr);
        $var =0;
         while ($row = mysql_fetch_array($resultado, MYSQL_ASSOC)) 

@@ -7,6 +7,7 @@ class Secuencia extends Objectbase
 {
 
    var $modulo_id;
+   var $grupo;
    var $importancia;
    var $nivel;
   

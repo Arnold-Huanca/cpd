@@ -11,7 +11,9 @@
     {section name=js_i loop=$JS}
       <script type="text/javascript" src="{$JS[js_i]}"></script>
     {/section}
-
+         
+ <script type="text/javascript" src="{$URL_JS}menu_jquery.js"></script>
+ <link rel="stylesheet" href="{$URL_CSS}menu_styles.css" type="text/css" />
 
 
 

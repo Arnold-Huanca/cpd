@@ -14,14 +14,18 @@ try {
   //CSS
   $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
+  
     
   //$CSS[]  = URL_CSS . "pg.css";
  // $smarty->assign('CSS',$CSS);
 
   
-   $JS[]  = URL_JS . "script/jquery.js";
+   $JS[]  = URL_JS . "jquery7.js";
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
+   
+   $CSS[]  = URL_CSS . "menu_styles.css";
+   $JS[]  = URL_JS . "menu_jquery.js";
          
 
   $smarty->assign('CSS',$CSS);

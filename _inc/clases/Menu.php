@@ -1,5 +1,5 @@
 <?php
-
+leerClase('Menu_item');
 class Menu
 {
      
@@ -70,22 +70,48 @@ class Menu
   function getAdminIndex() {
            $thises   = array();
     $usuario = getSessionUser();
+	
+	// $thise = new Menu('Docentes');
+   //   $link = Administrador::URL."docente/";
+ // $thise->agregarItem('Gesti&oacute;n de Docentes','Registro y modificaciones para Docentes','basicset/user4.png',$link);
+    //  $link = Administrador::URL."docente/reporte";
+   //   $thise->agregarItem('Reportes de Docentes','Reportes correspondientes a los Docentes','basicset/graph.png',$link);
+ //     $thises[] = $thise;
+	/**
+	 * select DISTINCT (c.id), c.importancia,c.grupo,c.modulo_id , c.nivel
+from secuencia c, permiso p, grupo g, pertenece pe
+where c.modulo_id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and pe.usuario_id=1 ORDER BY c.nivel ASC
+	 */
     if (!isset($usuario->id) || (!$usuario->id))
       return;
      mysql_query('SET NAMES \'utf8\'');
-     $listado=  mysql_query("select m.*
-from modulo m, permiso p, grupo g , pertenece pr
-where  m.id=p.modulo_id and p.grupo_id=g.id and g.id= pr.grupo_id  and pr.usuario_id=$usuario->id and p.ver=1 GROUP BY m.id ");
-
+     $listado=  mysql_query("select c.id,c.grupo, c.importancia,c.modulo_id , c.nivel
+from secuencia c, modulo m,permiso p, grupo g, pertenece pe
+where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and p.ver=1 and pe.usuario_id=$usuario->id GROUP BY c.grupo  ORDER BY c.nivel ASC
+");
+ 
              while( $resultado = mysql_fetch_array($listado) )
                 {
-                        $menus=array();
-                       
-                        $texto = strtolower($resultado["codigo"]);
+                	$gruposmenus=$resultado["grupo"];
+                	$listadomenus=  mysql_query("select c.id,c.grupo, c.importancia,c.modulo_id , c.nivel, m.codigo
+					from secuencia c, modulo m,permiso p, grupo g, pertenece pe
+					where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and c.grupo='$gruposmenus' and  p.ver=1 and pe.usuario_id=$usuario->id ORDER BY c.nivel ASC
+					");
+						
+						
+						 $thise = new Menu($resultado["grupo"]);
+						 while( $resultados= mysql_fetch_array($listadomenus) )
+                          {
+                        $texto = strtolower($resultados["codigo"]);
                         $cadena=str_replace(' ', '_',$texto);
-                        $menus[]= str_replace('ó', 'o',$cadena);
-                        $menus[]= $resultado["codigo"];
-                        $thises[] = $menus;
+                        $menus= str_replace('ó', 'o',$cadena);
+						$link =  $menus;
+                        $thise->agregarItem($cadena,'Registro y modificaciones para Docentes','basicset/user4.png',$link);
+                          }
+                     //   $menus[]= $resultado["codigo"];
+                        $thises[] =  $thise;
+						
+						
                 }
        return $thises;
   }
