@@ -30,9 +30,7 @@ try {
    $JS[]  = URL_JS . "script/jquery.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
    $JS[]  =URL_JS . 'table/jquery.dataTables.js';
-   $CSS[]  = URL_CSS . "menu_styles.css";
-  $JS[]  = URL_JS . "menu_jquery.js";  
-   $smarty->assign('CSS',$CSS);
+     $smarty->assign('CSS',$CSS);
   
   $smarty->assign('JS',$JS);
   leerClase('Menu');

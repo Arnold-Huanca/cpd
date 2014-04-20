@@ -23,10 +23,6 @@ try {
    $JS[]  = URL_JS . "jquery7.js";
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
-   
-   $CSS[]  = URL_CSS . "menu_styles.css";
-   $JS[]  = URL_JS . "menu_jquery.js";
-         
 
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);

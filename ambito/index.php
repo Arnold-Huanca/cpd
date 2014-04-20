@@ -21,9 +21,6 @@ try {
   $CSS[]  = URL_CSS . "demo_table.css";
   $CSS[]  = URL_CSS . "style_table.css";
   
-  $CSS[]  = URL_CSS . "menu_styles.css";
-   $JS[]  = URL_JS . "menu_jquery.js";
-         
  // $CSS[] = '../css/editablegrid.css';
   $smarty->assign('CSS',$CSS);
 
