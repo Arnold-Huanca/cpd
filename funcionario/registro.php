@@ -59,6 +59,23 @@ $ERROR = '';
   $smarty->assign("paises_values", $paises_values);
   $smarty->assign("paises_output", $paises_output);
   
+  
+  $estado_values[] = '';
+  $estado_output[] = '- Seleccione -';
+  
+  $estado_values[] = 'Soltero';
+  $estado_output[] = 'Soltero';
+  $estado_values[] = 'Casado';
+  $estado_output[] = 'Casado';
+   $estado_values[] = 'Viudo';
+  $estado_output[] = 'Viudo';
+   $estado_values[] = 'Divorciado';
+  $estado_output[] = 'Divorciado';
+  
+ // var_dump($estado_values);
+   $smarty->assign("estado_values", $estado_values);
+  $smarty->assign("estado_output", $estado_output);
+  
   //combo box departamento
   leerClase('Departamento');
   $departamento    = new Departamento();

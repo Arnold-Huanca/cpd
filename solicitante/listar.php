@@ -67,7 +67,7 @@
 			  <td><?php echo $resultado['nombre'] ?></td>
                             <td><?php echo $resultado['apellido_p'] ?></td>
                               <td><?php echo $resultado['apellido_m'] ?></td>
-			  <td><?php echo $resultado['email'] ?></td>
+			  <td><?php echo $resultado['email1'] ?></td>
 			   <td><span class="modi"><a href="lista.php?menus=mostrar&funcionario_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Ver" alt="Editar" /></a></span></td>
 			  </tr>
 	<?php

@@ -20,11 +20,16 @@ try {
   //$CSS[]  = URL_CSS . "pg.css";
  // $smarty->assign('CSS',$CSS);
 
-  
+    
    $JS[]  = URL_JS . "script/jquery.js";
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
   $JS[]  = URL_JS . "validator.min.js";
+   $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+ 
+  $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
+  $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
+  
 
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
@@ -95,6 +100,23 @@ $ERROR = '';
   }
   $smarty->assign("usuarios_values", $usuarios_values);
   $smarty->assign("usuarios_output", $usuarios_output);
+  
+  $estado_values[] = '';
+  $estado_output[] = '- Seleccione -';
+  
+  $estado_values[] = 'Soltero';
+  $estado_output[] = 'Soltero';
+  $estado_values[] = 'Casado';
+  $estado_output[] = 'Casado';
+   $estado_values[] = 'Viudo';
+  $estado_output[] = 'Viudo';
+   $estado_values[] = 'Divorciado';
+  $estado_output[] = 'Divorciado';
+  
+ // var_dump($estado_values);
+   $smarty->assign("estado_values", $estado_values);
+  $smarty->assign("estado_output", $estado_output);
+  
   
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
