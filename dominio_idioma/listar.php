@@ -35,7 +35,9 @@
                         <th>id</th><!--Estado-->
                         <th>Habla</th>
                         <th>Lee</th><!--Estado-->
-                        <th>Escribe</th><!--Estado-->
+                         <th>Estado</th><!--Estado-->
+                         <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -58,29 +60,17 @@
                   if(!isUserSession())
                   header("Location: index.php"); 
                      $idfuncionario=  getSessionUser()->getFuncionario()->id;
-                     // $listado=  mysql_query("select * from dominio_idioma where funcionario_id=$idfuncionario");
-
-                  $listado=  mysql_query("select * from idioma");
+                  $listado=  mysql_query("select * from dominio_idioma where funcionario_id=$idfuncionario");
 
                     while( $resultado = mysql_fetch_array($listado) ){
                   	?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
-                       
-                          <td><?php echo $resultado['nombre_idioma'] ?></td>
-                         <td>
-                             <span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?ambito_id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span>
-                             <span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?ambito_id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span>
-                             <span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?ambito_id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span>
-              
-                         </td>
-	
-                          <td>   
-                             <input type="checkbox" name="chk_group" value="value1" />Bien<br />
-                            <input type="checkbox" name="chk_group" value="value2" />Regular<br />
-                            <input type="checkbox" name="chk_group" value="value3" />No<br />
-                                                      </td>
-			   <td><span class="modi"><a href="registro.php?dominio_idioma_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+                          <td><?php echo $resultado['id'] ?></td>
+			  <td><?php echo $resultado['habla'] ?></td>
+			  <td><?php echo $resultado['lee'] ?></td>
+                           <td><?php echo $resultado['estado'] ?></td>
+			  <td><span class="modi"><a href="registro.php?dominio_idioma_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?ambito_id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 		  </tr>
 	<?php

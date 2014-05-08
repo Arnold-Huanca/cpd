@@ -19,46 +19,29 @@ class Funcionario extends Objectbase
    var $ci;
    
    var $extendido_ci;
-   var $run;
-    var $fecha_nac;
-  
-     
-   var $num_libreta_militar;
-     
-   var $nacionalidad;
-   var $sexo;
    var $estado_civil;
- 
-   var $numero_hijos;
-  
+   
+   var $num_libreta_militar;
    var $grupo_sanguineo;
    var $factor;
-   
-   
-   var $email1;
-   var $email2;
- 
-   var $direccion_domicilio;
-   var $numero_domicilio;
-   var $telefono_domicilio;
-    var $casilla_correo;
-   
-   
    var $pais_id; // nacimiento
       
    var $departamento_id;
    var $provincia_id;
    var $municipio_id;
-   var $colegio_egreso;
-   var $tipo_colegio;
-   var $area_colegio;
-   var $fecha_titulo_bachiller;
    
-  
-       
+   var $nacionalidad;
+   var $sexo;
+   
+   var $fecha_nac;
+   var $email1;
+   var $email2;
+    var $numero_hijos;
+    
    var $usuario_id;
+    
+  
    
-
    var $descripcion;
    
   

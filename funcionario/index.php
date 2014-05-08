@@ -118,31 +118,6 @@ $ERROR = '';
   $smarty->assign("estado_output", $estado_output);
   
   
-  $colegio_values[]='';
-  $colegio_output[]='---Seleccione----';
-  $colegio_values[]='Particular';
-  $colegio_output[]='Particular';
-  
-  $colegio_values[]='Fiscal';
-  $colegio_output[]='Fiscal';
-  
-   $smarty->assign("colegio_values", $colegio_values);
-  $smarty->assign("colegio_output",$colegio_output);
-  
-  $area_values[]='';
-  $area_output[]='---Seleccione---';
-  
-  $area_values[]='Urbano';
-  $area_output[]='Urbano';
-  $area_values[]='Rural';
-  $area_output[]='Rural';
-  $smarty->assign("area_values", $area_values);
-  $smarty->assign("area_output", $area_output);
-  
-  
-    
-  
-  
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {

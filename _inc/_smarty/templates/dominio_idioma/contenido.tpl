@@ -7,12 +7,6 @@
      
       <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
            
-          
-           <input type="checkbox" name="numero[]" value="1"/> 1 <br/>
-          <input type="checkbox" name="numero[]" value="2"/> 2 <br/>
-          <input type="checkbox" name="numero[]" value="3"/> 3 <br/>
-          <input type="checkbox" name="numero[]" value="4"/> 4 <br/>
-          
            <p>
               <label for="rol"><small>Idioma</small></label>
               <select  class="select-style gender" name="id_idioma" id="id_idioma" >
