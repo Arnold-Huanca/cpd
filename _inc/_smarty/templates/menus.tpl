@@ -42,48 +42,16 @@
      
 
 </div>
-  
-  
-<div class="art-vmenublock clearfix">
-        <div class="art-vmenublockheader">
-        <h3 class="t">Navigation</h3>
-        </div>
-        <div class="art-vmenublockcontent">
-            
- {if (isset($menuizquierda))}
-    <ul class="art-vmenu">
-    {section name=ic loop=$menuizquierda}
-    {assign var="menu" value=$menuizquierda[ic]}
-    
-    
-         
-          <li><a href="{$URL}{$menu[0]}" title="{$menu[1]}" >{$menu[1]}</a>
-          </li>
-          
-    {/section}
-    </ul>
-
-{else}
-  <div id="column">
- 
-</div>
-
-{/if}
-         
- </div>
-</div>
-
 
 <div class="art-vmenublock clearfix">
         <div class="art-vmenublockheader">
-        <h3 class="t">Navigation</h3>
+        <h3 class="t">Navigation {$funcionario->id}</h3>
         </div>
         <div class="art-vmenublockcontent">
             
  {if (isset($menus))}
   <ul class="art-vmenu">
-      <li><a href="asistencia_evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Asistecia Evento</a></li>
-    <li><a href="formacion_pregrado.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Formaci&oacute;n Pregrado</a></li>
+     <li><a href="formacion_pregrado.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Formaci&oacute;n Pregrado</a></li>
     <li><a href="formacion_postgrado.php?menus=mostrar&funcionario_id={$funcionario->id}">Formaci&oacute;n Postgrado</a></li>
    <li><a href="distincion.php?menus=mostrar&funcionario_id={$funcionario->id}">Distinciones</a></li>
     <li><a href="dominio_idioma.php?menus=mostrar&funcionario_id={$funcionario->id}">Dominio Idiomas</a></li>

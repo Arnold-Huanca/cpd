@@ -62,7 +62,7 @@ $ERROR = '';
   }
   
  //$datosgenerales= $funcionario->getDatosGenerales();
-   $smarty->assign("menus", $menus);
+   $smarty->assign("menus",$menus);
    $smarty->assign("formacionpregrado",  $funcionarios->getFormacionPregrado());
    $smarty->assign("formacionpostgrado",  $funcionarios->getFormacionPosgrado());
 
