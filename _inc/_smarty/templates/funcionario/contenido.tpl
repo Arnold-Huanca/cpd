@@ -63,11 +63,10 @@
                           <input type="radio" name="nacionalidad" value="Extranjera"  checked /> Extranjera
                    
                         {/if}
-     
-                 </td>
+    </td>
                   <td> Especificar Nacionalidad es caso de ser extranjero .:
     </td>
-    <td> <input type="text" name="descripcion" id="descripcion" placeholder="Especificar NAcionalidad" value="{$funcionario->descripcion}"/>
+    <td> <input type="text" name="descripcion" id="descripcion" placeholder="Especificar Nacionalidad" value="{$funcionario->descripcion}"/>
     </td>
     
     
@@ -111,6 +110,28 @@
     </td>
     
      </tr>
+     
+      <tr>
+    <td> Colegio de Egreso:
+    </td>
+     <td> <input type="text" name="colegio_egreso" id="colegio_egreso" placeholder="Colegio de egreso" value="{$funcionario->colegio_egreso}"/>
+    </td>
+    <td>
+             <select  class="select-style gender" name="tipo_colegio" id="tipo_colegio" >
+              {html_options values=$colegio_values selected=$funcionario->tipo_colegio output= $colegio_output}
+              </select>    
+    </td>
+        <td>
+             <select  class="select-style gender" name="area_colegio" id="area_colegio" >
+              {html_options values=$area_values selected=$funcionario->area_colegio output= $area_output}
+              </select>    
+    </td>
+     <td>
+       <td> <input type="text" name="fecha_titulo_bachiller" id="fecha_titulo_bachiller" placeholder="Fecha de Egreso" value="{$funcionario->fecha_titulo_bachiller}"/>
+     </td>
+
+    
+     </tr>
       <td>
               <input type="hidden" name="funcionario_id"    value="{$funcionario->id}">
                 <input type="hidden" name="tarea" value="registrar">
@@ -132,12 +153,21 @@
               changeYear: true,
               yearRange: "1920:2013"
             });
+            
+             $('#fecha_titulo_bachiller').datepicker({
+              dateFormat:'dd/mm/yy',
+         
+              changeMonth: true,
+              changeYear: true,
+              yearRange: "1920:2013"
+            });
   
   function enviar(){
     window.location.href="index.php";
   
   }
 </script>
+
 <script>
 jQuery('#pais_id').change(function () {
 var numero =document.getElementById("pais_id").value;
