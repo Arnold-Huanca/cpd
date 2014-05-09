@@ -8,8 +8,7 @@
           Usuario:  {$UsuarioSesion}
             <br /></p>
         </div>
-     
-           {else}
+     {else}
              <form action="#" method="post"  name="login">
      <p id="form-login-username">
       <label for="modlgn_username">Username(*)</label>
@@ -42,10 +41,14 @@
      
 
 </div>
+          
+<div class="art-vmenublock clearfix">
+       <li><a href="{$URL}solicitante" class="active">Inicio</a></li>
+  </div>
 
 <div class="art-vmenublock clearfix">
-        <div class="art-vmenublockheader">
-        <h3 class="t">Navigation {$funcionario->id}</h3>
+   <div class="art-vmenublockheader">
+  <h3 class="t">Datos de : {$funcionario->nombre} {$funcionario->apellido_p}</h3>
         </div>
         <div class="art-vmenublockcontent">
             
@@ -55,6 +58,8 @@
     <li><a href="formacion_postgrado.php?menus=mostrar&funcionario_id={$funcionario->id}">Formaci&oacute;n Postgrado</a></li>
     <li><a href="distincion.php?menus=mostrar&funcionario_id={$funcionario->id}">Distinciones</a></li>
     <li><a href="dominio_idioma.php?menus=mostrar&funcionario_id={$funcionario->id}">Dominio Idiomas</a></li>
+     <li><a href="evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Evento</a></li>
+  
   
 </ul>
 {/if}

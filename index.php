@@ -37,6 +37,7 @@ try {
    {
   $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
    }
+  // $rolusuario= getSessionUser()->getMisGrupos()->codigo;
   
   
        $smarty->assign("ERRORLOGIN",'');
@@ -62,13 +63,7 @@ try {
       
  
     }
-  
-  
-  
-  
-  
-  
-  //No hay ERROR
+    //No hay ERROR
   $smarty->assign("ERROR",'');
   
 } 
