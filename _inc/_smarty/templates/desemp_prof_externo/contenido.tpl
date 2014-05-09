@@ -50,12 +50,7 @@
               <input type="text" name="fecha_conclusion" id="fecha_conclusion" value="{$desemp_prof_externo->fecha_conclusion}" placeholder="Fecha de Conclusion" size="200">
               <label for="apellido_p"><small>Fecha de Conclusion</small></label>
             </p>
-            
-            <p>
-              <input type="text" name="vb" id="vb" value="{$desemp_prof_externo->vb}" placeholder="VB"  size="22" >
-              <label for="email"><small> VB</small></label>
-            </p>
-            <p>
+                <p>
               <input type="text" name="descripcion" id="descripcion" value="{$desemp_prof_externo->descripcion}" placeholder="Descripcion"  size="22" >
               <label for="email"><small> Descripcion</small></label>
             </p>

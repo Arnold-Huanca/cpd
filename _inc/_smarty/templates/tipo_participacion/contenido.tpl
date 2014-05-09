@@ -9,8 +9,8 @@
            
             
             <p>
-              <input type="textarea" name="descripcion" id="descripcion" value="{$tipo_participacion->descripcion}"  placeholder="Descripcion" size="100"  >
-              <label for="nombre"><small>Descripcion</small></label>
+              <input type="textarea" name="descripcion" id="descripcion" value="{$tipo_participacion->descripcion}"  placeholder="Nombre" size="100"  >
+              <label for="nombre"><small>Nombre</small></label>
             </p>
              <p>
               <input type="text" name="sigla" id="sigla" value="{$tipo_participacion->sigla}" placeholder="Sigla" size="200">

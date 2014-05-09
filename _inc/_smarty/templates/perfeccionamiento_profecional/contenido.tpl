@@ -94,11 +94,7 @@
               <input type="text" name="otra_institucion" id="otra_institucion" value="{$perfeccionamiento_profecional->otra_institucion}" placeholder="Otra Institucion"  size="22" >
               <label for="email"><small>Otra Institucion</small></label>
             </p>
-            <p>
-              <input type="text" name="vb" id="vb" value="{$perfeccionamiento_profecional->vb}" placeholder="VB"  size="22" >
-              <label for="email"><small>VB</small></label>
-            </p>
-            <p>
+               <p>
               <input type="text" name="descripcion" id="descripcion" value="{$perfeccionamiento_profecional->descripcion}" placeholder="Descripcion"  size="22" >
               <label for="email"><small>Descripcion</small></label>
             </p>

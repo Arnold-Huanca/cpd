@@ -50,12 +50,7 @@
               <input type="text" name="ambitodistincion" id="ambitodistincion" value="{$distincion->ambitodistincion}" placeholder="Ambito de Distincion"  size="22" >
               <label for="email"><small> Ambito de Distinci&oacute;n</small></label>
             </p>
-            <p>
-              <input type="text" name="vb" id="vb" value="{$distincion->vb}" placeholder="VB"  size="22" >
-              <label for="email"><small> VB</small></label>
-            </p>
             
-         
            <p>
               <input type="hidden" name="distincion_id"    value="{$distincion->id}">
                 <input type="hidden" name="tarea" value="registrar">

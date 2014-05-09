@@ -28,7 +28,11 @@ try {
    $JS[]  = URL_JS . "script/script.responsive.js";
     $JS[]  = URL_JS . "validator.min.js";
          
-
+$CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+ 
+  $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
+  $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
+  
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
   leerClase('Menu');
@@ -57,7 +61,7 @@ $ERROR = '';
   while ($row = mysql_fetch_array($tipo_eventos[0])) 
   {
     $tipo_eventos_values[] = $row['id'];
-    $tipo_eventos_output[] = $row['sigla'];
+    $tipo_eventos_output[] = $row['descripcion'];
   }
   $smarty->assign("tipo_eventos_values", $tipo_eventos_values);
   $smarty->assign("tipo_eventos_output", $tipo_eventos_output);
@@ -142,7 +146,7 @@ $ERROR = '';
   while ($row = mysql_fetch_array($tipo_participaciones[0])) 
   {
     $tipo_participaciones_values[] = $row['id'];
-    $tipo_participaciones_output[] = $row['sigla'];
+    $tipo_participaciones_output[] = $row['descripcion'];
   }
   $smarty->assign("tipo_participaciones_values", $tipo_participaciones_values);
   $smarty->assign("tipo_participaciones_output", $tipo_participaciones_output);
@@ -154,6 +158,7 @@ $ERROR = '';
     mysql_query("BEGIN");
     $evento->objBuidFromPost();
     $evento->estado           = Objectbase::estado_pendiente;
+    $evento->funcionario_id=  getSessionUser()->getFuncionario()->id;
     $evento->save();
     mysql_query("COMMIT");
     $ir = "Location: index.php";

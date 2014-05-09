@@ -20,12 +20,7 @@
               <input type="text" name="dedicacion" id="dedicacion" value="{$laboral_umss_actual->dedicacion}"  placeholder="Dedicacion" size="100"  >
               <label for="nombre"><small>Dedicacion</small></label>
             </p>
-            <p>
-              <input type="text" name="vb" id="vb" value="{$laboral_umss_actual->vb}"  placeholder="VB" size="100"  >
-              <label for="nombre"><small>VB</small></label>
-            </p>
-             
-            <p>
+                <p>
               <label for="rol"><small>Funcionario</small></label>
               <select  class="select-style gender" name="funcionario_id" id="funcionario_id" >
               {html_options values=$funcionarios_values selected=$laboral_umss_actual->funcionario_id output=$funcionarios_output}

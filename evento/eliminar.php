@@ -8,10 +8,10 @@ try {
 
     leerClase('Evento');
    
-if(isset($_GET['eliminar']) && isset($_GET['evento_id']) && is_numeric($_GET['evento_id']) )
+if(isset($_GET['id']) && is_numeric($_GET['id']) )
   {
        
-      $evento= new Evento($_GET['evento_id']);
+      $evento= new Evento($_GET['id']);
       $evento->delete();
      
   }

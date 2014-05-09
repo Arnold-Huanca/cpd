@@ -51,9 +51,9 @@
             
  {if (isset($menus))}
   <ul class="art-vmenu">
-     <li><a href="formacion_pregrado.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Formaci&oacute;n Pregrado</a></li>
+    <li><a href="formacion_pregrado.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Formaci&oacute;n Pregrado</a></li>
     <li><a href="formacion_postgrado.php?menus=mostrar&funcionario_id={$funcionario->id}">Formaci&oacute;n Postgrado</a></li>
-   <li><a href="distincion.php?menus=mostrar&funcionario_id={$funcionario->id}">Distinciones</a></li>
+    <li><a href="distincion.php?menus=mostrar&funcionario_id={$funcionario->id}">Distinciones</a></li>
     <li><a href="dominio_idioma.php?menus=mostrar&funcionario_id={$funcionario->id}">Dominio Idiomas</a></li>
   
 </ul>

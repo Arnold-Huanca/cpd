@@ -34,18 +34,25 @@
                     <tr>
                         <th>id</th><!--Estado-->
                         <th>Nombre</th>
-                        <th>Descripci&oacute;n</th><!--Estado-->
-                         <th>Editar</th>
-                        <th>Eliminar</th>
+                         <th>Tema</th>
+                         <th>Fecha Inicio</th>
+                         <th>Duraci&oacute;n</th>
+                         <th>Entidad Organizadora</th>
+                           <th>Editar</th>
+                          <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
+                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
+                         <th></th>
+                       
                        
                        
                      
@@ -67,9 +74,12 @@
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
         <td><?php echo $resultado['id'] ?></td>
-			  <td><?php echo $resultado['nombre_dedicacion'] ?></td>
-			  <td><?php echo $resultado['dedicacioncol'] ?></td>
-			   <td><span class="modi"><a href="registro.php?dedicacion_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+			  <td><?php echo $resultado['nombre_evento'] ?></td>
+			  <td><?php echo $resultado['tema_expocicion'] ?></td>
+                            <td><?php echo $resultado['fecha_inicio'] ?></td>
+                              <td><?php echo $resultado['duracion'] ?></td>
+                                <td><?php echo $resultado['entidad_organizadora'] ?></td>
+                           <td><span class="modi"><a href="registro.php?evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 		  </tr>
 	<?php

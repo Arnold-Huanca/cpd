@@ -36,7 +36,7 @@ function EliminarDato(id)
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
-                        <th>Descripcion</th>
+                        <th>Nombre</th>
                         <th>Sigla</th><!--Estado-->
                         <th>Estado</th>
                         <th>Editar</th>

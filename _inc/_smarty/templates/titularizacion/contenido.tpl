@@ -28,11 +28,7 @@
               <input type="text" name="facultad_doc" id="facultad_doc" value="{$titularizacion->facultad_doc}"  placeholder="Facultad Doc" size="100"  >
               <label for="nombre"><small>Facultad Doc</small></label>
             </p>
-            <p>
-              <input type="text" name="vb" id="vb" value="{$titularizacion->vb}"  placeholder="VB" size="100"  >
-              <label for="nombre"><small>VB</small></label>
-            </p>
-            <p>
+                  <p>
               <input type="text" name="nro_documento" id="nro_documento" value="{$titularizacion->nro_documento}"  placeholder="Nro de Documento" size="100"  >
               <label for="nombre"><small>Nro de Documento</small></label>
             </p>

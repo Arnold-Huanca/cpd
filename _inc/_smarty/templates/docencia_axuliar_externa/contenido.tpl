@@ -40,11 +40,7 @@
               <input type="text" name="condicion" id="condicion" value="{$docencia_axuliar_externa->condicion}"  placeholder="Condicion" size="100"  >
               <label for="nombre"><small>Condicion</small></label>
             </p>
-            <p>
-              <input type="text" name="vb" id="vb" value="{$docencia_axuliar_externa->vb}"  placeholder="VB" size="100"  >
-              <label for="nombre"><small>VB</small></label>
-            </p>
-            
+                 
             <p>
               <label for="rol"><small>Universidad</small></label>
               <select  class="select-style gender" name="universidad_id" id="universidad_id" >

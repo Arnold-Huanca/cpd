@@ -7,6 +7,13 @@
      
       <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
            
+          
+            <p>
+              <label for="rol"><small>Tipo Evento</small></label>
+              <select  class="select-style gender" name="tipo_evento_id" id="tipo_evento_id" >
+              {html_options values=$tipo_eventos_values selected=$evento->tipo_evento_id output=$tipo_eventos_output}
+              </select>
+            </p>
             
             <p>
               <input type="text" name="nombre_evento" id="nombre_evento" value="{$evento->nombre_evento}"  placeholder="Nombre del Evento" size="100"  >
@@ -33,14 +40,7 @@
               <label for="nombre"><small>Organizado por Instancia Universitaria</small></label>
             </p>
 
-            <p>
-              <label for="rol"><small>Tipo Evento</small></label>
-              <select  class="select-style gender" name="tipo_evento_id" id="tipo_evento_id" >
-              {html_options values=$tipo_eventos_values selected=$evento->tipo_evento_id output=$tipo_eventos_output}
-              </select>
-            </p>
-            
-            <p>
+                  <p>
               <label for="rol"><small>Ambito</small></label>
               <select  class="select-style gender" name="ambito_id" id="ambito_id" >
               {html_options values=$ambitos_values selected=$evento->ambito_id output=$ambitos_output}
@@ -54,20 +54,7 @@
               </select>
             </p>
             
-            <p>
-              <label for="rol"><small>Subarea</small></label>
-              <select  class="select-style gender" name="subarea_id" id="subarea_id" >
-              {html_options values=$subareas_values selected=$evento->subarea_id output=$subareas_output}
-              </select>
-            </p>
-            
-            <p>
-              <label for="rol"><small>Funcionario</small></label>
-              <select  class="select-style gender" name="funcionario_id" id="funcionario_id" >
-              {html_options values=$funcionarios_values selected=$evento->funcionario_id output=$funcionarios_output}
-              </select>
-            </p>
-            
+           
             <p>
               <label for="rol"><small>Pais</small></label>
               <select  class="select-style gender" name="pais_id" id="pais_id" >
@@ -95,6 +82,16 @@
         </div>
         <p>{$ERROR}</p>
 </article>
+
+<script>
+            $('#fecha_inicio').datepicker({
+              dateFormat:'dd/mm/yy',
+         
+              changeMonth: true,
+              changeYear: true,
+             });
+      
+</script>
 <script>
   
   function enviar(){

@@ -20,11 +20,7 @@
                 <input type="text" name="fecha" id="fecha" value="{$patente->fecha}"  placeholder="Fecha" size="100"  >
               <label for="nombre"><small>Fecha</small></label>
             </p>
-            <p>
-              <input type="text" name="vb" id="vb" value="{$patente->vb}"  placeholder="VB" size="100"  >
-              <label for="nombre"><small>VB</small></label>
-            </p> 
-          <p>
+             <p>
               <label for="rol"><small>Pais</small></label>
               <select  class="select-style gender" name="pais_id" id="pais_id" >
               {html_options values=$paises_values selected=$patente->pais_id output=$paises_output}

@@ -34,12 +34,7 @@
               <input type="text" name="miembro" id="miembro" value="{$membresia->miembro}" placeholder="Miembro"  size="22" >
               <label for="email"><small> Miembro</small></label>
             </p>
-            <p>
-              <input type="text" name="vb" id="vb" value="{$membresia->vb}" placeholder="VB"  size="22" >
-              <label for="email"><small> VB</small></label>
-            </p>
-              
-           <p>
+                <p>
               <input type="hidden" name="departamento_id"    value="{$membresia->id}">
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">

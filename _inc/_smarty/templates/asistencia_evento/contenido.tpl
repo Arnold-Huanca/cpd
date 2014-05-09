@@ -28,12 +28,7 @@
               <input type="text" name="del_programa_formacion_doc" id="del_programa_formacion_doc" value="{$asistencia_evento->del_programa_formacion_doc}"  placeholder="Programa Formacion" size="100"  >
               <label for="nombre"><small>Formacion del Programa</small></label>
             </p>         
-            <p>
-              <input type="text" name="vb" id="vb" value="{$asistencia_evento->vb}"  placeholder="VB" size="100"  >
-              <label for="nombre"><small>VB</small></label>
-            </p>
-            
-            <p>
+                <p>
               <label for="rol"><small>Tipo Evento</small></label>
               <select  class="select-style gender" name="tipo_evento_id" id="tipo_evento_id" >
               {html_options values=$tipo_eventos_values selected=$asistencia_evento->tipo_evento_id output=$tipo_eventos_output}

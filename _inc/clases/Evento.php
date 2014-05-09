@@ -26,7 +26,8 @@ class Evento extends Objectbase
   
   var $ambito_id;
   
-  var $unidad_tiempo_id_unidad_tiempo;
+  var $unidad_tiempo_id;
+  var $area_id;
   
   var $subarea_id;
   

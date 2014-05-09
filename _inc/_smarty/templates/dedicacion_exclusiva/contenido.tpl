@@ -40,11 +40,7 @@
               <input type="text" name="unidad_academica" id="unidad_academica" value="{$dedicacion_exclusiva->unidad_academica}"  placeholder="Unidad Academica" size="100"  >
               <label for="nombre"><small>Unidad Academica</small></label>
             </p>
-            <p>
-              <input type="text" name="vb" id="vb" value="{$dedicacion_exclusiva->vb}"  placeholder="VB" size="100"  >
-              <label for="nombre"><small>VB</small></label>
-            </p>
-            <p>
+              <p>
               <input type="text" name="descripcion" id="descripcion" value="{$dedicacion_exclusiva->descripcion}"  placeholder="Descripcion" size="100"  >
               <label for="nombre"><small>Descripci&oacute;n</small></label>
             </p>

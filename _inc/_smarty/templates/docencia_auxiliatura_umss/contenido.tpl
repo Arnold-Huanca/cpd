@@ -45,11 +45,7 @@
                 <input type="text" name="condicion" id="condicion" value="{$docencia_auxiliatura_umss->condicion}"  placeholder="Condici&oacute;n" size="100"  >
               <label for="nombre"><small>Condici&oacute;n</small></label>
             </p>
-            <p>
-              <input type="text" name="vb" id="vb" value="{$docencia_auxiliatura_umss->vb}"  placeholder="VB" size="100"  >
-              <label for="nombre"><small>VB</small></label>
-            </p>
-              <p>
+                <p>
                 <label for="rol"><small>Tipo de Gesti&oacute;n</small></label>
               <select  class="select-style gender" name="tipo_gestion_id" id="tipo_gestion_id" >
               {html_options values=$tipo_gestiones_values selected=$docencia_auxiliatura_umss->tipo_gestion_id output=$tipo_gestiones_output}
