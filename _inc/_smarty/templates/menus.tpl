@@ -59,6 +59,7 @@
     <li><a href="distincion.php?menus=mostrar&funcionario_id={$funcionario->id}">Distinciones</a></li>
     <li><a href="dominio_idioma.php?menus=mostrar&funcionario_id={$funcionario->id}">Dominio Idiomas</a></li>
      <li><a href="evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Evento</a></li>
+     <li><a href="asistencia_evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Asistencia Evento</a></li>
   
   
 </ul>

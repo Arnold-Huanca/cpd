@@ -31,10 +31,11 @@
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
-                        <th>Titulo</th>
-                        <th>Tesis</th>
-                        <th>Ciudad</th>
-                        <th>Fecha</th> 
+                        <th>Tipo de Evento</th>
+                        <th>Nombre Evento</th>
+                        <th>Fecha</th>
+                        <th>Duraci&oacute;n</th> 
+                         <th>Tipo de  Certificado</th> 
                          <th>Estado</th> 
                         <th>Ver Datos </th>
                        
@@ -57,20 +58,28 @@
                    define ("MODULO", "Solicitante");
                   if(!isUserSession())
                   header("Location: index.php"); 
+              leerClase("Tipo_evento");
+              leerClase("Ambito");
                   
                   $funcionario_id= $_GET['funcionario_id'];
                   
-                  $listado=  mysql_query("select f.* from  evento f where f.funcionario_id=$funcionario_id");
+                  $listado=  mysql_query("select f.* from  asistencia_evento f where f.funcionario_id=$funcionario_id");
 
                     while( $resultado = mysql_fetch_array($listado) ){
+                        $tipoevento= new Tipo_evento($resultado['tipo_evento_id']);
                   	?>
 	
 		           <tr id="fila-<?php echo $resultado['id'] ?>">
                            <td><?php echo $resultado['id'] ?></td>
-			   <td><?php echo $resultado['nombre_evento'] ?></td>
-                           <td><?php echo $resultado['tema_expocicion'] ?></td>
-                           <td><?php echo $resultado['fecha_inicio'] ?></td>
+                             <td><?php echo $tipoevento->descripcion; ?></td>
+    
+                             <td><?php echo $resultado['nombre_evento'] ?></td>
+                         
+			    <td><?php echo $resultado['fecha_inicio'] ?></td>
+                             <td><?php echo $resultado['duracion'] ?></td>
+                         
                             <td><?php echo $resultado['entidad_organizadora'] ?></td>
+                           
 			 
 			   <td><?php echo $resultado['duracion'] ?></td>
                            <td><?php echo $resultado['estado'] ?></td>

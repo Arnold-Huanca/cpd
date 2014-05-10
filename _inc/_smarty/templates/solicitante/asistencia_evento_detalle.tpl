@@ -42,7 +42,14 @@
               </select>
             </p>
               
-                    <p>
+            <p>
+              <label for="rol"><small>Subarea</small></label>
+              <select  class="select-style gender" name="subarea_id" id="subarea_id" >
+              {html_options values=$subareas_values selected=$asistencia_evento->subarea_id output=$subareas_output}
+              </select>
+            </p>
+            
+            <p>
               <label for="rol"><small>Unidad Tiempo</small></label>
               <select  class="select-style gender" name="unidad_tiempo_id" id="unidad_tiempo_id" >
               {html_options values=$unidad_tiempos_values selected=$asistencia_evento->unidad_tiempo_id_unidad_tiempo output=$unidad_tiempos_output}

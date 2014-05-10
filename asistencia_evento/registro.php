@@ -58,7 +58,7 @@ $ERROR = '';
   while ($row = mysql_fetch_array($tipo_eventos[0])) 
   {
     $tipo_eventos_values[] = $row['id'];
-    $tipo_eventos_output[] = $row['sigla'];
+    $tipo_eventos_output[] = $row['descripcion'];
   }
   $smarty->assign("tipo_eventos_values", $tipo_eventos_values);
   $smarty->assign("tipo_eventos_output", $tipo_eventos_output);
