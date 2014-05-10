@@ -23,7 +23,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
 <div class="art-sheet clearfix">
             <div class="art-layout-wrapper clearfix">
                 <div class="art-content-layout">
-                    <div class="art-content-layout-row">
+         <div class="art-content-layout-row">
                       
       {include file="menus.tpl"}
       <div class="art-layout-cell art-content clearfix">

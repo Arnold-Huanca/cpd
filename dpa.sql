@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2014 a las 06:07:38
+-- Tiempo de generación: 10-05-2014 a las 03:26:34
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -438,7 +438,7 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `tipo_participacion_id` int(11) NOT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `evento`
@@ -981,7 +981,7 @@ CREATE TABLE IF NOT EXISTS `permiso` (
   `grupo_id` int(11) DEFAULT NULL,
   `estado` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=99 ;
 
 --
 -- Volcado de datos para la tabla `permiso`
@@ -1034,14 +1034,16 @@ INSERT INTO `permiso` (`id`, `ver`, `crear`, `editar`, `eliminar`, `modulo_id`, 
 (81, '1', '', '', '', 25, 4, 'AC'),
 (82, '1', '', '', '', 31, 4, 'AC'),
 (83, '1', '', '', '', 21, 4, 'AC'),
-(84, '1', '1', '1', '1', 58, 1, 'AC'),
 (85, '1', '', '', '', 58, 2, 'AC'),
 (87, '1', '', '', '', 20, 4, 'AC'),
 (88, '1', '1', '1', '1', 59, 1, 'AC'),
 (89, '1', '1', '1', '1', 60, 1, 'AC'),
 (92, '1', '', '', '', 62, 4, 'AC'),
 (93, '1', '', '', '', 61, 4, 'AC'),
-(94, '1', '', '', '', 14, 2, 'AC');
+(95, '1', '', '', '', 14, 4, 'AC'),
+(96, '1', '', '', '', 14, 4, 'AC'),
+(97, '1', '', '', '', 14, 4, 'AC'),
+(98, '1', '', '', '', 14, 4, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1271,7 +1273,7 @@ CREATE TABLE IF NOT EXISTS `secuencia` (
   `nivel` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- Volcado de datos para la tabla `secuencia`
@@ -1306,7 +1308,8 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (36, 56, 'Pertenece', 'no', -1, 'AC'),
 (37, 60, 'Secuencia', 'no', -1, 'AC'),
 (38, 27, 'Grupo', 'no', -1, 'AC'),
-(39, 14, 'Datos Generales', 'si', 7, 'AC');
+(39, 14, 'Datos Generales', 'si', 7, 'AC'),
+(40, 58, 'Solicitudes', '1', 1, 'AC');
 
 -- --------------------------------------------------------
 
