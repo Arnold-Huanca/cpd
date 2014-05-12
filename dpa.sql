@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2014 a las 03:26:34
+-- Tiempo de generación: 12-05-2014 a las 06:07:25
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -92,14 +92,15 @@ CREATE TABLE IF NOT EXISTS `asistencia_evento` (
   `descripcion` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `asistencia_evento`
 --
 
 INSERT INTO `asistencia_evento` (`id`, `nombre_evento`, `fecha_inicio`, `duracion`, `entidad_organizadora`, `del_programa_formacion_doc`, `vb`, `tipo_evento_id`, `tipo_certificado_id`, `funcionario_id`, `subarea_id`, `unidad_tiempo_id`, `pais_id`, `ambito_id`, `observacion`, `fecha_visado`, `descripcion`, `estado`) VALUES
-(1, 'fasd', '2014-04-10', '', '', '', '', 0, 0, 1, 0, 0, 0, 0, '', '0000-00-00', '', 'AC');
+(1, 'fasd', '2014-04-10', '', '', '', '', 0, 0, 1, 0, 0, 0, 0, '', '0000-00-00', '', 'AC'),
+(2, 'fadsf', '2014-05-14', '3', 'adf', 'fasdfs', '', 4, 0, 7, 0, 0, 2, 4, '', '0000-00-00', 'gsgfd', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -170,26 +171,6 @@ INSERT INTO `datos_familiares` (`id`, `funcionario_id`, `nombre`, `apellido_p`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `dedecacion_exclusiva`
---
-
-CREATE TABLE IF NOT EXISTS `dedecacion_exclusiva` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo_gestion_id` int(11) DEFAULT NULL,
-  `ambito_id` int(11) DEFAULT NULL,
-  `funcionario_id` int(11) DEFAULT NULL,
-  `fecha_inicio` date DEFAULT NULL,
-  `fecha_fin` date DEFAULT NULL,
-  `numero_gestiones` varchar(45) DEFAULT NULL,
-  `unidad_academica` varchar(105) DEFAULT NULL,
-  `vb` varchar(45) DEFAULT NULL,
-  `estado` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `dedicacion`
 --
 
@@ -209,6 +190,33 @@ INSERT INTO `dedicacion` (`id`, `nombre_dedicacion`, `dedicacioncol`, `estado`) 
 (1, '547', '7654', 'AC'),
 (2, 'sdfg', 'gsdfg', 'AC'),
 (3, 'sfdg', 'sdfg', 'AC');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dedicacion_exclusiva`
+--
+
+CREATE TABLE IF NOT EXISTS `dedicacion_exclusiva` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_gestion_id` int(11) DEFAULT NULL,
+  `ambito_id` int(11) DEFAULT NULL,
+  `funcionario_id` int(11) DEFAULT NULL,
+  `fecha_inicio` date DEFAULT NULL,
+  `fecha_fin` date DEFAULT NULL,
+  `numero_gestiones` varchar(45) DEFAULT NULL,
+  `unidad_academica` varchar(105) DEFAULT NULL,
+  `vb` varchar(45) DEFAULT NULL,
+  `estado` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `dedicacion_exclusiva`
+--
+
+INSERT INTO `dedicacion_exclusiva` (`id`, `tipo_gestion_id`, `ambito_id`, `funcionario_id`, `fecha_inicio`, `fecha_fin`, `numero_gestiones`, `unidad_academica`, `vb`, `estado`) VALUES
+(2, 1, 5, 1, '2014-05-08', '2014-05-31', '34', 'Facultad de Tecnologia', '', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -438,7 +446,7 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `tipo_participacion_id` int(11) NOT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `evento`
@@ -446,7 +454,9 @@ CREATE TABLE IF NOT EXISTS `evento` (
 
 INSERT INTO `evento` (`id`, `nombre_evento`, `tema_expocicion`, `fecha_inicio`, `duracion`, `entidad_organizadora`, `organizado_por_instacia_univ`, `tipo_evento_id`, `ambito_id`, `unidad_tiempo_id`, `area_id`, `subarea_id`, `funcionario_id`, `pais_id`, `tipo_participacion_id`, `estado`) VALUES
 (5, 'fasd', 'fasd', '2014-05-14', '445', 'dfasf', 'fasdf', 3, 5, 0, 0, 0, 0, 2, 4, 'Pendiente'),
-(6, 'fasdf', 'fasdf', '2014-05-13', 'fasdf', 'fasdf', 'fasdf', 4, 5, 0, 0, 0, 1, 1, 2, 'Pendiente');
+(6, 'fasdf', 'fasdf', '2014-05-13', 'fasdf', 'fasdf', 'fasdf', 4, 5, 0, 0, 0, 1, 1, 2, 'Pendiente'),
+(7, 'capacitacion', 'informatica forence', '2014-05-07', '4', 'sdsd', 'sdssd', 4, 4, 0, 0, 0, 1, 2, 3, 'Pendiente'),
+(8, 'informatica', 'Nuevos tecnologias', '2014-05-22', '122', '112', '', 3, 4, 0, 0, 0, 5, 2, 3, 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -981,7 +991,7 @@ CREATE TABLE IF NOT EXISTS `permiso` (
   `grupo_id` int(11) DEFAULT NULL,
   `estado` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=99 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=100 ;
 
 --
 -- Volcado de datos para la tabla `permiso`
@@ -1043,7 +1053,8 @@ INSERT INTO `permiso` (`id`, `ver`, `crear`, `editar`, `eliminar`, `modulo_id`, 
 (95, '1', '', '', '', 14, 4, 'AC'),
 (96, '1', '', '', '', 14, 4, 'AC'),
 (97, '1', '', '', '', 14, 4, 'AC'),
-(98, '1', '', '', '', 14, 4, 'AC');
+(98, '1', '', '', '', 14, 4, 'AC'),
+(99, '1', '', '', '', 15, 4, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1273,7 +1284,7 @@ CREATE TABLE IF NOT EXISTS `secuencia` (
   `nivel` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 --
 -- Volcado de datos para la tabla `secuencia`
@@ -1309,7 +1320,8 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (37, 60, 'Secuencia', 'no', -1, 'AC'),
 (38, 27, 'Grupo', 'no', -1, 'AC'),
 (39, 14, 'Datos Generales', 'si', 7, 'AC'),
-(40, 58, 'Solicitudes', '1', 1, 'AC');
+(40, 58, 'Solicitudes', '1', 1, 'AC'),
+(41, 13, 'Asistencia Evento', '1', 1, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1339,7 +1351,15 @@ CREATE TABLE IF NOT EXISTS `tipo_certificado` (
   `sigla` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `tipo_certificado`
+--
+
+INSERT INTO `tipo_certificado` (`id`, `descripcion`, `sigla`, `estado`) VALUES
+(1, 'Asistencia', '0', 'AC'),
+(2, 'Aprobación', '1', 'AC');
 
 -- --------------------------------------------------------
 
@@ -1398,7 +1418,15 @@ CREATE TABLE IF NOT EXISTS `tipo_gestion` (
   `sigla` varchar(105) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `tipo_gestion`
+--
+
+INSERT INTO `tipo_gestion` (`id`, `descripcion`, `sigla`, `estado`) VALUES
+(1, 'Semestral', 'S', 'AC'),
+(2, 'Anual', 'A', 'AC');
 
 -- --------------------------------------------------------
 
