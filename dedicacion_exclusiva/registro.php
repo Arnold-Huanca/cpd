@@ -25,6 +25,11 @@ try {
    $JS[]  = URL_JS . "script/jquery.js";
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
+   $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+  
+  $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
+  $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
+   
          
 
   $smarty->assign('CSS',$CSS);
@@ -54,7 +59,7 @@ $ERROR = '';
   while ($row = mysql_fetch_array($tipo_gestiones[0])) 
   {
     $tipo_gestiones_values[] = $row['id'];
-    $tipo_gestiones_output[] = $row['sigla'];
+    $tipo_gestiones_output[] = $row['descripcion'];
   }
   $smarty->assign("tipo_gestiones_values", $tipo_gestiones_values);
   $smarty->assign("tipo_gestiones_output", $tipo_gestiones_output);
@@ -73,27 +78,18 @@ $ERROR = '';
   $smarty->assign("ambitos_values", $ambitos_values);
   $smarty->assign("ambitos_output", $ambitos_output);
   
-  //combo box funcionario
-  leerClase('Funcionario');
-  $funcionario    = new Funcionario();
-  $funcionarios   = $funcionario->getAll();  ///retorna todas las clases
-  $funcionarios_values[] = '';
-  $funcionarios_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($funcionarios[0])) 
-  {
-    $funcionarios_values[] = $row['id'];
-    $funcionarios_output[] = $row['nombre'];
-  }
-  $smarty->assign("funcionarios_values", $funcionarios_values);
-  $smarty->assign("funcionarios_output", $funcionarios_output);
- 
+
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
     mysql_query("BEGIN");
     $dedicacion_exclusiva->objBuidFromPost();
-    $dedicacion_exclusiva->estado           = Objectbase::STATUS_AC;
+    $dedicacion_exclusiva->estado           = Objectbase::estado_pendiente;
+    $dedicacion_exclusiva->funcionario_id=  getSessionUser()->getFuncionario()->id;
+   
+    
     $dedicacion_exclusiva->save();
+    var_dump($dedicacion_exclusiva);
     mysql_query("COMMIT");
     $ir = "Location: index.php";
      header($ir);
@@ -105,6 +101,7 @@ $ERROR = '';
   $smarty->assign("ERROR",$ERROR);
 
 } catch (Exception $e) {
+    echo $e;
  mysql_query("ROLLBACK");
  $smarty->assign("ERROR", handleError($e));
 }

@@ -17,8 +17,7 @@ try {
   $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
    $CSS[]  = URL_CSS . "styleform.css";
-    $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
-    
+     
   //$CSS[]  = URL_CSS . "pg.css";
  // $smarty->assign('CSS',$CSS);
 
@@ -27,6 +26,8 @@ try {
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
           //Datepicker UI
+    $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+  
   $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
   $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
          
