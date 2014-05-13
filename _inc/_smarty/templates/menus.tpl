@@ -60,6 +60,8 @@
     <li><a href="dominio_idioma.php?menus=mostrar&funcionario_id={$funcionario->id}">Dominio Idiomas</a></li>
      <li><a href="evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Evento</a></li>
      <li><a href="asistencia_evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Asistencia Evento</a></li>
+     <li><a href="dedicacion_exclusiva.php?menus=mostrar&funcionario_id={$funcionario->id}">Dedicaci&oacute;n Exclusiva</a></li>
+     <li><a href="docencia_auxiliar_umss.php?menus=mostrar&funcionario_id={$funcionario->id}">Docencia Umss</a></li>
   
   
 </ul>

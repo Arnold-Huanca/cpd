@@ -59,7 +59,7 @@ $ERROR = '';
   while ($row = mysql_fetch_array($tipo_gestiones[0])) 
   {
     $tipo_gestiones_values[] = $row['id'];
-    $tipo_gestiones_output[] = $row['sigla'];
+    $tipo_gestiones_output[] = $row['descripcion'];
   }
   $smarty->assign("tipo_gestiones_values", $tipo_gestiones_values);
   $smarty->assign("tipo_gestiones_output", $tipo_gestiones_output);

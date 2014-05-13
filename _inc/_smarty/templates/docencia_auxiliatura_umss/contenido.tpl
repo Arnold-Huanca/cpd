@@ -12,15 +12,7 @@
               <label for="nombre"><small>Materia</small></label>
             </p>
              
-            <p>
-              <label for="rol"><small>Subarea</small></label>
-              <select  class="select-style gender" name="subarea_id" id="subarea_id" >
-              {html_options values=$subareas_values selected=$docencia_auxiliatura_umss->subarea_id output=$subareas_output}
-              </select>
-            </p>
-            
-  
-            <p>
+               <p>
               <input type="text" name="fecha_inicio" id="fecha_inicio" value="{$docencia_auxiliatura_umss->fecha_inicio}"  placeholder="Fecha Inicio" size="100"  >
               <label for="nombre"><small>Fecha Inicio</small></label>
             </p>
