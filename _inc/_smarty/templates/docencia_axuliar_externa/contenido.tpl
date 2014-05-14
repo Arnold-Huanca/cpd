@@ -68,17 +68,7 @@
               {html_options values=$nivel_formaciones_values selected=$docencia_axuliar_externa->nivel_formacion_id output=$nivel_formaciones_output}
               </select>
             </p>
-            
-            
-            <p>
-              <label for="rol"><small>Subarea</small></label>
-              <select  class="select-style gender" name="subarea_id" id="subarea_id" >
-              {html_options values=$subareas_values selected=$docencia_axuliar_externa->subarea_id output=$subareas_output}
-              </select>
-            </p>
-            
-         
-            
+              
             <p>
                 <input type="text" name="descripcion" id="descripcion" value="{$docencia_axuliar_externa->descripcion}"  placeholder="Descripci&oacute;n" size="100"  >
               <label for="nombre"><small>Descripci&oacute;n</small></label>

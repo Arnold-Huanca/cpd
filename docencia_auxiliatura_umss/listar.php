@@ -33,11 +33,14 @@
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
+                         <th>Materia</th>
+                         <th>Fecha Inicio</th><!--Estado-->
+                         <th>Tipo Gesti&oacute;n</th>
                          <th>Carrera</th>
                          <th>Departamento</th><!--Estado-->
                          <th>Facultad</th>
-                         <th>Fecha Inicio</th><!--Estado-->
-                        
+                         <th>Docencia/Aux</th>
+                          
                          <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -45,6 +48,11 @@
                 <tfoot>
                     <tr>
                         <th></th>
+                        <th></th>
+                         <th></th>
+                        <th></th>
+                         <th></th>
+                         <th></th>
                         <th></th>
                          <th></th>
                         <th></th>
@@ -61,7 +69,10 @@
                     require('../_start.php');
                     if(!isUserSession())
                     header("Location: index.php"); 
-              $listado=  mysql_query("select d.* from  docencia_auxiliatura_umss d");
+                         leerClase("Usuario");
+                  $idfuncionario=  getSessionUser()->getFuncionario()->id;
+           
+              $listado=  mysql_query("select d.* from  docencia_auxiliatura_umss d where d.funcionario_id=$idfuncionario");
 
                     while( $resultado = mysql_fetch_array($listado) ){
                         

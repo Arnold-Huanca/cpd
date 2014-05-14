@@ -84,7 +84,7 @@
                            <td><?php echo $tipogestion->descripcion; ?></td>
                              <td><?php echo $resultado['numero_gestiones'] ?></td>
                               <td><?php echo $resultado['unidad_academica'] ?></td>
-			    <td><?php echo $ambito->nombre_ambito; ?></td
+                              <td><?php echo $ambito->nombre_ambito; ?></td>
                           
                               <td><span class="modi"><a href="registro.php?area_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
