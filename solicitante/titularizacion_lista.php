@@ -1,11 +1,11 @@
 <?php 
-define ("MODULO", "Titularización");
+define ("MODULO", "Solicitante");
   require('../_start.php');
   if(!isUserSession())
     header("Location: index.php"); 
- $idfuncionario=  getSessionUser()->getFuncionario()->id;
-
-$listado=  mysql_query("select * from titularizacion where funcionario_id=$idfuncionario");
+ $funcionario_id= $_GET['funcionario_id'];
+            
+$listado=  mysql_query("select * from titularizacion where funcionario_id=$funcionario_id");
 ?>
   <script type="text/javascript">
    $(document).ready(function(){
@@ -33,8 +33,7 @@ $listado=  mysql_query("select * from titularizacion where funcionario_id=$idfun
 	}
 
          </script>     
-         <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
-         <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
+          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
@@ -80,7 +79,7 @@ $listado=  mysql_query("select * from titularizacion where funcionario_id=$idfun
                                echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
                                echo '<td  ><a href=registro.php?editar=editando&municipio_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a><img src="../images/edit.png" title="Editar" alt="Editar" /></td>';
                                echo '<td><span class="dele"><a onClick="EliminarDato('.$reg['id'].'); return false" href="eliminar.php?municipio_id='.$reg['id'].'"><center><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></center></a></span></td>';
-						                   echo '</tr>';
+			      echo '</tr>';
                               
                      }
                     ?>

@@ -1,10 +1,12 @@
 <?php
 try {
-  //define ("MODULO", "CONSEJO");
-  require('../_start.php');
- // if(!isUserSession())
- // header("Location: ../index.php"); 
-  leerClase('Ejercicio_liberal_prof');
+   define ("MODULO", "Ejercicio liberal profesion");
+   require('../_start.php');
+  if(!isUserSession())
+  header("Location: ../index.php"); 
+  
+  
+  leerClase('Docencia_auxiliatura_umss');
  
   $ERROR = '';
 
@@ -22,7 +24,9 @@ try {
   $CSS[]  = URL_CSS . "style_table.css";
  // $CSS[] = '../css/editablegrid.css';
   $smarty->assign('CSS',$CSS);
-  
+  leerClase('Menu');
+  $menuizquierda = new Menu('');
+  $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
 
   //JS
   //
@@ -43,5 +47,5 @@ catch(Exception $e)
 {
   $smarty->assign("ERROR", handleError($e));
 }
-  $smarty->display('ejercicio_liberal_prof/gestion.tpl');
+  $smarty->display('ejercicio_liberal_profesion/gestion.tpl');
 ?>

@@ -3,7 +3,7 @@ try {
    define ("MODULO", "Docencia Auxiliatura Umss");
   require('../_start.php');
   if(!isUserSession())
-  header("Location: index.php"); 
+  header("Location: ../index.php"); 
   
   
   leerClase('Docencia_auxiliatura_umss');

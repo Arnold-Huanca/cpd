@@ -61,8 +61,13 @@
      <li><a href="evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Evento</a></li>
      <li><a href="asistencia_evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Asistencia Evento</a></li>
      <li><a href="dedicacion_exclusiva.php?menus=mostrar&funcionario_id={$funcionario->id}">Dedicaci&oacute;n Exclusiva</a></li>
-     <li><a href="docencia_auxiliar_umss.php?menus=mostrar&funcionario_id={$funcionario->id}">Docencia Umss</a></li>
-  
+     <li><a href="docencia_auxiliar_umss.php?menus=mostrar&funcionario_id={$funcionario->id}">Docencia Aux. Umss</a></li>
+   <li><a href="docencia_auxiliar_externa.php?menus=mostrar&funcionario_id={$funcionario->id}">Docencia Auxiliar en Otras U. </a></li>
+   <li><a href="titularizacion.php?menus=mostrar&funcionario_id={$funcionario->id}">Titularizaci&oacute;n </a></li>
+   <li><a href="desempenio_profesional.php?menus=mostrar&funcionario_id={$funcionario->id}">Desempe&ntilde;o Profesional </a></li>
+   <li><a href="ejercicio_liberal.php?menus=mostrar&funcionario_id={$funcionario->id}">Ejercicio Liberal de Profesi&oacute;n (Free Lance) </a></li>
+ 
+ 
   
 </ul>
 {/if}

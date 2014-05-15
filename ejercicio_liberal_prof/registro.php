@@ -1,8 +1,9 @@
 <?php
 try {
+      define ("MODULO", "Ejercicio liberal profesion");
   require('../_start.php');
- // if(!isUserSession())
-   // header("Location: ../index.php");  
+ if(!isUserSession())
+   header("Location: index.php");  
 
   /** HEADER */
   $smarty->assign('title', 'Registro de Usuario');
