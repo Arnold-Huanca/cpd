@@ -26,7 +26,12 @@ try {
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
     $JS[]  = URL_JS . "validator.min.js";
-         
+          $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+  
+  $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
+  $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
+   
+ 
 
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
@@ -97,8 +102,11 @@ $ERROR = '';
   while ($row = mysql_fetch_array($tipo_producciones[0])) 
   {
     $tipo_producciones_values[] = $row['id'];
-    $tipo_producciones_output[] = $row['sigla'];
+    $tipo_producciones_output[] = $row['descripcion'];
   }
+  
+  
+  
   $smarty->assign("tipo_producciones_values", $tipo_producciones_values);
   $smarty->assign("tipo_producciones_output", $tipo_producciones_output);
   

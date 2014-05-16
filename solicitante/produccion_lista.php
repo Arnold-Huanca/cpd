@@ -1,12 +1,12 @@
 <?php 
 
- define ("MODULO", "Producción");
+ define ("MODULO", "Solicitante");
   require('../_start.php');
   if(!isUserSession())
     header("Location: index.php");  
-  $idfuncionario=  getSessionUser()->getFuncionario()->id;
+  $funcionario_id= $_GET['funcionario_id'];
 
-$listado=  mysql_query("select * from produccion  where funcionario_id=$idfuncionario");
+$listado=  mysql_query("select * from produccion  where funcionario_id=$funcionario_id");
 ?>
   <script type="text/javascript">
    $(document).ready(function(){

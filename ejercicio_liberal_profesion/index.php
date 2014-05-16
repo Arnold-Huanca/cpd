@@ -4,20 +4,16 @@ try {
    require('../_start.php');
   if(!isUserSession())
   header("Location: ../index.php"); 
-  
-  
   leerClase('Docencia_auxiliatura_umss');
- 
   $ERROR = '';
-
   /** HEADER */
   $smarty->assign('title','');
   $smarty->assign('description','');
   $smarty->assign('keywords','');
 
-    //CSS
-   $CSS[]  = URL_CSS . "style.css";
-  $CSS[]  = URL_CSS . "style.responsive.css";
+  //CSS
+ $CSS[]  = URL_CSS . "style.css";
+ $CSS[]  = URL_CSS . "style.responsive.css";
  $CSS[]  = URL_CSS . "tables.css";
     
   $CSS[]  = URL_CSS . "demo_table.css";
