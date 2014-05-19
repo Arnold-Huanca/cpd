@@ -10,9 +10,7 @@ define ("MODULO", "Asistencia Evento");
    /**
    * Menu superior
    */
-  
-     $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
-  //CSS
+   //CSS
   $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
    $CSS[]  = URL_CSS . "styleform.css";
@@ -26,6 +24,8 @@ define ("MODULO", "Asistencia Evento");
    $JS[]  = URL_JS . "script/script.responsive.js";
     $JS[]  = URL_JS . "validator.min.js";
          //Datepicker UI
+    
+  $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
   $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
   $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
 

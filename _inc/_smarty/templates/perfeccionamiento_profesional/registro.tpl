@@ -6,7 +6,7 @@
                     <div class="art-content-layout-row">
                       
       {include file="menuizquierdo.tpl"}
-      {include file="perfeccionamiento_profecional/contenido.tpl"}
+      {include file="perfeccionamiento_profesional/contenido.tpl"}
     
       
                     </div>

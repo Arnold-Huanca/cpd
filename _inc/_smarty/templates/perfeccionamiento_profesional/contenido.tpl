@@ -15,14 +15,7 @@
               </select>
             </p>
             
-            <p>
-              <label for="rol"><small>Funcionario</small></label>
-              <select  class="select-style gender" name="funcionario_id" id="funcionario_id" >
-              {html_options values=$funcionarios_values selected=$perfeccionamiento_profecional->funcionario_id output=$funcionarios_output}
-              </select>
-            </p>
-            
-            <p>
+             <p>
               <label for="rol"><small>Unidad Tiempo</small></label>
               <select  class="select-style gender" name="unidad_tiempo_id_unidad_tiempo" id="unidad_tiempo_id_unidad_tiempo" >
               {html_options values=$unidad_tiempos_values selected=$perfeccionamiento_profecional->unidad_tiempo_id_unidad_tiempo output=$unidad_tiempos_output}
@@ -43,15 +36,9 @@
               </select>
             </p>
             
+                  
             <p>
-              <label for="rol"><small>Subarea</small></label>
-              <select  class="select-style gender" name="subarea_id" id="subarea_id" >
-              {html_options values=$subareas_values selected=$perfeccionamiento_profecional->subarea_id output=$subareas_output}
-              </select>
-            </p>
-            
-            <p>
-              <input type="date" name="fecha_certificado" id="fecha_certificado" value="{$perfeccionamiento_profecional->fecha_certificado}" placeholder="Fecha Certificado"  size="22" >
+              <input type="text" name="fecha_certificado" id="fecha_certificado" value="{$perfeccionamiento_profecional->fecha_certificado}" placeholder="Fecha Certificado"  size="22" >
               <label for="email"><small> Fecha Certificado</small></label>
             </p>
             <p>
@@ -94,17 +81,12 @@
               <input type="text" name="otra_institucion" id="otra_institucion" value="{$perfeccionamiento_profecional->otra_institucion}" placeholder="Otra Institucion"  size="22" >
               <label for="email"><small>Otra Institucion</small></label>
             </p>
-               <p>
-              <input type="text" name="descripcion" id="descripcion" value="{$perfeccionamiento_profecional->descripcion}" placeholder="Descripcion"  size="22" >
-              <label for="email"><small>Descripcion</small></label>
-            </p>
-                
-           <p>
-              <input type="hidden" name="perfeccionamiento_profecional_id"    value="{$perfeccionamiento_profecional->id}">
-                <input type="hidden" name="tarea" value="registrar">
-              <input type="hidden" name="token" value="{$token}">
-               <button class="submit" type="submit">Guardar</button> 
-                <button class="submit" type="reset" >Cancelar</button> 
+            <p>
+             <input type="hidden" name="perfeccionamiento_profecional_id"    value="{$perfeccionamiento_profecional->id}">
+             <input type="hidden" name="tarea" value="registrar">
+             <input type="hidden" name="token" value="{$token}">
+             <button class="submit" type="submit">Guardar</button> 
+             <button class="submit" type="reset" >Cancelar</button> 
 
             </p>
           </form>
@@ -113,5 +95,16 @@
 </article>
 
 
+<script type="text/javascript">
+           $(function(){
+            $('#fecha_certificado').datepicker({
+              dateFormat:'dd/mm/yy',
+              changeMonth: true,
+              changeYear: true,
+              yearRange: "1920:{date('Y')}"
+        
+            });
+          });
+        </script>
 </div>
      

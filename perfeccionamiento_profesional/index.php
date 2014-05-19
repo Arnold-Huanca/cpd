@@ -45,5 +45,5 @@ catch(Exception $e)
 {
   $smarty->assign("ERROR", handleError($e));
 }
-  $smarty->display('perfeccionamiento_profecional/gestion.tpl');
+  $smarty->display('perfeccionamiento_profesional/gestion.tpl');
 ?>

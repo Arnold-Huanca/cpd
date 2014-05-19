@@ -8,7 +8,7 @@ try {
 
     leerClase('Tipo_perfeccionamiento');
    
-if(isset($_GET['eliminar']) && isset($_GET['tipo_perfeccionamiento_id']) && is_numeric($_GET['tipo_perfeccionamiento_id']) )
+if(isset($_GET['tipo_perfeccionamiento_id']) && is_numeric($_GET['tipo_perfeccionamiento_id']) )
   {
        
       $tipo_perfeccionamiento= new Tipo_perfeccionamiento($_GET['tipo_perfeccionamiento_id']);

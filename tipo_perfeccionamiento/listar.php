@@ -35,8 +35,8 @@ $listado=  mysql_query("select * from tipo_perfeccionamiento");
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
-                        <th>Sigla</th>
-                        <th>Descripcion</th><!--Estado-->
+                        <th>Nombre</th>
+                        <th>Sigla</th><!--Estado-->
                         <th>Estado</th>
                         <th>Editar</th>
                         <th>Eliminar</th>

@@ -16,7 +16,7 @@ class Perfeccionamiento_profecional extends Objectbase
    
    var $funcionario_id;
    
-   var $unidad_tiempo_id_unidad_tiempo;
+   var $unidad_tiempo_id;
    
    var $pais_id;
    
@@ -47,10 +47,7 @@ class Perfeccionamiento_profecional extends Objectbase
    var $otra_institucion;
    
    var $vb;
-   
-   var $descripcion;
-   
-  
+    
   public function getByLogin ($login, $verSifueTomado = false ) {
     $sql       = "select * from ".$this->getTableName()." where login = '$login'";
     $result = mysql_query($sql);

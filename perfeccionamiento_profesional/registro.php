@@ -26,6 +26,10 @@ define ("MODULO", "Perfeccionamiento Profesional");
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
     $JS[]  = URL_JS . "validator.min.js";
+    
+    $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+  $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
+  $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
          
 
   $smarty->assign('CSS',$CSS);
@@ -139,6 +143,7 @@ $ERROR = '';
     $perfeccionamiento_profecional->estado           = Objectbase::STATUS_AC;
     $perfeccionamiento_profecional->save();
     mysql_query("COMMIT");
+    
     $ir = "Location: index.php";
      header($ir);
       exit();
@@ -149,6 +154,7 @@ $ERROR = '';
   $smarty->assign("ERROR",$ERROR);
 
 } catch (Exception $e) {
+    echo $e;
  mysql_query("ROLLBACK");
  $smarty->assign("ERROR", handleError($e));
 }
@@ -158,6 +164,6 @@ $_SESSION['register'] = $token;
 $smarty->assign('token', $token);
 
 
-$TEMPLATE_TOSHOW = 'perfeccionamiento_profecional/registro.tpl';
+$TEMPLATE_TOSHOW = 'perfeccionamiento_profesional/registro.tpl';
 $smarty->display($TEMPLATE_TOSHOW);
 ?>

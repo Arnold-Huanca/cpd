@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2014 a las 06:07:25
+-- Tiempo de generación: 19-05-2014 a las 23:14:54
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -321,14 +321,15 @@ CREATE TABLE IF NOT EXISTS `docencia_auxiliatura_umss` (
   `descripcion` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `docencia_auxiliatura_umss`
 --
 
 INSERT INTO `docencia_auxiliatura_umss` (`id`, `materia`, `fecha_inicio`, `numero_gestiones`, `carrera`, `departamento`, `facultad`, `condicion`, `vb`, `subarea_id`, `tipo_gestion_id`, `nivel_formacion_id`, `funcionario_id`, `descripcion`, `estado`) VALUES
-(1, '', '0000-00-00', 'gsdfg', '', 'gsd', 'gsdg', 'gsdg', 'gdsg', 0, 0, 1, 0, 'gsef', 'Pendiente');
+(1, '', '0000-00-00', 'gsdfg', '', 'gsd', 'gsdg', 'gsdg', 'gdsg', 0, 0, 1, 0, 'gsef', 'Pendiente'),
+(2, 'fisica', '2014-05-15', '2', '', '', '', '', '', 0, 0, 1, 0, 'Aprobaciónfsadf', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -757,7 +758,16 @@ CREATE TABLE IF NOT EXISTS `medio_difunsion` (
   `descripcion` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `medio_difunsion`
+--
+
+INSERT INTO `medio_difunsion` (`id`, `sigla`, `descripcion`, `estado`) VALUES
+(1, 'Medio electronico', 'M', 'AC'),
+(2, 'Periódico Internacional', 'E', 'AC'),
+(3, 'Libro', 'L', 'AC');
 
 -- --------------------------------------------------------
 
@@ -801,7 +811,7 @@ CREATE TABLE IF NOT EXISTS `modulo` (
   `descripcion` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
 
 --
 -- Volcado de datos para la tabla `modulo`
@@ -856,7 +866,9 @@ INSERT INTO `modulo` (`id`, `codigo`, `nombre`, `url`, `descripcion`, `estado`) 
 (59, 'VISITA', '', '', 'M&oacute;dulo: VISITA', 'AC'),
 (60, 'Secuencia', '', '', 'M&oacute;dulo: Secuencia', 'AC'),
 (61, 'Vivienda', '', '', 'M&oacute;dulo: Vivienda', 'AC'),
-(62, 'Datos Familiares', '', '', 'M&oacute;dulo: Datos Familiares', 'AC');
+(62, 'Datos Familiares', '', '', 'M&oacute;dulo: Datos Familiares', 'AC'),
+(63, 'Ejercicio liberal profesion', '', '', 'M&oacute;dulo: Ejercicio liberal profesion', 'AC'),
+(64, 'Perfeccionamiento Profesional', '', '', 'M&oacute;dulo: Perfeccionamiento Profesional', 'AC');
 
 -- --------------------------------------------------------
 
@@ -973,7 +985,14 @@ CREATE TABLE IF NOT EXISTS `perfeccionamiento_profecional` (
   `vb` varchar(45) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `perfeccionamiento_profecional`
+--
+
+INSERT INTO `perfeccionamiento_profecional` (`id`, `tipo_perfeccionamiento_id`, `funcionario_id`, `unidad_tiempo_id`, `pais_id`, `universidad_id`, `subarea_id`, `fecha_certificado`, `certificado`, `titulo`, `diplona`, `titulo_trabajo_final`, `mencion`, `duracion_curso`, `hrs_presenciales`, `hrs_no_presenciales`, `creditos`, `otra_institucion`, `vb`, `estado`) VALUES
+(1, 0, 0, 0, 2, 1, 0, '2014-05-22', '', '', '', '', '', '', '', '', '', '', '', 'AC');
 
 -- --------------------------------------------------------
 
@@ -991,7 +1010,7 @@ CREATE TABLE IF NOT EXISTS `permiso` (
   `grupo_id` int(11) DEFAULT NULL,
   `estado` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=100 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=105 ;
 
 --
 -- Volcado de datos para la tabla `permiso`
@@ -1013,7 +1032,6 @@ INSERT INTO `permiso` (`id`, `ver`, `crear`, `editar`, `eliminar`, `modulo_id`, 
 (42, '1', '1', '1', '1', 32, 1, 'AC'),
 (44, '1', '1', '1', '1', 34, 1, 'AC'),
 (45, '1', '1', '1', '1', 35, 1, 'AC'),
-(48, '1', '1', '1', '1', 38, 1, 'AC'),
 (50, '1', '1', '1', '1', 40, 1, 'AC'),
 (51, '1', '1', '1', '1', 41, 1, 'AC'),
 (52, '1', '1', '1', '1', 42, 1, 'AC'),
@@ -1054,7 +1072,11 @@ INSERT INTO `permiso` (`id`, `ver`, `crear`, `editar`, `eliminar`, `modulo_id`, 
 (96, '1', '', '', '', 14, 4, 'AC'),
 (97, '1', '', '', '', 14, 4, 'AC'),
 (98, '1', '', '', '', 14, 4, 'AC'),
-(99, '1', '', '', '', 15, 4, 'AC');
+(99, '1', '', '', '', 15, 4, 'AC'),
+(100, '1', '', '', '', 37, 4, 'AC'),
+(101, '1', '1', '1', '1', 63, 1, 'AC'),
+(102, '1', '', '', '', 63, 4, 'AC'),
+(104, '1', '', '', '', 64, 4, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1236,7 +1258,7 @@ CREATE TABLE IF NOT EXISTS `produccion` (
   `descripcion` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `produccion`
@@ -1245,7 +1267,9 @@ CREATE TABLE IF NOT EXISTS `produccion` (
 INSERT INTO `produccion` (`id`, `titulo_tema`, `tipo_circulacion`, `institucion_entrega`, `fecha_conclucion`, `vb`, `subarea_id`, `funcionario_id`, `ambito_id`, `medio_difunsion_id`, `tipo_produccion_id`, `descripcion`, `estado`) VALUES
 (1, '', 'fasdfasdf', 'asdf', '0000-00-00', '', 0, 0, 0, 0, 0, '', 'AC'),
 (2, 'sgfds', 'ggsdfg', 'gsdfg', '0000-00-00', 'gsdfg', 0, 0, 0, 0, 0, '', 'AC'),
-(3, 'gdsfg', 'dsfg', 'gsdfg', '0000-00-00', '', 0, 1, 0, 0, 0, 'gdsf', 'Pendiente');
+(3, 'gdsfg', 'dsfg', 'gsdfg', '0000-00-00', '', 0, 1, 0, 0, 0, 'gdsf', 'Pendiente'),
+(4, 'Redes neoronales', 'Publicado', 'Umss', '2014-05-16', '', 0, 1, 5, 2, 3, '', 'Pendiente'),
+(5, 'Juan Morales', 'lakfsd', 'umss', '2014-05-23', '', 0, 1, 5, 3, 3, '', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -1284,7 +1308,7 @@ CREATE TABLE IF NOT EXISTS `secuencia` (
   `nivel` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
 
 --
 -- Volcado de datos para la tabla `secuencia`
@@ -1301,8 +1325,7 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (18, 18, 'Docencia Auxiliatura Umss', 'si', 8, 'AC'),
 (19, 15, 'Dedicación Exclusiva', 'si', 9, 'AC'),
 (20, 49, 'Titularizacion en Umss', 'si', 10, 'AC'),
-(21, 37, 'Planes Y Proyectos', 'si', 11, 'AC'),
-(22, 38, 'Investigacion y Producion', 'si', 12, 'AC'),
+(21, 37, 'Plan Proyecto Y Programa', 'si', 11, 'AC'),
 (23, 36, 'Patentes', 'si', 13, 'AC'),
 (24, 17, 'Distinciones', 'si', 14, 'AC'),
 (25, 31, 'Membresia', 'si', 15, 'AC'),
@@ -1321,7 +1344,13 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (38, 27, 'Grupo', 'no', -1, 'AC'),
 (39, 14, 'Datos Generales', 'si', 7, 'AC'),
 (40, 58, 'Solicitudes', '1', 1, 'AC'),
-(41, 13, 'Asistencia Evento', '1', 1, 'AC');
+(41, 13, 'Asistencia Evento', '1', 1, 'AC'),
+(42, 57, 'Docencia Auxiliar Externa', '1', 12, 'AC'),
+(43, 63, 'Ejercicio Liberal Profesion', '', 1, 'AC'),
+(44, 38, 'Investigación y Producción', '', 1, 'AC'),
+(45, 48, 'Tipo Producción', '', 1, 'AC'),
+(46, 30, 'Medio Difusion', '', 1, 'AC'),
+(47, 64, 'Perfeccionamiento Profesional', '1', 1, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1479,7 +1508,16 @@ CREATE TABLE IF NOT EXISTS `tipo_perfeccionamiento` (
   `descripcion` varchar(250) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `tipo_perfeccionamiento`
+--
+
+INSERT INTO `tipo_perfeccionamiento` (`id`, `sigla`, `descripcion`, `estado`) VALUES
+(2, 'Especialidad', 'E', 'AC'),
+(3, 'Diplomado', 'D', 'AC'),
+(4, 'Curso de Perficcionamiento', 'P', 'AC');
 
 -- --------------------------------------------------------
 
@@ -1493,7 +1531,16 @@ CREATE TABLE IF NOT EXISTS `tipo_produccion` (
   `sigla` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `tipo_produccion`
+--
+
+INSERT INTO `tipo_produccion` (`id`, `descripcion`, `sigla`, `estado`) VALUES
+(1, 'Trabajo de Investigación', 'TI', 'AC'),
+(2, 'Trabajo Literario', 'TL', 'AC'),
+(3, 'Reseña Bibliográfica', 'RE', 'AC');
 
 -- --------------------------------------------------------
 
@@ -1522,7 +1569,6 @@ CREATE TABLE IF NOT EXISTS `titularizacion` (
 --
 
 INSERT INTO `titularizacion` (`id`, `fecha_resolucion`, `materia_doc`, `carrera_doc`, `departamento_doc`, `facultad_doc`, `vb`, `nro_documento`, `facultad_id`, `documento_titularidad_id`, `funcionario_id`, `estado`) VALUES
-(1, '', '', '', '', '', '', '', 0, 0, 1, 'Pendiente'),
 (2, '--wertwer', 'twertw', 'twert', 'wtwert', 'twert', 'wtwer', 0x747477657274, 0, 0, 1, 'Pendiente');
 
 -- --------------------------------------------------------

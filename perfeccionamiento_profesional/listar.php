@@ -37,12 +37,12 @@ $listado=  mysql_query("select * from perfeccionamiento_profecional");
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
-                        <th>ID Tipo de Perfeccionamiento</th>
-                        <th>ID Funcionario</th><!--Estado-->
-                        <th>ID Unidad de Tiempo</th>
-                        <th>ID Pais</th>
-                        <th>ID Universidad</th>
-                        <th>ID Subarea</th>
+                        <th>Tipo de Perfeccionamiento</th>
+                        <th>Funcionario</th><!--Estado-->
+                        <th>Unidad de Tiempo</th>
+                        <th>Pais</th>
+                        <th>Universidad</th>
+                        <th>Subarea</th>
                         <th>Fecha Certificado</th>
                         <th>Certificado</th>
                         <th>Titulo</th>
@@ -55,8 +55,7 @@ $listado=  mysql_query("select * from perfeccionamiento_profecional");
                         <th>Creditos</th>
                         <th>Otra Institucion</th>
                         <th>VB</th>
-                        <th>Descripcion</th>
-                        <th>Estado</th>
+                         <th>Estado</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -78,8 +77,7 @@ $listado=  mysql_query("select * from perfeccionamiento_profecional");
                                echo '<tr id="fila-'.mb_convert_encoding($reg['id'], "UTF-8").'">';
                                echo '<td >'.mb_convert_encoding($reg['id'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['tipo_perfeccionamiento_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['funcionario_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['unidad_tiempo_id_unidad_tiempo'], "UTF-8").'</td>';
+                                echo '<td >'.mb_convert_encoding($reg['unidad_tiempo_id'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['pais_id'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['universidad_id'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['subarea_id'], "UTF-8").'</td>';
@@ -95,8 +93,7 @@ $listado=  mysql_query("select * from perfeccionamiento_profecional");
                                echo '<td >'.mb_convert_encoding($reg['creditos'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['otra_institucion'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['vb'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['descripcion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
+                                echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
                                echo '<td  ><a href=registro.php?editar=editando&perfeccionamiento_profecional_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a><img src="../images/edit.png" title="Editar" alt="Editar" /></td>';
                                echo '<td><span class="dele"><a onClick="EliminarDato('.$reg['id'].'); return false" href="eliminar.php?perfeccionamiento_profecional_id='.$reg['id'].'"><center><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></center></a></span></td>';
 						                   echo '</tr>';

@@ -8,12 +8,12 @@
       <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
            
             <p>
-              <input type="text" name="sigla" id="sigla" value="{$tipo_perfeccionamiento->sigla}" placeholder="Sigla" size="200">
-              <label for="apellido_p"><small>Sigla</small></label>
+              <input type="text" name="sigla" id="sigla" value="{$tipo_perfeccionamiento->sigla}" placeholder="Nombre" size="200">
+              <label for="apellido_p"><small>Nombre</small></label>
             </p>
             <p>
-              <input type="textarea" name="descripcion" id="descripcion" value="{$tipo_perfeccionamiento->descripcion}"  placeholder="Descripcion" size="100"  >
-              <label for="nombre"><small>Descripcion</small></label>
+              <input type="textarea" name="descripcion" id="descripcion" value="{$tipo_perfeccionamiento->descripcion}"  placeholder="Sigla" size="100"  >
+              <label for="nombre"><small>Sigla</small></label>
             </p>
              
                 <p>
@@ -21,7 +21,7 @@
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-              <button class="submit" type="button" onclick="enviar()">Guardar</button>  
+              <button class="submit" type="button" onclick="enviar()">Cancelar</button>  
          
 
             </p>
