@@ -14,9 +14,6 @@ class Subarea extends Objectbase
    var $nombre_subarea;
    
    var $sigla_subarea;
-   
-   var $subareacol;
-   
    var $area_id;
    
   

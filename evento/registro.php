@@ -96,18 +96,18 @@ $ERROR = '';
   $smarty->assign("unidad_tiempos_output", $unidad_tiempos_output);
   
   // combo box subarea
-  leerClase('Subarea');
-  $subarea   = new Subarea();
-  $subareas   = $subarea->getAll();  ///retorna todas las clases
-  $subareas_values[] = '';
-  $subareas_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($subareas[0])) 
+  leerClase('Area');
+  $area   = new Area();
+  $areas   = $area->getAll();  ///retorna todas las clases
+  $area_values[] = '';
+  $area_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($areas[0])) 
   {
-    $subareas_values[] = $row['id'];
-    $subareas_output[] = $row['nombre_subarea'];
+    $area_values[] = $row['id'];
+    $area_output[] = $row['nombre'];
   }
-  $smarty->assign("subareas_values", $subareas_values);
-  $smarty->assign("subareas_output", $subareas_output);
+  $smarty->assign("area_values", $area_values);
+  $smarty->assign("area_output", $area_output);
  
   //combo box funcionario
   leerClase('Funcionario');

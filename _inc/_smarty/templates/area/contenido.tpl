@@ -10,25 +10,26 @@
            
             
             <p>
-              <input type="text" name="area" id="area" value="{$area->area}"  placeholder="Area" size="100"  >
-              <label for="nombre"><small>Area</small></label>
+              <input type="text" name="nombre" id="nombre" value="{$area->nombre}"  placeholder="Nombre" size="100"  >
+              <label for="nombre"><small>Nombre</small></label>
             </p>
              <p>
-              <input type="text" name="nombre_area" id="nombre_area" value="{$area->nombre_area}" placeholder="Nombre Area" size="200">
-              <label for="apellido_p"><small>Nombre Area</small></label>
+              <input type="text" name="sigla" id="sigla" value="{$area->sigla}" placeholder="Sigla" size="200">
+              <label for="apellido_p"><small>Sigla</small></label>
             </p>
            
             <p>
-              <input type="text" name="sigla_area" id="sigla_area" value="{$area->sigla_area}" placeholder="Sigla"  size="22" >
-              <label for="email"><small> Sigla</small></label>
+                <input type="text" name="descripcion" id="descripcion" value="{$area->descripcion}" placeholder="Descripci&oacute;n"  size="22" >
+                <label for="email"><small> Descripci&oacute;n</small></label>
             </p>
          
            <p>
-              <input type="hidden" name="area_id"    value="{$area->id}">
+              <input type="hidden" name="id"    value="{$area->id}">
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-                <input class="submit"  type="button" value="Cancelar" onclick="enviar()">
+                 <button class="submit" type="button" onclick="enviar()">Cancelar</button>  
+         
 
             </p>
           </form>
@@ -59,7 +60,13 @@ $(document).ready(function() {
 });
 </script>
 
-
+<script>
+  
+  function enviar(){
+    window.location.href="index.php";
+  
+  }
+</script>
 
 </div>
      

@@ -1,18 +1,16 @@
-     <div class="art-layout-cell art-content clearfix">
-     <article class="art-post art-article">
-                                
-          <h2></h2>                                        
-   <div class="art-postcontent art-postcontent-0 clearfix">
-     {include file="header.tpl"}
+{include file="header.tpl"}
 {include file="menu.tpl"}
+
 <div class="art-sheet clearfix">
             <div class="art-layout-wrapper clearfix">
                 <div class="art-content-layout">
-                    <div class="art-content-layout-row">
+         <div class="art-content-layout-row">
                       
       {include file="menus.tpl"}
-          <div class="art-layout-cell art-content clearfix">
-     <article class="art-post art-article">
+      <div class="art-layout-cell art-content clearfix">
+  
+        
+          <article class="art-post art-article">
                                 
           <h2></h2>                                        
    <div class="art-postcontent art-postcontent-0 clearfix">
@@ -81,6 +79,16 @@
               {html_options values=$tipo_participaciones_values selected=$evento->tipo_participacion_id output=$tipo_participaciones_output}
               </select>
             </p>
+            <p>
+                    {if ($evento->estado eq "Pendiente" || $evento->estado eq "Aceptado" )}
+                      <input type="radio" name="estado" value="Aceptado"  checked />Aceptar
+                      <input type="radio" name="estado" dovalue="Observado" /> Rechazar
+                        {else}
+                             <input type="radio" name="estado" value="Aceptado"   />Aceptar
+                          <input type="radio" name="estado" dovalue="Observado"  checked /> Rechazar
+                   
+                        {/if}
+          </p>
          
            <p>
               <input type="hidden" name="evento"    value="{$evento->id}">
@@ -96,9 +104,10 @@
         <p>{$ERROR}</p>
 </article>
 
+   </div>
+
 
 </div>
-     
       
                     </div>
                 </div>
@@ -108,10 +117,7 @@
 </footer>
 
     </div>
- {include file="footer.tpl"}    
- 
-     
-     
+ {include file="footer.tpl"}        
      
 <script>
             $('#fecha_inicio').datepicker({

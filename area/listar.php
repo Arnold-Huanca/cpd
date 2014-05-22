@@ -33,11 +33,12 @@
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
-                        <th>Area</th>
                         <th>Nombre</th>
-                        <th>Sigla</th><!--Estado-->
+                        <th>Sgla</th>
+                        <th>Descripci&oacute;n</th><!--Estado-->
                          <th>Editar</th>
                         <th>Eliminar</th>
+                        <th>Agregar Subarea</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -46,6 +47,8 @@
                         <th></th>
                          <th></th>
                         <th></th>
+                         <th></th>
+                         <th></th>
                          <th></th>
                         
                        
@@ -59,19 +62,21 @@
                 require('../_start.php');
                 if(!isUserSession())
               header("Location: index.php"); 
-            $listado=  mysql_query("select a.id,a.area,a.nombre_area, a.sigla_area from area a");
+            $listado=  mysql_query("select a.* from area a");
 
                     while( $resultado = mysql_fetch_array($listado) ){
                   	?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
                            <td><?php echo $resultado['id'] ?></td>
-                          <td><?php echo $resultado['area'] ?></td>
-			  <td><?php echo $resultado['nombre_area'] ?></td>
-			  <td><?php echo $resultado['sigla_area'] ?></td>
+                          <td><?php echo $resultado['nombre'] ?></td>
+			  <td><?php echo $resultado['sigla'] ?></td>
+			  <td><?php echo $resultado['descripcion'] ?></td>
 			   <td><span class="modi"><a href="registro.php?area_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
-		  </tr>
+                          <td><span class="modi"><a href="sub_area/index.php?area_id=<?php echo $resultado['id'] ?>"><img  width="20" height="20" src="../images/mas-icon.png" title="Agregar Sub &Aacute;rea" /></a></span></td>
+		
+                   </tr>
 	<?php
 	}
   ?>   

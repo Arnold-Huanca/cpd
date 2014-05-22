@@ -37,6 +37,7 @@ $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
   $smarty->assign('JS', $JS);
   leerClase('Menu');
   $menuizquierda = new Menu('');
+  
   $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
 
 $ERROR = ''; 
@@ -57,6 +58,20 @@ $ERROR = '';
   
   $smarty->assign("funcionario",$funcionario);
  
+  
+  leerClase('Funcionario');
+  $id     = '';
+  $menus='';
+  $editar = FALSE;
+  if ( isset($_GET['menus']) && $_GET['menus']== "mostrar" && isset($_GET['funcionario_id']) && is_numeric($_GET['funcionario_id']) )
+  {
+    $menus="mostrar";
+    $id     = $_GET['funcionario_id'];
+  }
+  $funcionarios   = new Funcionario($id);
+ 
+ //$datosgenerales= $funcionario->getDatosGenerales();
+   $smarty->assign("menus", $menus);
   
   // combo box tipo_evento
   leerClase('Tipo_evento');
@@ -158,13 +173,12 @@ $ERROR = '';
   $smarty->assign("tipo_participaciones_output", $tipo_participaciones_output);
   
   
+  
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
     mysql_query("BEGIN");
     $evento->objBuidFromPost();
-    $evento->estado           = Objectbase::estado_pendiente;
-    $evento->funcionario_id=  getSessionUser()->getFuncionario()->id;
     $evento->save();
     mysql_query("COMMIT");
    $ir = "Location: evento.php?menus=mostrar&funcionario_id=$evento->funcionario_id";

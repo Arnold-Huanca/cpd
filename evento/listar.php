@@ -28,58 +28,94 @@
 
          </script> 
           <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
-		
-         <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
+	  <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+     
+             <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>id</th><!--Estado-->
-                        <th>Nombre</th>
-                         <th>Tema</th>
-                         <th>Fecha Inicio</th>
-                         <th>Duraci&oacute;n</th>
-                         <th>Entidad Organizadora</th>
-                           <th>Editar</th>
-                          <th>Eliminar</th>
+                        <th>Tipo Evento</th>
+                        <th>Nombre Evento</th>
+                        <th>Tema</th>
+                        <th>Fecha Inicio</th> 
+                        <th>Duraci&oacute;n</th> 
+                        <th>&Aacute;rea</th> 
+                        <th>Sub &Aacute;rea</th> 
+                        <th>Ambito</th> 
+                        <th>Tipo Participaci&oacute;n</th>
+                        <th>Instituci&oacute;n Organizadora</th>
+                        <th>Organizado Por Instancia U.</th>
+                        <th>Pa&iacute;s</th> 
+                        <th>Estado</th> 
+                        <th>Editar </th>
+                        <th>Eliminar </th>
+                       
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
-                         <th></th>
-                       
-                       
-                       
-                     
-                    </tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                     </tr>
                 </tfoot>
                   <tbody>
                    
                     <?php
-              define ("MODULO", "Evento");
-                require('../_start.php');
-                if(!isUserSession())
-                header("Location: index.php"); 
-                
+                  require  '../_start.php';
+                   define ("MODULO", "Solicitante");
+                  if(!isUserSession())
+                  header("Location: index.php"); 
+                  
+                      
                 $idfuncionario=  getSessionUser()->getFuncionario()->id;
-     $listado=  mysql_query("select e.* from evento e where e.funcionario_id=$idfuncionario");
+   
+                  leerClase("Tipo_evento");
+                  leerClase("Area");
+                  leerClase("Subarea");
+                  leerClase("Ambito");
+                  leerClase("Tipo_participacion");
+                  leerClase("Pais");
+                  $listado=  mysql_query("select f.* from  evento f where f.funcionario_id= $idfuncionario");
 
-                    while( $resultado = mysql_fetch_array($listado) ){
+                    while( $resultado = mysql_fetch_array($listado)){
+                        
+                        $tipoevento= new Tipo_evento($resultado['tipo_evento_id']);
+                        $subarea= new Subarea($resultado['subarea_id']);
+                        $area= new Area($subarea->area_id);
+                        $ambito= new Ambito($resultado['ambito_id']);
+                        $tipoparticipacion= new Tipo_participacion($resultado['tipo_participacion_id']);
+                        $pasis = new Pais($resultado['pais_id']);
+                        
                   	?>
 	
-		   <tr id="fila-<?php echo $resultado['id'] ?>">
-        <td><?php echo $resultado['id'] ?></td>
-			  <td><?php echo $resultado['nombre_evento'] ?></td>
-			  <td><?php echo $resultado['tema_expocicion'] ?></td>
-                            <td><?php echo $resultado['fecha_inicio'] ?></td>
-                              <td><?php echo $resultado['duracion'] ?></td>
-                                <td><?php echo $resultado['entidad_organizadora'] ?></td>
-                           <td><span class="modi"><a href="registro.php?evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+		           <tr id="fila-<?php echo $resultado['id']; ?>">
+                             
+                             <td><?php echo $tipoevento->descripcion; ?></td>
+                                <td><?php echo $resultado['nombre_evento']; ?></td>
+                         
+                           <td><?php echo $resultado['tema_expocicion']; ?></td>
+                           <td><?php echo $resultado['fecha_inicio']; ?></td>
+                           <td><?php echo $resultado['duracion']; ?></td>
+                           <td><?php echo $area->nombre; ?></td>
+                           <td><?php echo $subarea->nombre_subarea; ?></td>
+                           <td><?php echo $ambito->nombre_ambito; ?></td>
+                           <td><?php echo $tipoparticipacion->descripcion; ?></td>
+                            <td><?php echo $resultado['entidad_organizadora'] ?></td>
+			  <td><?php echo $resultado['organizado_por_instacia_univ'] ?></td>
+			  <td><?php echo $pasis-> nombre_pais?></td>
+		         <td><?php echo $resultado['estado'] ?></td>
+                          <td><span class="modi"><a href="registro.php?evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 		  </tr>
 	<?php
@@ -87,3 +123,5 @@
   ?>   
                 <tbody>
             </table>
+         </div>
+	

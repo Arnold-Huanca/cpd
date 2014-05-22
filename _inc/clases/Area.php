@@ -10,11 +10,11 @@ class Area extends Objectbase
   * Nombre del usuario
   * @var VARCHAR(100)
   */
-  var $area;
+  var $nombre;
   
-  var $nombre_area;
+  var $sigla;
 
-  var $sigla_area;
+  var $descripcion;
 
  
 

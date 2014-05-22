@@ -32,6 +32,18 @@
               <label for="nombre"><small>Duracion</small></label>
             </p>
             <p>
+              <label for="rol"><small>&Aacute;rea</small></label>
+              <select  class="select-style gender" name="area_id" id="area_id" poblacioattri=''>
+              {html_options values=$area_values selected=$evento->area_id output=$area_output}
+              </select>&nbsp;<span id='Buscando'></span>
+            </p>
+            <p>
+              <label for="rol"><small>Sub &Aacute;rea</small></label>
+               <select  class="select-style gender" name="subarea_id" id="subarea_id"   >
+                  
+             </select>
+            </p>
+            <p>
               <input type="text" name="entidad_organizadora" id="entidad_organizadora" value="{$evento->entidad_organizadora}"  placeholder="Entidad Organizadora" size="100"  >
               <label for="nombre"><small>Entidad Organizadora</small></label>
             </p>
@@ -92,6 +104,27 @@
              });
       
 </script>
+
+<script>
+jQuery('#area_id').change(function () {
+var numero =document.getElementById("area_id").value;
+var poblacio = jQuery(this).attr("poblacioattri");
+var to=document.getElementById("Buscando");
+to.innerHTML="buscando....";
+jQuery.ajax({
+type: "POST", 
+url: "buscar.php",
+data: 'idnumero='+numero,
+success: function(a) {
+jQuery('#subarea_id').html(a);
+var to=document.getElementById("Buscando");
+to.innerHTML="";
+}
+});
+})
+.change();
+</script> 
+   
 <script>
   
   function enviar(){

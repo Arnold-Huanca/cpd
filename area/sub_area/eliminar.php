@@ -8,7 +8,7 @@ try {
 
     leerClase('Subarea');
    
-if(isset($_GET['eliminar']) && isset($_GET['subarea_id']) && is_numeric($_GET['subarea_id']) )
+if( isset($_GET['subarea_id']) && is_numeric($_GET['subarea_id']) )
   {
        
       $subarea= new Subarea($_GET['subarea_id']);

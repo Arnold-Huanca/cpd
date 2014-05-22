@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2014 a las 23:14:54
+-- Tiempo de generación: 22-05-2014 a las 16:09:55
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -52,19 +52,20 @@ INSERT INTO `ambito` (`id`, `nombre_ambito`, `descripcion_sigla`, `estado`) VALU
 
 CREATE TABLE IF NOT EXISTS `area` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `area` varchar(105) DEFAULT NULL,
-  `nombre_area` varchar(105) DEFAULT NULL,
-  `sigla_area` varchar(85) DEFAULT NULL,
+  `nombre` varchar(105) DEFAULT NULL,
+  `sigla` varchar(105) DEFAULT NULL,
+  `descripcion` varchar(85) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `area`
 --
 
-INSERT INTO `area` (`id`, `area`, `nombre_area`, `sigla_area`, `estado`) VALUES
-(1, 'sdfg', 'gsdfg', 'gsdf', 'AC');
+INSERT INTO `area` (`id`, `nombre`, `sigla`, `descripcion`, `estado`) VALUES
+(1, 'sdfg', 'gsdfg', 'gsdf', 'AC'),
+(2, 'Jaaaaaaa', 'jfdsf', 'jfds', 'AC');
 
 -- --------------------------------------------------------
 
@@ -447,7 +448,7 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `tipo_participacion_id` int(11) NOT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `evento`
@@ -455,9 +456,11 @@ CREATE TABLE IF NOT EXISTS `evento` (
 
 INSERT INTO `evento` (`id`, `nombre_evento`, `tema_expocicion`, `fecha_inicio`, `duracion`, `entidad_organizadora`, `organizado_por_instacia_univ`, `tipo_evento_id`, `ambito_id`, `unidad_tiempo_id`, `area_id`, `subarea_id`, `funcionario_id`, `pais_id`, `tipo_participacion_id`, `estado`) VALUES
 (5, 'fasd', 'fasd', '2014-05-14', '445', 'dfasf', 'fasdf', 3, 5, 0, 0, 0, 0, 2, 4, 'Pendiente'),
-(6, 'fasdf', 'fasdf', '2014-05-13', 'fasdf', 'fasdf', 'fasdf', 4, 5, 0, 0, 0, 1, 1, 2, 'Pendiente'),
+(6, 'fasdf', 'fasdf', '2014-05-13', 'fasdf', 'fasdf', 'fasdf', 4, 5, 0, 0, 0, 1, 1, 2, 'Aceptado'),
 (7, 'capacitacion', 'informatica forence', '2014-05-07', '4', 'sdsd', 'sdssd', 4, 4, 0, 0, 0, 1, 2, 3, 'Pendiente'),
-(8, 'informatica', 'Nuevos tecnologias', '2014-05-22', '122', '112', '', 3, 4, 0, 0, 0, 5, 2, 3, 'Pendiente');
+(8, 'informatica', 'Nuevos tecnologias', '2014-05-22', '122', '112', '', 3, 4, 0, 0, 0, 5, 2, 3, 'Pendiente'),
+(9, 'Ciencias de la computacion', 'redes neuroales', '2014-05-01', '3', 'umss', 'Ciencias de Tecnologia', 4, 3, 0, 0, 0, 1, 2, 1, 'Pendiente'),
+(10, '', '', '2014-05-22', '', 'fasd', 'fasdf', 0, 5, 0, 1, 4, 5, 2, 3, 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -605,7 +608,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id`, `nombre`, `apellido_p`, `apellido_m`, `ci`, `extendido_ci`, `run`, `fecha_nac`, `num_libreta_militar`, `nacionalidad`, `sexo`, `estado_civil`, `numero_hijos`, `grupo_sanguineo`, `factor`, `email1`, `email2`, `direccion_domicilio`, `numero_domicilio`, `telefono_domicilio`, `casilla_correo`, `pais_id`, `departamento_id`, `provincia_id`, `municipio_id`, `colegio_egreso`, `tipo_colegio`, `area_colegio`, `fecha_titulo_bachiller`, `usuario_id`, `descripcion`, `estado`) VALUES
-(1, '', 'ppaapp', 'fgsdgf', 766757, '', 0, '2014-05-16', 455666, 'Boliviana', 'Masculino', 'Soltero', 0, '', '', 'alaiv@mail.com', '', '', 0, 0, '', 0, 7, 0, 0, 'Jaaaaaaaaa', 'Particular', 'Urbano', '2014-05-15', 3, '', 'AC'),
+(1, 'Pedro', 'ppaapp', 'fgsdgf', 766757, '', 0, '2014-05-16', 455666, 'Boliviana', 'Masculino', 'Soltero', 0, '', '', 'pedro@mail.com', 'pedrito@gmail.com', '', 0, 0, '', 0, 7, 0, 0, 'Jaaaaaaaaa', 'Particular', 'Urbano', '2014-05-15', 3, '', 'AC'),
 (2, NULL, 'funcionario', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '', 0, 0, '', NULL, 0, NULL, 0, NULL, NULL, '0', NULL, 4, '', 'AC'),
 (3, NULL, 'jkjkjk', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '', 0, 0, '', NULL, 0, NULL, 0, NULL, NULL, '0', NULL, 5, '', 'AC'),
 (4, NULL, 'fasdf', 'fasd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '', 0, 0, '', NULL, 7, NULL, 0, NULL, NULL, '0', NULL, 0, '', 'AC'),
@@ -1362,11 +1365,21 @@ CREATE TABLE IF NOT EXISTS `subarea` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_subarea` varchar(100) DEFAULT NULL,
   `sigla_subarea` varchar(105) DEFAULT NULL,
-  `subareacol` varchar(105) DEFAULT NULL,
   `area_id` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `subarea`
+--
+
+INSERT INTO `subarea` (`id`, `nombre_subarea`, `sigla_subarea`, `area_id`, `estado`) VALUES
+(1, 'motin', 'm', 0, 'AC'),
+(2, 'fdas', 'fsd', 0, 'AC'),
+(3, 'fasdf', 'fasdf', 0, 'AC'),
+(4, 'afasd', 'fasdf', 1, 'AC'),
+(5, 'afd', 'fasdf', 1, 'AC');
 
 -- --------------------------------------------------------
 

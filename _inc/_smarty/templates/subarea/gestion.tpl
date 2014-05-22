@@ -11,7 +11,7 @@ $(document).ready(function(){
 })
 function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
               var randomnumber=Math.random()*11;
-            $.post("listar.php", {
+            $.post("listar.php?area_id={$area->id}", {
                 randomnumber:randomnumber
             }, function(data){
               $("#contenido").html(data);

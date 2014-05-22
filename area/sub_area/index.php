@@ -29,6 +29,17 @@ try {
 
   //JS
   //
+   leerClase('Area');
+   $id='';
+   if(isset($_GET['area_id']))
+   {
+     $id=  $_GET['area_id'];
+       
+   }
+   
+   $area= new Area($id);
+   
+  
   
    
    $JS[]  = URL_JS . "script/script.js";
@@ -38,7 +49,7 @@ try {
   
   $smarty->assign('JS',$JS);
   
- 
+  $smarty->assign("area",$area);
   //No hay ERROR
   $smarty->assign("ERROR",$ERROR);
 }

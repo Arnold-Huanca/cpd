@@ -37,30 +37,26 @@ try {
 $ERROR = ''; 
 
   leerClase('Subarea');
+  leerClase("Area");
   $id     = '';
   $editar = FALSE;
   if ( isset($_GET['subarea_id']) && is_numeric($_GET['subarea_id']) )
   {
     $editar = TRUE;
     $id     = $_GET['subarea_id'];
+  $subarea   = new Subarea($id);
+  $area= new Area($subarea->area_id);
   }
+    $idarea    = '';
   
-  $subarea    = new Subarea($id);
-  
-  //combo box subarea
-  leerClase('Area');
-  $area    = new Area();
-  $areas    = $area->getAll();  ///retorna todas las clases
-  $areas_values[] = '';
-  $areas_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($areas[0])) 
+  if ( isset($_GET['area_id']) && is_numeric($_GET['area_id']))
   {
-    $areas_values[] = $row['id'];
-    $areas_output[] = $row['nombre_area'];
+     $idarea =  $_GET['area_id']; 
+  $subarea   = new Subarea();
+  $area= new Area($idarea);
+
   }
-  $smarty->assign("areas_values", $areas_values);
-  $smarty->assign("areas_output", $areas_output);
- 
+   
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
@@ -69,12 +65,13 @@ $ERROR = '';
     $subarea->estado           = Objectbase::STATUS_AC;
     $subarea->save();
     mysql_query("COMMIT");
-    $ir = "Location: index.php";
+    $ir = "Location: index.php?area_id=$subarea->area_id";
      header($ir);
       exit();
     }
 
   $smarty->assign("subarea", $subarea);
+  $smarty->assign("area",$area );
     
   $smarty->assign("ERROR",$ERROR);
 
