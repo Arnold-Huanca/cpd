@@ -8,10 +8,10 @@ try {
 
     leerClase('Ejercicio_liberal_prof');
    
-if(isset($_GET['ejercicio_liberal_prof_id']) && is_numeric($_GET['ejercicio_liberal_prof_id']) )
+if(isset($_GET['id']) && is_numeric($_GET['id']) )
   {
        
-      $ejercicio_liberal_prof= new Ejercicio_liberal_prof($_GET['ejercicio_liberal_prof_id']);
+      $ejercicio_liberal_prof= new Ejercicio_liberal_prof($_GET['id']);
       $ejercicio_liberal_prof->delete();
      
   }

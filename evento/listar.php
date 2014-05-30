@@ -73,7 +73,7 @@
                    
                     <?php
                   require  '../_start.php';
-                   define ("MODULO", "Solicitante");
+                   define ("MODULO", "Evento");
                   if(!isUserSession())
                   header("Location: index.php"); 
                   

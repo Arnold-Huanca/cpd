@@ -23,10 +23,6 @@ try {
   leerClase('Menu');
   $menuizquierda = new Menu('');
   $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
-
-  //JS
-  //
-  
    
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/jquery.js";

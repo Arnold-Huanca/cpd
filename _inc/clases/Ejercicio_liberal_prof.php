@@ -23,14 +23,11 @@ class Ejercicio_liberal_prof extends Objectbase
   var $funcionario_id;
   
   var $pais_id;
-  
+  var $area_id;
   var $subarea_id;
   
-  var $unidad_tiempo_id_unidad_tiempo;
-  
-  var $descripcion;
-
- 
+  var $unidad_tiempo_id;
+   
 
   public function getByLogin ($login, $verSifueTomado = false ) {
     $sql       = "select * from ".$this->getTableName()." where login = '$login'";

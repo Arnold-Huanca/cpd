@@ -1,67 +1,106 @@
-<?php 
-  define ("MODULO", "Ejercicio liberal profesion");
- 
-require  '../_start.php';
-$listado=  mysql_query("select * from ejercicio_liberal_prof");
-?>
-  <script type="text/javascript">
+<script type="text/javascript">
    $(document).ready(function(){
    $('#tabla_lista_paises').dataTable( { //CONVERTIMOS NUESTRO LISTADO DE LA FORMA DEL JQUERY.DATATABLES- PASAMOS EL ID DE LA TABLA
         "sPaginationType": "full_numbers" //DAMOS FORMATO A LA PAGINACION(NUMEROS)
     } );
 })
 
-         </script>               <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
+
+
+	function EliminarDato(id)
+  {
+		var msg = confirm("Desea eliminar este dato?")
+		if ( msg )
+    {
+			$.ajax({
+				url: 'eliminar.php',
+				type: "GET",
+				data: "ambito_id="+id,
+				success: function(datos){
+					//alert(datos);
+					$("#fila-"+id).remove();
+				}});
+			 // window.location = "index.php"; 
+		}
+		return false;
+	}
+
+         </script> 
+         <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+             <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>id</th><!--Estado-->
-                        <th>Actividad de Institucion</th>
-                        <th>Cargo de Actividad</th><!--Estado-->
+                        <th>Estado</th><!--Estado-->
+                        <th>Nro.</th><!--Estado-->
+                        <th>Instituci&oacute;n o Empresa</th>
+                        <th>Nombre de Cargo o Actividad</th>
                         <th>Tipo</th>
-                        <th>Fecha de Inicio</th>
-                        <th>Duracion</th>
-                        <th>ID de funcionario</th>
-                        <th>ID de Pais</th>
-                        <th>ID de Subarea</th>
-                        <th>ID de Unidad de Tiempo</th>
-                        <th>Descripcion</th>
-                        <th>Estado</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>Fecha Inicio</th> 
+                        <th>Duraci&oacute;n</th>
+                        <th>&Aacute;rea</th> 
+                        <th>Sub&aacute;rea</th>
+                        <th>Pa&iacute;s</th>
+                        <th>Ver</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th></th>
                         <th></th>
-                       
-                     
-                    </tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                     </tr>
                 </tfoot>
                   <tbody>
+                   
                     <?php
-
-     
-                   while($reg=  mysql_fetch_array($listado))
-                     {
-                               echo '<tr>';
-                               echo '<td >'.mb_convert_encoding($reg['id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['institucion_actividad'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['cargo_actividad'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['tipo'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['fecha_inicio'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['duracion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['funcionario_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['pais_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['subarea_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['unidad_tiempo_id_unidad_tiempo'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['descripcion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
-                               echo '<td  ><a href=registro.php?editar=editando&area_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a>'.'</td>';
-                               echo '<td><a onclick="return confirm(\'Esta seguro de eliminar los datos?\');" href="eliminar.php?eliminar&area_id='.$reg['id'].'"><center><img src="images/delete.gif" /></center></a></td>';
-						                   echo '</tr>';
-                              
-                     }
-                    ?>
+                  require  '../_start.php';
+                  define ("MODULO", "Solicitante");
+                  if(!isUserSession())
+                  header("Location: index.php"); 
+                  
+                  $funcionario_id= $_GET['funcionario_id'];
+                     $listado=  mysql_query("select d.* from ejercicio_liberal_prof d where d.funcionario_id=$funcionario_id");
+                        leerClase("Area");
+                        leerClase("Subarea");
+                        leerClase("Pais");
+                        $contador=1;
+                    while( $resultado = mysql_fetch_array($listado) )
+                        {
+                            
+                       $subarea= new Subarea($resultado['subarea_id']);
+                        $area= new Area($subarea->area_id);
+                       $pasis = new Pais($resultado['pais_id']);
+                        
+          
+                     	?>
+	
+		            <tr id="fila-<?php echo $resultado['id']; ?>"> 
+                           
+                           <td><?php echo $resultado['estado'] ?></td>
+                           <td><?php echo $contador ?></td>
+                           <td><?php echo $resultado['institucion_actividad']; ?></td>
+                           <td><?php echo $resultado['cargo_actividad']; ?></td>
+                            <td><?php echo $resultado['tipo']; ?></td>
+                           <td><?php echo $resultado['fecha_inicio']; ?></td>
+                           <td><?php echo $resultado['duracion']; ?></td>
+                           <td><?php echo $area->nombre; ?></td>
+                           <td><?php echo $subarea->nombre_subarea; ?></td>
+                            <td><?php echo $pasis-> nombre_pais?></td>
+		            
+			   <td><span class="modi"><a href="ejercicio_liberal_detalle.php?menus=mostrar&ejercicio_liberal_prof_id=<?php echo $resultado['id'] ?>" ><img src="../images/edit.png" title="Ver" alt="Editar" /></a></span></td>
+			  </tr>
+	<?php
+        $contador++;
+	}
+  ?>   
                 <tbody>
             </table>
+         </div>

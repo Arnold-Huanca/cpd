@@ -28,8 +28,7 @@ try {
    $JS[]  = URL_JS . "script/script.responsive.js";
     $JS[]  = URL_JS . "validator.min.js";
          
-$CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
- 
+  $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
   $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
   $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
   
@@ -108,20 +107,7 @@ $ERROR = '';
   }
   $smarty->assign("area_values", $area_values);
   $smarty->assign("area_output", $area_output);
- 
-  //combo box funcionario
-  leerClase('Funcionario');
-  $funcionario    = new Funcionario();
-  $funcionarios   = $funcionario->getAll();  ///retorna todas las clases
-  $funcionarios_values[] = '';
-  $funcionarios_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($funcionarios[0])) 
-  {
-    $funcionarios_values[] = $row['id'];
-    $funcionarios_output[] = $row['nombre'];
-  }
-  $smarty->assign("funcionarios_values", $funcionarios_values);
-  $smarty->assign("funcionarios_output", $funcionarios_output);
+
   
 //combo box pais
   leerClase('Pais');

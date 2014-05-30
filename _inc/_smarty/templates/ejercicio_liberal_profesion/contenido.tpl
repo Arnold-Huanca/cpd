@@ -9,16 +9,18 @@
            
             
             <p>
-              <input type="text" name="institucion_actividad" id="institucion_actividad" value="{$ejercicio_liberal_prof->institucion_actividad}"  placeholder="Actividad de Institucion" size="100"  >
-              <label for="nombre"><small>Actividad de Institucion</small></label>
-            </p>
+                <input type="text" name="institucion_actividad" id="institucion_actividad" value="{$ejercicio_liberal_prof->institucion_actividad}"  placeholder="Instituci&oacute;n o Empresa" size="100"  >
+              <label for="nombre"><small>Instituci&oacute;n o Empresa o Nombre de la Actividad Privada</small></label>
+            </p><br>
             <p>
-              <input type="text" name="cargo_actividad" id="cargo_actividad" value="{$ejercicio_liberal_prof->cargo_actividad}"  placeholder="Cargo Actividad" size="100"  >
-              <label for="nombre"><small>Cargo Actividad</small></label>
+              <input type="text" name="cargo_actividad" id="cargo_actividad" value="{$ejercicio_liberal_prof->cargo_actividad}"  placeholder="Nombre del Cargo o Actividad" size="100"  >
+              <label for="nombre"><small>Nombre del Cargo Actividad o Actividad </small></label>
             </p>
-            <p>
-              <input type="text" name="tipo" id="tipo" value="{$ejercicio_liberal_prof->tipo}"  placeholder="Tipo" size="100"  >
-              <label for="nombre"><small>Tipo</small></label>
+              <p>
+              <label for="rol"><small>Tipo</small></label>
+              <select  class="select-style gender" name="tipo" id="tipo">
+              {html_options values=$tipo_values selected=$ejercicio_liberal_prof->tipo output=$tipo_output}
+              </select>
             </p>
             <p>
               <input type="text" name="fecha_inicio" id="fecha_inicio" value="{$ejercicio_liberal_prof->fecha_inicio}"  placeholder="Fecha de Inicio" size="100"  >
@@ -26,36 +28,28 @@
             </p>
             <p>
               <input type="text" name="duracion" id="duracion" value="{$ejercicio_liberal_prof->duracion}"  placeholder="Duracion" size="100"  >
-              <label for="nombre"><small>Duracion</small></label>
+              <label for="nombre"><small>Duraci&oacute;n</small></label>
+            </p>
+           
+              <p>
+              <label for="rol"><small>&Aacute;rea</small></label>
+              <select  class="select-style gender" name="area_id" id="area_id" poblacioattri=''>
+              {html_options values=$area_values selected=$ejercicio_liberal_prof->area_id output=$area_output}
+              </select>&nbsp;<span id='Buscando'></span>
             </p>
             <p>
-              <select name="grupo_id" id="grupo_id" >
-              {html_options values=$funcionario_id selected=$ejercicio_liberal_prof->funcionario_id output=$titulo_h_output}
-              </select>
-              <label for="rol"><small>ID Funcionario</small></label>
+              <label for="rol"><small>Sub &Aacute;rea</small></label>
+               <select  class="select-style gender" name="subarea_id" id="subarea_id"   >
+                   {html_options values=$subarea_values selected=$ejercicio_liberal_prof->subarea_id output=$subarea_output}
+             </select>
             </p>
+           
             
             <p>
-              <select name="grupo_id" id="grupo_id" >
-              {html_options values=$pais_id selected=$ejercicio_liberal_prof->pais_id output=$titulo_h_output}
-              </select>
               <label for="rol"><small>Pais</small></label>
-            </p>
-            <p>
-              <select name="grupo_id" id="grupo_id" >
-              {html_options values=$subarea_id selected=$ejercicio_liberal_prof->subarea_id output=$titulo_h_output}
+              <select  class="select-style gender" name="pais_id" id="pais_id" >
+              {html_options values=$paises_values selected=$ejercicio_liberal_prof->pais_id output=$paises_output}
               </select>
-              <label for="rol"><small>ID Subarea</small></label>
-            </p>
-            <p>
-              <select name="grupo_id" id="grupo_id" >
-              {html_options values=$unidad_tiempo_id_unidad_tiempo selected=$ejercicio_liberal_prof->unidad_tiempo_id_unidad_tiempo output=$titulo_h_output}
-              </select>
-              <label for="rol"><small>Unidad de Tiempo</small></label>
-            </p>
-            <p>
-              <input type="text" name="descripcion" id="descripcion" value="{$ejercicio_liberal_prof->descripcion}"  placeholder="Descripcion" size="100"  >
-              <label for="nombre"><small>Descripcion</small></label>
             </p>
            
          
@@ -72,6 +66,43 @@
         <p>{$ERROR}</p>
 </article>
 
+<script>
+            $('#fecha_inicio').datepicker({
+              dateFormat:'dd/mm/yy',
+         
+              changeMonth: true,
+              changeYear: true,
+             });
+      
+</script>
+
+<script>
+jQuery('#area_id').change(function () {
+var numero =document.getElementById("area_id").value;
+var poblacio = jQuery(this).attr("poblacioattri");
+var to=document.getElementById("Buscando");
+to.innerHTML="buscando....";
+jQuery.ajax({
+type: "POST", 
+url: "buscar.php",
+data: 'idnumero='+numero,
+success: function(a) {
+jQuery('#subarea_id').html(a);
+var to=document.getElementById("Buscando");
+to.innerHTML="";
+}
+});
+})
+.change();
+</script> 
+   
+<script>
+  
+  function enviar(){
+    window.location.href="index.php";
+  
+  }
+</script>
 
 </div>
      
