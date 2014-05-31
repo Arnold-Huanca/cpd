@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2014 a las 16:09:55
+-- Tiempo de generación: 31-05-2014 a las 18:22:22
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -418,11 +418,19 @@ CREATE TABLE IF NOT EXISTS `ejercicio_liberal_prof` (
   `duracion` varchar(45) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `unidad_tiempo_id` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `ejercicio_liberal_prof`
+--
+
+INSERT INTO `ejercicio_liberal_prof` (`id`, `institucion_actividad`, `cargo_actividad`, `tipo`, `fecha_inicio`, `duracion`, `funcionario_id`, `pais_id`, `area_id`, `subarea_id`, `unidad_tiempo_id`, `estado`) VALUES
+(1, 'dfg', 'gdf', 'Otro', '2014-05-08', '55', 5, 1, 1, 5, 0, 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -752,10 +760,10 @@ CREATE TABLE IF NOT EXISTS `laboral_umss_actual` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `medio_difunsion`
+-- Estructura de tabla para la tabla `medio_difusion`
 --
 
-CREATE TABLE IF NOT EXISTS `medio_difunsion` (
+CREATE TABLE IF NOT EXISTS `medio_difusion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sigla` varchar(100) DEFAULT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
@@ -764,10 +772,10 @@ CREATE TABLE IF NOT EXISTS `medio_difunsion` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Volcado de datos para la tabla `medio_difunsion`
+-- Volcado de datos para la tabla `medio_difusion`
 --
 
-INSERT INTO `medio_difunsion` (`id`, `sigla`, `descripcion`, `estado`) VALUES
+INSERT INTO `medio_difusion` (`id`, `sigla`, `descripcion`, `estado`) VALUES
 (1, 'Medio electronico', 'M', 'AC'),
 (2, 'Periódico Internacional', 'E', 'AC'),
 (3, 'Libro', 'L', 'AC');
@@ -1253,6 +1261,7 @@ CREATE TABLE IF NOT EXISTS `produccion` (
   `institucion_entrega` varchar(100) DEFAULT NULL,
   `fecha_conclucion` date DEFAULT NULL,
   `vb` varchar(45) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
   `ambito_id` int(11) DEFAULT NULL,
@@ -1261,18 +1270,20 @@ CREATE TABLE IF NOT EXISTS `produccion` (
   `descripcion` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `produccion`
 --
 
-INSERT INTO `produccion` (`id`, `titulo_tema`, `tipo_circulacion`, `institucion_entrega`, `fecha_conclucion`, `vb`, `subarea_id`, `funcionario_id`, `ambito_id`, `medio_difunsion_id`, `tipo_produccion_id`, `descripcion`, `estado`) VALUES
-(1, '', 'fasdfasdf', 'asdf', '0000-00-00', '', 0, 0, 0, 0, 0, '', 'AC'),
-(2, 'sgfds', 'ggsdfg', 'gsdfg', '0000-00-00', 'gsdfg', 0, 0, 0, 0, 0, '', 'AC'),
-(3, 'gdsfg', 'dsfg', 'gsdfg', '0000-00-00', '', 0, 1, 0, 0, 0, 'gdsf', 'Pendiente'),
-(4, 'Redes neoronales', 'Publicado', 'Umss', '2014-05-16', '', 0, 1, 5, 2, 3, '', 'Pendiente'),
-(5, 'Juan Morales', 'lakfsd', 'umss', '2014-05-23', '', 0, 1, 5, 3, 3, '', 'Pendiente');
+INSERT INTO `produccion` (`id`, `titulo_tema`, `tipo_circulacion`, `institucion_entrega`, `fecha_conclucion`, `vb`, `area_id`, `subarea_id`, `funcionario_id`, `ambito_id`, `medio_difunsion_id`, `tipo_produccion_id`, `descripcion`, `estado`) VALUES
+(1, '', 'fasdfasdf', 'asdf', '0000-00-00', '', NULL, 0, 0, 0, 0, 0, '', 'AC'),
+(2, 'sgfds', 'ggsdfg', 'gsdfg', '0000-00-00', 'gsdfg', NULL, 0, 0, 0, 0, 0, '', 'AC'),
+(3, 'gdsfg', '', 'gsdfg', '0000-00-00', '', 0, 0, 5, 5, 0, 0, 'gdsf', 'Pendiente'),
+(4, 'Redes neoronales', '', 'Umss', '2014-05-16', '', 0, 0, 1, 5, 2, 3, '', 'Aceptado'),
+(5, 'Juan Morales', '', 'umss', '2014-05-23', '', 0, 0, 1, 5, 3, 3, '', 'Aceptado'),
+(6, 'fgsdgsdfg', '', 'gsdfg', '2014-05-09', '', 0, 0, 1, 3, 2, 3, '', 'Aceptado'),
+(7, 'sdffd', 'Publicado', 'gsdfg', '2014-05-23', '', 1, 4, 1, 4, 3, 3, '', 'Aceptado');
 
 -- --------------------------------------------------------
 
