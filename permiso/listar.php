@@ -34,6 +34,7 @@ $listado=  mysql_query("select * from modulo");
 	}
 
          </script> 
+          <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
@@ -116,3 +117,4 @@ $listado=  mysql_query("select * from modulo");
                ?>   
                 <tbody>
             </table>
+          </div>

@@ -19,8 +19,10 @@
               <label for="nombre"><small>Titulo de Tema</small></label>
             </p>
             <p>
-              <input type="text" name="tipo_circulacion" id="tipo_circulacion" value="{$produccion->tipo_circulacion}"  placeholder="Tipo de Circulacion" size="100"  >
-              <label for="nombre"><small>Tipo de Circulacion</small></label>
+                <label for="nombre"><small>Tipo de Circulaci&oacute;n</small></label>
+                <select  class="select-style gender" name="tipo_circulacion" id="tipo_circulacion" >
+              {html_options values=$circulacion_values selected=$produccion->medio_difunsion_id output=$circulacion_output}
+              </select>
             </p>
             
              <p>
@@ -37,7 +39,18 @@
               <input type="text" name="fecha_conclucion" id="fecha_conclucion" value="{$produccion->fecha_conclucion}"  placeholder="Fecha de Conclusion" size="100"  >
               <label for="nombre"><small>Fecha de Conclusion</small></label>
             </p>
-      
+      <p>
+              <label for="rol"><small>&Aacute;rea</small></label>
+              <select  class="select-style gender" name="area_id" id="area_id" poblacioattri=''>
+              {html_options values=$area_values selected=$produccion->area_id output=$area_output}
+              </select>&nbsp;<span id='Buscando'></span>
+            </p>
+            <p>
+              <label for="rol"><small>Sub &Aacute;rea</small></label>
+               <select  class="select-style gender" name="subarea_id" id="subarea_id"   >
+                  
+             </select>
+            </p>
           
             <p>
               <label for="rol"><small>Ambito</small></label>
@@ -73,13 +86,33 @@
           });
         </script>
 
+<<script>
+jQuery('#area_id').change(function () {
+var numero =document.getElementById("area_id").value;
+var poblacio = jQuery(this).attr("poblacioattri");
+var to=document.getElementById("Buscando");
+to.innerHTML="buscando....";
+jQuery.ajax({
+type: "POST", 
+url: "buscar.php",
+data: 'idnumero='+numero,
+success: function(a) {
+jQuery('#subarea_id').html(a);
+var to=document.getElementById("Buscando");
+to.innerHTML="";
+}
+});
+})
+.change();
+</script> 
+   
 <script>
-    
   
   function enviar(){
     window.location.href="index.php";
   
   }
 </script>
+
 </div>
      

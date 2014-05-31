@@ -8,7 +8,9 @@ $listado=  mysql_query("select * from desemp_prof_externo");
     } );
 })
 
-         </script>               <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
+         </script>  
+         
+         <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->

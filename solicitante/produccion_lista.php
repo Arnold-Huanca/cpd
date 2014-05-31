@@ -33,23 +33,25 @@ $listado=  mysql_query("select * from produccion  where funcionario_id=$funciona
 		return false;
 	}
          </script>               
-         <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
+           <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+     
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
                           <th>V.B.</th>
+                           <th>Nro.</th>
                         <th>Tipo de Producci&oacute;n</th>
                         <th>Titutlo de Tema</th>
                         <th>Titulo de Circulacion</th><!--Estado-->
                          <th>Medio Difusion</th>
                         <th>Institucion de Entrega</th>
                         <th>Fecha de Conclucion</th>
+                        <th>&Aacute;rea</th>
                         <th>Subarea</th>
-                        <th>Ambito</th>
+                        <th>&Aacute;mbito</th>
                         <th>Estado</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
-                    </tr>
+                        <th>VER</th>
+                         </tr>
                 </thead>
                 <tfoot>
                     <tr>
@@ -60,30 +62,45 @@ $listado=  mysql_query("select * from produccion  where funcionario_id=$funciona
                     </tr>
                 </tfoot>
                   <tbody>
-                    <?php
-
-     
-                   while($reg=  mysql_fetch_array($listado))
-                     {
-                               echo '<tr id="fila-'.mb_convert_encoding($reg['id'], "UTF-8").'">';
-                               echo '<td >'.mb_convert_encoding($reg['vb'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['titulo_tema'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['tipo_circulacion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['institucion_entrega'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['fecha_conclucion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['vb'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['subarea_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['funcionario_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['ambito_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['medio_difunsion_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['tipo_produccion_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['descripcion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
-                               echo '<td  ><a href=registro.php?editar=editando&municipio_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a><img src="../images/edit.png" title="Editar" alt="Editar" /></td>';
-                               echo '<td><span class="dele"><a onClick="EliminarDato('.$reg['id'].'); return false" href="eliminar.php?municipio_id='.$reg['id'].'"><center><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></center></a></span></td>';
-						                   echo '</tr>';
-                              
-                     }
-                    ?>
+                           <?php
+                      leerClase('Ambito');
+                      leerClase('Subarea');
+                      leerClase('Area');
+                      leerClase('Tipo_produccion');
+                      leerClase('Medio_difusion');
+                      
+                      
+                      $contador=1;
+                    while( $resultado = mysql_fetch_array($listado) )
+                      {
+                             $tipo= new Tipo_produccion($resultado['tipo_produccion_id'] );
+                              $medio= new Medio_difusion($resultado['medio_difunsion_id']);
+                             $area= new Area($resultado['area_id']);
+                             $subarea= new Subarea($resultado['subarea_id']);
+                             $ambito= new Ambito($resultado['ambito_id']);
+                   
+                              ?>
+	
+		  <tr id="fila-<?php echo $resultado['id'] ?>">
+                      
+                   <td></td>
+                  <td><?php echo $contador ?></td>
+                  <td><?php echo $tipo->descripcion; ?></td>
+                  <td><?php echo $resultado['titulo_tema'] ?></td>
+		  <td><?php echo $resultado['tipo_circulacion'] ?></td>
+		  <td><?php echo $medio->sigla; ?></td>
+                  <td><?php echo $resultado['institucion_entrega'] ?></td>
+                   <td><?php echo $resultado['fecha_conclucion'] ?></td>
+                   <td><?php echo $area->nombre ?></td>
+                   <td><?php echo  $subarea->nombre_subarea ?></td>
+                  <td><?php echo $ambito->nombre_ambito ?></td>
+                  <td><?php echo $resultado['estado'] ?></td>
+                  <td><span class="modi"><a href="produccion_detalle.php?menus=mostrar&producion_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+		   
+                  </tr>
+	<?php
+	}
+  ?>   
                 <tbody>
             </table>
+        </div>

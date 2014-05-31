@@ -20,7 +20,7 @@ class Produccion extends Objectbase
    var $fecha_conclucion;
    
    var $vb;
-   
+   var $area_id;
    var $subarea_id;
    
    var $funcionario_id;

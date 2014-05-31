@@ -34,6 +34,7 @@ $listado=  mysql_query("select * from titularizacion where funcionario_id=$idfun
 
          </script>     
          <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
+       <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
@@ -86,3 +87,4 @@ $listado=  mysql_query("select * from titularizacion where funcionario_id=$idfun
                     ?>
                 <tbody>
             </table>
+       </div>

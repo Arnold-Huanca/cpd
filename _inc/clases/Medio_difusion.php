@@ -3,7 +3,7 @@
 /**
  * Esta clase es para guardar los datos tipo Usuario
  */
-class Medio_difunsion extends Objectbase 
+class Medio_difusion extends Objectbase 
 {
 
  /**

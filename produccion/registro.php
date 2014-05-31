@@ -78,10 +78,26 @@ $ERROR = '';
   }
   $smarty->assign("ambitos_values", $ambitos_values);
   $smarty->assign("ambitos_output", $ambitos_output);
+  
+  
+  
+  $circulacion_values[] = '';
+ $circulacion_output[] = '- Seleccione -';
+ 
+    $circulacion_values[] = "Publicado";
+   $circulacion_output[] = "Publicado";
+   $circulacion_values[] = "Difundido";
+   $circulacion_output[] = "Difundido";
+   $circulacion_values[] = "Ninguno";
+   $circulacion_output[] = "Ninguno";
+  
+  $smarty->assign("circulacion_values", $circulacion_values);
+  $smarty->assign("circulacion_output", $circulacion_output);
+  
  
         // combo box medio_difunsion
-  leerClase('Medio_difunsion');
-  $medio_difunsion    = new Medio_difunsion();
+  leerClase('Medio_difusion');
+  $medio_difunsion    = new Medio_difusion();
   $medio_difunsiones   = $medio_difunsion->getAll();  ///retorna todas las clases
   $medio_difunsiones_values[] = '';
   $medio_difunsiones_output[] = '- Seleccione -';
@@ -93,6 +109,20 @@ $ERROR = '';
   $smarty->assign("medio_difunsiones_values", $medio_difunsiones_values);
   $smarty->assign("medio_difunsiones_output", $medio_difunsiones_output);
   
+   // combo box subarea
+  leerClase('Area');
+  $area   = new Area();
+  $areas   = $area->getAll();  ///retorna todas las clases
+  $area_values[] = '';
+  $area_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($areas[0])) 
+  {
+    $area_values[] = $row['id'];
+    $area_output[] = $row['nombre'];
+  }
+  $smarty->assign("area_values", $area_values);
+  $smarty->assign("area_output", $area_output);
+
           // combo box tipo_produccion
   leerClase('Tipo_produccion');
   $tipo_produccion    = new Tipo_produccion();
