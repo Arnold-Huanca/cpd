@@ -48,12 +48,44 @@ $ERROR = '';
   }
   
   $patente    = new Patente($id);
+  
+  
+  
+  // combo box subarea
+  leerClase('Area');
+  $area   = new Area();
+  $areas   = $area->getAll();  ///retorna todas las clases
+  $area_values[] = '';
+  $area_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($areas[0])) 
+  {
+    $area_values[] = $row['id'];
+    $area_output[] = $row['nombre'];
+  }
+  $smarty->assign("area_values", $area_values);
+  $smarty->assign("area_output", $area_output);
+
+  
+//combo box pais
+  leerClase('Pais');
+  $pais    = new Pais();
+  $paises   = $pais->getAll();  ///retorna todas las clases
+  $paises_values[] = '';
+  $paises_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($paises[0])) 
+  {
+    $paises_values[] = $row['id'];
+    $paises_output[] = $row['nombre_pais'];
+  }
+  $smarty->assign("paises_values", $paises_values);
+  $smarty->assign("paises_output", $paises_output);  
  
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
     mysql_query("BEGIN");
     $patente->objBuidFromPost();
+    $patente->fecha= $_POST['fecha'];
     $patente->estado           = Objectbase::estado_pendiente;
     $patente->funcionario_id =getSessionUser()->getFuncionario()->id;
     $patente->save();

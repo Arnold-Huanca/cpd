@@ -1,15 +1,4 @@
-<?php 
 
-define ("MODULO", "Patente");
-  require('../_start.php');
-  if(!isUserSession())
-    header("Location: index.php"); 
-  
-  
-  	  $idfuncionario=  getSessionUser()->getFuncionario()->id;
-                
-$listado=  mysql_query("select * from patente where funcionario_id= $idfuncionario");
-?>
   <script type="text/javascript">
    $(document).ready(function(){
    $('#tabla_lista_paises').dataTable( { //CONVERTIMOS NUESTRO LISTADO DE LA FORMA DEL JQUERY.DATATABLES- PASAMOS EL ID DE LA TABLA
@@ -44,11 +33,12 @@ $listado=  mysql_query("select * from patente where funcionario_id= $idfuncionar
                     <tr>
                         <th>id</th><!--Estado-->
                         <th>Numero de Patente</th>
+                         <th>Pais</th>
                         <th>Titulo de Descripcion</th><!--Estado-->
                         <th>Fecha</th>
-                         <th>Pais</th>
-                        <th>Descripcion</th>
-                        <th>Estado</th>
+                        <th>&Aacute;rea</th>
+                        <th>Sub&aacute;rea</th>
+                         <th>Estado</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -57,30 +47,54 @@ $listado=  mysql_query("select * from patente where funcionario_id= $idfuncionar
                     <tr>
                         <th></th>
                         <th></th>
-                       
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                       <th></th>
+                        <th></th>
                      
                     </tr>
                 </tfoot>
                   <tbody>
-                    <?php
+               <?php
+                  require  '../_start.php';
+                  define ("MODULO", "Patente");
+                  if(!isUserSession())
+                  header("Location: index.php"); 
+                 $idfuncionario=  getSessionUser()->getFuncionario()->id;
+                   $listado=  mysql_query("select f.* from  patente f where f.funcionario_id= $idfuncionario");
 
-     
-                   while($reg=  mysql_fetch_array($listado))
-                     {
-                              echo '<tr id="fila-'.mb_convert_encoding($reg['id'], "UTF-8").'">';
-                               echo '<td >'.mb_convert_encoding($reg['id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['numero_patente'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['titulo_descripcion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['fecha'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['pais_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['descripcion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
-                               echo '<td  ><a href=registro.php?editar=editando&patente_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a>'.'</td>';
-                             echo '<td><span class="dele"><a onClick="EliminarDato('.$reg['id'].'); return false" href="eliminar.php?patente_id='.$reg['id'].'"><center><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></center></a></span></td>';
-						                    echo '</tr>';
-                              
-                     }
-                    ?>
+                  leerClase("Area");
+                  leerClase("Subarea");
+                  leerClase("Pais");
+                
+                    while( $resultado = mysql_fetch_array($listado)){
+                        
+                       
+                        $subarea= new Subarea($resultado['subarea_id']);
+                        $area= new Area($resultado['area_id']);
+                        $pasis = new Pais($resultado['pais_id']);
+                        
+                  	?>
+	
+		           <tr id="fila-<?php echo $resultado['id']; ?>">
+                           <td><?php   echo $resultado['id']; ?></td>
+                           <td><?php   echo $resultado['numero_patente']; ?></td>
+                           <td><?php   echo $pasis->nombre_pais; ?></td>
+                           <td><?php   echo $resultado['titulo_descripcion']; ?></td>
+                            <td><?php  echo $resultado['fecha'] ?></td>
+                           <td><?php   echo $area->nombre; ?></td>
+                           <td><?php   echo $subarea->nombre_subarea; ?></td>
+		         <td><?php echo $resultado['estado'] ?></td>
+                          <td><span class="modi"><a href="registro.php?patente_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
+		  </tr>
+	<?php
+	}
+  ?>   
                 <tbody>
             </table>
        </div>

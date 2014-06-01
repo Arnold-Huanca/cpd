@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-05-2014 a las 18:22:22
+-- Tiempo de generación: 01-06-2014 a las 03:19:31
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -290,14 +290,15 @@ CREATE TABLE IF NOT EXISTS `distincion` (
   `fecha_visado` date DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `distincion`
 --
 
 INSERT INTO `distincion` (`id`, `funcionario_id`, `pais_id`, `universidad_id`, `tipo_distincion_id`, `nombre_distincion`, `otra_institucion`, `fecha`, `universitaria`, `ambitodistincion`, `vb`, `observacion`, `fecha_visado`, `estado`) VALUES
-(3, 1, 1, 1, 1, 'asfdas', 'fasd', '0000-00-00', '', '', '', '																											\r\n	    afhasdkjlfhhh\r\n	    \r\n	    \r\n	    \r\n	    \r\n	    \r\n	    \r\n	    \r\n	    ', '0000-00-00', 'Observado');
+(3, 1, 1, 1, 1, 'asfdas', 'fasd', '0000-00-00', '', '', '', '																											\r\n	    afhasdkjlfhhh\r\n	    \r\n	    \r\n	    \r\n	    \r\n	    \r\n	    \r\n	    \r\n	    ', '0000-00-00', 'Observado'),
+(4, 1, 2, 1, 1, '', '', '0000-00-00', '', '', '', '', '0000-00-00', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -954,19 +955,23 @@ CREATE TABLE IF NOT EXISTS `patente` (
   `fecha` date DEFAULT NULL,
   `vb` int(11) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
   `descripcion` varchar(250) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `patente`
 --
 
-INSERT INTO `patente` (`id`, `numero_patente`, `titulo_descripcion`, `fecha`, `vb`, `funcionario_id`, `subarea_id`, `pais_id`, `descripcion`, `estado`) VALUES
-(3, 'sgsd', 'hsdfh', '0000-00-00', 0, 3, 0, 0, '', 'AC');
+INSERT INTO `patente` (`id`, `numero_patente`, `titulo_descripcion`, `fecha`, `vb`, `funcionario_id`, `area_id`, `subarea_id`, `pais_id`, `descripcion`, `estado`) VALUES
+(3, 'sgsd', 'hsdfh', '0000-00-00', 0, 3, NULL, 0, 0, '', 'AC'),
+(4, 'fgjd', 'fghf', '0000-00-00', 0, 1, 0, 3, 2, '', 'Pendiente'),
+(5, 'dfdfsgsdfg', 'dfgsd', '0000-00-00', 0, 1, 0, 3, 2, '', 'Pendiente'),
+(7, 'fdasf', 'afasdfasf', '0000-00-00', 0, 1, 1, 5, 1, '', 'Pendiente');
 
 -- --------------------------------------------------------
 

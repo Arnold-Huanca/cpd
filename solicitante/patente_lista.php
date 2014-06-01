@@ -34,21 +34,20 @@ $listado=  mysql_query("select * from patente where funcionario_id= $funcionario
 		return false;
 	}
          </script>    
-            <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
-		
-      
-         <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
+             <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>id</th><!--Estado-->
-                        <th>Numero de Patente</th>
-                        <th>Titulo de Descripcion</th><!--Estado-->
+                        <th>Estado</th><!--Estado-->
+                        <th>Nro.</th><!--Estado-->
+                        <th>Pa&iacute;s</th>
+                        <th>N&uacute;mero de Patente</th>
+                        <th>Titulo de Descripci&oacute;n</th><!--Estado-->
                         <th>Fecha</th>
-                         <th>Pais</th>
-                        <th>Descripcion</th>
-                        <th>Estado</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>&Aacute;rea</th>
+                        <th>Sub&aacute;rea</th>
+                         <th>Estado</th>
+                         <th>Ver</th>
+                      
                     </tr>
                 </thead>
                 <tfoot>
@@ -63,21 +62,34 @@ $listado=  mysql_query("select * from patente where funcionario_id= $funcionario
                     <?php
 
      
-                   while($reg=  mysql_fetch_array($listado))
-                     {
-                              echo '<tr id="fila-'.mb_convert_encoding($reg['id'], "UTF-8").'">';
-                               echo '<td >'.mb_convert_encoding($reg['id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['numero_patente'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['titulo_descripcion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['fecha'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['pais_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['descripcion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
-                               echo '<td  ><a href=registro.php?editar=editando&patente_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a>'.'</td>';
-                             echo '<td><span class="dele"><a onClick="EliminarDato('.$reg['id'].'); return false" href="eliminar.php?patente_id='.$reg['id'].'"><center><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></center></a></span></td>';
-						                    echo '</tr>';
-                              
-                     }
-                    ?>
+                  leerClase("Area");
+                  leerClase("Subarea");
+                  leerClase("Pais");
+                
+                    while( $resultado = mysql_fetch_array($listado)){
+                        
+                       
+                        $subarea= new Subarea($resultado['subarea_id']);
+                        $area= new Area($resultado['area_id']);
+                        $pasis = new Pais($resultado['pais_id']);
+                        
+                  	?>
+	
+		           <tr id="fila-<?php echo $resultado['id']; ?>">
+                           <td></td>
+                           <td><?php   echo $resultado['id']; ?></td>
+                           <td><?php   echo $resultado['numero_patente']; ?></td>
+                           <td><?php   echo $pasis->nombre_pais; ?></td>
+                           <td><?php   echo $resultado['titulo_descripcion']; ?></td>
+                            <td><?php  echo $resultado['fecha'] ?></td>
+                           <td><?php   echo $area->nombre; ?></td>
+                           <td><?php   echo $subarea->nombre_subarea; ?></td>
+		           <td><?php echo $resultado['estado'] ?></td>
+                           <td><span class="modi"><a href="registro.php?patente_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+			   <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
+		  </tr>
+	<?php
+	}
+  ?>   
                 <tbody>
             </table>

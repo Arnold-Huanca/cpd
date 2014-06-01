@@ -10,21 +10,14 @@ class Patente extends Objectbase
   * Nombre del usuario
   * @var VARCHAR(100)
   */
-    
    var $numero_patente;
-   
    var $titulo_descripcion;
-   
    var $fecha;
-   
    var $vb;
-   
    var $funcionario_id;
-   
+   var $area_id;
    var $subarea_id;
-   
    var $pais_id;
-   
    var $descripcion;
    
   

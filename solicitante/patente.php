@@ -80,6 +80,6 @@ $_SESSION['register'] = $token;
 $smarty->assign('token', $token);
 
 
-$TEMPLATE_TOSHOW = 'solicitante/evento.tpl';
+$TEMPLATE_TOSHOW = 'solicitante/patente.tpl';
 $smarty->display($TEMPLATE_TOSHOW);
 ?>
