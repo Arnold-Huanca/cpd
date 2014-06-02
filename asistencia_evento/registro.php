@@ -78,7 +78,21 @@ $ERROR = '';
   $smarty->assign("tipo_certificados_values", $tipo_certificados_values);
   $smarty->assign("tipo_certificados_output", $tipo_certificados_output);
   
+// combo box subarea
+  leerClase('Area');
+  $area   = new Area();
+  $areas   = $area->getAll();  ///retorna todas las clases
+  $area_values[] = '';
+  $area_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($areas[0])) 
+  {
+    $area_values[] = $row['id'];
+    $area_output[] = $row['nombre'];
+  }
+  $smarty->assign("area_values", $area_values);
+  $smarty->assign("area_output", $area_output);
 
+  
   
   // combo box subarea
   leerClase('Subarea');

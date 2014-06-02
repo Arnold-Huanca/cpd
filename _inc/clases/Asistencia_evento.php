@@ -27,7 +27,7 @@ class Asistencia_evento extends Objectbase
   var $tipo_certificado_id;
   
   var $funcionario_id;
-  
+  var $area_id;
   var $subarea_id;
   
   var $unidad_tiempo_id;

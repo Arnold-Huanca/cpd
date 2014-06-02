@@ -41,34 +41,40 @@
               {html_options values=$tipo_certificados_values selected=$asistencia_evento->tipo_certificado_id output=$tipo_certificados_output}
               </select>
             </p>
-              
-                    <p>
-              <label for="rol"><small>Unidad Tiempo</small></label>
-              <select  class="select-style gender" name="unidad_tiempo_id" id="unidad_tiempo_id" >
-              {html_options values=$unidad_tiempos_values selected=$asistencia_evento->unidad_tiempo_id_unidad_tiempo output=$unidad_tiempos_output}
+             <p>
+              <label for="rol"><small>&Aacute;rea</small></label>
+              <select  class="select-style gender" name="area_id" id="area_id" poblacioattri=''>
+              {html_options values=$area_values selected=$evento->area_id output=$area_output}
+              </select>&nbsp;<span id='Buscando'></span>
+            </p>
+            <p>
+              <label for="rol"><small>Sub &Aacute;rea</small></label>
+               <select  class="select-style gender" name="subarea_id" id="subarea_id"   >
+                  
+             </select>
+            </p>
+               <p>
+              <label for="rol"><small>Ambito</small></label>
+              <select  class="select-style gender" name="ambito_id" id="ambito_id" >
+              {html_options values=$ambitos_values selected=$asistencia_evento->ambito_id output=$ambitos_output}
               </select>
             </p>
-            
-            <p>
+             <p>
               <label for="rol"><small>Pais</small></label>
               <select  class="select-style gender" name="pais_id" id="pais_id" >
               {html_options values=$paises_values selected=$asistencia_evento->pais_id output=$paises_output}
               </select>
             </p>
             
-            <p>
-              <label for="rol"><small>Ambito</small></label>
-              <select  class="select-style gender" name="ambito_id" id="ambito_id" >
-              {html_options values=$ambitos_values selected=$asistencia_evento->ambito_id output=$ambitos_output}
+           
+             <p>
+              <label for="rol"><small>Unidad Tiempo</small></label>
+              <select  class="select-style gender" name="unidad_tiempo_id" id="unidad_tiempo_id" >
+              {html_options values=$unidad_tiempos_values selected=$asistencia_evento->unidad_tiempo_id_unidad_tiempo output=$unidad_tiempos_output}
               </select>
             </p>
             
-            <p>
-              <input type="text" name="descripcion" id="descripcion" value="{$asistencia_evento->descripcion}"  placeholder="Descripcion" size="100"  >
-              <label for="nombre"><small>Descripcion</small></label>
-            </p>
-          
-          
+                    
             <p>
               <input type="hidden" name="asistencia_evento_id"    value="{$asistencia_evento->id}">
                 <input type="hidden" name="tarea" value="registrar">
@@ -135,4 +141,30 @@ $(document).ready(function() {
           });
         </script>
 </div>
-     
+    <script>
+jQuery('#area_id').change(function () {
+var numero =document.getElementById("area_id").value;
+var poblacio = jQuery(this).attr("poblacioattri");
+var to=document.getElementById("Buscando");
+to.innerHTML="buscando....";
+jQuery.ajax({
+type: "POST", 
+url: "buscar.php",
+data: 'idnumero='+numero,
+success: function(a) {
+jQuery('#subarea_id').html(a);
+var to=document.getElementById("Buscando");
+to.innerHTML="";
+}
+});
+})
+.change();
+</script> 
+   
+<script>
+  
+  function enviar(){
+    window.location.href="index.php";
+  
+  }
+</script> 

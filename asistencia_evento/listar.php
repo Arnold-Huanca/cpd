@@ -8,7 +8,7 @@
 
 
 	function EliminarDato(id)
-  {
+        {
 		var msg = confirm("Desea eliminar este dato?")
 		if ( msg )
                {
@@ -33,12 +33,18 @@
                 <thead>
                     <tr>
                          <th>id</th><!--Estado-->
-                         <th>Nombre</th>
-                         <th>Necha Inicio</th>
+                         <th>Tipo de Evento</th>
+                         <th>Nombre de Evento</th>
+                         <th>Fecha Inicio</th>
                          <th>Duraci&oacute;n</th>
-                         <th>Entidad Organizadora</th>
-                         <th>Descripci&oacute;n</th><!--Estado-->
-                         <th>Detalle</th>
+                         <th>Tipo Certificado</th>
+                         <th>&Aacute;rea</th>
+                         <th>Sub&aacute;rea</th>
+                         <th>&Aacute;mbito</th>
+                         <th>Organizador del Evento</th>
+                         <th>Programa de Formaci&oacute;n</th>
+                         <th> Pa&iacute;s</th><!--Estado-->
+                        
                          <th>Editar</th>
                          <th>Eliminar</th>
                     </tr>
@@ -53,9 +59,13 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        
-                       
-                     
+                         <th></th>
+                        <th></th>
+                         <th></th>
+                        <th></th>
+                         <th></th>
+                        <th></th>
+                             
                     </tr>
                 </tfoot>
                   <tbody>
@@ -69,20 +79,41 @@
                   leerClase("Usuario");
                   $idfuncionario=  getSessionUser()->getFuncionario()->id;
                    $listado=  mysql_query("select * from asistencia_evento where funcionario_id=$idfuncionario");
-
+                   leerClase("Tipo_evento");
+                  leerClase("Area");
+                  leerClase("Subarea");
+                  leerClase("Ambito");
+                  leerClase("Tipo_participacion");
+                  leerClase("Pais");
+          
                     while( $resultado = mysql_fetch_array($listado) ){
                         
+                        $tipo_evento= new Tipo_evento($resultado['tipo_evento_id']);
+                        $area= new Area($resultado['area_id']);
+                         $subarea= new Subarea($resultado['subarea_id']);
+                         $ambito= new Ambito($resultado['ambito_id']);
+                         $pais= new Pais($resultado['pais_id']);
+                        
+                    
+                                
                   	?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
-                           <td><?php echo $resultado['id'] ?></td>
+                         <td><?php echo $resultado['id'] ?></td>
+                          <td><?php echo  $tipo_evento->descripcion ?></td>
 			  <td><?php echo $resultado['nombre_evento'] ?></td>
                           <td><?php echo $resultado['fecha_inicio'] ?></td>
                           <td><?php echo $resultado['duracion'] ?></td>
+                          <td><?php echo $resultado['tipo_certificado_id'] ?></td>
+                           <td><?php echo $area->nombre ?></td>
+                           <td><?php echo $subarea->nombre_subarea ?></td>
+                           <td><?php echo $ambito->nombre_ambito?></td>
+                            
+                         
 			  <td><?php echo $resultado['entidad_organizadora'] ?></td>
-                          <td><?php echo $resultado['descripcion'] ?></td>
+                         <td><?php echo $resultado['del_programa_formacion_doc'] ?></td>
+                         <td><?php echo  $pais->nombre_pais ?></td>
                            <td><span class="modi"><a href="registro.php?asistencia_evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
-			   <td><span class="modi"><a href="registro.php?asistencia_evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
 		  </tr>
 	<?php
