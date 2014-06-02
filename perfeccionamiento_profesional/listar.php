@@ -1,11 +1,4 @@
-<?php 
 
-define ("MODULO", "Perfeccionamiento Profesional");
-  require('../_start.php');
-  if(!isUserSession())
-    header("Location: index.php"); 
-$listado=  mysql_query("select * from perfeccionamiento_profecional");
-?>
   <script type="text/javascript">
    $(document).ready(function(){
    $('#tabla_lista_paises').dataTable( { //CONVERTIMOS NUESTRO LISTADO DE LA FORMA DEL JQUERY.DATATABLES- PASAMOS EL ID DE LA TABLA
@@ -39,24 +32,23 @@ $listado=  mysql_query("select * from perfeccionamiento_profecional");
                     <tr>
                         <th>id</th><!--Estado-->
                         <th>Tipo de Perfeccionamiento</th>
-                        <th>Funcionario</th><!--Estado-->
-                        <th>Unidad de Tiempo</th>
-                        <th>Pais</th>
-                        <th>Universidad</th>
-                        <th>Subarea</th>
                         <th>Fecha Certificado</th>
-                        <th>Certificado</th>
-                        <th>Titulo</th>
+                         <th>Certificado</th>
+                          
+                         <th>T&iacute;tulo</th>
                         <th>Diploma</th>
-                        <th>Titulo Trabajo Final</th>
-                        <th>Mencion</th>
-                        <th>Duracion del Curso</th>
+                        <th>T&iacute;tulo Trabajo Final</th>
+                        <th>Menci&oacute;n</th>
+                        <th>Duraci&oacute;n del Curso</th>
                         <th>Hrs. Presenciales</th>
                         <th>Hrs. No Presenciales</th>
-                        <th>Creditos</th>
-                        <th>Otra Institucion</th>
-                        <th>VB</th>
-                         <th>Estado</th>
+                        <th>Cr&eacute;ditos</th>
+                        
+                        <th>&Aacute;</th>
+                        <th>Sub&aacute;rea</th>
+                        <th>Institucion donde obtuvo el grado</th>
+                        <th>Pa&iacute;s</th>
+                        <th>Estado</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -65,42 +57,76 @@ $listado=  mysql_query("select * from perfeccionamiento_profecional");
                     <tr>
                         <th></th>
                         <th></th>
-                       
+                         <th></th>
+                        <th></th>
+                          <th></th>
+                        <th></th>
+                          <th></th>
+                        <th></th>
+                          <th></th>
+                        <th></th>
+                          <th></th>
+                        <th></th>
+                          <th></th>
+                        <th></th>
+                          <th></th>
+                        <th></th>
+                          <th></th>
+                        <th></th>
+                          <th></th>
+                        
                      
                     </tr>
                 </tfoot>
                   <tbody>
+                   
                     <?php
+                  require  '../_start.php';
+                  define ("MODULO", "Perfeccionamiento Profesional");
+                  if(!isUserSession())
+                  header("Location: index.php"); 
+                  $idfuncionario=  getSessionUser()->getFuncionario()->id;
+   
+                 
+                  leerClase("Area");
+                  leerClase("Subarea");
+                  leerClase("Tipo_perfeccionamiento");
+                  leerClase("Pais");
+                  $listado=  mysql_query("select f.* from perfeccionamiento_profecional f where f.funcionario_id= $idfuncionario");
 
-     
-                   while($reg=  mysql_fetch_array($listado))
-                     {
-                               echo '<tr id="fila-'.mb_convert_encoding($reg['id'], "UTF-8").'">';
-                               echo '<td >'.mb_convert_encoding($reg['id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['tipo_perfeccionamiento_id'], "UTF-8").'</td>';
-                                echo '<td >'.mb_convert_encoding($reg['unidad_tiempo_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['pais_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['universidad_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['subarea_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['fecha_certificado'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['certificado'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['titulo'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['diplona'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['titulo_trabajo_final'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['mencion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['duracion_curso'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['hrs_presenciales'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['hrs_no_presenciales'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['creditos'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['otra_institucion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['vb'], "UTF-8").'</td>';
-                                echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
-                               echo '<td  ><a href=registro.php?editar=editando&perfeccionamiento_profecional_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a><img src="../images/edit.png" title="Editar" alt="Editar" /></td>';
-                               echo '<td><span class="dele"><a onClick="EliminarDato('.$reg['id'].'); return false" href="eliminar.php?perfeccionamiento_profecional_id='.$reg['id'].'"><center><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></center></a></span></td>';
-						                   echo '</tr>';
-                              
-                     }
-                    ?>
+                    while( $resultado = mysql_fetch_array($listado)){
+                        
+                        $subarea= new Subarea($resultado['subarea_id']);
+                        $area= new Area($subarea->area_id);
+                         $tipoparticipacion= new Tipo_perfeccionamiento($resultado['tipo_perfeccionamiento_id']);
+                        $pasis = new Pais($resultado['pais_id']);
+                        
+                  	?>
+	
+		           <tr id="fila-<?php echo $resultado['id']; ?>">
+                                   <td><?php echo  $resultado['id']; ?></td>
+                           <td><?php echo  $tipoparticipacion->sigla; ?></td>
+                           <td><?php echo $resultado['fecha_certificado']; ?></td>
+                           <td><?php echo $resultado['certificado']; ?></td>
+                           <td><?php echo $resultado['titulo']; ?></td>
+                           <td><?php echo $resultado['diplona']; ?></td>
+                           <td><?php echo $resultado['titulo_trabajo_final']; ?></td>
+                             <td><?php echo $resultado['mencion']; ?></td>
+                              <td><?php echo $resultado['duracion_curso'] ?></td>
+                               <td><?php echo $resultado['hrs_presenciales'] ?></td>
+                                <td><?php echo $resultado['hrs_no_presenciales'] ?></td>
+                                 <td><?php echo $resultado['creditos'] ?></td>
+                                 <td><?php echo $area->nombre; ?></td>
+                           <td><?php echo $subarea->nombre_subarea; ?></td>
+                            <td><?php echo $resultado['otra_institucion'] ?></td>
+                           <td><?php echo $pasis-> nombre_pais?></td>
+		         <td><?php echo $resultado['estado'] ?></td>
+                          <td><span class="modi"><a href="registro.php?evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
+		  </tr>
+	<?php
+	}
+  ?>   
                 <tbody>
             </table>
         </div>

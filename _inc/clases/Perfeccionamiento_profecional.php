@@ -21,7 +21,7 @@ class Perfeccionamiento_profecional extends Objectbase
    var $pais_id;
    
    var $universidad_id;
-   
+   var $area_id;
    var $subarea_id;
    
    var $fecha_certificado;

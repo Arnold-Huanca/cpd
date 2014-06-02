@@ -92,7 +92,19 @@ $ERROR = '';
   }
   $smarty->assign("unidad_tiempos_values", $unidad_tiempos_values);
   $smarty->assign("unidad_tiempos_output", $unidad_tiempos_output);
-  
+  leerClase('Area');
+  $area   = new Area();
+  $areas   = $area->getAll();  ///retorna todas las clases
+  $area_values[] = '';
+  $area_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($areas[0])) 
+  {
+    $area_values[] = $row['id'];
+    $area_output[] = $row['nombre'];
+  }
+  $smarty->assign("area_values", $area_values);
+  $smarty->assign("area_output", $area_output);
+
   // combo box pais
   leerClase('Pais');
   $pais   = new Pais();
@@ -140,7 +152,8 @@ $ERROR = '';
     {
     mysql_query("BEGIN");
     $perfeccionamiento_profecional->objBuidFromPost();
-    $perfeccionamiento_profecional->estado           = Objectbase::STATUS_AC;
+    $perfeccionamiento_profecional->estado           = Objectbase::estado_pendiente;
+    $perfeccionamiento_profecional->funcionario_id=  getSessionUser()->getFuncionario()->id;
     $perfeccionamiento_profecional->save();
     mysql_query("COMMIT");
     
