@@ -27,8 +27,60 @@ try {
 
   //JS
   //
+  leerClase("Idioma");
+  leerClase("Dominio_idioma");
   
-   
+  if (isset($_GET['dominio'])    && isset($_GET['idioma_id']))
+  {
+       $dominio= new Dominio_idioma($_GET['dominio']);
+      if(isset($_GET['dominio']) && $_GET['dominio']==0)
+      {
+        
+          $dominio->id_idioma=$_GET['idioma_id'];
+           $dominio->funcionario_id=  getSessionUser()->getFuncionario()->id;
+                 
+          if(isset($_GET['habla']))
+          {
+              $dominio->habla=$_GET['habla'];
+          }
+          if(isset($_GET['lee']))
+          {
+           $dominio->lee=   $_GET['lee'];
+          }
+          if(isset($_GET['escribe']))
+          {
+              $dominio->escribe=$_GET['escribe'];
+          }
+          
+          $dominio->save();
+          
+          
+      }  else {
+          
+         
+          $dominio->id_idioma=$_GET['idioma_id'];
+           $dominio->funcionario_id=  getSessionUser()->getFuncionario()->id;
+           if(isset($_GET['habla']))
+          {
+              $dominio->habla=$_GET['habla'];
+          }
+          if(isset($_GET['lee']))
+          {
+           $dominio->lee=   $_GET['lee'];
+          }
+          if(isset($_GET['escribe']))
+          {
+              $dominio->escribe=$_GET['escribe'];
+          }
+          
+           $dominio->save();
+      }
+      $ir = "Location: index.php";
+     header($ir);
+      exit();
+      
+  }
+  
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/jquery.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
@@ -44,5 +96,11 @@ catch(Exception $e)
 {
   $smarty->assign("ERROR", handleError($e));
 }
+
+
+$token = sha1(URL . time());
+$_SESSION['register'] = $token;
+$smarty->assign('token', $token);
+
   $smarty->display('dominio_idioma/gestion.tpl');
 ?>

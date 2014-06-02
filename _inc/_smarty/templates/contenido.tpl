@@ -1,18 +1,39 @@
      <div class="art-layout-cell art-content clearfix">
-        <p>{$ERROR}</p>
-       
+ 
      <article class="art-post art-article">
-                                
+         <div id="slider" >
+             <div class="container"  style="width:99% ">
+            <div class="row">
+                <div class="span12"  style="width:95% ">
+                    <div class="callbacks_container">
+                        <ul class="rslides pic_slider">
+                            <li>
+                                <img src="img/slider/pic.jpg" alt="">
+                                <div class="slider-info">
+                                    <h1>Huge library of courses
+                                        <br>
+                                        to extend your skills.<br>
+                                        Anytime. Anywhere.</h1>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="img/slider/picc.jpg" alt="">
+                                <div class="slider-info">
+                                    <h1>Huge library of courses
+                                        <br>
+                                        to extend your skills.<br>
+                                        Anytime. Anywhere.</h1>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
                                                 
-                <div class="art-postcontent art-postcontent-0 clearfix"><div class="art-content-layout">
-    <div class="art-content-layout-row">
-    <div class="art-layout-cell layout-item-0" style="width: 40%" >
-        <p><img alt="" width="217" height="145" src="images/shutterstock_46799410.jpg" style="float: left;"></p>
-    </div><div class="art-layout-cell layout-item-0" style="width: 60%" >
-        <p><span style="font-weight: bold;">Sem class libero ultrices leo vitae etiam praesent cras a ante maecenas pellentesque a.  Quam hendrerit orci eget nisi vel ac lacus habitant nisl volutpat metus vivamus.</span></p><p> at ante vel phasellus nulla id fusce ac ut interdum.  Nulla fermentum quisque dui a morbi luctus interdum id aliquam eu amet aliquam lacinia quis elementum aliquam.  Tellus vehicula rutrum ipsum lacus morbi vestibulum quis nec arcu. Augue imperdiet mi erat dui.</p>
-    </div>
-    </div>
-</div>
+                <div class="art-postcontent art-postcontent-0 clearfix">
+
 <div class="art-content-layout">
     <div class="art-content-layout-row">
     <div class="art-layout-cell layout-item-0" style="width: 40%" >

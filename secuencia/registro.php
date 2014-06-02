@@ -40,6 +40,7 @@ try {
 $ERROR = ''; 
 
   leerClase('Secuencia');
+  leerClase("Modulo");
   $id     = '';
   $editar = FALSE;
   $ver='';
@@ -48,6 +49,8 @@ $ERROR = '';
     $editar = TRUE;
     $id     = $_GET['secuencia_id'];
   }
+  
+  
   
   $secuencia    = new Secuencia($id);
  
@@ -64,6 +67,13 @@ where  m.id  not in (select c.modulo_id from secuencia c );";
     $modulo_values[] = $row['id'];
     $modulo_output[] = $row['codigo'];
   }
+  if($editar)
+  {
+      $module= new Modulo($secuencia->modulo_id);
+      $modulo_values[] = $module->id;
+    $modulo_output[] = $module->codigo;
+  }
+  
   $smarty->assign("modulo_values", $modulo_values);
   $smarty->assign("modulo_output", $modulo_output);
   
