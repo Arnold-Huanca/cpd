@@ -92,6 +92,7 @@ $ERROR = '';
   }
   $smarty->assign("unidad_tiempos_values", $unidad_tiempos_values);
   $smarty->assign("unidad_tiempos_output", $unidad_tiempos_output);
+  
   leerClase('Area');
   $area   = new Area();
   $areas   = $area->getAll();  ///retorna todas las clases

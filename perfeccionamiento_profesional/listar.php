@@ -104,23 +104,23 @@
                   	?>
 	
 		           <tr id="fila-<?php echo $resultado['id']; ?>">
-                                   <td><?php echo  $resultado['id']; ?></td>
+                           <td><?php echo  $resultado['id']; ?></td>
                            <td><?php echo  $tipoparticipacion->sigla; ?></td>
                            <td><?php echo $resultado['fecha_certificado']; ?></td>
                            <td><?php echo $resultado['certificado']; ?></td>
                            <td><?php echo $resultado['titulo']; ?></td>
                            <td><?php echo $resultado['diplona']; ?></td>
                            <td><?php echo $resultado['titulo_trabajo_final']; ?></td>
-                             <td><?php echo $resultado['mencion']; ?></td>
-                              <td><?php echo $resultado['duracion_curso'] ?></td>
-                               <td><?php echo $resultado['hrs_presenciales'] ?></td>
-                                <td><?php echo $resultado['hrs_no_presenciales'] ?></td>
-                                 <td><?php echo $resultado['creditos'] ?></td>
-                                 <td><?php echo $area->nombre; ?></td>
-                           <td><?php echo $subarea->nombre_subarea; ?></td>
-                            <td><?php echo $resultado['otra_institucion'] ?></td>
-                           <td><?php echo $pasis-> nombre_pais?></td>
-		         <td><?php echo $resultado['estado'] ?></td>
+                           <td><?php echo $resultado['mencion']; ?></td>
+                           <td><?php echo $resultado['duracion_curso'] ?></td>
+                           <td><?php echo $resultado['hrs_presenciales'] ?></td>
+                          <td><?php echo $resultado['hrs_no_presenciales'] ?></td>
+                          <td><?php echo $resultado['creditos'] ?></td>
+                          <td><?php echo $area->nombre; ?></td>
+                          <td><?php echo $subarea->nombre_subarea; ?></td>
+                          <td><?php echo $resultado['otra_institucion'] ?></td>
+                          <td><?php echo $pasis-> nombre_pais?></td>
+		          <td><?php echo $resultado['estado'] ?></td>
                           <td><span class="modi"><a href="registro.php?evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 		  </tr>

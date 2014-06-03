@@ -27,8 +27,7 @@
 	}
 
          </script> 
-          <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
-	  <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+   	  <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
      
              <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
@@ -115,7 +114,7 @@
 			  <td><?php echo $resultado['organizado_por_instacia_univ'] ?></td>
 			  <td><?php echo $pasis-> nombre_pais?></td>
 		         <td><?php echo $resultado['estado'] ?></td>
-                          <td><span class="modi"><a href="registro.php?evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+                          <td><span class="modi"><a href="?evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 		  </tr>
 	<?php
@@ -123,5 +122,8 @@
   ?>   
                 <tbody>
             </table>
+             
+              
+              
          </div>
 	
