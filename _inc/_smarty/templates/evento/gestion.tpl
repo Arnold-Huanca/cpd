@@ -124,10 +124,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-                <button class="submit" type="button" onclick="enviar()">Cancelar</button>  
-         
-
-        
+             
           </form>
                </div>
                
@@ -161,14 +158,7 @@ to.innerHTML="";
 })
 .change();
 </script> 
-   
-<script>
   
-  function enviar(){
-    window.location.href="index.php";
-  
-  }
-</script>
       </div>
 
 

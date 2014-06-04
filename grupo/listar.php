@@ -8,7 +8,7 @@
 
 
 	function EliminarDato(id)
-  {
+   {
 		var msg = confirm("Desea eliminar este dato?")
 		if ( msg )
     {
