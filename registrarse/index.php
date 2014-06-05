@@ -48,6 +48,7 @@ $ERROR = '';
   
   $usuario    = new Usuario($id);
  //echo $usuario->nombre;
+  $errorci="";
   $errorlogin="";
   $erroremail="";
   $mensaje="";
@@ -58,6 +59,8 @@ $ERROR = '';
     $validado= new  Usuario();
     
      $usuario->objBuidFromPost();
+    
+    if($validado->getCi($_POST["ci"])){
      if($validado->getByEmil($_POST["email"]) )
     
      {
@@ -79,7 +82,10 @@ $ERROR = '';
             $funicionarios->usuario_id=$usuario->id;
             $funicionarios->nombre=$usuario->nombre;
             $funicionarios->apellido_p=$usuario->apellido_p;
-            $formacion_postgrado->email= $usuario->email;
+            $funicionarios->apellido_m=$usuario->apellido_m;
+            $funicionarios->ci=$usuario->ci;
+            $funicionarios->email1=$usuario->email;
+         //   $formacion_postgrado->email= $usuario->email;
             $funicionarios->estado=  Objectbase::STATUS_AC;
             $funicionarios->save();
             
@@ -109,9 +115,11 @@ $ERROR = '';
             
             
             $vandera=true;
-         }else
+         }
+       
+         else
          {
-              $errorlogin="El Nombre de Usuario  No esta Disponible?";
+              $errorlogin="El Nombre de Usuario " .$_POST["login"]." no esta Disponible";
            
              
          }
@@ -119,8 +127,13 @@ $ERROR = '';
     
      }else
      {
-           $erroremail="El email no esta Disponible";
+           $erroremail="El email " .$_POST["email"]." no esta Disponible";
          
+     }
+     }
+     
+     else{
+         $errorci="Ya existe un usuario con el c.i."." ".$_POST["ci"];
      }
     
     mysql_query("COMMIT");
@@ -135,7 +148,7 @@ echo "<script>alert('Su Registro  fue Satisfactorio Inicie Sesion');</script>";
     }
    
     }
-
+  $smarty->assign("ci", $errorci);
   $smarty->assign("usuario", $usuario);
   $smarty->assign("email", $erroremail);
   $smarty->assign("login", $errorlogin);

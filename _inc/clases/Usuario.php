@@ -23,6 +23,11 @@ class Usuario  extends Objectbase
   * @var VARCHAR(100)
   */
   var $apellido_m;
+   /**
+  * Apellidos materno
+  * @var VARCHAR(100)
+  */
+  var $ci;
   
   /**
   * ci
@@ -93,6 +98,23 @@ class Usuario  extends Objectbase
   
   public function getByEmil ($email) {
     $sql       = "select * from ".$this->getTableName()." where email = '$email'";
+    $result = mysql_query($sql);
+    if ($result === false)
+    {
+        return false;
+    }
+   
+      if (mysql_num_rows($result))
+         return  false;
+    
+
+    $usuario = mysql_fetch_array($result,MYSQL_BOTH);
+    self::__construct($usuario['id']);
+    return true;
+  }
+  
+  public function getCi ($ci) {
+    $sql       = "select * from ".$this->getTableName()." where ci = '$ci'";
     $result = mysql_query($sql);
     if ($result === false)
     {

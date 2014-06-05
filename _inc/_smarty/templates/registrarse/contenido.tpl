@@ -2,6 +2,7 @@
      <article class="art-post art-article">
                                 
           <h2>
+               <p>{$ci}</p>
            <p>{$email}</p>
             <p>{$login}</p>
           </h2>                                        
@@ -23,6 +24,10 @@
             <p>
               <input type="text" name="apellido_m" id="apellido_m" value="{$usuario->apellido_m}"  placeholder="Apellido Materno" size="200">
               <label for="apellido_materno"><small>Apellido Materno</small></label>
+            </p>
+            <p>
+              <input type="text" name="ci" id="ci" value="{$usuario->ci}"  placeholder="Numero de c.i" size="200">
+              <label for="ci"><small>C.I.</small></label>
             </p>
             
               <p>
@@ -65,6 +70,7 @@ $(document).ready(function() {
 			nombre: "required",
 			apellido_p: "required",
                         apellido_m: "required",
+                         ci:    { required:true, ci:8},
                         estado: "required",
                        email: { required:true, email: true},
                       login: { required: true, minlength: 5},
@@ -76,6 +82,7 @@ $(document).ready(function() {
 			apellido_p: "Ingrese Apellido Paterno",
 			
 			apellido_m: "Ingrese Apellido Materno",
+                          ci:"su numero de ci es ya existe",
                         estado:"Selecciones su Estado",
                         email:"Ingrese Email Correcto",
                         login: "Introdusca su Nombre de Usuario.",
