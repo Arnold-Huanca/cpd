@@ -24,19 +24,19 @@ try {
    $JS[]  = URL_JS . "jquery7.js";
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
-    $JS[]  = URL_JS . "jquery7.js";
+   $JS[]  = URL_JS . "jquery7.js";
 
- $JS[]  = URL_JS . "vista/jquery.min.js";
-    $JS[]  = URL_JS .  "vista/bootstrap.min.js";
- $JS[]  = URL_JS . "vista/jquery.isotope.min.js";
-  $JS[]  = URL_JS .   "vista/jquery.prettyPhoto.js";
-  $JS[]  = URL_JS .   "vista/easing.js";
-  $JS[]  = URL_JS .  "vista/jquery.lazyload.js";
+   $JS[]  = URL_JS . "vista/jquery.min.js";
+   $JS[]  = URL_JS .  "vista/bootstrap.min.js";
+   $JS[]  = URL_JS . "vista/jquery.isotope.min.js";
+   $JS[]  = URL_JS .   "vista/jquery.prettyPhoto.js";
+   $JS[]  = URL_JS .   "vista/easing.js";
+   $JS[]  = URL_JS .  "vista/jquery.lazyload.js";
    $JS[]  = URL_JS .  "vista/jquery.ui.totop.js";
-  $JS[]  = URL_JS .   "vista/selectnav.js";
-  $JS[]  = URL_JS .  "vista/ender.js";
-  $JS[]  = URL_JS .    "vista/custom.js";
-  $JS[]  = URL_JS .   "vista/responsiveslides.min.js";
+   $JS[]  = URL_JS .   "vista/selectnav.js";
+   $JS[]  = URL_JS .  "vista/ender.js";
+   $JS[]  = URL_JS .    "vista/custom.js";
+   $JS[]  = URL_JS .   "vista/responsiveslides.min.js";
     
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
@@ -76,6 +76,23 @@ try {
     }
       
  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
     //No hay ERROR
   $smarty->assign("ERROR",'');
