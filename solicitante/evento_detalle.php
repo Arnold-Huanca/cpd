@@ -177,13 +177,39 @@ $ERROR = '';
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
+    leerClase("Upload");
     mysql_query("BEGIN");
     $evento->objBuidFromPost();
+    
+             
+		$max_length = (1024*1024)*10;
+		$upload = new Upload(); // upload
+		$upload -> SetDirectory("../uploads");
+		$file = $_FILES['archivo']['name'];
+			if ($_FILES['archivo']['name'] != "")
+		  {
+			$tipo_archivo = $_FILES['archivo']['type'];
+		            {
+				$tamanio = $_FILES['archivo']['size'];
+				if ($tamanio > $max_length) {
+					$todoOK = false;
+					echo "<script>alert('el archivo  es demasiado grande');</script>";
+				} else {
+					$name = getSessionUser()->id.time();
+					$upload -> SetFile("archivo");
+					if ($upload -> UploadFile($name)){
+						 $evento->archivo = "uploads/".$name.".".$upload->ext;
+					}
+				}
+			}
+		}
+		
+        
     $evento->save();
     mysql_query("COMMIT");
    $ir = "Location: evento.php?menus=mostrar&funcionario_id=$evento->funcionario_id";
-     header($ir);
-      exit();
+    header($ir);
+     exit();
     }
 
   $smarty->assign("evento", $evento);

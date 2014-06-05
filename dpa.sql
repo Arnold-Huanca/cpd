@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2014 a las 03:19:31
+-- Tiempo de generación: 05-06-2014 a las 05:28:10
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS `asistencia_evento` (
   `tipo_evento_id` int(11) DEFAULT NULL,
   `tipo_certificado_id` int(11) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `unidad_tiempo_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
@@ -93,15 +94,16 @@ CREATE TABLE IF NOT EXISTS `asistencia_evento` (
   `descripcion` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `asistencia_evento`
 --
 
-INSERT INTO `asistencia_evento` (`id`, `nombre_evento`, `fecha_inicio`, `duracion`, `entidad_organizadora`, `del_programa_formacion_doc`, `vb`, `tipo_evento_id`, `tipo_certificado_id`, `funcionario_id`, `subarea_id`, `unidad_tiempo_id`, `pais_id`, `ambito_id`, `observacion`, `fecha_visado`, `descripcion`, `estado`) VALUES
-(1, 'fasd', '2014-04-10', '', '', '', '', 0, 0, 1, 0, 0, 0, 0, '', '0000-00-00', '', 'AC'),
-(2, 'fadsf', '2014-05-14', '3', 'adf', 'fasdfs', '', 4, 0, 7, 0, 0, 2, 4, '', '0000-00-00', 'gsgfd', 'Pendiente');
+INSERT INTO `asistencia_evento` (`id`, `nombre_evento`, `fecha_inicio`, `duracion`, `entidad_organizadora`, `del_programa_formacion_doc`, `vb`, `tipo_evento_id`, `tipo_certificado_id`, `funcionario_id`, `area_id`, `subarea_id`, `unidad_tiempo_id`, `pais_id`, `ambito_id`, `observacion`, `fecha_visado`, `descripcion`, `estado`) VALUES
+(1, 'fasd', '2014-04-10', '', '', '', '', 0, 0, 1, NULL, 0, 0, 0, 0, '', '0000-00-00', '', 'AC'),
+(2, 'fadsf', '2014-05-14', '3', 'adf', 'fasdfs', '', 4, 0, 7, NULL, 0, 0, 2, 4, '', '0000-00-00', 'gsgfd', 'Pendiente'),
+(3, 'fasdf', '2014-06-29', '67', 'gsdfg', 'sdfg', '', 4, 2, 1, 2, 0, 0, 1, 4, '', '0000-00-00', '', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -290,15 +292,7 @@ CREATE TABLE IF NOT EXISTS `distincion` (
   `fecha_visado` date DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Volcado de datos para la tabla `distincion`
---
-
-INSERT INTO `distincion` (`id`, `funcionario_id`, `pais_id`, `universidad_id`, `tipo_distincion_id`, `nombre_distincion`, `otra_institucion`, `fecha`, `universitaria`, `ambitodistincion`, `vb`, `observacion`, `fecha_visado`, `estado`) VALUES
-(3, 1, 1, 1, 1, 'asfdas', 'fasd', '0000-00-00', '', '', '', '																											\r\n	    afhasdkjlfhhh\r\n	    \r\n	    \r\n	    \r\n	    \r\n	    \r\n	    \r\n	    \r\n	    ', '0000-00-00', 'Observado'),
-(4, 1, 2, 1, 1, '', '', '0000-00-00', '', '', '', '', '0000-00-00', 'Pendiente');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -393,16 +387,16 @@ CREATE TABLE IF NOT EXISTS `dominio_idioma` (
   `fecha_visado` date DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Volcado de datos para la tabla `dominio_idioma`
 --
 
 INSERT INTO `dominio_idioma` (`id`, `id_idioma`, `funcionario_id`, `habla`, `lee`, `escribe`, `dominio_idioma`, `descripcion`, `observacion`, `fecha_visado`, `estado`) VALUES
-(1, 1, 1, '', '', '', '', '', '			\r\n	    afasdf', '0000-00-00', 'Aceptado'),
-(2, 1, 1, 'si', 'si', 'si', 'hablo bien', 'hdfgoo', '									\r\n	    iopupuioppuiop\r\n	    \r\n	    ', '0000-00-00', 'Observado'),
-(3, 1, 1, 'fasdf', 'fasd', 'fasd', 'fsadf', 'fasd', '			\r\n	    dasdsa', '0000-00-00', 'Aceptado');
+(19, 3, 1, 'no', 'regular', 'bien', '', '', '', '0000-00-00', NULL),
+(21, 1, 1, 'regular', 'bien', 'bien', '', '', '', '0000-00-00', NULL),
+(22, 2, 1, 'regular', 'bien', 'bien', '', '', '', '0000-00-00', NULL);
 
 -- --------------------------------------------------------
 
@@ -455,21 +449,25 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `funcionario_id` int(11) NOT NULL,
   `pais_id` int(11) DEFAULT NULL,
   `tipo_participacion_id` int(11) NOT NULL,
+  `descripcion` varchar(500) DEFAULT NULL,
+  `archivo` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Volcado de datos para la tabla `evento`
 --
 
-INSERT INTO `evento` (`id`, `nombre_evento`, `tema_expocicion`, `fecha_inicio`, `duracion`, `entidad_organizadora`, `organizado_por_instacia_univ`, `tipo_evento_id`, `ambito_id`, `unidad_tiempo_id`, `area_id`, `subarea_id`, `funcionario_id`, `pais_id`, `tipo_participacion_id`, `estado`) VALUES
-(5, 'fasd', 'fasd', '2014-05-14', '445', 'dfasf', 'fasdf', 3, 5, 0, 0, 0, 0, 2, 4, 'Pendiente'),
-(6, 'fasdf', 'fasdf', '2014-05-13', 'fasdf', 'fasdf', 'fasdf', 4, 5, 0, 0, 0, 1, 1, 2, 'Aceptado'),
-(7, 'capacitacion', 'informatica forence', '2014-05-07', '4', 'sdsd', 'sdssd', 4, 4, 0, 0, 0, 1, 2, 3, 'Pendiente'),
-(8, 'informatica', 'Nuevos tecnologias', '2014-05-22', '122', '112', '', 3, 4, 0, 0, 0, 5, 2, 3, 'Pendiente'),
-(9, 'Ciencias de la computacion', 'redes neuroales', '2014-05-01', '3', 'umss', 'Ciencias de Tecnologia', 4, 3, 0, 0, 0, 1, 2, 1, 'Pendiente'),
-(10, '', '', '2014-05-22', '', 'fasd', 'fasdf', 0, 5, 0, 1, 4, 5, 2, 3, 'Pendiente');
+INSERT INTO `evento` (`id`, `nombre_evento`, `tema_expocicion`, `fecha_inicio`, `duracion`, `entidad_organizadora`, `organizado_por_instacia_univ`, `tipo_evento_id`, `ambito_id`, `unidad_tiempo_id`, `area_id`, `subarea_id`, `funcionario_id`, `pais_id`, `tipo_participacion_id`, `descripcion`, `archivo`, `estado`) VALUES
+(5, 'fasd', 'fasd', '2014-05-14', '445', 'dfasf', 'fasdf', 3, 5, 0, 0, 0, 0, 2, 4, NULL, NULL, 'Pendiente'),
+(6, 'fasdf', 'fasdf', '2014-05-13', 'fasdf', 'fasdf', 'fasdf', 4, 5, 0, 0, 0, 1, 1, 2, NULL, NULL, 'Aceptado'),
+(7, 'capacitacion', 'informatica forence', '2014-05-07', '4', 'sdsd', 'sdssd', 4, 4, 0, 0, 0, 1, 2, 3, NULL, NULL, 'Pendiente'),
+(8, 'informatica', 'Nuevos tecnologias', '2014-05-22', '122', '112', '', 3, 4, 0, 0, 0, 5, 2, 3, NULL, NULL, 'Pendiente'),
+(9, 'Ciencias de la computacion', 'redes neuroales', '2014-05-01', '3', 'umss', 'Ciencias de Tecnologia', 4, 3, 0, 0, 0, 1, 2, 1, NULL, NULL, 'Pendiente'),
+(10, '', '', '2014-05-22', '', 'fasd', 'fasdf', 0, 5, 0, 1, 4, 5, 2, 3, NULL, NULL, 'Pendiente'),
+(11, 'jaaaaaaaaaaaaaa', '', '0000-00-00', '', '', '', 2, 0, 0, 0, 3, 1, 0, 0, NULL, NULL, 'Pendiente'),
+(12, '', '', '2014-06-19', '', '', '', 0, 5, 0, 1, 4, 1, 1, 4, 'xcbsdfgsdg', 'uploads/41401938609.jpg', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -701,7 +699,7 @@ CREATE TABLE IF NOT EXISTS `idioma` (
 INSERT INTO `idioma` (`id`, `nombre_idioma`, `sigla_idioma`, `estado`) VALUES
 (1, 'Ingles', '', 'AC'),
 (2, 'Frances', 'fs', 'AC'),
-(3, 'Espaniol', 'fsd', 'AC');
+(3, 'Español', 'fsd', 'AC');
 
 -- --------------------------------------------------------
 
@@ -986,6 +984,7 @@ CREATE TABLE IF NOT EXISTS `perfeccionamiento_profecional` (
   `unidad_tiempo_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
   `universidad_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `fecha_certificado` date DEFAULT NULL,
   `certificado` varchar(100) DEFAULT NULL,
@@ -1001,14 +1000,14 @@ CREATE TABLE IF NOT EXISTS `perfeccionamiento_profecional` (
   `vb` varchar(45) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `perfeccionamiento_profecional`
 --
 
-INSERT INTO `perfeccionamiento_profecional` (`id`, `tipo_perfeccionamiento_id`, `funcionario_id`, `unidad_tiempo_id`, `pais_id`, `universidad_id`, `subarea_id`, `fecha_certificado`, `certificado`, `titulo`, `diplona`, `titulo_trabajo_final`, `mencion`, `duracion_curso`, `hrs_presenciales`, `hrs_no_presenciales`, `creditos`, `otra_institucion`, `vb`, `estado`) VALUES
-(1, 0, 0, 0, 2, 1, 0, '2014-05-22', '', '', '', '', '', '', '', '', '', '', '', 'AC');
+INSERT INTO `perfeccionamiento_profecional` (`id`, `tipo_perfeccionamiento_id`, `funcionario_id`, `unidad_tiempo_id`, `pais_id`, `universidad_id`, `area_id`, `subarea_id`, `fecha_certificado`, `certificado`, `titulo`, `diplona`, `titulo_trabajo_final`, `mencion`, `duracion_curso`, `hrs_presenciales`, `hrs_no_presenciales`, `creditos`, `otra_institucion`, `vb`, `estado`) VALUES
+(3, 3, 1, 0, 2, 0, 1, 5, '2014-06-19', 'retwer', 'twert', '', 'twert', 'twert', '55', '556', '56', 'dgfd', 'hdfghd', '', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -1340,7 +1339,7 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (14, 20, 'Datos Generales', 'si', 4, 'AC'),
 (15, 24, 'Formación Pregrado', 'si', 5, 'AC'),
 (16, 23, 'Formación Postgrado', 'si', 6, 'AC'),
-(17, 21, 'Evento', 'si', 7, 'AC'),
+(17, 21, 'Evento', 'si', 3, 'AC'),
 (18, 18, 'Docencia Auxiliatura Umss', 'si', 8, 'AC'),
 (19, 15, 'Dedicación Exclusiva', 'si', 9, 'AC'),
 (20, 49, 'Titularizacion en Umss', 'si', 10, 'AC'),
@@ -1363,13 +1362,13 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (38, 27, 'Grupo', 'no', -1, 'AC'),
 (39, 14, 'Datos Generales', 'si', 7, 'AC'),
 (40, 58, 'Solicitudes', '1', 1, 'AC'),
-(41, 13, 'Asistencia Evento', '1', 1, 'AC'),
+(41, 13, 'Asistencia Evento', '1', 3, 'AC'),
 (42, 57, 'Docencia Auxiliar Externa', '1', 12, 'AC'),
-(43, 63, 'Ejercicio Liberal Profesion', '', 1, 'AC'),
-(44, 38, 'Investigación y Producción', '', 1, 'AC'),
+(43, 63, 'Ejercicio Liberal Profesion', '', 5, 'AC'),
+(44, 38, 'Investigación y Producción', '', 5, 'AC'),
 (45, 48, 'Tipo Producción', '', 1, 'AC'),
 (46, 30, 'Medio Difusion', '', 1, 'AC'),
-(47, 64, 'Perfeccionamiento Profesional', '1', 1, 'AC');
+(47, 64, 'Perfeccionamiento Profesional', '1', 3, 'AC');
 
 -- --------------------------------------------------------
 

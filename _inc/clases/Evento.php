@@ -36,6 +36,8 @@ class Evento extends Objectbase
   var $pais_id;
   
   var $tipo_participacion_id;
+  var $descripcion;
+  var $archivo;
   
   
   public function getByLogin ($login, $verSifueTomado = false ) {

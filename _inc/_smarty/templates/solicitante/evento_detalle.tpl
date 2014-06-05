@@ -15,8 +15,7 @@
           <h2></h2>                                        
    <div class="art-postcontent art-postcontent-0 clearfix">
      
-     
-       <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
+         <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" enctype="multipart/form-data">
            
           
             <p>
@@ -89,6 +88,15 @@
                    
                         {/if}
           </p>
+              <p>
+               <label for="rol"><small>Archivo</small></label>
+                 <input type="file" name="archivo" id="archivo" value=""  size="100"  >
+           
+              </p>
+           <p>
+               <label for="rol"><small>Descripci&oacute;n</small></label>
+               <textarea name="descripcion" id="descripcion" > {$evento->descripcion}</textarea>
+            </p>
          
            <p>
               <input type="hidden" name="evento"    value="{$evento->id}">
