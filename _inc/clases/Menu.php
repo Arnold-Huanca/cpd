@@ -68,20 +68,9 @@ class Menu
    * @return \Menu
    */
   function getAdminIndex() {
-           $thises   = array();
-    $usuario = getSessionUser();
+      $thises   = array();
+      $usuario = getSessionUser();
 	
-	// $thise = new Menu('Docentes');
-   //   $link = Administrador::URL."docente/";
- // $thise->agregarItem('Gesti&oacute;n de Docentes','Registro y modificaciones para Docentes','basicset/user4.png',$link);
-    //  $link = Administrador::URL."docente/reporte";
-   //   $thise->agregarItem('Reportes de Docentes','Reportes correspondientes a los Docentes','basicset/graph.png',$link);
- //     $thises[] = $thise;
-	/**
-	 * select DISTINCT (c.id), c.importancia,c.grupo,c.modulo_id , c.nivel
-from secuencia c, permiso p, grupo g, pertenece pe
-where c.modulo_id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and pe.usuario_id=1 ORDER BY c.nivel ASC
-	 */
     if (!isset($usuario->id) || (!$usuario->id))
       return;
      mysql_query('SET NAMES \'utf8\'');
@@ -99,8 +88,8 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
 					");
 						
 						
-						 $thise = new Menu($resultado["grupo"]);
-						 while( $resultados= mysql_fetch_array($listadomenus) )
+			$thise = new Menu($resultado["grupo"]);
+			while( $resultados= mysql_fetch_array($listadomenus) )
                           {
                         $texto = strtolower($resultados["codigo"]);
                         $cadena=str_replace(' ', '_',$texto);
@@ -108,8 +97,7 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
 						$link =  $menus;
                         $thise->agregarItem($cadena,'Registro y modificaciones para Docentes','basicset/user4.png',$link);
                           }
-                     //   $menus[]= $resultado["codigo"];
-                        $thises[] =  $thise;
+                              $thises[] =  $thise;
 						
 						
                 }

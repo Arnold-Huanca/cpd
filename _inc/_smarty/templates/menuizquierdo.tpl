@@ -72,7 +72,7 @@
    
     {section name=ic loop=$menuizquierda}
       {assign var="menu" value=$menuizquierda[ic]}
-    <li class='has-sub'><a href='#'><span>{$menu->nombre_menu}</span></a>
+    <li class='has-sub'><a href='{$URL}{$menu->nombre_menu}'><span>{$menu->nombre_menu}</span></a>
       <ul>
         {section name=id loop=$menu->menu_items}
           {assign var="menu_item" value=$menu->menu_items[id]}

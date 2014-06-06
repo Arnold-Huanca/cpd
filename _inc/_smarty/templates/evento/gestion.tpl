@@ -25,139 +25,146 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                 <div class="art-content-layout">
                     <div class="art-content-layout-row">
                       
-      {include file="menuizquierdo.tpl"}
-      <div class="art-layout-cell art-content clearfix">
-  
-         <article id="contenido">
-        </article>
-          
-          <div style='height:auto; width: 100%; font-size: 16px; overflow: auto;'>
-              <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
-           <table >
-               
-                  <tbody>
-                  <tr >
-                          <td>Tipo Evento</td>
-                         <td>Nombre Evento</td>
-                          <td>Tema</td>
-                           <td>Fecha Inicio</td>
-                           <td>Duraci&oacute;n</td>
-                           <td>&Aacute;rea</td>
-                           <td>Sub &Aacute;rea</td>
-                           <td>Ambito</td>
-                           <td>Tipo Participaci&oacute;n</td>
-                            <td>Instituci&oacute;n Organizadora</td>
-			    <td>Organizado Por Instancia U.</td>
-			    <td>Pa&iacute;s</td>
-		            <td><?php echo $resultado['estado'] ?></td>
-                </tr>
-                
-                <tr >
-                    <td>
-                 <select  class="select-style gender" name="tipo_evento_id" id="tipo_evento_id" >
-                {html_options values=$tipo_eventos_values selected=$evento->tipo_evento_id output=$tipo_eventos_output}
-                </select>
-                    </td>
-                    <td>
-                         <input type="text" name="nombre_evento" id="nombre_evento" value="{$evento->nombre_evento}"  placeholder="Nombre del Evento" size="100">
-            
-                    </td>
-                          <td>
-                           <input type="text" name="tema_expocicion" id="tema_expocicion" value="{$evento->tema_expocicion}"  placeholder="Tema de Expocicion" size="100"  >
-           
-                          </td>
-                          <td>
-                               <input type="text" name="fecha_inicio" id="fecha_inicio" value="{$evento->fecha_inicio}"  placeholder="Fecha de Inicio" size="100"  >
-           
-                          </td>
-                           <td> 
-                               <input type="text" name="duracion" id="duracion" value="{$evento->duracion}"  placeholder="Duracion" size="100"  >
-                           </td>
-                         
-                             <td>
-                           <select  class="select-style gender" name="area_id" id="area_id" poblacioattri=''>
-                          {html_options values=$area_values selected=$evento->area_id output=$area_output}
-                          </select>&nbsp;<span id='Buscando'></span>
-                             </td>
-                             <td>
-                             <select  class="select-style gender" name="subarea_id" id="subarea_id"   >
-                             </select>
-                             </td>
-                             
-                             <td>
-                             <select  class="select-style gender" name="ambito_id" id="ambito_id" >
-                                 {html_options values=$ambitos_values selected=$evento->ambito_id output=$ambitos_output}
-                               </select>
-                             </td>
-                               <td> 
-                               <select  class="select-style gender" name="tipo_participacion_id" id="tipo_participacion_id" >
-                                {html_options values=$tipo_participaciones_values selected=$evento->tipo_participacion_id output=$tipo_participaciones_output}
-                                </select>
-                          </td>
-                         
-                                  <td>
-                                         <input type="text" name="entidad_organizadora" id="entidad_organizadora" value="{$evento->entidad_organizadora}"  placeholder="Entidad Organizadora" size="100"  >
-       
-                                  </td>
-                                  <td>
-                                        <input type="text" name="organizado_por_instacia_univ" id="organizado_por_instacia_univ" value="{$evento->organizado_por_instacia_univ}"  placeholder="Organizado por Instancia Universitaria" size="100"  >
-          
-                                  </td>
-                                <td>
-                                    <select  class="select-style gender" name="pais_id" id="pais_id" >
-                                   {html_options values=$paises_values selected=$evento->pais_id output=$paises_output}
-                                      </select>
-                               </td>
-                            
-			  
-                            <td>
-
-                            </td>
-                </tr>
-	
-                <tbody>
-            </table>
-                
-                                         
-             
-              <input type="hidden" name="evento"    value="{$evento->id}">
-                <input type="hidden" name="tarea" value="registrar">
-              <input type="hidden" name="token" value="{$token}">
-               <button class="submit" type="submit">Guardar</button> 
-             
-          </form>
-               </div>
-               
-               
-<script>
-            $('#fecha_inicio').datepicker({
-              dateFormat:'dd/mm/yy',
-         
-              changeMonth: true,
-              changeYear: true,
-             });
       
-</script>
+    
+    
+{if (isset($menuizquierda))}
 
-<script>
-jQuery('#area_id').change(function () {
-var numero =document.getElementById("area_id").value;
-var poblacio = jQuery(this).attr("poblacioattri");
-var to=document.getElementById("Buscando");
-to.innerHTML="buscando....";
-jQuery.ajax({
-type: "POST", 
-url: "buscar.php",
-data: 'idnumero='+numero,
-success: function(a) {
-jQuery('#subarea_id').html(a);
-var to=document.getElementById("Buscando");
-to.innerHTML="";
-}
-});
-})
-.change();
-</script> 
+{else}
+  
+{/if}
+
+ {literal}
+   <script type="text/javascript">
+    $(function(){
+      $("#menuizq>li ul").hide();
+      $('ul#menuizq>li').click(function() {$(this).children('ul').fadeIn(200);}); //Hand!
+    });
+   </script>
+{/literal}
+
+              
+<div class="art-layout-cell art-sidebar1 clearfix">
+<div class="art-vmenublock clearfix">
+  
+   {if (isUserSession())}
+     
+     <div class="art-blockcontent"><p>
+          Usuario:  {$UsuarioSesion}
+            <br /></p>
+        </div>
+     
+           {else}
+             <form action="#" method="post"  name="login">
+     <p id="form-login-username">
+      <label for="modlgn_username">Username(*)</label>
+      <br />
+      <input  type="text" name="username"  alt="username" size="18" />
+    </p>
+    <p id="form-login-password">
+      <label for="modlgn_passwd">Password(*)</label>
+      <br />
+      <input  type="password" name="passwd"  size="18" alt="password" />
+    </p>
+     <label for="modlgn_username">Datos de Ingreso</label>
+    <p id="form-login-remember">
+      <label class="art-checkbox">
+      <input type="checkbox" id="modlgn_remember" name="remember" value="yes" alt="Remember Me" />Remember Me
+      </label>
+    </p>
+    
+     <input type="hidden" name="tarea" value="ingreso">
+     <input type="hidden" name="token" value="{$token}">
+     <input name="submit" type="submit" id="submit" value="Ingresar" class="art-button">
+
+  <ul>
+    <li>
+      <a href="{$URL}registrarse">Crear Su Cuenta</a>
+    </li>
+  </ul>
+</form>
+          {/if}
+     
+
+</div>
+  
+  
+<div class="art-vmenublock clearfix">
+ <div class="art-vmenublockcontent">
+
+     <div class="leftpanel"   style="width: 100%">
+        
+         <div class="leftmenu" style="background: #FF0000">  
+             
+            <ul class="nav nav-tabs nav-stacked">
+                
+                <li class="nav-header" style="background: #166063; color: #FFFFFF;">Navegaci&oacute;n</li>
+                {if (isset($menuizquierda))}
+                   
+                 {section name=ic loop=$menuizquierda}
+                  {assign var="menu" value=$menuizquierda[ic]}
+                     {if {$menu->nombre_menu} == "Evento"} 
+                  <li class="dropdown active" style="color: #FFFFFF;"><a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>
+                    <ul style="display: block;">
+                     {section name=id loop=$menu->menu_items}
+                     {assign var="menu_item" value=$menu->menu_items[id]}
+                     <li class="active"><a href="{$URL}{$menu_item->link}">{$menu_item->titulo}</a></li>
+                      {/section}
+                    
+                    </ul>
+                   </li>
+                  {else}
+                     
+                        {section name=id loop=$menu->menu_items}
+                     {assign var="menu_item" value=$menu->menu_items[id]}
+                     <li class="dropdown"><a href="{$URL}{$menu_item->link}"><span class="iconfa-th-list"></span>{$menu_item->titulo}</a></li>
+                      {/section}
+                  {/if} 
+               
+                 {/section}
+                {/if}
+                 <li><a href="#"><span class="iconfa-hand-up"></span></a></li>
+              
+            </ul>
+        </div><!--leftmenu-->
+        
+    </div><!-- leftpanel -->
+ 
+ </div>
+</div>
+<div class="art-block clearfix">
+        <div class="art-blockheader">
+            <h3 class="t">  nota</h3>
+        </div>
+        <div class="art-blockcontent">
+           
+          
+          <p>
+          comentario
+          
+          </p>
+        </div>
+</div>
+ <div class="art-block clearfix">
+        <div class="art-blockheader">
+            <h3 class="t">Nuevo Bloque</h3>
+        </div>
+        <div class="art-blockcontent"><p>
+            nuevo
+            <br /></p>
+        </div>
+</div>
+</div>
+         
+      <div class="art-layout-cell art-content clearfix">
+           <ul class="breadcrumbs">
+            <li><a href=""><i class="iconfa-home"></i> Evento</a> <span class="separator"></span></li>
+           </ul>
+         <article id="contenido">
+          
+         </article>
+       
+  
   
       </div>
 
