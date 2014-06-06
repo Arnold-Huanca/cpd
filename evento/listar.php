@@ -26,6 +26,7 @@
 		return false;
 	}
 
+
          </script> 
           <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
      
