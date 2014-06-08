@@ -13,40 +13,47 @@ $listado=  mysql_query("select * from modulo");
     } );
 })
 
-         </script>               <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
+         </script> 
+         <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
-                        <th>Codigo</th>
-                        <th>Descripcion</th><!--Estado-->
+                       <th>Codigo</th>
+                        <th>Nombre</th>
+                         <th>Descripcion</th><!--Estado-->
                         <th>Estado</th>
                         <th>Editar</th>
-                        <th>Eliminar</th>
+                      
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th></th>
                         <th></th>
-                       
-                     
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </tfoot>
                   <tbody>
                     <?php
 
      
-                   while($reg=  mysql_fetch_array($listado))
+                   while($resultado=  mysql_fetch_array($listado))
                      {
-                               echo '<tr>';
-                               echo '<td >'.mb_convert_encoding($reg['id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['codigo'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['descripcion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
-                               echo '<td  ><a href=registro.php?editar=editando&area_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a>'.'</td>';
-                               echo '<td><a onclick="return confirm(\'Esta seguro de eliminar los datos?\');" href="eliminar.php?eliminar&area_id='.$reg['id'].'"><center><img src="images/delete.gif" /></center></a></td>';
-						                   echo '</tr>';
-                              
+                       
+                     ?>
+                          <tr id="fila-<?php echo $resultado['id'] ?>">
+                          <td><?php echo $resultado['id'] ?></td>
+                          <td><?php echo $resultado['codigo'] ?></td>
+			  <td><?php echo $resultado['nombre'] ?></td>
+                          
+			  <td><?php echo $resultado['descripcion'] ?></td>
+                           <td><?php echo $resultado['estado'] ?></td>
+			   <td><span class="modi"><a href="registro.php?modulo_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+                          </tr>
+                               <?php
                      }
                     ?>
                 <tbody>

@@ -106,11 +106,12 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                      {if {$menu->nombre_menu} == "Evento"} 
                   <li class="dropdown active" style="color: #FFFFFF;"><a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>
                     <ul style="display: block;">
+                   {if ( $menu->getItemTotal() > 1 ) }
                      {section name=id loop=$menu->menu_items}
                      {assign var="menu_item" value=$menu->menu_items[id]}
                      <li class="active"><a href="{$URL}{$menu_item->link}">{$menu_item->titulo}</a></li>
                       {/section}
-                    
+                    {/if}
                     </ul>
                    </li>
                   {else}

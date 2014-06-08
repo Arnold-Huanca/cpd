@@ -50,13 +50,14 @@ $ERROR = '';
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
     mysql_query("BEGIN");
-    $modulo->objBuidFromPost();
+    //$modulo->objBuidFromPost();
+    $modulo->nombre=$_POST['nombre'];
     $modulo->estado           = Objectbase::STATUS_AC;
     $modulo->save();
     mysql_query("COMMIT");
     $ir = "Location: index.php";
-     header($ir);
-      exit();
+    header($ir);
+    exit();
     }
 
   $smarty->assign("modulo", $modulo);

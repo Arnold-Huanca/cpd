@@ -12,6 +12,10 @@
               <input type="text" name="codigo" id="codigo" value="{$modulo->codigo}"  placeholder="Codigo" size="100"  >
               <label for="nombre"><small>Codigo</small></label>
             </p>
+            <p>
+              <input type="text" name="nombre" id="codigo" value="{$modulo->nombre}"  placeholder="Nombre a mostrar en los Menus" size="100"  >
+              <label for="nombre"><small>Nombre</small></label>
+            </p>
              <p>
               <input type="text" name="descripcion" id="descripcion" value="{$modulo->descripcion}" placeholder="Descripcion" size="200">
               <label for="apellido_p"><small>Descripcion</small></label>

@@ -37,6 +37,12 @@ class Menu
     $item               = new Menu_item($titulo,$descripcion,$file_icono,$link,$pendientes,$nopendientes,$target);
     $this->menu_items[] = $item;
   }
+  
+  
+  function  getItemTotal()
+  {
+      return sizeof($this->menu_items);
+  }
 
   /**
    * Mostarmos el string conformado
@@ -94,8 +100,8 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
                         $texto = strtolower($resultados["codigo"]);
                         $cadena=str_replace(' ', '_',$texto);
                         $menus= str_replace('ó', 'o',$cadena);
-						$link =  $menus;
-                        $thise->agregarItem($cadena,'Registro y modificaciones para Docentes','basicset/user4.png',$link);
+			$link =  $menus;
+                        $thise->agregarItem($texto,'Registro y modificaciones para Docentes','basicset/user4.png',$link);
                           }
                               $thises[] =  $thise;
 						
