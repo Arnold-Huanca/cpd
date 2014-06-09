@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2014 a las 05:28:10
+-- Tiempo de generación: 09-06-2014 a las 16:45:25
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -466,7 +466,7 @@ INSERT INTO `evento` (`id`, `nombre_evento`, `tema_expocicion`, `fecha_inicio`, 
 (8, 'informatica', 'Nuevos tecnologias', '2014-05-22', '122', '112', '', 3, 4, 0, 0, 0, 5, 2, 3, NULL, NULL, 'Pendiente'),
 (9, 'Ciencias de la computacion', 'redes neuroales', '2014-05-01', '3', 'umss', 'Ciencias de Tecnologia', 4, 3, 0, 0, 0, 1, 2, 1, NULL, NULL, 'Pendiente'),
 (10, '', '', '2014-05-22', '', 'fasd', 'fasdf', 0, 5, 0, 1, 4, 5, 2, 3, NULL, NULL, 'Pendiente'),
-(11, 'jaaaaaaaaaaaaaa', '', '0000-00-00', '', '', '', 2, 0, 0, 0, 3, 1, 0, 0, NULL, NULL, 'Pendiente'),
+(11, 'jaaaaaaaaaaaaaa', '', '0000-00-00', '', '', '', 2, 0, 0, 0, 3, 1, 0, 0, '', 'uploads/41401940716.jpg', 'Aceptado'),
 (12, '', '', '2014-06-19', '', '', '', 0, 5, 0, 1, 4, 1, 1, 4, 'xcbsdfgsdg', 'uploads/41401938609.jpg', 'Aceptado');
 
 -- --------------------------------------------------------
@@ -828,8 +828,8 @@ CREATE TABLE IF NOT EXISTS `modulo` (
 --
 
 INSERT INTO `modulo` (`id`, `codigo`, `nombre`, `url`, `descripcion`, `estado`) VALUES
-(10, 'Ambito', NULL, NULL, 'M&oacute;dulo: Ambito', 'AC'),
-(11, 'Area', NULL, NULL, 'M&oacute;dulo: Area', 'AC'),
+(10, 'Ambito', 'Ámbito', '', 'M&oacute;dulo: Ambito', 'AC'),
+(11, 'Area', 'Área ', '', 'M&oacute;dulo: Area', 'AC'),
 (12, 'Area Colegio', NULL, NULL, 'M&oacute;dulo: Area Colegio', 'AC'),
 (13, 'Asistencia Evento', NULL, NULL, 'M&oacute;dulo: Asistencia Evento', 'AC'),
 (14, 'Dedicacion', NULL, NULL, 'M&oacute;dulo: Dedicación', 'AC'),
@@ -1326,7 +1326,7 @@ CREATE TABLE IF NOT EXISTS `secuencia` (
   `nivel` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=51 ;
 
 --
 -- Volcado de datos para la tabla `secuencia`
@@ -1337,16 +1337,16 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (11, 61, 'Datos Generales', 'si', 2, 'AC'),
 (13, 62, 'Datos Generales', 'si', 3, 'AC'),
 (14, 20, 'Datos Generales', 'si', 4, 'AC'),
-(15, 24, 'Formación Pregrado', 'si', 5, 'AC'),
-(16, 23, 'Formación Postgrado', 'si', 6, 'AC'),
-(17, 21, 'Evento', 'si', 3, 'AC'),
-(18, 18, 'Docencia Auxiliatura Umss', 'si', 8, 'AC'),
-(19, 15, 'Dedicación Exclusiva', 'si', 9, 'AC'),
-(20, 49, 'Titularizacion en Umss', 'si', 10, 'AC'),
-(21, 37, 'Plan Proyecto Y Programa', 'si', 11, 'AC'),
-(23, 36, 'Patentes', 'si', 13, 'AC'),
-(24, 17, 'Distinciones', 'si', 14, 'AC'),
-(25, 31, 'Membresia', 'si', 15, 'AC'),
+(15, 24, 'Formación Pregrado', 'si', 6, 'AC'),
+(16, 23, 'Formación Postgrado', 'si', 7, 'AC'),
+(17, 21, 'Evento', 'si', 9, 'AC'),
+(18, 18, 'Docencia Auxiliatura Umss', 'si', 12, 'AC'),
+(19, 15, 'Dedicación Exclusiva', 'si', 11, 'AC'),
+(20, 49, 'Titularizacion en Umss', 'si', 14, 'AC'),
+(21, 37, 'Plan Proyecto Y Programa', 'si', 15, 'AC'),
+(23, 36, 'Patentes', 'si', 19, 'AC'),
+(24, 17, 'Distinciones', 'si', 20, 'AC'),
+(25, 31, 'Membresia', 'si', 23, 'AC'),
 (26, 10, 'Ambito', 'no', 0, 'AC'),
 (27, 11, 'Area', 'no', 0, 'AC'),
 (28, 28, 'Idioma', 'no', 0, 'AC'),
@@ -1360,15 +1360,18 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (36, 56, 'Pertenece', 'no', -1, 'AC'),
 (37, 60, 'Secuencia', 'no', -1, 'AC'),
 (38, 27, 'Grupo', 'no', -1, 'AC'),
-(39, 14, 'Datos Generales', 'si', 7, 'AC'),
+(39, 14, 'Datos Generales', 'si', 5, 'AC'),
 (40, 58, 'Solicitudes', '1', 1, 'AC'),
-(41, 13, 'Asistencia Evento', '1', 3, 'AC'),
-(42, 57, 'Docencia Auxiliar Externa', '1', 12, 'AC'),
-(43, 63, 'Ejercicio Liberal Profesion', '', 5, 'AC'),
-(44, 38, 'Investigación y Producción', '', 5, 'AC'),
+(41, 13, 'Asistencia Evento', '1', 10, 'AC'),
+(42, 57, 'Docencia Auxiliar Externa', '1', 13, 'AC'),
+(43, 63, 'Ejercicio Liberal Profesion', '', 17, 'AC'),
+(44, 38, 'Investigación y Producción', '', 18, 'AC'),
 (45, 48, 'Tipo Producción', '', 1, 'AC'),
 (46, 30, 'Medio Difusion', '', 1, 'AC'),
-(47, 64, 'Perfeccionamiento Profesional', '1', 3, 'AC');
+(47, 64, 'Perfeccionamiento Profesional', '1', 8, 'AC'),
+(48, 32, 'Modulos', 'no', 19, 'AC'),
+(49, 53, 'Vida Universitaria Nacional', 'si', 21, 'AC'),
+(50, 54, 'Vida Universitaria Extranjera', 'si', 22, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1648,6 +1651,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nombre` varchar(100) DEFAULT NULL,
   `apellido_p` varchar(100) DEFAULT NULL,
   `apellido_m` varchar(100) DEFAULT NULL,
+  `ci` int(11) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `login` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
@@ -1660,19 +1664,19 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `apellido_p`, `apellido_m`, `email`, `login`, `password`, `fecha_inscripcion`, `estado`) VALUES
-(1, 'pedro', 'poveda', 'huanca', 'nemo_thehacker@hotmail.com', 'admin', 'admin', NULL, 'AC'),
-(3, 'pedros', 'ppaapp', 'ppsss', 'pedro@gmail.com', 'pedro', 'pedro', '0000-00-00', 'AC'),
-(4, 'funcionario', 'funcionario', 'funcionario', 'funcionario@hotmail.com', 'funcionario', 'funcionario', '0000-00-00', 'AC'),
-(5, 'jkkj', 'jkjkjk', 'jkkj', 'jkjk@hotmail.com', 'juans', 'juans', '0000-00-00', 'AC'),
-(6, 'juana', 'perez', 'fdsaf', 'juan@gmail.com', 'juana', 'juana', '0000-00-00', 'AC'),
-(7, 'pedro', 'predros', 'pedrito', 'pedros@gmail.com', 'pedros', 'pedros', '0000-00-00', 'AC'),
-(8, 'sdfsdf', 'afsda', 'fasdfasd', 'sfasd@gmail.com', 'alavifuentes@hotmail.com', 'ssssssssssssssssssssssss', '0000-00-00', 'AC'),
-(12, 'fjasdkfh', 'hjsakdfahs', 'hjaksdf', 'asd@gmail.com', 'fasdffasdf', 'fasdfasdf', '0000-00-00', 'AC'),
-(13, 'afd', 'fasdf', 'fasd', 'sss@gmail.com', '123456', '123456', '0000-00-00', 'AC'),
-(14, 'ely', 'ely', 'ely', 'ely@gmail.com', 'elyza', 'bravo', '0000-00-00', 'AC'),
-(15, 'jhen', 'jenny', 'jjjj', 'jheny@hotmail.com', 'jhenny', 'jhenny', '0000-00-00', 'AC'),
-(17, 'miranda', 'tmasnnn', 'fsadff', 'miranda@hotmail.com', 'miranda', 'miranda', '0000-00-00', 'AC');
+INSERT INTO `usuario` (`id`, `nombre`, `apellido_p`, `apellido_m`, `ci`, `email`, `login`, `password`, `fecha_inscripcion`, `estado`) VALUES
+(1, 'pedro', 'poveda', 'huanca', NULL, 'nemo_thehacker@hotmail.com', 'admin', 'admin', NULL, 'AC'),
+(3, 'pedros', 'ppaapp', 'ppsss', NULL, 'pedro@gmail.com', 'pedro', 'pedro', '0000-00-00', 'AC'),
+(4, 'funcionario', 'funcionario', 'funcionario', NULL, 'funcionario@hotmail.com', 'funcionario', 'funcionario', '0000-00-00', 'AC'),
+(5, 'jkkj', 'jkjkjk', 'jkkj', NULL, 'jkjk@hotmail.com', 'juans', 'juans', '0000-00-00', 'AC'),
+(6, 'juana', 'perez', 'fdsaf', NULL, 'juan@gmail.com', 'juana', 'juana', '0000-00-00', 'AC'),
+(7, 'pedro', 'predros', 'pedrito', NULL, 'pedros@gmail.com', 'pedros', 'pedros', '0000-00-00', 'AC'),
+(8, 'sdfsdf', 'afsda', 'fasdfasd', NULL, 'sfasd@gmail.com', 'alavifuentes@hotmail.com', 'ssssssssssssssssssssssss', '0000-00-00', 'AC'),
+(12, 'fjasdkfh', 'hjsakdfahs', 'hjaksdf', NULL, 'asd@gmail.com', 'fasdffasdf', 'fasdfasdf', '0000-00-00', 'AC'),
+(13, 'afd', 'fasdf', 'fasd', NULL, 'sss@gmail.com', '123456', '123456', '0000-00-00', 'AC'),
+(14, 'ely', 'ely', 'ely', NULL, 'ely@gmail.com', 'elyza', 'bravo', '0000-00-00', 'AC'),
+(15, 'jhen', 'jenny', 'jjjj', NULL, 'jheny@hotmail.com', 'jhenny', 'jhenny', '0000-00-00', 'AC'),
+(17, 'miranda', 'tmasnnn', 'fsadff', NULL, 'miranda@hotmail.com', 'miranda', 'miranda', '0000-00-00', 'AC');
 
 -- --------------------------------------------------------
 
@@ -1764,7 +1768,6 @@ CREATE TABLE IF NOT EXISTS `vivienda` (
 INSERT INTO `vivienda` (`id`, `departamento_id`, `funcionario_id`, `tipo_vivienda`, `zona`, `nombre_hurbanizacion`, `ubicacion_vivienda`, `viviendacol`, `estado`) VALUES
 (1, 7, 0, '', 'gsdf', 'gsdf', 'gdfg', 'dfsg', 'Pendiente'),
 (2, 7, 1, '', 'sadf', 'fasdf', 'fasdf', 'fasdf', 'Pendiente'),
-(3, 7, 1, '', 'fasdf', 'fasdf', 'fsad', 'fasd', 'Pendiente'),
 (4, 7, 12, '', 'fdasf', 'fasdf', 'fasdf', 'fasdf', 'Pendiente');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
