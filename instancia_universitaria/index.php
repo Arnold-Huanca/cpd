@@ -17,7 +17,7 @@ try {
    $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
  $CSS[]  = URL_CSS . "tables.css";
-    
+ $CSS[]  = URL_CSS . "style.default.css";   
   $CSS[]  = URL_CSS . "demo_table.css";
   $CSS[]  = URL_CSS . "style_table.css";
  // $CSS[] = '../css/editablegrid.css';

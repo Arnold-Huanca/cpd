@@ -3,7 +3,7 @@ try {
   define ("MODULO", "Pertenece");
   require('../_start.php');
   if(!isUserSession())
-    header("Location: index.php");  
+    header("Location: ../index.php");  
 
   leerClase("Grupo");
   leerClase("Usuario");
@@ -24,6 +24,7 @@ try {
     $CSS[]  = URL_CSS . "tables.css";
     $CSS[]  = URL_CSS . "demo_table.css";
     $CSS[]  = URL_CSS . "style_table.css";
+    $CSS[]  = URL_CSS . "style.default.css";
  
    $smarty->assign('CSS',$CSS);
    leerClase('Menu');

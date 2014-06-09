@@ -19,20 +19,18 @@ try {
   //CSS
   $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
-   $CSS[]  = URL_CSS . "styleform.css";
-     $CSS[]  = URL_CSS . "style.default.css";
-  //$CSS[]  = URL_CSS . "pg.css";
- // $smarty->assign('CSS',$CSS);
+  $CSS[]  = URL_CSS . "styleform.css";
+  $CSS[]  = URL_CSS . "style.default.css";
 
-  
    $JS[]  = URL_JS . "script/jquery.js";
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
-    $JS[]  = URL_JS . "validator.min.js";
-    
-    $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+   $JS[]  = URL_JS . "validator.min.js";
+   $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+  
   $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
   $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
+ 
          
   
  $CSS[]  = URL_CSS . "tables.css";
@@ -41,8 +39,7 @@ try {
   $CSS[]  = URL_CSS . "style_table.css";
   
    $JS[]  =URL_JS . 'table/jquery.dataTables.js';
- 
-  $smarty->assign('CSS',$CSS);
+     $smarty->assign('CSS',$CSS);
 
   $smarty->assign('JS',$JS);
   

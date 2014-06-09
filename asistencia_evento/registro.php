@@ -14,7 +14,7 @@ define ("MODULO", "Asistencia Evento");
   $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
    $CSS[]  = URL_CSS . "styleform.css";
-    
+    $CSS[]  = URL_CSS . "style.default.css";
   //$CSS[]  = URL_CSS . "pg.css";
  // $smarty->assign('CSS',$CSS);
 

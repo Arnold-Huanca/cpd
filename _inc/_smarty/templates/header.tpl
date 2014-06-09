@@ -12,9 +12,11 @@
       <script type="text/javascript" src="{$JS[js_i]}"></script>
     {/section}
          
- <script type="text/javascript" src="{$URL_JS}menu_jquery.js"></script>
- <link rel="stylesheet" href="{$URL_CSS}menu_styles.css" type="text/css" />
-
+ 
+ <link rel="stylesheet" href="{$URL_CSS}style.default.css" type="text/css" />
+ <link rel="stylesheet" href="{$URL_CSS}tunear_menu.css" type="text/css" />
+<script type="text/javascript" src="{$URL_JS}custom.js"></script>
+<script type="text/javascript" src="{$URL_JS}jquery.cookie.js"></script>
 
 
 <style>.art-content .art-postcontent-0 .layout-item-0 { padding-right: 10px;padding-left: 10px;  }

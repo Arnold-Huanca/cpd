@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08-06-2014, 08:48:22 PM
+    Author     : Lord Wind
+*/
+
+.divleftmenu{
+    background: #FF0000;
+       
+}
+.liheadermenus
+{
+    background: #166063;
+    color: #FFFFFF;
+}
+.dropdownactiveli{
+    color: #FFFFFF;
+}

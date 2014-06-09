@@ -99,8 +99,8 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
                           {
                         $texto = strtolower($resultados["codigo"]);
                         $cadena=str_replace(' ', '_',$texto);
-                        $menus= str_replace('ó', 'o',$cadena);
-			$link =  $menus;
+                          $menus= str_replace('ó', 'o',$cadena);
+			$link =  $cadena;
                         $thise->agregarItem($texto,'Registro y modificaciones para Docentes','basicset/user4.png',$link);
                           }
                               $thises[] =  $thise;

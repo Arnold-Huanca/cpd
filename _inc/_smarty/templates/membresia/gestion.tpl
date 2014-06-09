@@ -43,8 +43,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
    </script>
 {/literal}
 
-              
-<div class="art-layout-cell art-sidebar1 clearfix">
+ <div class="art-layout-cell art-sidebar1 clearfix">
 <div class="art-vmenublock clearfix">
   
    {if (isUserSession())}
@@ -87,47 +86,60 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
      
 
 </div>
-  
-  
+         
 <div class="art-vmenublock clearfix">
  <div class="art-vmenublockcontent">
 
      <div class="leftpanel"   style="width: 100%">
         
-         <div class="leftmenu" style="background: #FF0000">  
+         <div class="leftmenu divleftmenu">  
              
             <ul class="nav nav-tabs nav-stacked">
                 
                 <li class="nav-header" style="background: #166063; color: #FFFFFF;">Navegaci&oacute;n</li>
-                {if (isset($menuizquierda))}    
+                {if (isset($menuizquierda))}
+                   
                  {section name=ic loop=$menuizquierda}
                   {assign var="menu" value=$menuizquierda[ic]}
-                    {if {$menu->nombre_menu} == "Membresia"} 
-                  <li class="dropdown active" style="color: #FFFFFF;"><a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>
+                     {if {$menu->nombre_menu} == "Membresia"} 
+                     {if ( $menu->getItemTotal() > 1 ) }
+                  <li class="dropdown active dropdownactiveli" >
+                     <a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>
                     <ul style="display: block;">
-                        {if ( $menu->getItemTotal() > 1 ) }
+                 
                      {section name=id loop=$menu->menu_items}
-                         
-                      {assign var="menu_item" value=$menu->menu_items[id]}
-                   
+                     {assign var="menu_item" value=$menu->menu_items[id]}
                      <li class="active"><a href="{$URL}{$menu_item->link}">{$menu_item->titulo}</a></li>
-                      
                       {/section}
-                    {/if}
+                  
                     </ul>
                    </li>
+                    {else}
+                     <li class="active"><a href=""><span class="iconfa-laptop"></span> {$menu->nombre_menu}</a></li>
+                     {/if}
                   {else}
-                     
-                        {section name=id loop=$menu->menu_items}
+                    {if ( $menu->getItemTotal() > 1 ) }
+                   <li class="dropdown" style="color: #FFFFFF;"><a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>
+                 
+                     <ul >
+                          
+                     {section name=id loop=$menu->menu_items}
                      {assign var="menu_item" value=$menu->menu_items[id]}
-                     <li class="dropdown"><a href="{$URL}{$menu_item->link}"><span class="iconfa-th-list"></span>{$menu_item->titulo}</a></li>
+                     <li ><a href="{$URL}{$menu_item->link}">{$menu_item->titulo}</a></li>
                       {/section}
+                   
+                    </ul>
+                   </li>
+                   {else}
+                     <li><a href="{$URL}{$menu->menu_items[0]->link}"><span class="iconfa-laptop"></span> {$menu->nombre_menu}</a></li>
+                   {/if}
+
                   {/if} 
                
                  {/section}
                 {/if}
                  <li><a href="#"><span class="iconfa-hand-up"></span></a></li>
-              
+               
             </ul>
         </div><!--leftmenu-->
         

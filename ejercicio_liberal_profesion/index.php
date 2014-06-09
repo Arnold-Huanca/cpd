@@ -17,7 +17,8 @@ try {
  $CSS[]  = URL_CSS . "tables.css";
     
   $CSS[]  = URL_CSS . "demo_table.css";
-  $CSS[]  = URL_CSS . "style_table.css";
+$CSS[]  = URL_CSS . "style_table.css";
+$CSS[]  = URL_CSS . "style.default.css";
  // $CSS[] = '../css/editablegrid.css';
   $smarty->assign('CSS',$CSS);
   leerClase('Menu');

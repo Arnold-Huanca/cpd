@@ -21,7 +21,7 @@ try {
   $CSS[]  = URL_CSS . "demo_table.css";
   $CSS[]  = URL_CSS . "style_table.css";
   $CSS[]  = URL_CSS . "styleform.css";
- 
+ $CSS[]  = URL_CSS . "style.default.css";
   //JS
   //
   
