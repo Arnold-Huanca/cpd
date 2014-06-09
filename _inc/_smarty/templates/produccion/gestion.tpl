@@ -100,7 +100,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                    
                  {section name=ic loop=$menuizquierda}
                   {assign var="menu" value=$menuizquierda[ic]}
-                     {if {$menu->nombre_menu} == "Produccion"} 
+                    {if {$menu->nombre_menu} == "Investigación y Producción"} 
                      {if ( $menu->getItemTotal() > 1 ) }
                   <li class="dropdown active dropdownactiveli" >
                      <a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>
@@ -170,7 +170,9 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
 </div>
 </div>
       <div class="art-layout-cell art-content clearfix">
-  
+           <ul class="breadcrumbs">
+             <li><a href=""><i class="iconfa-home"></i> Investigaci&oacute;n y Producci&oacute;n</a> <span class="separator"></span></li>
+           </ul>
          <article id="contenido">
           
          </article>

@@ -63,7 +63,7 @@
                    
                  {section name=ic loop=$menuizquierda}
                   {assign var="menu" value=$menuizquierda[ic]}
-                     {if {$menu->nombre_menu} == "Produccion"} 
+                     {if {$menu->nombre_menu} == "Investigación y Producción"} 
                      {if ( $menu->getItemTotal() > 1 ) }
                   <li class="dropdown active dropdownactiveli" >
                      <a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>

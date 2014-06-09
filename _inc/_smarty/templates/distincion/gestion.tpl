@@ -83,7 +83,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                    
                  {section name=ic loop=$menuizquierda}
                   {assign var="menu" value=$menuizquierda[ic]}
-                     {if {$menu->nombre_menu} == "Asistencia Evento"} 
+                     {if {$menu->nombre_menu} == "Distinciones"} 
                      {if ( $menu->getItemTotal() > 1 ) }
                   <li class="dropdown active dropdownactiveli" >
                      <a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>

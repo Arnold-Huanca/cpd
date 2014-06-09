@@ -45,5 +45,5 @@ catch(Exception $e)
 {
   $smarty->assign("ERROR", handleError($e));
 }
-  $smarty->display('area/gestion.tpl');
+  $smarty->display('dedicacion/gestion.tpl');
 ?>

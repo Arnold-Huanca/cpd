@@ -154,7 +154,9 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
 </div>
          
       <div class="art-layout-cell art-content clearfix">
-  
+     <ul class="breadcrumbs">
+            <li><a href=""><i class="iconfa-home"></i> Asistencia a Evento</a> <span class="separator"></span></li>
+           </ul>
          <article id="contenido">
         </article>
    </div>

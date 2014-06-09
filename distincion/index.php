@@ -44,5 +44,5 @@ catch(Exception $e)
 {
   $smarty->assign("ERROR", handleError($e));
 }
-  $smarty->display('datos_familiares/gestion.tpl');
+  $smarty->display('distincion/gestion.tpl');
 ?>

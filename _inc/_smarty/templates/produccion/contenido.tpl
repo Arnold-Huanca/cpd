@@ -1,4 +1,7 @@
      <div class="art-layout-cell art-content clearfix">
+         <ul class="breadcrumbs">
+             <li><a href=""><i class="iconfa-home"></i> Investigaci&oacute;n y Producci&oacute;n</a> <span class="separator"></span></li>
+           </ul>
      <article class="art-post art-article">
                                 
           <h2></h2>                                        
@@ -64,10 +67,8 @@
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-                 <button class="submit" type="button" onclick="enviar()">Guardar</button>  
-          
-
-            </p>
+                 <button class="submit" type="button" onclick="enviar()">Cancelar</button>  
+           </p>
           </form>
         </div>
         <p>{$ERROR}</p>

@@ -131,7 +131,9 @@
             <br /></p>
         </div>
 </div>
+                 
 </div>
+                   
       {include file="asistencia_evento/contenido.tpl"}
     
       
