@@ -32,15 +32,15 @@ class Docencia_axuliar_externa extends Objectbase
   
   var $pais_id;
   
-  var $unidad_tiempo_id_unidad_tiempo;
+  var $unidad_tiempo_id;
   
   var $nivel_formacion_id;
-  
+  var $area_id;
   var $subarea_id;
   
   var $funcionario_id;
-  
-  var $descripcion;
+  var $archivo;
+  var $observacion;
   
   
 

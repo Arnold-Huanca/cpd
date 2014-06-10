@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2014 a las 16:45:25
+-- Tiempo de generación: 11-06-2014 a las 00:33:24
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -89,21 +89,21 @@ CREATE TABLE IF NOT EXISTS `asistencia_evento` (
   `unidad_tiempo_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
   `ambito_id` int(11) DEFAULT NULL,
-  `observacion` varchar(500) DEFAULT NULL,
   `fecha_visado` date DEFAULT NULL,
-  `descripcion` varchar(200) DEFAULT NULL,
+  `observacion` varchar(200) DEFAULT NULL,
+  `archivo` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `asistencia_evento`
 --
 
-INSERT INTO `asistencia_evento` (`id`, `nombre_evento`, `fecha_inicio`, `duracion`, `entidad_organizadora`, `del_programa_formacion_doc`, `vb`, `tipo_evento_id`, `tipo_certificado_id`, `funcionario_id`, `area_id`, `subarea_id`, `unidad_tiempo_id`, `pais_id`, `ambito_id`, `observacion`, `fecha_visado`, `descripcion`, `estado`) VALUES
-(1, 'fasd', '2014-04-10', '', '', '', '', 0, 0, 1, NULL, 0, 0, 0, 0, '', '0000-00-00', '', 'AC'),
-(2, 'fadsf', '2014-05-14', '3', 'adf', 'fasdfs', '', 4, 0, 7, NULL, 0, 0, 2, 4, '', '0000-00-00', 'gsgfd', 'Pendiente'),
-(3, 'fasdf', '2014-06-29', '67', 'gsdfg', 'sdfg', '', 4, 2, 1, 2, 0, 0, 1, 4, '', '0000-00-00', '', 'Pendiente');
+INSERT INTO `asistencia_evento` (`id`, `nombre_evento`, `fecha_inicio`, `duracion`, `entidad_organizadora`, `del_programa_formacion_doc`, `vb`, `tipo_evento_id`, `tipo_certificado_id`, `funcionario_id`, `area_id`, `subarea_id`, `unidad_tiempo_id`, `pais_id`, `ambito_id`, `fecha_visado`, `observacion`, `archivo`, `estado`) VALUES
+(2, 'fadsf', '2014-05-14', '3', 'adf', 'fasdfs', '', 4, 0, 7, NULL, 0, 0, 2, 4, '0000-00-00', 'gsgfd', NULL, 'Pendiente'),
+(5, 'hola', '2014-06-18', '', 'fdf', 'dfds', '', 4, 2, 5, 1, 5, 4, 2, 4, '0000-00-00', 'gsdfsdfgsd', 'uploads/41402430001.jpg', 'Aceptado'),
+(6, 'holas', '2014-06-11', '2', 'fdf', 'fasdf', '', 3, 1, 1, 1, 5, 3, 2, 5, '0000-00-00', '', 'uploads/41402430317.jpg', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -210,16 +210,19 @@ CREATE TABLE IF NOT EXISTS `dedicacion_exclusiva` (
   `numero_gestiones` varchar(45) DEFAULT NULL,
   `unidad_academica` varchar(105) DEFAULT NULL,
   `vb` varchar(45) DEFAULT NULL,
+  `observacion` varchar(300) DEFAULT NULL,
+  `archivo` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `dedicacion_exclusiva`
 --
 
-INSERT INTO `dedicacion_exclusiva` (`id`, `tipo_gestion_id`, `ambito_id`, `funcionario_id`, `fecha_inicio`, `fecha_fin`, `numero_gestiones`, `unidad_academica`, `vb`, `estado`) VALUES
-(2, 1, 5, 1, '2014-05-08', '2014-05-31', '34', 'Facultad de Tecnologia', '', 'Pendiente');
+INSERT INTO `dedicacion_exclusiva` (`id`, `tipo_gestion_id`, `ambito_id`, `funcionario_id`, `fecha_inicio`, `fecha_fin`, `numero_gestiones`, `unidad_academica`, `vb`, `observacion`, `archivo`, `estado`) VALUES
+(2, 1, 5, 1, '2014-05-08', '2014-05-31', '34', 'Facultad de Tecnologia', '', NULL, NULL, 'Pendiente'),
+(3, 2, 5, 1, '2014-06-12', '2014-06-11', '2', 'Tecnologia', '', 'gsdfgter', 'uploads/41402433576.jpg', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -309,23 +312,30 @@ CREATE TABLE IF NOT EXISTS `docencia_auxiliatura_umss` (
   `departamento` varchar(100) DEFAULT NULL,
   `facultad` varchar(100) DEFAULT NULL,
   `condicion` varchar(100) DEFAULT NULL,
-  `vb` varchar(45) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `tipo_gestion_id` int(11) DEFAULT NULL,
   `nivel_formacion_id` int(11) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
-  `descripcion` varchar(200) DEFAULT NULL,
+  `observacion` varchar(200) DEFAULT NULL,
+  `archivo` varchar(200) DEFAULT NULL,
+  `vb` varchar(20) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `docencia_auxiliatura_umss`
 --
 
-INSERT INTO `docencia_auxiliatura_umss` (`id`, `materia`, `fecha_inicio`, `numero_gestiones`, `carrera`, `departamento`, `facultad`, `condicion`, `vb`, `subarea_id`, `tipo_gestion_id`, `nivel_formacion_id`, `funcionario_id`, `descripcion`, `estado`) VALUES
-(1, '', '0000-00-00', 'gsdfg', '', 'gsd', 'gsdg', 'gsdg', 'gdsg', 0, 0, 1, 0, 'gsef', 'Pendiente'),
-(2, 'fisica', '2014-05-15', '2', '', '', '', '', '', 0, 0, 1, 0, 'Aprobaciónfsadf', 'Pendiente');
+INSERT INTO `docencia_auxiliatura_umss` (`id`, `materia`, `fecha_inicio`, `numero_gestiones`, `carrera`, `departamento`, `facultad`, `condicion`, `area_id`, `subarea_id`, `tipo_gestion_id`, `nivel_formacion_id`, `funcionario_id`, `observacion`, `archivo`, `vb`, `estado`) VALUES
+(1, '', '0000-00-00', 'gsdfg', '', 'gsd', 'gsdg', 'gsdg', NULL, 0, 0, 1, 0, 'gsef', NULL, NULL, 'Pendiente'),
+(2, 'fisica', '2014-05-15', '2', '', '', '', '', NULL, 0, 0, 1, 0, 'Aprobaciónfsadf', NULL, NULL, 'Pendiente'),
+(3, 'Electronica', '2014-06-11', 'fasdf', 'fasdf', 'fasdf', 'fasdf', 'Docente', 1, 5, 2, 1, 0, '', '', '', 'Pendiente'),
+(4, '', '0000-00-00', '', '', '', '', '', 0, 0, 0, 0, 0, '', '', '', 'Pendiente'),
+(5, '', '0000-00-00', '', '', '', '', '', 0, 0, 0, 0, 0, '', '', '', 'Pendiente'),
+(6, 'gsdfg', '2014-06-20', '56', 'fasd', 'fasd', 'fasd', 'Auxiliar', 1, 5, 2, 1, 0, '', '', '', 'Pendiente'),
+(7, 'fasdf', '2014-06-04', '34', 'fasdf', 'fasdf', 'fasdf', 'Docente', 1, 5, 1, 1, 1, 'sdfgfgd', 'uploads/41402439026.jpg', '', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -346,10 +356,13 @@ CREATE TABLE IF NOT EXISTS `docencia_axuliar_externa` (
   `vb` varchar(45) DEFAULT NULL,
   `universidad_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
-  `unidad_tiempo_id_unidad_tiempo` int(11) DEFAULT NULL,
+  `unidad_tiempo_id` int(11) DEFAULT NULL,
   `nivel_formacion_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
+  `archivo` varchar(200) DEFAULT NULL,
+  `observacion` varchar(300) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -552,6 +565,7 @@ CREATE TABLE IF NOT EXISTS `formacion_pregrado` (
   `descripcion` varchar(500) DEFAULT NULL,
   `observacion` varchar(500) DEFAULT NULL,
   `fecha_visado` date DEFAULT NULL,
+  `archivo` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
@@ -560,13 +574,13 @@ CREATE TABLE IF NOT EXISTS `formacion_pregrado` (
 -- Volcado de datos para la tabla `formacion_pregrado`
 --
 
-INSERT INTO `formacion_pregrado` (`id`, `fecha_diploma`, `fecha_titulo`, `nombre_titulo`, `tesis_pregrado`, `titulo_tesis_pregrado`, `duracion_curso_pregrado`, `otra_institucion`, `ciudad_pregrado`, `vb_pregrado`, `funcionario_id`, `universidad_id`, `pais_id`, `pais_funcionario_id`, `unidad_tiempo_id`, `grado_academico_id`, `subarea_id`, `descripcion`, `observacion`, `fecha_visado`, `estado`) VALUES
-(1, '0000-00-00', '0000-00-00', 'ildfihj', 'hhjjh', 'hjhjhj', 'hjhj', '', 'hjhj', '', 3, 0, 0, 0, 0, 0, 0, '', NULL, NULL, 'AC'),
-(2, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 1, 0, 0, 0, 0, 0, 0, '', '						\r\n			\r\n			kkk', '0000-00-00', 'Aceptado'),
-(3, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, '', '			\r\n			afdsfasf', '0000-00-00', 'mala'),
-(4, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, '', '			\r\n		lkl	', '0000-00-00', 'mala'),
-(5, '0000-00-00', '0000-00-00', 'trew', 'twer', 'ttrrwe', 'ttwer', '', 'ttrwertr', '', 1, 0, 0, 0, 0, 0, 0, '', '', '0000-00-00', 'Pendiente'),
-(6, '0000-00-00', '0000-00-00', 'fasdf', 'fasdf', 'fasdf', 'fasdf', '', 'fasdf', '', 1, 1, 2, 0, 0, 1, 0, '', '', '0000-00-00', 'Pendiente');
+INSERT INTO `formacion_pregrado` (`id`, `fecha_diploma`, `fecha_titulo`, `nombre_titulo`, `tesis_pregrado`, `titulo_tesis_pregrado`, `duracion_curso_pregrado`, `otra_institucion`, `ciudad_pregrado`, `vb_pregrado`, `funcionario_id`, `universidad_id`, `pais_id`, `pais_funcionario_id`, `unidad_tiempo_id`, `grado_academico_id`, `subarea_id`, `descripcion`, `observacion`, `fecha_visado`, `archivo`, `estado`) VALUES
+(1, '0000-00-00', '0000-00-00', 'ildfihj', 'hhjjh', 'hjhjhj', 'hjhj', '', 'hjhj', '', 3, 0, 0, 0, 0, 0, 0, '', NULL, NULL, NULL, 'AC'),
+(2, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 1, 0, 0, 0, 0, 0, 0, '', '						\r\n			\r\n			kkk', '0000-00-00', NULL, 'Aceptado'),
+(3, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, '', '			\r\n			afdsfasf', '0000-00-00', NULL, 'mala'),
+(4, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, '', '			\r\n		lkl	', '0000-00-00', NULL, 'mala'),
+(5, '0000-00-00', '0000-00-00', 'trew', 'twer', 'ttrrwe', 'ttwer', '', 'ttrwertr', '', 1, 0, 0, 0, 0, 0, 0, '', '', '0000-00-00', NULL, 'Pendiente'),
+(6, '0000-00-00', '0000-00-00', 'fasdf', 'fasdf', 'fasdf', 'fasdf', '', 'fasdf', '', 1, 1, 2, 0, 0, 1, 0, '', '', '0000-00-00', NULL, 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -674,7 +688,7 @@ CREATE TABLE IF NOT EXISTS `grupo` (
 
 INSERT INTO `grupo` (`id`, `codigo`, `descripcion`, `estado`) VALUES
 (1, 'Admin', 'Administrador', 'AC'),
-(2, 'Funcionario', 'El funcionario', 'AC'),
+(2, 'Funcionario', 'El funcionario o jefes', 'AC'),
 (3, 'Secretaria', 'secretaria', 'AC'),
 (4, 'Registrado', 'Registrado', 'AC');
 
@@ -842,7 +856,7 @@ INSERT INTO `modulo` (`id`, `codigo`, `nombre`, `url`, `descripcion`, `estado`) 
 (22, 'Facultad', NULL, NULL, 'M&oacute;dulo: Facultad', 'AC'),
 (23, 'Formacion Postgrado', NULL, NULL, 'M&oacute;dulo: Formación Postgrado', 'AC'),
 (24, 'Formacion Pregrado', NULL, NULL, 'M&oacute;dulo: Formación Pregrado', 'AC'),
-(25, 'Funcionario', NULL, NULL, 'M&oacute;dulo: Funcionario', 'AC'),
+(25, 'Datos Personales', NULL, NULL, 'M&oacute;dulo: Datos Personales', 'AC'),
 (26, 'Grado Academico', NULL, NULL, 'M&oacute;dulo: Grado Academico', 'AC'),
 (27, 'Grupo', NULL, NULL, 'M&oacute;dulo: Grupo', 'AC'),
 (28, 'Idioma', NULL, NULL, 'M&oacute;dulo: Idioma', 'AC'),
@@ -989,7 +1003,7 @@ CREATE TABLE IF NOT EXISTS `perfeccionamiento_profecional` (
   `fecha_certificado` date DEFAULT NULL,
   `certificado` varchar(100) DEFAULT NULL,
   `titulo` varchar(100) DEFAULT NULL,
-  `diplona` varchar(100) DEFAULT NULL,
+  `diploma` varchar(100) DEFAULT NULL,
   `titulo_trabajo_final` varchar(100) DEFAULT NULL,
   `mencion` varchar(100) DEFAULT NULL,
   `duracion_curso` varchar(100) DEFAULT NULL,
@@ -998,16 +1012,18 @@ CREATE TABLE IF NOT EXISTS `perfeccionamiento_profecional` (
   `creditos` varchar(45) DEFAULT NULL,
   `otra_institucion` varchar(100) DEFAULT NULL,
   `vb` varchar(45) DEFAULT NULL,
+  `archivo` varchar(200) DEFAULT NULL,
+  `observacion` varchar(500) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `perfeccionamiento_profecional`
 --
 
-INSERT INTO `perfeccionamiento_profecional` (`id`, `tipo_perfeccionamiento_id`, `funcionario_id`, `unidad_tiempo_id`, `pais_id`, `universidad_id`, `area_id`, `subarea_id`, `fecha_certificado`, `certificado`, `titulo`, `diplona`, `titulo_trabajo_final`, `mencion`, `duracion_curso`, `hrs_presenciales`, `hrs_no_presenciales`, `creditos`, `otra_institucion`, `vb`, `estado`) VALUES
-(3, 3, 1, 0, 2, 0, 1, 5, '2014-06-19', 'retwer', 'twert', '', 'twert', 'twert', '55', '556', '56', 'dgfd', 'hdfghd', '', 'Pendiente');
+INSERT INTO `perfeccionamiento_profecional` (`id`, `tipo_perfeccionamiento_id`, `funcionario_id`, `unidad_tiempo_id`, `pais_id`, `universidad_id`, `area_id`, `subarea_id`, `fecha_certificado`, `certificado`, `titulo`, `diploma`, `titulo_trabajo_final`, `mencion`, `duracion_curso`, `hrs_presenciales`, `hrs_no_presenciales`, `creditos`, `otra_institucion`, `vb`, `archivo`, `observacion`, `estado`) VALUES
+(3, 3, 1, 3, 2, 0, 1, 5, '2014-06-19', 'Si', 'No', 'Si', 'twert', 'twert', '97', '556', '56', 'dgfd', 'hdfghd', '', 'uploads/41402425782.jpg', 'gsdfgsdg', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -1614,7 +1630,17 @@ CREATE TABLE IF NOT EXISTS `unidad_tiempo` (
   `sigla_unidad_tiempo` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `unidad_tiempo`
+--
+
+INSERT INTO `unidad_tiempo` (`id`, `nombre_unidad_tiempo`, `sigla_unidad_tiempo`, `estado`) VALUES
+(1, 'Dia/s', 'dias', 'AC'),
+(2, 'Semana/s', '', 'AC'),
+(3, 'Mes/es', '', 'AC'),
+(4, 'Año/s', '', 'AC');
 
 -- --------------------------------------------------------
 
