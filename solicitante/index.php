@@ -14,9 +14,9 @@ try {
   $smarty->assign('keywords','');
 
     //CSS
-   $CSS[]  = URL_CSS . "style.css";
+  $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
- $CSS[]  = URL_CSS . "tables.css";
+  $CSS[]  = URL_CSS . "tables.css";
     
   $CSS[]  = URL_CSS . "demo_table.css";
   $CSS[]  = URL_CSS . "style_table.css";
@@ -24,9 +24,6 @@ try {
   $smarty->assign('CSS',$CSS);
 
   //JS
-  //
-  
-   
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/jquery.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
