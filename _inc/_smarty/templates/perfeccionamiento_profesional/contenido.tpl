@@ -67,13 +67,13 @@
               <p>
               <label for="rol"><small>&Aacute;rea</small></label>
               <select  class="select-style gender" name="area_id" id="area_id" poblacioattri=''>
-              {html_options values=$area_values selected=$evento->area_id output=$area_output}
+              {html_options values=$area_values selected=$perfeccionamiento_profecional->area_id output=$area_output}
               </select>&nbsp;<span id='Buscando'></span>
             </p>
             <p>
               <label for="rol"><small>Sub &Aacute;rea</small></label>
                <select  class="select-style gender" name="subarea_id" id="subarea_id"   >
-                  
+                
              </select>
             </p>
             
@@ -128,6 +128,7 @@ var numero =document.getElementById("area_id").value;
 var poblacio = jQuery(this).attr("poblacioattri");
 var to=document.getElementById("Buscando");
 to.innerHTML="buscando....";
+alert(numero);
 jQuery.ajax({
 type: "POST", 
 url: "buscar.php",
@@ -138,6 +139,8 @@ var to=document.getElementById("Buscando");
 to.innerHTML="";
 }
 });
+
+
 })
 .change();
 </script> 

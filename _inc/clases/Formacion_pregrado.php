@@ -47,6 +47,7 @@ class Formacion_pregrado extends Objectbase
    var $observacion;
   
   var $fecha_visado;
+   var $archivo;
   
  
 

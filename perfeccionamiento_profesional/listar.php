@@ -121,7 +121,7 @@
                           <td><?php echo $resultado['otra_institucion'] ?></td>
                           <td><?php echo $pasis-> nombre_pais?></td>
 		          <td><?php echo $resultado['estado'] ?></td>
-                          <td><span class="modi"><a href="registro.php?evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+                          <td><span class="modi"><a href="registro.php?perfeccionamiento_profecional_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 		  </tr>
 	<?php

@@ -47,6 +47,8 @@ class Perfeccionamiento_profecional extends Objectbase
    var $otra_institucion;
    
    var $vb;
+   var $archivo;
+   var $observacion;
     
   public function getByLogin ($login, $verSifueTomado = false ) {
     $sql       = "select * from ".$this->getTableName()." where login = '$login'";
