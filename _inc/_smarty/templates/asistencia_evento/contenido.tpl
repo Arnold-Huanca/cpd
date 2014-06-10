@@ -19,9 +19,17 @@
                 <input type="text" name="fecha_inicio" id="fecha_inicio" value="{$asistencia_evento->fecha_inicio}"  placeholder="Fecha Inicio" size="100"  >
               <label for="nombre"><small>Fecha de Inicio</small></label>
             </p>
-            <p>
-              <input type="text" name="duracion" id="duracion" value="{$asistencia_evento->duracion}"  placeholder="Duracion" size="100"  >
-              <label for="nombre"><small>Duraci&oacute;n</small></label>
+             <p>
+               <label for="email"><small>Duraci&oacute;n del Curso</small></label>
+               <select  class="select-style gender" name="duracion" id="duracion" >
+              {html_options values=$duracion_values selected=$asistencia_evento->duracion output=$duracion_output}
+              </select>
+            </p>
+             <p>
+              <label for="rol"><small>Unidad Tiempo</small></label>
+              <select  class="select-style gender" name="unidad_tiempo_id" id="unidad_tiempo_id" >
+              {html_options values=$unidad_tiempos_values selected=$asistencia_evento->unidad_tiempo_id output=$unidad_tiempos_output}
+              </select>
             </p>
             <p>
               <input type="text" name="entidad_organizadora" id="entidad_organizadora" value="{$asistencia_evento->entidad_organizadora}"  placeholder="Entidad Organizadora" size="100"  >
@@ -47,7 +55,7 @@
              <p>
               <label for="rol"><small>&Aacute;rea</small></label>
               <select  class="select-style gender" name="area_id" id="area_id" poblacioattri=''>
-              {html_options values=$area_values selected=$evento->area_id output=$area_output}
+              {html_options values=$area_values selected=$asistencia_evento->area_id output=$area_output}
               </select>&nbsp;<span id='Buscando'></span>
             </p>
             <p>
@@ -69,15 +77,7 @@
               </select>
             </p>
             
-           
-             <p>
-              <label for="rol"><small>Unidad Tiempo</small></label>
-              <select  class="select-style gender" name="unidad_tiempo_id" id="unidad_tiempo_id" >
-              {html_options values=$unidad_tiempos_values selected=$asistencia_evento->unidad_tiempo_id_unidad_tiempo output=$unidad_tiempos_output}
-              </select>
-            </p>
-            
-                    
+                         
             <p>
               <input type="hidden" name="asistencia_evento_id"    value="{$asistencia_evento->id}">
                 <input type="hidden" name="tarea" value="registrar">

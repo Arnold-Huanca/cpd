@@ -112,7 +112,7 @@
                             <td><?php echo $resultado['entidad_organizadora'] ?></td>
 			  <td><?php echo $resultado['organizado_por_instacia_univ'] ?></td>
 			  <td><?php echo $pasis-> nombre_pais?></td>
-                            <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" title="Editar" alt="Editar" /></a></span></td>
+                            <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
 			
 		         <td><?php echo $resultado['estado'] ?></td>
                           <td><span class="modi"><a href="evento_detalle.php?menus=mostrar&evento_id=<?php echo $resultado['id'] ?>" ><img src="../images/edit.png" title="Ver" alt="Editar" /></a></span></td>

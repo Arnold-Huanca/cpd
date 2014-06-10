@@ -13,9 +13,9 @@
 		if ( msg )
                 {
 			$.ajax({
-				url: 'eliminar.php',
+				url: 'asistencia_evento_eliminar.php',
 				type: "GET",
-				data: "ambito_id="+id,
+				data: "id="+id,
 				success: function(datos){
 					//alert(datos);
 					$("#fila-"+id).remove();
@@ -27,18 +27,28 @@
 	}
 
          </script> 
+         <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+    
              <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>id</th><!--Estado-->
-                        <th>Tipo de Evento</th>
-                        <th>Nombre Evento</th>
-                        <th>Fecha</th>
-                        <th>Duraci&oacute;n</th> 
-                         <th>Tipo de  Certificado</th> 
-                         <th>Estado</th> 
-                        <th>Ver Datos </th>
-                       
+                         <th>Estado</th><!--Estado-->
+                         <th>Nro.</th><!--Estado-->
+                         <th>Tipo de Evento</th>
+                         <th>Nombre de Evento</th>
+                         <th>Fecha Inicio</th>
+                         <th>Duraci&oacute;n</th>
+                         <th>Tipo Certificado</th>
+                         <th>&Aacute;rea</th>
+                         <th>Sub&aacute;rea</th>
+                         <th>&Aacute;mbito</th>
+                         <th>Organizador del Evento</th>
+                         <th>Programa de Formaci&oacute;n</th>
+                         <th> Pa&iacute;s</th><!--Estado-->
+                         <th> Observaci&oacute;n </th><!--Estado-->
+                          <th>Certificado</th><!--Estado-->
+                         <th>Ver</th>
+                         <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -49,6 +59,17 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                         <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                         <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                       
                      </tr>
                 </tfoot>
                   <tbody>
@@ -58,35 +79,55 @@
                    define ("MODULO", "Solicitante");
                   if(!isUserSession())
                   header("Location: index.php"); 
-              leerClase("Tipo_evento");
-              leerClase("Ambito");
-                  
+                    
                   $funcionario_id= $_GET['funcionario_id'];
                   
-                  $listado=  mysql_query("select f.* from  asistencia_evento f where f.funcionario_id=$funcionario_id");
-
+                    $listado=  mysql_query("select * from asistencia_evento where funcionario_id=$funcionario_id");
+           
+                  leerClase("Tipo_evento");
+                  leerClase("Area");
+                  leerClase("Subarea");
+                  leerClase("Ambito");
+                  leerClase("Tipo_participacion");
+                  leerClase("Pais");
+                  leerClase("Unidad_tiempo");
+                  $contador=1;
                     while( $resultado = mysql_fetch_array($listado) ){
-                        $tipoevento= new Tipo_evento($resultado['tipo_evento_id']);
-                  	?>
+                        
+                        $tipo_evento= new Tipo_evento($resultado['tipo_evento_id']);
+                        $area= new Area($resultado['area_id']);
+                         $subarea= new Subarea($resultado['subarea_id']);
+                         $ambito= new Ambito($resultado['ambito_id']);
+                         $pais= new Pais($resultado['pais_id']);
+                        $unidad_tiempo= new Unidad_tiempo($resultado['unidad_tiempo_id']);
+                    
+                            	?>
 	
-		           <tr id="fila-<?php echo $resultado['id'] ?>">
-                           <td><?php echo $resultado['id'] ?></td>
-                             <td><?php echo $tipoevento->descripcion; ?></td>
-    
-                             <td><?php echo $resultado['nombre_evento'] ?></td>
-                         
-			    <td><?php echo $resultado['fecha_inicio'] ?></td>
-                             <td><?php echo $resultado['duracion'] ?></td>
-                         
-                            <td><?php echo $resultado['entidad_organizadora'] ?></td>
-                           
-			 
-			   <td><?php echo $resultado['duracion'] ?></td>
-                           <td><?php echo $resultado['estado'] ?></td>
-                          <td><span class="modi"><a href="evento_detalle.php?menus=mostrar&evento_id=<?php echo $resultado['id'] ?>" ><img src="../images/edit.png" title="Ver" alt="Editar" /></a></span></td>
-			  </tr>
+		          <tr id="fila-<?php echo $resultado['id'] ?>">
+                                <td><?php echo   $resultado['estado']?></td>
+                          <td><?php echo   $contador?></td>
+                          <td><?php echo  $tipo_evento->descripcion ?></td>
+			  <td><?php echo $resultado['nombre_evento'] ?></td>
+                          <td><?php echo $resultado['fecha_inicio'] ?></td>
+                          <td><?php echo $resultado['duracion'] .' '.    $unidad_tiempo->nombre_unidad_tiempo?></td>
+                          <td><?php echo $resultado['tipo_certificado_id'] ?></td>
+                           <td><?php echo $area->nombre ?></td>
+                           <td><?php echo $subarea->nombre_subarea ?></td>
+                           <td><?php echo $ambito->nombre_ambito?></td>
+                           <td><?php echo $resultado['entidad_organizadora'] ?></td>
+                           <td><?php echo $resultado['del_programa_formacion_doc'] ?></td>
+                           <td><?php echo  $pais->nombre_pais ?></td>
+                            <td><?php echo  $resultado['observacion'] ?></td>
+                              <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
+			
+                           <td><span class="modi"><a href="asistencia_evento_detalle.php?menus=mostrar&asistencia_evento_id=<?php echo $resultado['id'] ?>" ><img src="../images/edit.png" title="Ver" alt="Editar" /></a></span></td>
+			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="asistencia_evento_eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
+	
+                          </tr>
 	<?php
+          $contador++;
 	}
   ?>   
-                <tbody>
+                </tbody>
             </table>
+</div>

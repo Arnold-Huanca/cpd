@@ -34,12 +34,14 @@ class Asistencia_evento extends Objectbase
   
   var $pais_id;
   
-  var $ambito_id;
+    var $ambito_id;
+    var $fecha_visado;
   
-  var $descripcion;
-  var $observacion;
+     var $observacion;
   
-  var $fecha_visado;
+     var $archivo;
+  
+ 
 
 
   public function getByLogin ($login, $verSifueTomado = false ) {

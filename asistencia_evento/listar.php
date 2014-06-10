@@ -28,7 +28,7 @@
 
          </script> 
           <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
-		 <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+	<div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
@@ -85,7 +85,7 @@
                   leerClase("Ambito");
                   leerClase("Tipo_participacion");
                   leerClase("Pais");
-          
+                  leerClase("Unidad_tiempo");
                     while( $resultado = mysql_fetch_array($listado) ){
                         
                         $tipo_evento= new Tipo_evento($resultado['tipo_evento_id']);
@@ -93,7 +93,7 @@
                          $subarea= new Subarea($resultado['subarea_id']);
                          $ambito= new Ambito($resultado['ambito_id']);
                          $pais= new Pais($resultado['pais_id']);
-                        
+                        $unidad_tiempo= new Unidad_tiempo($resultado['unidad_tiempo_id']);
                     
                                 
                   	?>
@@ -103,14 +103,12 @@
                           <td><?php echo  $tipo_evento->descripcion ?></td>
 			  <td><?php echo $resultado['nombre_evento'] ?></td>
                           <td><?php echo $resultado['fecha_inicio'] ?></td>
-                          <td><?php echo $resultado['duracion'] ?></td>
+                          <td><?php echo $resultado['duracion'] .' '.    $unidad_tiempo->nombre_unidad_tiempo?></td>
                           <td><?php echo $resultado['tipo_certificado_id'] ?></td>
                            <td><?php echo $area->nombre ?></td>
                            <td><?php echo $subarea->nombre_subarea ?></td>
                            <td><?php echo $ambito->nombre_ambito?></td>
-                            
-                         
-			  <td><?php echo $resultado['entidad_organizadora'] ?></td>
+                            <td><?php echo $resultado['entidad_organizadora'] ?></td>
                          <td><?php echo $resultado['del_programa_formacion_doc'] ?></td>
                          <td><?php echo  $pais->nombre_pais ?></td>
                            <td><span class="modi"><a href="registro.php?asistencia_evento_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
@@ -119,6 +117,6 @@
 	<?php
 	}
   ?>   
-                <tbody>
+                </tbody>
             </table>
   </div>

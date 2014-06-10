@@ -73,7 +73,7 @@ $ERROR = '';
   while ($row = mysql_fetch_array($tipo_certificados[0])) 
   {
     $tipo_certificados_values[] = $row['id'];
-    $tipo_certificados_output[] = $row['sigla'];
+    $tipo_certificados_output[] = $row['descripcion'];
   }
   $smarty->assign("tipo_certificados_values", $tipo_certificados_values);
   $smarty->assign("tipo_certificados_output", $tipo_certificados_output);
@@ -121,6 +121,20 @@ $ERROR = '';
   }
   $smarty->assign("unidad_tiempos_values", $unidad_tiempos_values);
   $smarty->assign("unidad_tiempos_output", $unidad_tiempos_output);
+  
+
+  $duracion_values[] = '';
+  $duracion_output[] = '- Seleccione -';
+
+   
+ 
+    for ($index = 1; $index < 100; $index++){
+         $duracion_values[] = $index;
+         $duracion_output[] =$index;
+    }
+  $smarty->assign("duracion_values", $duracion_values);
+  $smarty->assign("duracion_output", $duracion_output);
+  
   
   // combo box pais
   leerClase('Pais');
