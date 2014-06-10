@@ -36,7 +36,7 @@ try {
    $JS[]  = URL_JS .   "vista/selectnav.js";
    $JS[]  = URL_JS .  "vista/ender.js";
    $JS[]  = URL_JS .    "vista/custom.js";
-   $JS[]  = URL_JS .   "vista/responsiveslides.min.js";
+   $JS[]  = URL_JS .   "vista/responsiveslides.min.js";           
     
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);

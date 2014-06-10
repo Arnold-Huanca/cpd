@@ -48,17 +48,18 @@
 
 <div class="art-vmenublock clearfix">
    <div class="art-vmenublockheader">
-  <h3 class="t">Datos de : {$funcionario->nombre} {$funcionario->apellido_p}</h3>
+  <h3 class="t">Datos de :</h3>
+  <h3 class="t">{$funcionario->nombre} {$funcionario->apellido_p} {$funcionario->apellido_m}</h3>
         </div>
         <div class="art-vmenublockcontent">
             
  {if (isset($menus))}
   <ul class="art-vmenu">
-    <li><a href="formacion_pregrado.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Formaci&oacute;n Pregrado</a></li>
-    <li><a href="formacion_postgrado.php?menus=mostrar&funcionario_id={$funcionario->id}">Formaci&oacute;n Postgrado</a></li>
-    <li><a href="distincion.php?menus=mostrar&funcionario_id={$funcionario->id}">Distinciones</a></li>
-    <li><a href="dominio_idioma.php?menus=mostrar&funcionario_id={$funcionario->id}">Dominio Idiomas</a></li>
-    <li><a href="perfeccionamiento_profesional.php?menus=mostrar&funcionario_id={$funcionario->id}">Perfeccionamiento Profesional</a></li>
+   <li><a href="formacion_pregrado.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Formaci&oacute;n Pregrado</a></li>
+   <li><a href="formacion_postgrado.php?menus=mostrar&funcionario_id={$funcionario->id}">Formaci&oacute;n Postgrado</a></li>
+   <li><a href="distincion.php?menus=mostrar&funcionario_id={$funcionario->id}">Distinciones</a></li>
+   <li><a href="dominio_idioma.php?menus=mostrar&funcionario_id={$funcionario->id}">Dominio Idiomas</a></li>
+   <li><a href="perfeccionamiento_profesional.php?menus=mostrar&funcionario_id={$funcionario->id}">Perfeccionamiento Profesional</a></li>
    <li><a href="evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Evento</a></li>
    <li><a href="asistencia_evento.php?menus=mostrar&funcionario_id={$funcionario->id}">Asistencia Evento</a></li>
    <li><a href="dedicacion_exclusiva.php?menus=mostrar&funcionario_id={$funcionario->id}">Dedicaci&oacute;n Exclusiva</a></li>
@@ -69,7 +70,7 @@
    <li><a href="ejercicio_liberal.php?menus=mostrar&funcionario_id={$funcionario->id}">Ejercicio Liberal de Profesi&oacute;n (Free Lance) </a></li>
    <li><a href="produccion.php?menus=mostrar&funcionario_id={$funcionario->id}"> Producci&oacute;n </a></li>
    <li><a href="patente.php?menus=mostrar&funcionario_id={$funcionario->id}">Patente </a></li>
-  <li><a href="membresia.php?menus=mostrar&funcionario_id={$funcionario->id}">Membresia </a></li>
+   <li><a href="membresia.php?menus=mostrar&funcionario_id={$funcionario->id}">Membresia </a></li>
  
   </ul>
 {/if}

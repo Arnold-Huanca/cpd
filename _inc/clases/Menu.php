@@ -93,7 +93,7 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
 					where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and c.grupo='$gruposmenus' and  p.ver=1 and pe.usuario_id=$usuario->id GROUP BY m.codigo ORDER BY c.nivel ASC
 					");
 						
-						
+						 
 			$thise = new Menu($resultado["grupo"]);
 			while( $resultados= mysql_fetch_array($listadomenus) )
                           {

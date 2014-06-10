@@ -3,7 +3,7 @@
 /**
  * Esta clase es para manejar los menus no interactua con la base de datos
  *
- * @author Guyen Campero <guyencu@gmail.com>
+ * 
  */
 class Menu_item
 {
