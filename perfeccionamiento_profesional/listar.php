@@ -92,6 +92,7 @@
                   leerClase("Subarea");
                   leerClase("Tipo_perfeccionamiento");
                   leerClase("Pais");
+                  leerClase('Unidad_tiempo');
                   $listado=  mysql_query("select f.* from perfeccionamiento_profecional f where f.funcionario_id= $idfuncionario");
 
                     while( $resultado = mysql_fetch_array($listado)){
@@ -100,6 +101,7 @@
                         $area= new Area($subarea->area_id);
                          $tipoparticipacion= new Tipo_perfeccionamiento($resultado['tipo_perfeccionamiento_id']);
                         $pasis = new Pais($resultado['pais_id']);
+                        $unidad_tiempo= new Unidad_tiempo($resultado['unidad_tiempo_id']);
                         
                   	?>
 	
@@ -109,10 +111,10 @@
                            <td><?php echo $resultado['fecha_certificado']; ?></td>
                            <td><?php echo $resultado['certificado']; ?></td>
                            <td><?php echo $resultado['titulo']; ?></td>
-                           <td><?php echo $resultado['diplona']; ?></td>
+                           <td><?php echo $resultado['diploma']; ?></td>
                            <td><?php echo $resultado['titulo_trabajo_final']; ?></td>
                            <td><?php echo $resultado['mencion']; ?></td>
-                           <td><?php echo $resultado['duracion_curso'] ?></td>
+                           <td><?php echo $resultado['duracion_curso'] .' '.  $unidad_tiempo->nombre_unidad_tiempo ?></td>
                            <td><?php echo $resultado['hrs_presenciales'] ?></td>
                           <td><?php echo $resultado['hrs_no_presenciales'] ?></td>
                           <td><?php echo $resultado['creditos'] ?></td>

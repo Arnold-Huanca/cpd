@@ -16,9 +16,7 @@ class Unidad_tiempo extends Objectbase
    
    var $sigla_unidad_tiempo;
    
-   var $descripcion;
-   
-  
+     
   public function getByLogin ($login, $verSifueTomado = false ) {
     $sql       = "select * from ".$this->getTableName()." where login = '$login'";
     $result = mysql_query($sql);

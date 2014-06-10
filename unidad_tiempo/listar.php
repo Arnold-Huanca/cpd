@@ -37,10 +37,9 @@ $listado=  mysql_query("select * from unidad_tiempo");
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
-                        <th>Nombre Unidad Tiempo</th>
-                        <th>Sigla Unidad Tiempo</th><!--Estado-->
-                        <th>Descripcion</th>
-                        <th>Estado</th>
+                        <th>Nombre </th>
+                        <th>Sigla</th><!--Estado-->
+                         <th>Estado</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -63,8 +62,7 @@ $listado=  mysql_query("select * from unidad_tiempo");
                                echo '<td >'.mb_convert_encoding($reg['id'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['nombre_unidad_tiempo'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['sigla_unidad_tiempo'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['descripcion'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
+                                    echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
                                echo '<td  ><a href=registro.php?editar=editando&unidad_tiempo_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a><img src="../images/edit.png" title="Editar" alt="Editar" /></td>';
                                echo '<td><span class="dele"><a onClick="EliminarDato('.$reg['id'].'); return false" href="eliminar.php?unidad_tiempo_id='.$reg['id'].'"><center><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></center></a></span></td>';
 						                   echo '</tr>';

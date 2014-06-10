@@ -43,7 +43,7 @@
 </div>
           
 <div class="art-vmenublock clearfix">
-       <li><a href="{$URL}solicitante" class="active">Inicio</a></li>
+ <li><a href="{$URL}solicitante" class="active">Inicio</a></li>
   </div>
 
 <div class="art-vmenublock clearfix">

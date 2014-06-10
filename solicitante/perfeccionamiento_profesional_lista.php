@@ -37,9 +37,8 @@
                         <th>Nro.</th><!--Estado-->
                         <th>Tipo de Perfeccionamiento</th>
                         <th>Fecha Certificado</th>
-                         <th>Certificado</th>
-                          
-                         <th>T&iacute;tulo</th>
+                        <th>Certificado</th>
+                        <th>T&iacute;tulo</th>
                         <th>Diploma</th>
                         <th>T&iacute;tulo Trabajo Final</th>
                         <th>Menci&oacute;n</th>
@@ -47,18 +46,19 @@
                         <th>Hrs. Presenciales</th>
                         <th>Hrs. No Presenciales</th>
                         <th>Cr&eacute;ditos</th>
-                        
                         <th>&Aacute;</th>
                         <th>Sub&aacute;rea</th>
-                        <th>Institucion donde obtuvo el grado</th>
+                        <th>Instituci&oacute;n donde obtuvo el grado</th>
                         <th>Pa&iacute;s</th>
-                        <th>Estado</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                          <th>Observaci&oacute;n</th>
+                         <th>Foto</th>
+                       
+                         <th>Ver</th>
+                            <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tfoot>
-                    <tr>
+                    <tr> <th></th>
                          <th></th>
                         <th></th>
                         <th></th>
@@ -78,7 +78,7 @@
                         <th></th>
                           <th></th>
                         <th></th>
-                        <th></th>
+                        
                      </tr>
                 </tfoot>
                   <tbody>
@@ -90,44 +90,48 @@
                   header("Location: index.php"); 
                   
                   $funcionario_id= $_GET['funcionario_id'];
-                 
-                  leerClase("Area");
+                   leerClase("Area");
                   leerClase("Subarea");
                   leerClase("Tipo_perfeccionamiento");
                   leerClase("Pais");
-                  $listado=  mysql_query("select f.* from perfeccionamiento_profecional f where f.funcionario_id=  $funcionario_id");
-          $contador=1;
+                  leerClase('Unidad_tiempo');
+                  $listado=  mysql_query("select f.* from perfeccionamiento_profecional f where f.funcionario_id=$funcionario_id");
+
                     while( $resultado = mysql_fetch_array($listado)){
                         
                         $subarea= new Subarea($resultado['subarea_id']);
                         $area= new Area($subarea->area_id);
                          $tipoparticipacion= new Tipo_perfeccionamiento($resultado['tipo_perfeccionamiento_id']);
                         $pasis = new Pais($resultado['pais_id']);
+                        $unidad_tiempo= new Unidad_tiempo($resultado['unidad_tiempo_id']);
                         
                   	?>
 	
 		           <tr id="fila-<?php echo $resultado['id']; ?>">
-                           <td><?php echo   $contador; ?></td>
+                            <td><?php echo  $resultado['estado']; ?></td>
+                           <td><?php echo  $resultado['id']; ?></td>
                            <td><?php echo  $tipoparticipacion->sigla; ?></td>
                            <td><?php echo $resultado['fecha_certificado']; ?></td>
                            <td><?php echo $resultado['certificado']; ?></td>
                            <td><?php echo $resultado['titulo']; ?></td>
-                           <td><?php echo $resultado['diplona']; ?></td>
+                           <td><?php echo $resultado['diploma']; ?></td>
                            <td><?php echo $resultado['titulo_trabajo_final']; ?></td>
                            <td><?php echo $resultado['mencion']; ?></td>
-                           <td><?php echo $resultado['duracion_curso'] ?></td>
+                           <td><?php echo $resultado['duracion_curso'] .' '.  $unidad_tiempo->nombre_unidad_tiempo ?></td>
                            <td><?php echo $resultado['hrs_presenciales'] ?></td>
-                            <td><?php echo $resultado['hrs_no_presenciales'] ?></td>
-                            <td><?php echo $resultado['creditos'] ?></td>
-                            <td><?php echo $area->nombre; ?></td>
-                           <td><?php echo $subarea->nombre_subarea; ?></td>
-                            <td><?php echo $resultado['otra_institucion'] ?></td>
-                           <td><?php echo $pasis-> nombre_pais?></td>
-		           <td><?php echo $resultado['estado'] ?></td>
-                           <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>,4); return false" href="perfeccionamiento_profesional_ajax.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
+                          <td><?php echo $resultado['hrs_no_presenciales'] ?></td>
+                          <td><?php echo $resultado['creditos'] ?></td>
+                          <td><?php echo $area->nombre; ?></td>
+                          <td><?php echo $subarea->nombre_subarea; ?></td>
+                          <td><?php echo $resultado['otra_institucion'] ?></td>
+                          <td><?php echo $pasis-> nombre_pais?></td>
+                           <td><?php echo $resultado['observacion'] ?></td>
+		       <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>"  /></a></span></td>
+			
+                          <td><span class="modi"><a href="perfeccionamiento_profesional_detalle.php?perfeccionamiento_profecional_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 		  </tr>
 	<?php
-         $contador++;
 	}
   ?>   
                 <tbody>

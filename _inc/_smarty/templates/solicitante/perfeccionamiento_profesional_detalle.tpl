@@ -1,4 +1,87 @@
-     <div class="art-layout-cell art-content clearfix">
+{include file="header.tpl"}
+{include file="menu.tpl"}
+<div class="art-sheet clearfix">
+            <div class="art-layout-wrapper clearfix">
+                <div class="art-content-layout">
+                    <div class="art-content-layout-row">
+                      
+      <div class="art-layout-cell art-sidebar1 clearfix">
+<div class="art-vmenublock clearfix">
+  
+   {if (isUserSession())}
+     
+     <div class="art-blockcontent"><p>
+          Usuario:  {$UsuarioSesion}
+            <br /></p>
+        </div>
+     
+           {else}
+             <form action="#" method="post"  name="login">
+     <p id="form-login-username">
+      <label for="modlgn_username">Username(*)</label>
+      <br />
+      <input  type="text" name="username"  alt="username" size="18" />
+    </p>
+    <p id="form-login-password">
+      <label for="modlgn_passwd">Password(*)</label>
+      <br />
+      <input  type="password" name="passwd"  size="18" alt="password" />
+    </p>
+     <label for="modlgn_username">Datos de Ingreso</label>
+    <p id="form-login-remember">
+      <label class="art-checkbox">
+      <input type="checkbox" id="modlgn_remember" name="remember" value="yes" alt="Remember Me" />Remember Me
+      </label>
+    </p>
+    
+     <input type="hidden" name="tarea" value="ingreso">
+     <input type="hidden" name="token" value="{$token}">
+     <input name="submit" type="submit" id="submit" value="Ingresar" class="art-button">
+
+  <ul>
+    <li>
+      <a href="{$URL}registrarse">Crear Su Cuenta</a>
+    </li>
+  </ul>
+</form>
+          {/if}
+     
+
+</div>
+         
+<div class="art-vmenublock clearfix">
+ <div class="art-vmenublockcontent">
+
+   {include file="menus.tpl"}    
+     
+
+ 
+ </div>
+</div>
+<div class="art-block clearfix">
+        <div class="art-blockheader">
+            <h3 class="t">  nota</h3>
+        </div>
+        <div class="art-blockcontent">
+           
+          
+          <p>
+          comentario
+          
+          </p>
+        </div>
+</div>
+ <div class="art-block clearfix">
+        <div class="art-blockheader">
+            <h3 class="t">Nuevo Bloque</h3>
+        </div>
+        <div class="art-blockcontent"><p>
+            nuevo
+            <br /></p>
+        </div>
+</div>
+</div>
+         <div class="art-layout-cell art-content clearfix">
           <ul class="breadcrumbs">
             <li><a href=""><i class="iconfa-home"></i> Perfeccionamiento Profesional</a> <span class="separator"></span></li>
            </ul>
@@ -8,7 +91,7 @@
    <div class="art-postcontent art-postcontent-0 clearfix">
      
      
-      <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
+      <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" enctype="multipart/form-data">
            
            
             <p>
@@ -138,6 +221,25 @@
               {html_options values=$paises_values selected=$perfeccionamiento_profecional->pais_id output=$paises_output}
               </select>
             </p>
+             <p>
+                    {if ($perfeccionamiento_profecional->estado eq "Pendiente" || $perfeccionamiento_profecional->estado eq "Aceptado" )}
+                      <input type="radio" name="estado" value="Aceptado"  checked />Aceptar
+                      <input type="radio" name="estado" dovalue="Observado" /> Rechazar
+                        {else}
+                             <input type="radio" name="estado" value="Aceptado"   />Aceptar
+                          <input type="radio" name="estado" dovalue="Observado"  checked /> Rechazar
+                   
+                        {/if}
+          </p>
+            <p>
+               <label for="rol"><small>Archivo</small></label>
+                 <input type="file" name="archivo" id="archivo" value=""  size="100"  >
+           
+              </p>
+           <p>
+               <label for="rol"><small>Oservaci&oacute;n</small></label>
+               <textarea name="observacion" id="observacion" > {$perfeccionamiento_profecional->observacion}</textarea>
+            </p>
       
             <p>
              <input type="hidden" name="perfeccionamiento_profecional_id"    value="{$perfeccionamiento_profecional->id}">
@@ -196,3 +298,14 @@ to.innerHTML="";
 </div>
      
               
+    
+      
+                    </div>
+                </div>
+            </div>
+      <footer class="art-footer clearfix">
+<p>Pie de pagina</p>
+</footer>
+
+    </div>
+ {include file="footer.tpl"}    

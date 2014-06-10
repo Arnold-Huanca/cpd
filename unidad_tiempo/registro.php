@@ -65,6 +65,7 @@ $ERROR = '';
   $smarty->assign("ERROR",$ERROR);
 
 } catch (Exception $e) {
+    echo $e;
  mysql_query("ROLLBACK");
  $smarty->assign("ERROR", handleError($e));
 }

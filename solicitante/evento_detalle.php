@@ -58,8 +58,7 @@ $ERROR = '';
   
   $smarty->assign("funcionario",$funcionario);
  
-  
-  leerClase('Funcionario');
+
   $id     = '';
   $menus='';
   $editar = FALSE;

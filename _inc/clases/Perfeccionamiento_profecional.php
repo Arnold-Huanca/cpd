@@ -30,7 +30,7 @@ class Perfeccionamiento_profecional extends Objectbase
    
    var $titulo;
    
-   var $diplona;
+   var $diploma;
    
    var $titulo_trabajo_final;
    

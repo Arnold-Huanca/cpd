@@ -79,7 +79,6 @@ $token = sha1(URL . time());
 $_SESSION['register'] = $token;
 $smarty->assign('token', $token);
 
-
 $TEMPLATE_TOSHOW = 'solicitante/perfeccionamiento_profesional.tpl';
 $smarty->display($TEMPLATE_TOSHOW);
 ?>

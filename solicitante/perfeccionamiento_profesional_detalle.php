@@ -1,6 +1,6 @@
 <?php
 try {
-define ("MODULO", "Perfeccionamiento Profesional");
+  define ("MODULO", "Solicitante");
   require('../_start.php');
   if(!isUserSession())
     header("Location: index.php"); 
@@ -35,6 +35,7 @@ define ("MODULO", "Perfeccionamiento Profesional");
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
   leerClase('Menu');
+  leerClase("Funcionario");
   $menuizquierda = new Menu('');
   $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
 
@@ -49,7 +50,30 @@ $ERROR = '';
     $id     = $_GET['perfeccionamiento_profecional_id'];
   }
   
+  
+  
+  
+  
+  
   $perfeccionamiento_profecional    = new Perfeccionamiento_profecional($id);
+  
+     $funcionario= new Funcionario( $perfeccionamiento_profecional->funcionario_id);
+  
+  $smarty->assign("funcionario",$funcionario);
+ 
+
+  $id     = '';
+  $menus='';
+  $editar = FALSE;
+  if ( isset($_GET['menus']) && $_GET['menus']== "mostrar" && isset($_GET['funcionario_id']) && is_numeric($_GET['funcionario_id']) )
+  {
+    $menus="mostrar";
+    $id     = $_GET['funcionario_id'];
+  }
+  $funcionarios   = new Funcionario($id);
+ 
+ //$datosgenerales= $funcionario->getDatosGenerales();
+   $smarty->assign("menus", $menus);
   
   // combo box subarea
   leerClase('Tipo_perfeccionamiento');
@@ -166,22 +190,51 @@ $ERROR = '';
   }
   $smarty->assign("subareas_values", $subareas_values);
   $smarty->assign("subareas_output", $subareas_output);
+
  
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
+      
+      
+      
+      
+      
+      leerClase("Upload");
     mysql_query("BEGIN");
-    $perfeccionamiento_profecional->objBuidFromPost();
-    $perfeccionamiento_profecional->estado           = Objectbase::estado_pendiente;
-    $perfeccionamiento_profecional->funcionario_id=  getSessionUser()->getFuncionario()->id;
-    $perfeccionamiento_profecional->save();
-    mysql_query("COMMIT");
+  $perfeccionamiento_profecional->objBuidFromPost();
     
-    $ir = "Location: index.php";
-     header($ir);
-      exit();
+             
+		$max_length = (1024*1024)*10;
+		$upload = new Upload(); // upload
+		$upload -> SetDirectory("../uploads");
+		$file = $_FILES['archivo']['name'];
+			if ($_FILES['archivo']['name'] != "")
+		  {
+			$tipo_archivo = $_FILES['archivo']['type'];
+		            {
+				$tamanio = $_FILES['archivo']['size'];
+				if ($tamanio > $max_length) {
+					$todoOK = false;
+					echo "<script>alert('el archivo  es demasiado grande');</script>";
+				} else {
+					$name = getSessionUser()->id.time();
+					$upload -> SetFile("archivo");
+					if ($upload -> UploadFile($name)){
+						$perfeccionamiento_profecional->archivo = "uploads/".$name.".".$upload->ext;
+					}
+				}
+			}
+		}
+		
+        
+   $perfeccionamiento_profecional->save();
+    mysql_query("COMMIT");
+   $ir = "Location: perfeccionamiento_profesional.php?menus=mostrar&funcionario_id=$perfeccionamiento_profecional->funcionario_id";
+    header($ir);
+     exit();
+          
     }
-
   $smarty->assign("perfeccionamiento_profecional", $perfeccionamiento_profecional);
     
   $smarty->assign("ERROR",$ERROR);
@@ -197,6 +250,6 @@ $_SESSION['register'] = $token;
 $smarty->assign('token', $token);
 
 
-$TEMPLATE_TOSHOW = 'perfeccionamiento_profesional/registro.tpl';
+$TEMPLATE_TOSHOW = 'solicitante/perfeccionamiento_profesional_detalle.tpl';
 $smarty->display($TEMPLATE_TOSHOW);
 ?>
