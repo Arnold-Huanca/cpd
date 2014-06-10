@@ -10,9 +10,7 @@ class Docencia_auxiliatura_umss extends Objectbase
   * Nombre del usuario
   * @var VARCHAR(100)
   */
-  var $tipo_gestion_id;
-  
-  var $subarea_id;
+
   
   var $materia;
   
@@ -27,15 +25,20 @@ class Docencia_auxiliatura_umss extends Objectbase
   var $facultad;
   
   var $condicion;
+  var $area_id;
   
-  var $vb;
-  
-  var $nivel_formacion_id;
+  var $subarea_id;
+  var $tipo_gestion_id;
+    var $nivel_formacion_id;
   
   var $funcionario_id;
   
-  var $descripcion;
+  var $observacion;
+  var $archivo;
   
+  var $vb;
+  
+
   
 
   public function getByLogin ($login, $verSifueTomado = false ) {

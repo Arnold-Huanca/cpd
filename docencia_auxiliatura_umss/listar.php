@@ -32,16 +32,19 @@
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>id</th><!--Estado-->
-                         <th>Materia</th>
-                         <th>Fecha Inicio</th><!--Estado-->
-                         <th>Tipo Gesti&oacute;n</th>
-                         <th>Carrera</th>
-                         <th>Departamento</th><!--Estado-->
-                         <th>Facultad</th>
-                         <th>Docencia/Aux</th>
-                          
-                         <th>Editar</th>
+                          <th>id</th><!--Estado-->
+                          <th>Materia</th>
+                          <th>Fecha Inicio</th><!--Estado-->
+                          <th>Tipo Gesti&oacute;n</th>
+                          <th>Nro. de Gestiones</th>
+                          <th>&Aacute;rea</th>
+                          <th>Sub&aacute;rea</th>
+                          <th>Carrera</th>
+                          <th>Departamento</th><!--Estado-->
+                          <th>Facultad</th>
+                          <th>Docencia/Aux</th>
+                          <th>Estado</th>
+                          <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
@@ -57,7 +60,10 @@
                          <th></th>
                         <th></th>
                          <th></th>
-                        
+                        <th></th>
+                         <th></th>
+                        <th></th>
+                         <th></th>
                        
                      
                     </tr>
@@ -73,17 +79,32 @@
                   $idfuncionario=  getSessionUser()->getFuncionario()->id;
            
               $listado=  mysql_query("select d.* from  docencia_auxiliatura_umss d where d.funcionario_id=$idfuncionario");
-
+              leerClase('Tipo_gestion');
+              leerClase('Area');
+              leerClase('Subarea');
+              leerClase('Nivel_formacion');
+              
                     while( $resultado = mysql_fetch_array($listado) ){
                         
+                    $tiposgeston= new Tipo_gestion( $resultado['tipo_gestion_id']);
+                    $area= new Area($resultado['area_id']);
+                    $subarea= new Subarea($resultado['subarea_id']);
                   	?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
-                           <td><?php echo $resultado['id'] ?></td>
+                        <td><?php echo $resultado['id'] ?></td>
+                           <td><?php echo $resultado['materia'] ?></td>
+                           <td><?php echo $resultado['fecha_inicio'] ?></td>
+                           <td><?php echo  $tiposgeston->descripcion ?></td>
+                           <td><?php echo $resultado['numero_gestiones'] ?></td>
+                            <td><?php echo  $area->nombre ?></td>
+                           <td><?php echo $subarea->nombre_subarea ?></td>
 			  <td><?php echo $resultado['carrera'] ?></td>
 			  <td><?php echo $resultado['departamento'] ?></td>
                            <td><?php echo $resultado['facultad'] ?></td>
-                             <td><?php echo $resultado['fecha_inicio'] ?></td>
+                            <td><?php echo $resultado['condicion'] ?></td>
+                            <td><?php echo $resultado['estado'] ?></td>
+                          
 			   <td><span class="modi"><a href="registro.php?id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
 		  </tr>
