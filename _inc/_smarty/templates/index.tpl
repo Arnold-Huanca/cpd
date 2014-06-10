@@ -51,7 +51,7 @@
          
 <div class="art-vmenublock clearfix">
  <div class="art-vmenublockcontent">
-
+{if (isUserSession())}
      <div class="leftpanel"   style="width: 100%">
         
          <div class="leftmenu divleftmenu">  
@@ -106,7 +106,7 @@
         </div><!--leftmenu-->
         
     </div><!-- leftpanel -->
- 
+ {/if}
  </div>
 </div>
 <div class="art-block clearfix">

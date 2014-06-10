@@ -1,5 +1,5 @@
 <?php
- define ("MODULO", "Funcionario");
+ define ("MODULO", "Datos Personales");
   require('../_start.php');
   if(!isUserSession())
   header("Location: index.php"); 
