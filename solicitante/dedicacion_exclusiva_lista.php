@@ -13,9 +13,9 @@
 		if ( msg )
     {
 			$.ajax({
-				url: 'eliminar.php',
+				url: 'dedicacion_exclusiva_eliminar.php',
 				type: "GET",
-				data: "ambito_id="+id,
+				data: "id="+id,
 				success: function(datos){
 					//alert(datos);
 					$("#fila-"+id).remove();
@@ -27,16 +27,24 @@
 	}
 
          </script> 
+            <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+    
+     
              <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>id</th><!--Estado-->
-                        <th>Nombre</th>
-                        <th>Otra</th>
-                        <th>Fecha</th>
-                        <th>Estado</th> 
-                        <th>Ver Datos </th>
-                       
+                       <th>V.B.</th>
+                       <th>Nro.</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Concluci&oacute;n</th><!--Estado-->
+                        <th>Tipo Gesti&oacute;n</th>
+                        <th>Nro. Gestiones</th>
+                        <th>Unidad Academica</th>
+                        <th>Ambito</th>
+                        <th>Observaci&oacute;n</th>
+                        <th>Certificado</th>
+                         <th>Validar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -59,27 +67,35 @@
                   
                   $funcionario_id= $_GET['funcionario_id'];
                      $listado=  mysql_query("select d.* from dedicacion_exclusiva d where d.funcionario_id=$funcionario_id");
-                     leerClase('Universidad');
-                     leerClase('Pais');
-                     leerClase("Tipo_distincion");
+           
+                     leerClase('Ambito');
+                     leerClase('Tipo_gestion');
+                     $contador=1;
                     while( $resultado = mysql_fetch_array($listado) ){
                   	   $tipogestion= new Tipo_gestion($resultado['tipo_gestion_id']);
-                        $ambito = new Ambito($resultado['ambito_id']);
+                         $ambito = new Ambito($resultado['ambito_id']);
                         
                   	?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
+                        <td><?php echo $resultado['estado'] ?></td>
+                         <td><?php echo $contador ?></td>
                  	  <td><?php echo $resultado['fecha_inicio'] ?></td>
 			  <td><?php echo $resultado['fecha_fin'] ?></td>
                            <td><?php echo $tipogestion->descripcion; ?></td>
                              <td><?php echo $resultado['numero_gestiones'] ?></td>
                               <td><?php echo $resultado['unidad_academica'] ?></td>
-			    <td><?php echo $ambito->nombre_ambito; ?></td
-			   <td><?php echo $resultado['estado'] ?></td>
-                           <td><span class="modi"><a href="dedicacion_exclusiva_detalle.php?menus=mostrar&distincion_id=<?php echo $resultado['id'] ?>" ><img src="../images/edit.png" title="Ver" alt="Editar" /></a></span></td>
-			  </tr>
+                              <td><?php echo $ambito->nombre_ambito; ?></td>
+			    <td><?php echo $resultado['observacion'] ?></td>
+                              <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
+			      <td><span class="modi"><a href="dedicacion_exclusiva_detalle.php?menus=mostrar&dedicacion_exclusiva_id=<?php echo $resultado['id'] ?>" ><img src="../images/edit.png" title="Ver" alt="Editar" /></a></span></td>
+		             <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="dedicacion_exclusiva_eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
+		  
+                   </tr>
 	<?php
+        $contador++;
 	}
   ?>   
                 <tbody>
             </table>
+            </div>

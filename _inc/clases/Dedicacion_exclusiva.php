@@ -25,6 +25,9 @@ class Dedicacion_exclusiva extends Objectbase
    var $unidad_academica;
    
    var $vb;
+    var $observacion;
+     var $archivo;
+   
    
   public function getByLogin ($login, $verSifueTomado = false ) {
     $sql       = "select * from ".$this->getTableName()." where login = '$login'";

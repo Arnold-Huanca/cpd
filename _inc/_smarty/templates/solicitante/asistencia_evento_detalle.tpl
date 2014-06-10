@@ -108,7 +108,7 @@
         
               <p>
               <input type="hidden" name="asistencia_evento_id"    value="{$asistencia_evento->id}">
-              <input type="text" name="funcionario_id"    value="{$asistencia_evento->funcionario_id}">
+              <input type="hidden" name="funcionario_id"  id="funcionario_id"  value="{$asistencia_evento->funcionario_id}">
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
@@ -134,15 +134,7 @@
 
     </div>
  {include file="footer.tpl"}        
-     
-
-<script>
-  
-  function enviar(){
-    window.location.href="index.php";
-  
-  }
-</script>
+ 
 
 </div>
          
@@ -156,7 +148,8 @@
 <script>
   
   function enviar(){
-    window.location.href="index.php";
+     var id = $("#funcionario_id").val();
+    window.location.href="asistencia_evento.php?menus=mostrar&funcionario_id="+id;
   
   }
 </script>	
