@@ -65,7 +65,11 @@
    <li><a href="dedicacion_exclusiva.php?menus=mostrar&funcionario_id={$funcionario->id}">Dedicaci&oacute;n Exclusiva</a></li>
    <li><a href="docencia_auxiliar_umss.php?menus=mostrar&funcionario_id={$funcionario->id}">Docencia Aux. Umss</a></li>
    <li><a href="docencia_auxiliar_externa.php?menus=mostrar&funcionario_id={$funcionario->id}">Docencia Auxiliar en Otras U. </a></li>
+   <li><a href="docencia_auxiliar_externa.php?menus=mostrar&funcionario_id={$funcionario->id}">Docencia Auxiliar en Otras U. </a></li>
+   
    <li><a href="titularizacion.php?menus=mostrar&funcionario_id={$funcionario->id}">Titularizaci&oacute;n </a></li>
+   <li><a href="plan_proyecto_programa.php?menus=mostrar&funcionario_id={$funcionario->id}">Participac&oacute;n en planes / Proyectos </a></li>
+ 
    <li><a href="desempenio_profesional.php?menus=mostrar&funcionario_id={$funcionario->id}">Desempe&ntilde;o Profesional </a></li>
    <li><a href="ejercicio_liberal.php?menus=mostrar&funcionario_id={$funcionario->id}">Ejercicio Liberal de Profesi&oacute;n (Free Lance) </a></li>
    <li><a href="produccion.php?menus=mostrar&funcionario_id={$funcionario->id}"> Producci&oacute;n </a></li>

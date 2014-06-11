@@ -1,16 +1,22 @@
-     <div class="art-layout-cell art-content clearfix">
-         <ul class="breadcrumbs">
-             <li><a href=""><i class="iconfa-home"></i> Participaci&oacute;n en Planes / Proyectos </a> <span class="separator"></span></li>
-           </ul>
-     <article class="art-post art-article">
+{include file="header.tpl"}
+{include file="menu.tpl"}
+
+<div class="art-sheet clearfix">
+            <div class="art-layout-wrapper clearfix">
+                <div class="art-content-layout">
+         <div class="art-content-layout-row">
+                      
+      {include file="menus.tpl"}
+      <div class="art-layout-cell art-content clearfix">
+  
+        
+          <article class="art-post art-article">
                                 
           <h2></h2>                                        
    <div class="art-postcontent art-postcontent-0 clearfix">
      
-     
-      <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
+         <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" enctype="multipart/form-data">
            
-            
             <p>
               <label for="rol"><small> Tipo</small></label>
               <select  class="select-style gender" name="tipo" id="tipo" >
@@ -75,13 +81,36 @@
               </select>
             </p>
           
-            
+                     <p>
+                         <label for="rol"><small> V.B. </small></label>
+                    {if ($plan_proyecto_programa->estado eq "Pendiente" || $plan_proyecto_programa->estado eq "Aceptado" )}
+                      <input type="radio" name="estado" value="Aceptado"  checked />Aceptar
+                      <input type="radio" name="estado" dovalue="Observado" /> Rechazar
+                        {else}
+                             <input type="radio" name="estado" value="Aceptado"   />Aceptar
+                          <input type="radio" name="estado" dovalue="Observado"  checked /> Rechazar
+                   
+                        {/if}
+          </p>
+              <p>
+               <label for="rol"><small>Archivo</small></label>
+                 <input type="file" name="archivo" id="archivo" value=""  size="100"  >
+           
+              </p>
            <p>
-              <input type="hidden" name="id"    value="{$plan_proyecto_programa->id}">
+               <label for="rol"><small>Oservaci&oacute;n</small></label>
+               <textarea name="descripcion" id="descripcion" > {$plan_proyecto_programa->observacion}</textarea>
+            </p>
+            
+         
+           <p>
+              <input type="hidden" name="evento"    value="{$plan_proyecto_programa->id}">
+               <input type="hidden" name="funcionario_id"id="funcionario_id"    value="{$plan_proyecto_programa->funcionario_id}">
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-                    <button class="submit" type="button" onclick="enviar()">Cancelar</button>  
+                <button class="submit" type="button" onclick="enviar()">Cancelar</button>  
+         
 
             </p>
           </form>
@@ -89,6 +118,21 @@
         <p>{$ERROR}</p>
 </article>
 
+   </div>
+
+
+</div>
+      
+                    </div>
+                </div>
+            </div>
+      <footer class="art-footer clearfix">
+<p>Pie de pagina</p>
+</footer>
+
+    </div>
+ {include file="footer.tpl"}        
+     
 <script>
             $('#fecha_inicio').datepicker({
               dateFormat:'dd/mm/yy',
@@ -98,35 +142,15 @@
              });
       
 </script>
-
-<script>
-jQuery('#area_id').change(function () {
-var numero =document.getElementById("area_id").value;
-var poblacio = jQuery(this).attr("poblacioattri");
-var to=document.getElementById("Buscando");
-to.innerHTML="buscando....";
-jQuery.ajax({
-type: "POST", 
-url: "buscar.php",
-data: 'idnumero='+numero,
-success: function(a) {
-jQuery('#subarea_id').html(a);
-var to=document.getElementById("Buscando");
-to.innerHTML="";
-}
-});
-})
-.change();
-</script> 
-   
 <script>
   
   function enviar(){
-    window.location.href="index.php";
+    var id = $("#funcionario_id").val();
+    window.location.href="asistencia_evento.php?menus=mostrar&funcionario_id="+id;
+
   
   }
 </script>
-
 
 </div>
      

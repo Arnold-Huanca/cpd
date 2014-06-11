@@ -31,18 +31,16 @@ class Plan_proyecto_programa extends Objectbase
    
    var $funcionario_id;
    
-   var $unidad_tiempo_id_unidad_tiempo;
+   var $unidad_tiempo_id;
    
    var $universidad_id;
-   
-   var $ambito_id;
-   
+   var $area_id;
    var $subarea_id;
+   var $ambito_id;
+   var $archivo;
+   var $observacion;
    
-   var $descripcion;
    
-  
-
 
   public function getByLogin ($login, $verSifueTomado = false ) {
     $sql       = "select * from ".$this->getTableName()." where login = '$login'";

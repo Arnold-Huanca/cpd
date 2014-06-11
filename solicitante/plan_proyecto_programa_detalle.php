@@ -1,6 +1,6 @@
 <?php
 try {
- define ("MODULO", "Plan Proyecto Programa");
+ define ("MODULO", "Solicitante");
   require('../_start.php');
   if(!isUserSession())
     header("Location: index.php");  
@@ -35,6 +35,7 @@ try {
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
   leerClase('Menu');
+  leerClase('Funcionario');
   $menuizquierda = new Menu('');
   $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
 
@@ -47,10 +48,15 @@ $ERROR = '';
   {
     $editar = TRUE;
     $id     = $_GET['plan_proyecto_programa_id'];
+     $menus="mostrar";
   }
   
   $plan_proyecto_programa    = new Plan_proyecto_programa($id);
   
+   $funcionario= new Funcionario( $plan_proyecto_programa->funcionario_id);
+  
+  $smarty->assign("funcionario",$funcionario);
+    $smarty->assign("menus", $menus);
   // combo box tipo_participacion
   leerClase('Tipo_participacion');
   $tipo_participacion   = new Tipo_participacion();
@@ -164,15 +170,41 @@ $ERROR = '';
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
+      
+       leerClase("Upload");
     mysql_query("BEGIN");
-    $plan_proyecto_programa->objBuidFromPost();
-    $plan_proyecto_programa->estado           = Objectbase::estado_pendiente;
-    $plan_proyecto_programa->funcionario_id=  getSessionUser()->getFuncionario()->id;
-    $plan_proyecto_programa->save();
+   $plan_proyecto_programa->objBuidFromPost();
+    
+             
+		$max_length = (1024*1024)*10;
+		$upload = new Upload(); // upload
+		$upload -> SetDirectory("../uploads");
+		$file = $_FILES['archivo']['name'];
+			if ($_FILES['archivo']['name'] != "")
+		  {
+			$tipo_archivo = $_FILES['archivo']['type'];
+		            {
+				$tamanio = $_FILES['archivo']['size'];
+				if ($tamanio > $max_length) {
+					$todoOK = false;
+					echo "<script>alert('el archivo  es demasiado grande');</script>";
+				} else {
+					$name = getSessionUser()->id.time();
+					$upload -> SetFile("archivo");
+					if ($upload -> UploadFile($name)){
+						$plan_proyecto_programa->archivo = "uploads/".$name.".".$upload->ext;
+					}
+				}
+			}
+		}
+		
+        
+   $plan_proyecto_programa->save();
     mysql_query("COMMIT");
-    $ir = "Location: index.php";
-     header($ir);
-      exit();
+   $ir = "Location: plan_proyecto_programa.php?menus=mostrar&funcionario_id= $plan_proyecto_programa->funcionario_id";
+    header($ir);
+     exit();
+    
     }
 
   $smarty->assign("plan_proyecto_programa", $plan_proyecto_programa);
@@ -189,6 +221,6 @@ $_SESSION['register'] = $token;
 $smarty->assign('token', $token);
 
 
-$TEMPLATE_TOSHOW = 'plan_proyecto_programa/registro.tpl';
+$TEMPLATE_TOSHOW = 'solicitante/plan_proyecto_programa_detalle.tpl';
 $smarty->display($TEMPLATE_TOSHOW);
 ?>
