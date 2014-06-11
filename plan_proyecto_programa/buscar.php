@@ -1,5 +1,5 @@
 <?php
- define ("MODULO", "Asistencia Evento");
+ define ("MODULO", "Plan Proyecto Programa");
 require('../_start.php');
  if (isset($_POST["idnumero"])  && is_numeric($_POST["idnumero"]) )
  {

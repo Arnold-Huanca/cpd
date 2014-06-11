@@ -12,34 +12,17 @@ class Patente extends Objectbase
   */
    var $numero_patente;
    var $titulo_descripcion;
-   var $fecha;
+   var $fechas;
    var $vb;
    var $funcionario_id;
    var $area_id;
    var $subarea_id;
    var $pais_id;
-   var $descripcion;
+   var $archivo;
+   var $observacion;
    
   
-  public function getByLogin ($login, $verSifueTomado = false ) {
-    $sql       = "select * from ".$this->getTableName()." where login = '$login'";
-    $result = mysql_query($sql);
-    if ($result === false)
-      throw new Exception("?".$this->getTableName ()."&m=Cant getByEmail <br />$sql<br /> ".$this->getTableName() . ' -> '. mysql_error() );
-
-    if ($verSifueTomado)
-    {
-      if (mysql_num_rows($result))
-        throw new Exception("?login&m=Este login ya fue tomado");
-      return;
-    }
-
-    $usuario = mysql_fetch_array($result,MYSQL_BOTH);
-    self::__construct($usuario['id']);
-    return true;
-  }
-  
-  
+ 
 
   /**
    * Validamos al usuario ya sea para actualizar o para crear uno nuevo

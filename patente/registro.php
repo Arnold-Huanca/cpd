@@ -85,13 +85,15 @@ $ERROR = '';
     {
     mysql_query("BEGIN");
     $patente->objBuidFromPost();
-    $patente->fecha= $_POST['fecha'];
-    $patente->estado           = Objectbase::estado_pendiente;
+    
+   // echo $_POST['fechas'];
+     $patente->estado           = Objectbase::estado_pendiente;
     $patente->funcionario_id =getSessionUser()->getFuncionario()->id;
     $patente->save();
+   
     mysql_query("COMMIT");
-    $ir = "Location: index.php";
-     header($ir);
+  $ir = "Location: index.php";
+   header($ir);
     exit();
     }
 

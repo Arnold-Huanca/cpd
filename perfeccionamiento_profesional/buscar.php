@@ -1,7 +1,7 @@
 <?php
- define ("MODULO", "Evento");
+ define ("MODULO", "Perfeccionamiento Profesional");
  require('../_start.php');
- if (isset($_POST["idnumero"]))
+ if (isset($_POST["idnumero"]) && is_numeric($_POST["idnumero"]))
  {
      $idarea=$_POST["idnumero"];
  $B_BUSCAR= mysql_query ("SELECT * FROM subarea where area_id='".$idarea."' order by nombre_subarea asc");

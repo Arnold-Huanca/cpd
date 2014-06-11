@@ -7,7 +7,7 @@ try {
 
     leerClase('Produccion');
    
-if(isset($_GET['eliminar']) && isset($_GET['produccion_id']) && is_numeric($_GET['produccion_id']) )
+if(isset($_GET['produccion_id']) && is_numeric($_GET['produccion_id']) )
   {
        
       $produccion= new Produccion($_GET['produccion_id']);

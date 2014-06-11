@@ -85,7 +85,7 @@
                            <td><?php   echo $resultado['numero_patente']; ?></td>
                            <td><?php   echo $pasis->nombre_pais; ?></td>
                            <td><?php   echo $resultado['titulo_descripcion']; ?></td>
-                            <td><?php  echo $resultado['fecha'] ?></td>
+                            <td><?php  echo $resultado['fechas'] ?></td>
                            <td><?php   echo $area->nombre; ?></td>
                            <td><?php   echo $subarea->nombre_subarea; ?></td>
 		         <td><?php echo $resultado['estado'] ?></td>
