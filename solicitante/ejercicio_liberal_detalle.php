@@ -124,14 +124,41 @@ try {
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
+          
+    leerClase("Upload");
     mysql_query("BEGIN");
-    $ejercicio_liberal_prof->objBuidFromPost();
-        $ejercicio_liberal_prof->save();
-   
-        mysql_query("COMMIT");
-   $ir = "Location: ejercicio_liberal.php?menus=mostrar&funcionario_id=$ejercicio_liberal_prof->funcionario_id";
-     header($ir);
-      exit();
+      $ejercicio_liberal_prof->objBuidFromPost();
+    
+             
+		$max_length = (1024*1024)*10;
+		$upload = new Upload(); // upload
+		$upload -> SetDirectory("../uploads");
+		$file = $_FILES['archivo']['name'];
+		if ($_FILES['archivo']['name'] != "")
+		  {
+			$tipo_archivo = $_FILES['archivo']['type'];
+		            {
+				$tamanio = $_FILES['archivo']['size'];
+				if ($tamanio > $max_length) {
+					$todoOK = false;
+					echo "<script>alert('el archivo  es demasiado grande');</script>";
+				} else {
+					$name = getSessionUser()->id.time();
+					$upload -> SetFile("archivo");
+					if ($upload -> UploadFile($name)){
+						 $ejercicio_liberal_prof->archivo = "uploads/".$name.".".$upload->ext;
+					}
+				}
+			}
+		}
+		
+        
+     $ejercicio_liberal_prof->save();
+    mysql_query("COMMIT");
+   $ir = "Location: ejercicio_liberal.php?menus=mostrar&funcionario_id=  $ejercicio_liberal_prof->funcionario_id";
+    header($ir);
+     exit();
+       
     }
 
   $smarty->assign("ejercicio_liberal_prof", $ejercicio_liberal_prof);

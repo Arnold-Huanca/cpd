@@ -1,5 +1,5 @@
 <?php
- define ("MODULO", "Solicitante");
+ define ("MODULO", "Desempeño Profesional Externo");
  require('../_start.php');
  if (isset($_POST["idnumero"]) && is_numeric($_POST["idnumero"]))
  {

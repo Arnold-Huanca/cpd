@@ -1,6 +1,6 @@
      <div class="art-layout-cell art-content clearfix">
          <ul class="breadcrumbs">
-             <li><a href=""><i class="iconfa-home"></i> Investigaci&oacute;n y Producci&oacute;n</a> <span class="separator"></span></li>
+             <li><a href=""><i class="iconfa-home"></i> Ejercicio Liberal de la Profesi&oacute;n (Free Lance)</a> <span class="separator"></span></li>
            </ul>
      <article class="art-post art-article">
                                 
@@ -18,7 +18,7 @@
             <p>
               <input type="text" name="cargo_actividad" id="cargo_actividad" value="{$ejercicio_liberal_prof->cargo_actividad}"  placeholder="Nombre del Cargo o Actividad" size="100"  >
               <label for="nombre"><small>Nombre del Cargo Actividad o Actividad </small></label>
-            </p>
+            </p><br>
               <p>
               <label for="rol"><small>Tipo</small></label>
               <select  class="select-style gender" name="tipo" id="tipo">
@@ -30,8 +30,16 @@
               <label for="nombre"><small>Fecha de Inicio</small></label>
             </p>
             <p>
-              <input type="text" name="duracion" id="duracion" value="{$ejercicio_liberal_prof->duracion}"  placeholder="Duracion" size="100"  >
-              <label for="nombre"><small>Duraci&oacute;n</small></label>
+               <label for="email"><small>Duraci&oacute;n del Curso</small></label>
+               <select  class="select-style gender" name="duracion_curso" id="duracion_curso" >
+              {html_options values=$duracion_values selected=$perfeccionamiento_profecional->duracion_curso output=$duracion_output}
+              </select>
+            </p>
+             <p>
+              <label for="rol"><small>Unidad Tiempo</small></label>
+              <select  class="select-style gender" name="unidad_tiempo_id" id="unidad_tiempo_id" >
+              {html_options values=$unidad_tiempos_values selected=$perfeccionamiento_profecional->unidad_tiempo_id output=$unidad_tiempos_output}
+              </select>
             </p>
            
               <p>
@@ -49,7 +57,7 @@
            
             
             <p>
-              <label for="rol"><small>Pais</small></label>
+                <label for="rol"><small>Pa&iacute;s</small></label>
               <select  class="select-style gender" name="pais_id" id="pais_id" >
               {html_options values=$paises_values selected=$ejercicio_liberal_prof->pais_id output=$paises_output}
               </select>
@@ -57,11 +65,11 @@
            
          
            <p>
-              <input type="hidden" name="ejercicio_liberal_prof_id"    value="{$ejercicio_liberal_prof->id}">
+              <input type="hidden" name="id"    value="{$ejercicio_liberal_prof->id}">
                 <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-                <button class="submit" type="reset" >Cancelar</button> 
+             <button class="submit" type="button" onclick="enviar()">Cancelar</button>  
 
             </p>
           </form>

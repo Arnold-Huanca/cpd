@@ -79,7 +79,8 @@ class Menu
 	
     if (!isset($usuario->id) || (!$usuario->id))
       return;
-     mysql_query('SET NAMES \'utf8\'');
+
+mysql_query( 'SET NAMES utf8');
      $listado=  mysql_query("select c.id,c.grupo, c.importancia,c.modulo_id , c.nivel
 from secuencia c, modulo m,permiso p, grupo g, pertenece pe
 where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and p.ver=1 and pe.usuario_id=$usuario->id GROUP BY c.grupo  ORDER BY c.nivel ASC
@@ -88,7 +89,7 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
              while( $resultado = mysql_fetch_array($listado) )
                 {
                 	$gruposmenus=$resultado["grupo"];
-                	$listadomenus=  mysql_query("select c.id,c.grupo, c.importancia,c.modulo_id , c.nivel, m.codigo
+                                   	$listadomenus=  mysql_query("select c.id,c.grupo, c.importancia,c.modulo_id , c.nivel, m.codigo
 					from secuencia c, modulo m,permiso p, grupo g, pertenece pe
 					where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and c.grupo='$gruposmenus' and  p.ver=1 and pe.usuario_id=$usuario->id GROUP BY m.codigo ORDER BY c.nivel ASC
 					");
@@ -99,9 +100,11 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
                           {
                         $texto = strtolower($resultados["codigo"]);
                         $cadena=str_replace(' ', '_',$texto);
-                          $menus= str_replace('ó', 'o',$cadena);
+                        $menus= str_replace('ó', 'o',$cadena);
+                        $cadena= str_replace('ñ', 'n',$cadena);
+                   //  echo   $resultado["grupo"];
 			$link =  $cadena;
-                        $thise->agregarItem($texto,'Registro y modificaciones para Docentes','basicset/user4.png',$link);
+                        $thise->agregarItem($texto,'Registro y modificaciones para Docentes','basicset/user4.png',$cadena);
                           }
                               $thises[] =  $thise;
 						

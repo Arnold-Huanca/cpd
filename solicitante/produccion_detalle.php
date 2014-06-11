@@ -149,15 +149,42 @@ $ERROR = '';
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
       
-      
-      mysql_query("BEGIN");
+          
+    leerClase("Upload");
+    mysql_query("BEGIN");
       $produccion->objBuidFromPost();
-      $produccion->save();
-       mysql_query("COMMIT");
-       $ir = "Location: produccion.php?menus=mostrar&funcionario_id=$produccion->funcionario_id";
-       header($ir);
-      exit();
-   
+    
+             
+		$max_length = (1024*1024)*10;
+		$upload = new Upload(); // upload
+		$upload -> SetDirectory("../uploads");
+		$file = $_FILES['archivo']['name'];
+		if ($_FILES['archivo']['name'] != "")
+		  {
+			$tipo_archivo = $_FILES['archivo']['type'];
+		            {
+				$tamanio = $_FILES['archivo']['size'];
+				if ($tamanio > $max_length) {
+					$todoOK = false;
+					echo "<script>alert('el archivo  es demasiado grande');</script>";
+				} else {
+					$name = getSessionUser()->id.time();
+					$upload -> SetFile("archivo");
+					if ($upload -> UploadFile($name)){
+						 $produccion->archivo = "uploads/".$name.".".$upload->ext;
+					}
+				}
+			}
+		}
+		
+        
+    $produccion->save();
+    mysql_query("COMMIT");
+   $ir = "Location:  produccion.php?menus=mostrar&funcionario_id= $produccion->funcionario_id";
+    header($ir);
+     exit();
+      
+      
     }
     
      $smarty->assign("menus", $menus);

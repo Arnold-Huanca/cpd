@@ -17,7 +17,7 @@
      
      
           
-      <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
+      <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" enctype="multipart/form-data" >
            
            <p>
               <label for="rol"><small>Tipo de Produccion</small></label>
@@ -73,6 +73,7 @@
                 
           
             <p>
+                 <label for="rol"><small>V.B.:</small></label>
                     {if ($produccion->estado eq "Pendiente" || $produccion->estado eq "Aceptado" )}
                       <input type="radio" name="estado" value="Aceptado"  checked />Aceptar
                       <input type="radio" name="estado" dovalue="Observado" /> Rechazar
@@ -82,6 +83,16 @@
                    
                         {/if}
           </p>
+          
+           <p>
+               <label for="rol"><small>Archivo</small></label>
+                 <input type="file" name="archivo" id="archivo" value=""  size="100"  >
+           
+              </p>
+           <p>
+               <label for="rol"><small>Observaci&oacute;n</small></label>
+               <textarea name="observacion" id="observacion" > {$produccion->observacion}</textarea>
+            </p>
          
            <p>
               <input type="hidden" name="id"  id="id"  value="{$produccion->id}">
@@ -122,6 +133,26 @@
              });
       
 </script>
+
+<script>
+jQuery('#area_id').change(function () {
+var numero =document.getElementById("area_id").value;
+var poblacio = jQuery(this).attr("poblacioattri");
+var to=document.getElementById("Buscando");
+to.innerHTML="buscando....";
+jQuery.ajax({
+type: "POST", 
+url: "buscar.php",
+data: 'idnumero='+numero,
+success: function(a) {
+jQuery('#subarea_id').html(a);
+var to=document.getElementById("Buscando");
+to.innerHTML="";
+}
+});
+})
+.change();
+</script> 
 <script>
   
   function enviar(){

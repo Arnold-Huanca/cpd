@@ -20,7 +20,7 @@ $listado=  mysql_query("select * from produccion  where funcionario_id=$funciona
 		if ( msg )
     {
 			$.ajax({
-				url: 'eliminar.php',
+				url: 'produccion_eliminar.php',
 				type: "GET",
 				data: "produccion_id="+id,
 				success: function(datos){
@@ -49,8 +49,10 @@ $listado=  mysql_query("select * from produccion  where funcionario_id=$funciona
                         <th>&Aacute;rea</th>
                         <th>Subarea</th>
                         <th>&Aacute;mbito</th>
-                        <th>Estado</th>
-                        <th>VER</th>
+                        <th>Certificado</th>
+                        <th>Observacci&oacute;n</th>
+                        <th>Validar</th>
+                        <th>Eliminar</th>
                          </tr>
                 </thead>
                 <tfoot>
@@ -83,7 +85,7 @@ $listado=  mysql_query("select * from produccion  where funcionario_id=$funciona
 	
 		  <tr id="fila-<?php echo $resultado['id'] ?>">
                       
-                   <td></td>
+                    <td><?php echo $resultado['estado'] ?></td>
                   <td><?php echo $contador ?></td>
                   <td><?php echo $tipo->descripcion; ?></td>
                   <td><?php echo $resultado['titulo_tema'] ?></td>
@@ -94,9 +96,12 @@ $listado=  mysql_query("select * from produccion  where funcionario_id=$funciona
                    <td><?php echo $area->nombre ?></td>
                    <td><?php echo  $subarea->nombre_subarea ?></td>
                   <td><?php echo $ambito->nombre_ambito ?></td>
-                  <td><?php echo $resultado['estado'] ?></td>
+                   <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
+                    <td><?php echo $resultado['observacion']; ?></td>
+			  
                   <td><span class="modi"><a href="produccion_detalle.php?menus=mostrar&producion_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
-		   
+		     <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="produccion_eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
+		
                   </tr>
 	<?php
 	}

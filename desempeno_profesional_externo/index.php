@@ -1,9 +1,9 @@
 <?php
 try {
-  //define ("MODULO", "CONSEJO");
+   define ("MODULO", "Desempeño Profesional Externo");
   require('../_start.php');
- // if(!isUserSession())
- // header("Location: ../index.php"); 
+  if(!isUserSession())
+  header("Location: ../index.php"); 
   leerClase('Desemp_prof_externo');
  
   $ERROR = '';

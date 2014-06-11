@@ -13,9 +13,9 @@
 		if ( msg )
     {
 			$.ajax({
-				url: 'eliminar.php',
+				url: 'ejercicio_liberal_eliminar.php',
 				type: "GET",
-				data: "ambito_id="+id,
+				data: "id="+id,
 				success: function(datos){
 					//alert(datos);
 					$("#fila-"+id).remove();
@@ -40,11 +40,16 @@
                         <th>&Aacute;rea</th> 
                         <th>Sub&aacute;rea</th>
                         <th>Pa&iacute;s</th>
-                        <th>Ver</th>
+                         <th>Certificado</th>
+                         <th>Obsercaci&oacute;n</th>
+                        <th>Validar</th>
+                         <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
+                        <th></th>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -71,6 +76,7 @@
                         leerClase("Area");
                         leerClase("Subarea");
                         leerClase("Pais");
+                        leerClase('Unidad_tiempo');
                         $contador=1;
                     while( $resultado = mysql_fetch_array($listado) )
                         {
@@ -78,7 +84,7 @@
                        $subarea= new Subarea($resultado['subarea_id']);
                         $area= new Area($subarea->area_id);
                        $pasis = new Pais($resultado['pais_id']);
-                        
+                        $unidadtiempo= new Unidad_tiempo($resultado['unidad_tiempo_id']);
           
                      	?>
 	
@@ -94,8 +100,11 @@
                            <td><?php echo $area->nombre; ?></td>
                            <td><?php echo $subarea->nombre_subarea; ?></td>
                             <td><?php echo $pasis-> nombre_pais?></td>
-		            
-			   <td><span class="modi"><a href="ejercicio_liberal_detalle.php?menus=mostrar&ejercicio_liberal_prof_id=<?php echo $resultado['id'] ?>" ><img src="../images/edit.png" title="Ver" alt="Editar" /></a></span></td>
+		              <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
+                               <td><?php echo $resultado['observacion']; ?></td>
+			     <td><span class="modi"><a href="ejercicio_liberal_detalle.php?menus=mostrar&ejercicio_liberal_prof_id=<?php echo $resultado['id'] ?>" ><img src="../images/edit.png" title="Ver" alt="Editar" /></a></span></td>
+			      <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="dedicacion_exclusiva_eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
+		
 			  </tr>
 	<?php
         $contador++;

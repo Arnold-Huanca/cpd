@@ -89,6 +89,33 @@ try {
     $smarty->assign("tipo_values", $tipo_values);
   $smarty->assign("tipo_output", $tipo_output);
 
+  // combo box unidad_tiempo
+  leerClase('Unidad_tiempo');
+  $unidad_tiempo   = new Unidad_tiempo();
+  $unidad_tiempos   = $unidad_tiempo->getAll();  ///retorna todas las clases
+  $unidad_tiempos_values[] = '';
+  $unidad_tiempos_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($unidad_tiempos[0])) 
+  {
+    $unidad_tiempos_values[] = $row['id'];
+    $unidad_tiempos_output[] = $row['nombre_unidad_tiempo'];
+  }
+  $smarty->assign("unidad_tiempos_values", $unidad_tiempos_values);
+  $smarty->assign("unidad_tiempos_output", $unidad_tiempos_output);
+  
+  
+  $duracion_values[] = '';
+  $duracion_output[] = '- Seleccione -';
+
+   
+ 
+    for ($index = 1; $index < 100; $index++){
+         $duracion_values[] = $index;
+         $duracion_output[] =$index;
+    }
+  $smarty->assign("duracion_values", $duracion_values);
+  $smarty->assign("duracion_output", $duracion_output);
+  
   
 //combo box pais
   leerClase('Pais');

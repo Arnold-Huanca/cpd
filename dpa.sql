@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2014 a las 00:33:24
+-- Tiempo de generación: 11-06-2014 a las 16:40:07
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -57,15 +57,37 @@ CREATE TABLE IF NOT EXISTS `area` (
   `descripcion` varchar(85) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Volcado de datos para la tabla `area`
 --
 
 INSERT INTO `area` (`id`, `nombre`, `sigla`, `descripcion`, `estado`) VALUES
-(1, 'sdfg', 'gsdfg', 'gsdf', 'AC'),
-(2, 'Jaaaaaaa', 'jfdsf', 'jfds', 'AC');
+(1, 'Logica', 'AL', NULL, 'ac'),
+(2, 'Matematicas', 'LD', NULL, 'AC'),
+(3, 'Astronomia y Astrofisica', 'LD', NULL, 'AC'),
+(4, 'Fisica', 'LD', NULL, 'AC'),
+(5, 'Quimica', 'LD', NULL, 'AC'),
+(6, 'Ciencias De La Vida', 'LD', NULL, 'AC'),
+(7, 'Ciencias De La Tierra y el Espacio', 'LD', NULL, 'AC'),
+(8, 'Ciencias Agrarias', 'LD', NULL, 'AC'),
+(9, 'Ciencas Medicas', 'LD', NULL, 'AC'),
+(10, 'Ciencias Tegnologicas', 'LD', NULL, 'AC'),
+(11, 'Antropologia', 'LD', NULL, 'AC'),
+(12, 'Demografia', 'LD', NULL, 'AC'),
+(13, 'Ciencias Economicas', 'LD', NULL, 'AC'),
+(14, 'Geografia', 'LD', NULL, 'AC'),
+(15, 'Historia', 'LD', NULL, 'AC'),
+(16, 'Ciencias Juridicas y Derecho', 'LD', NULL, 'AC'),
+(17, 'Linguistica', 'LD', NULL, 'AC'),
+(18, 'Pedagogia', 'LD', NULL, 'AC'),
+(19, 'Ciencia Politica', 'LD', NULL, 'AC'),
+(20, 'Psicologia', 'LD', NULL, 'AC'),
+(21, 'Ciencias De Las Artes y Las Letras', 'LD', NULL, 'AC'),
+(22, 'Sociologia', 'LD', NULL, 'AC'),
+(23, 'Etica', 'LD', NULL, 'AC'),
+(24, 'Filosofia', 'LD', NULL, 'AC');
 
 -- --------------------------------------------------------
 
@@ -94,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `asistencia_evento` (
   `archivo` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `asistencia_evento`
@@ -214,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `dedicacion_exclusiva` (
   `archivo` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `dedicacion_exclusiva`
@@ -261,6 +283,7 @@ INSERT INTO `departamento` (`id`, `pais_id`, `nombre_depto`, `sigla_depto`, `est
 CREATE TABLE IF NOT EXISTS `desemp_prof_externo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `funcionario_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
   `institucion` varchar(100) DEFAULT NULL,
@@ -269,9 +292,18 @@ CREATE TABLE IF NOT EXISTS `desemp_prof_externo` (
   `fecha_inicio` date DEFAULT NULL,
   `fecha_conclusion` date DEFAULT NULL,
   `vb` varchar(45) DEFAULT NULL,
+  `archivo` varchar(100) DEFAULT NULL,
+  `observacion` varchar(300) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `desemp_prof_externo`
+--
+
+INSERT INTO `desemp_prof_externo` (`id`, `funcionario_id`, `area_id`, `subarea_id`, `pais_id`, `institucion`, `cargo`, `nivel_cargo`, `fecha_inicio`, `fecha_conclusion`, `vb`, `archivo`, `observacion`, `estado`) VALUES
+(1, 1, 24, 243, 2, 'gdf', 'gds', 'Operativo', '2014-06-18', '2014-06-20', '', 'uploads/41402494606.jpg', 'sdfgsdgsdgsfg', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -322,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `docencia_auxiliatura_umss` (
   `vb` varchar(20) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `docencia_auxiliatura_umss`
@@ -352,7 +384,7 @@ CREATE TABLE IF NOT EXISTS `docencia_axuliar_externa` (
   `departamento` varchar(105) DEFAULT NULL,
   `facultad` varchar(105) DEFAULT NULL,
   `otra_universidad` varchar(105) DEFAULT NULL,
-  `condision` varchar(105) DEFAULT NULL,
+  `condicion` varchar(105) DEFAULT NULL,
   `vb` varchar(45) DEFAULT NULL,
   `universidad_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
@@ -365,7 +397,17 @@ CREATE TABLE IF NOT EXISTS `docencia_axuliar_externa` (
   `observacion` varchar(300) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `docencia_axuliar_externa`
+--
+
+INSERT INTO `docencia_axuliar_externa` (`id`, `materia`, `fecha_inicio`, `duracion`, `carrera`, `departamento`, `facultad`, `otra_universidad`, `condicion`, `vb`, `universidad_id`, `pais_id`, `unidad_tiempo_id`, `nivel_formacion_id`, `area_id`, `subarea_id`, `funcionario_id`, `archivo`, `observacion`, `estado`) VALUES
+(1, 'zxvczx', '2014-06-26', '4', 'fasdf', 'fasf', 'fasdf', 'fasdf', 'Docente', '', 1, 2, 4, 1, 23, 239, 0, 'uploads/41402451071.jpg', 'jaaaaaaa', 'Aceptado'),
+(3, 'sdfg', '2014-06-11', '4', 'sdfg', 'gfsdg', 'gsdfg', 'gsdfg', 'Docente', '', 1, 2, 2, 1, 21, 220, 0, 'uploads/41402451347.jpg', 'jaaaaaaaaaaaa', 'Aceptado'),
+(4, 'sdg', '2014-06-11', '9', 'dfg', 'gsdfg', 'gsgsd', 'gsdfg', 'Auxiliar', '', 1, 1, 3, 1, 21, 220, 0, 'uploads/41402451485.jpg', 'dfsafg', 'Aceptado'),
+(5, 'rwe', '2014-06-12', '4', 'sfgs', 'gsdfg', 'gsdfg', 'gsdfg', 'Docente', '', 1, 2, 2, 1, 23, 238, 1, 'uploads/41402451764.jpg', 'gsdfgsdfg', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -429,16 +471,19 @@ CREATE TABLE IF NOT EXISTS `ejercicio_liberal_prof` (
   `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `unidad_tiempo_id` int(11) DEFAULT NULL,
+  `archivo` varchar(200) DEFAULT NULL,
+  `observacion` varchar(300) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `ejercicio_liberal_prof`
 --
 
-INSERT INTO `ejercicio_liberal_prof` (`id`, `institucion_actividad`, `cargo_actividad`, `tipo`, `fecha_inicio`, `duracion`, `funcionario_id`, `pais_id`, `area_id`, `subarea_id`, `unidad_tiempo_id`, `estado`) VALUES
-(1, 'dfg', 'gdf', 'Otro', '2014-05-08', '55', 5, 1, 1, 5, 0, 'Aceptado');
+INSERT INTO `ejercicio_liberal_prof` (`id`, `institucion_actividad`, `cargo_actividad`, `tipo`, `fecha_inicio`, `duracion`, `funcionario_id`, `pais_id`, `area_id`, `subarea_id`, `unidad_tiempo_id`, `archivo`, `observacion`, `estado`) VALUES
+(1, 'dfg', 'gdf', 'Otro', '2014-05-08', '55', 5, 1, 1, 5, 0, NULL, NULL, 'Aceptado'),
+(2, 'Umss', 'Encargado', 'Asesor', '2014-06-18', '', 1, 2, 21, 220, 3, 'uploads/41402496330.jpg', 'fdsfgfdafdsdf', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -835,7 +880,7 @@ CREATE TABLE IF NOT EXISTS `modulo` (
   `descripcion` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=66 ;
 
 --
 -- Volcado de datos para la tabla `modulo`
@@ -892,7 +937,8 @@ INSERT INTO `modulo` (`id`, `codigo`, `nombre`, `url`, `descripcion`, `estado`) 
 (61, 'Vivienda', '', '', 'M&oacute;dulo: Vivienda', 'AC'),
 (62, 'Datos Familiares', '', '', 'M&oacute;dulo: Datos Familiares', 'AC'),
 (63, 'Ejercicio liberal profesion', '', '', 'M&oacute;dulo: Ejercicio liberal profesion', 'AC'),
-(64, 'Perfeccionamiento Profesional', '', '', 'M&oacute;dulo: Perfeccionamiento Profesional', 'AC');
+(64, 'Perfeccionamiento Profesional', '', '', 'M&oacute;dulo: Perfeccionamiento Profesional', 'AC'),
+(65, 'Desempeño Profesional Externo', '', '', 'M&oacute;dulo: Desempeño Profesional Externo', 'AC');
 
 -- --------------------------------------------------------
 
@@ -1016,7 +1062,7 @@ CREATE TABLE IF NOT EXISTS `perfeccionamiento_profecional` (
   `observacion` varchar(500) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `perfeccionamiento_profecional`
@@ -1041,7 +1087,7 @@ CREATE TABLE IF NOT EXISTS `permiso` (
   `grupo_id` int(11) DEFAULT NULL,
   `estado` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=105 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=107 ;
 
 --
 -- Volcado de datos para la tabla `permiso`
@@ -1107,7 +1153,8 @@ INSERT INTO `permiso` (`id`, `ver`, `crear`, `editar`, `eliminar`, `modulo_id`, 
 (100, '1', '', '', '', 37, 4, 'AC'),
 (101, '1', '1', '1', '1', 63, 1, 'AC'),
 (102, '1', '', '', '', 63, 4, 'AC'),
-(104, '1', '', '', '', 64, 4, 'AC');
+(104, '1', '', '', '', 64, 4, 'AC'),
+(106, '1', '', '', '', 65, 4, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1162,13 +1209,24 @@ CREATE TABLE IF NOT EXISTS `plan_proyecto_programa` (
   `vb` varchar(45) DEFAULT NULL,
   `tipo_participacion_id` int(11) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
-  `unidad_tiempo_id_unidad_tiempo` int(11) DEFAULT NULL,
+  `unidad_tiempo_id` int(11) DEFAULT NULL,
   `universidad_id` int(11) DEFAULT NULL,
-  `ambito_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
+  `ambito_id` int(11) DEFAULT NULL,
+  `archivo` varchar(100) DEFAULT NULL,
+  `observacion` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `plan_proyecto_programa`
+--
+
+INSERT INTO `plan_proyecto_programa` (`id`, `tipo`, `titulo`, `fecha_inicio`, `beneficiario`, `duracion`, `unidad_ejecutora`, `otra_universidad`, `vb`, `tipo_participacion_id`, `funcionario_id`, `unidad_tiempo_id`, `universidad_id`, `area_id`, `subarea_id`, `ambito_id`, `archivo`, `observacion`, `estado`) VALUES
+(1, 'Planes', 'sdfg', '2014-06-18', 'sfgsd', '7', 'gsdfg', 'gsdf', '', 3, 0, 0, 0, 7, 85, 4, '', '', 'AC'),
+(2, 'Planes', 'twert', '2014-06-12', 'twert', '7', 'twert', 'twert', '', 4, 1, 0, 0, 22, 227, 5, 'uploads/41402461580.jpg', '', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -1287,23 +1345,24 @@ CREATE TABLE IF NOT EXISTS `produccion` (
   `ambito_id` int(11) DEFAULT NULL,
   `medio_difunsion_id` int(11) DEFAULT NULL,
   `tipo_produccion_id` int(11) DEFAULT NULL,
-  `descripcion` varchar(200) DEFAULT NULL,
+  `archivo` varchar(100) DEFAULT NULL,
+  `observacion` varchar(300) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `produccion`
 --
 
-INSERT INTO `produccion` (`id`, `titulo_tema`, `tipo_circulacion`, `institucion_entrega`, `fecha_conclucion`, `vb`, `area_id`, `subarea_id`, `funcionario_id`, `ambito_id`, `medio_difunsion_id`, `tipo_produccion_id`, `descripcion`, `estado`) VALUES
-(1, '', 'fasdfasdf', 'asdf', '0000-00-00', '', NULL, 0, 0, 0, 0, 0, '', 'AC'),
-(2, 'sgfds', 'ggsdfg', 'gsdfg', '0000-00-00', 'gsdfg', NULL, 0, 0, 0, 0, 0, '', 'AC'),
-(3, 'gdsfg', '', 'gsdfg', '0000-00-00', '', 0, 0, 5, 5, 0, 0, 'gdsf', 'Pendiente'),
-(4, 'Redes neoronales', '', 'Umss', '2014-05-16', '', 0, 0, 1, 5, 2, 3, '', 'Aceptado'),
-(5, 'Juan Morales', '', 'umss', '2014-05-23', '', 0, 0, 1, 5, 3, 3, '', 'Aceptado'),
-(6, 'fgsdgsdfg', '', 'gsdfg', '2014-05-09', '', 0, 0, 1, 3, 2, 3, '', 'Aceptado'),
-(7, 'sdffd', 'Publicado', 'gsdfg', '2014-05-23', '', 1, 4, 1, 4, 3, 3, '', 'Aceptado');
+INSERT INTO `produccion` (`id`, `titulo_tema`, `tipo_circulacion`, `institucion_entrega`, `fecha_conclucion`, `vb`, `area_id`, `subarea_id`, `funcionario_id`, `ambito_id`, `medio_difunsion_id`, `tipo_produccion_id`, `archivo`, `observacion`, `estado`) VALUES
+(1, '', 'fasdfasdf', 'asdf', '0000-00-00', '', NULL, 0, 0, 0, 0, 0, '', NULL, 'AC'),
+(2, 'sgfds', 'ggsdfg', 'gsdfg', '0000-00-00', 'gsdfg', NULL, 0, 0, 0, 0, 0, '', NULL, 'AC'),
+(3, 'gdsfg', '', 'gsdfg', '0000-00-00', '', 0, 0, 5, 5, 0, 0, 'gdsf', NULL, 'Pendiente'),
+(5, 'Juan Morales', '', 'umss', '2014-05-23', '', 0, 0, 1, 5, 3, 3, '', NULL, 'Aceptado'),
+(6, 'fgsdgsdfg', '', 'gsdfg', '2014-05-09', '', 0, 0, 1, 3, 2, 3, '', NULL, 'Aceptado'),
+(7, 'sdffd', 'Publicado', 'gsdfg', '2014-05-23', '', 1, 4, 1, 4, 3, 3, '', NULL, 'Aceptado'),
+(8, '', 'Publicado', '', '2014-06-05', '', 24, 243, 1, 5, 2, 3, 'uploads/41402497581.jpg', 'sdfgsdggfdg', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -1342,7 +1401,7 @@ CREATE TABLE IF NOT EXISTS `secuencia` (
   `nivel` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=51 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
 
 --
 -- Volcado de datos para la tabla `secuencia`
@@ -1387,7 +1446,8 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (47, 64, 'Perfeccionamiento Profesional', '1', 8, 'AC'),
 (48, 32, 'Modulos', 'no', 19, 'AC'),
 (49, 53, 'Vida Universitaria Nacional', 'si', 21, 'AC'),
-(50, 54, 'Vida Universitaria Extranjera', 'si', 22, 'AC');
+(50, 54, 'Vida Universitaria Extranjera', 'si', 22, 'AC'),
+(51, 65, 'Desempeño Profesional Externo', 'si', 16, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1402,18 +1462,261 @@ CREATE TABLE IF NOT EXISTS `subarea` (
   `area_id` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=249 ;
 
 --
 -- Volcado de datos para la tabla `subarea`
 --
 
 INSERT INTO `subarea` (`id`, `nombre_subarea`, `sigla_subarea`, `area_id`, `estado`) VALUES
-(1, 'motin', 'm', 0, 'AC'),
-(2, 'fdas', 'fsd', 0, 'AC'),
-(3, 'fasdf', 'fasdf', 0, 'AC'),
-(4, 'afasd', 'fasdf', 1, 'AC'),
-(5, 'afd', 'fasdf', 1, 'AC');
+(1, 'Aplicaciones de la lógica', 'AL', 1, 'ac'),
+(2, 'Lógica deductiva', 'LD', 1, 'ac'),
+(3, 'Lógica general', 'LD', 1, 'ac'),
+(4, 'Lógica inductiva', 'LD', 1, 'ac'),
+(5, 'Metodologia', 'LD', 1, 'ac'),
+(6, 'Otras especialidades relativas a la lógica (especificar)', 'LD', 1, 'ac'),
+(7, 'Algebra', 'LD', 2, 'ac'),
+(8, 'Análisis y análisis funcicnal', 'LD', 2, 'ac'),
+(9, 'Ciencia de los ordenadores ', 'LD', 2, 'ac'),
+(10, 'Geometría', 'LD', 23, 'ac'),
+(11, 'Teoría de números ', 'LD', 2, 'ac'),
+(12, 'Análisis numérico', 'LD', 2, 'ac'),
+(13, 'Investigación operativa', 'LD', 2, 'ac'),
+(14, 'Probabilidad', 'LD', 2, 'ac'),
+(15, 'Estadística', 'LD', 2, 'ac'),
+(16, 'Topología', 'LD', 2, 'ac'),
+(17, 'Otras especialidades matemáticas (especificar)', 'LD', 2, 'ac'),
+(18, 'Cosmología y cosmogonía', 'LD', 3, 'ac'),
+(19, 'Medio interplanetario', 'LD', 3, 'ac'),
+(20, 'Astronomía óptica', 'LD', 3, 'ac'),
+(21, 'Planetología', 'LD', 3, 'ac'),
+(22, 'Radioastronomía', 'LD', 3, 'ac'),
+(23, 'Sistema solar', 'LD', 3, 'ac'),
+(24, 'Otras especialidades astronómicas (especificar)', 'LD', 3, 'ac'),
+(25, 'Acústica', 'LD', 4, 'ac'),
+(26, 'Electromagnetismo', 'LD', 4, 'ac'),
+(27, 'Electrónica', 'LD', 4, 'ac'),
+(28, 'Física de los fluidos', 'LD', 4, 'ac'),
+(29, 'Mecánica', 'LD', 4, 'ac'),
+(30, 'Física molecular', 'LD', 4, 'ac'),
+(31, 'Física atómica y nuclear ', 'LD', 4, 'ac'),
+(32, 'Nucleónica', 'LD', 4, 'ac'),
+(33, 'Optica', 'LD', 4, 'ac'),
+(34, 'Química física', 'LD', 4, 'ac'),
+(35, 'Física del estado sólido', 'LD', 4, 'ac'),
+(36, 'Física teórica', 'LD', 4, 'ac'),
+(37, 'Termodinámica', 'LD', 4, 'ac'),
+(38, 'Unidades y constantes', 'LD', 4, 'ac'),
+(39, 'Fisica Altas Energías', 'LD', 4, 'ac'),
+(40, 'Otras especialidades físicas (especificar)', 'LD', 4, 'ac'),
+(41, 'Química analítica', 'LD', 5, 'ac'),
+(42, 'Bioquímica', 'LD', 5, 'ac'),
+(43, 'Química inorgánica', 'LD', 5, 'ac'),
+(44, 'Química macromolecular', 'LD', 5, 'ac'),
+(45, 'Química nuclear', 'LD', 5, 'ac'),
+(46, 'Química orgánica', 'LD', 5, 'ac'),
+(47, 'Química física ', 'LD', 5, 'ac'),
+(48, 'Química Farmacéutica', 'LD', 5, 'ac'),
+(49, 'Química ambiental', 'LD', 5, 'ac'),
+(50, 'Otras especialidades (especificar)', 'LD', 5, 'ac'),
+(51, ' Biología animal (Zoología)', 'LD', 6, 'ac'),
+(52, 'Antropología (Física)', 'LD', 6, 'ac'),
+(53, 'Antropología (Física)', 'LD', 6, 'ac'),
+(54, 'Biomatemáticas', 'LD', 6, 'ac'),
+(55, 'Biometría', 'LD', 6, 'ac'),
+(56, 'Biofísica', 'LD', 6, 'ac'),
+(57, 'Biología celular', 'LD', 6, 'ac'),
+(58, 'Etología', 'LD', 6, 'ac'),
+(59, 'Genética', 'LD', 6, 'ac'),
+(60, 'Biología humana ', 'LD', 6, 'ac'),
+(61, 'Fisiología humana', 'LD', 6, 'ac'),
+(62, 'Inmunología', 'LD', 6, 'ac'),
+(63, 'Biología de insectos (Entomología) ', 'LD', 6, 'ac'),
+(64, 'Microbiología', 'LD', 6, 'ac'),
+(65, 'Biología molecular', 'LD', 6, 'ac'),
+(66, 'Paleontología', 'LD', 6, 'ac'),
+(67, 'Biología Vegetal (Botánica)', 'LD', 6, 'ac'),
+(68, 'Radiobiología', 'LD', 6, 'ac'),
+(69, 'Simbiosis', 'LD', 6, 'ac'),
+(70, 'Virología', 'LD', 6, 'ac'),
+(71, 'Neurociencias', 'LD', 6, 'ac'),
+(72, 'Otras especialidades biológicas (especificar )', 'LD', 6, 'ac'),
+(73, 'Clencias de la atmósfera ', 'LD', 7, 'ac'),
+(74, 'Climatología', 'LD', 7, 'ac'),
+(75, 'Geoquímica', 'LD', 7, 'ac'),
+(76, 'Geodesla', 'LD', 7, 'ac'),
+(77, 'Geografía', 'LD', 7, 'ac'),
+(78, 'Geología', 'LD', 7, 'ac'),
+(79, 'Geofísica', 'LD', 7, 'ac'),
+(80, 'Hidrologia', 'LD', 7, 'ac'),
+(81, 'Meteorologia', 'LD', 7, 'ac'),
+(82, 'Oceanografia', 'LD', 7, 'ac'),
+(83, 'Ciencias del suelo (Edafología)', 'LD', 7, 'ac'),
+(84, 'Ciencias del espacio', 'LD', 7, 'ac'),
+(85, 'Otras especialidades de la tierra, espacio o entorno', 'LD', 7, 'ac'),
+(86, 'Agroquímica', 'LD', 8, 'ac'),
+(87, 'Ingeniería Agrícola', 'LD', 8, 'ac'),
+(88, 'Agronomía', 'LD', 8, 'ac'),
+(89, 'Producción animal', 'LD', 8, 'ac'),
+(90, 'Peces y fauna silvestre', 'LD', 8, 'ac'),
+(91, 'Ciencia forestal', 'LD', 8, 'ac'),
+(92, 'Horticultura', 'LD', 8, 'ac'),
+(93, 'Fitopatología', 'LD', 8, 'ac'),
+(94, 'Ciencias veterinarias ', 'LD', 8, 'ac'),
+(95, 'Otras especialidades agrarias (especificar)', 'LD', 8, 'ac'),
+(96, 'Ciencias clínicas', 'LD', 9, 'ac'),
+(97, 'Epidemología', 'LD', 9, 'ac'),
+(98, 'Medicina Forense ', 'LD', 9, 'ac'),
+(99, 'Medicina del trabajo', 'LD', 9, 'ac'),
+(100, 'Medicina interna', 'LD', 9, 'ac'),
+(101, 'Ciencias de la Nutrición', 'LD', 9, 'ac'),
+(102, 'Patología', 'LD', 9, 'ac'),
+(103, 'Farmacodinámica', 'LD', 9, 'ac'),
+(104, 'Farmacología', 'LD', 9, 'ac'),
+(105, 'Medicina preventiva', 'LD', 9, 'ac'),
+(106, 'Psiquiatría', 'LD', 9, 'ac'),
+(107, 'Salud pública', 'LD', 9, 'ac'),
+(108, 'Cirugía', 'LD', 9, 'ac'),
+(109, 'Toxicología', 'LD', 9, 'ac'),
+(110, 'Otras especialidades médicas (especificar)', 'LD', 9, 'ac'),
+(111, 'Ingeniería y tecnología aeronáuticas', 'LD', 10, 'ac'),
+(112, 'Tecnología bioquímica', 'LD', 10, 'ac'),
+(113, 'Ingeniería y tecnología químicas', 'LD', 10, 'ac'),
+(114, 'Tecnologla de los ordenadores', 'LD', 10, 'ac'),
+(115, 'Tecnología de la construcion', 'LD', 10, 'ac'),
+(116, 'Ingeniería y tecnología eléctricas', 'LD', 10, 'ac'),
+(117, 'Tecnología electrónica', 'LD', 10, 'ac'),
+(118, 'Ingeniería y tecnología del medio ambiente', 'LD', 10, 'ac'),
+(119, 'Tecnología de los alimentos ', 'LD', 10, 'ac'),
+(120, 'Tecnología industrial', 'LD', 10, 'ac'),
+(121, 'Tecnología de la instrumentación', 'LD', 10, 'ac'),
+(122, 'Tecnología de materiales', 'LD', 10, 'ac'),
+(123, 'Tecnología e ingeniería mecánicas', 'LD', 10, 'ac'),
+(124, 'Tecnología médica ', 'LD', 10, 'ac'),
+(125, 'Tecnología metalúrgica', 'LD', 10, 'ac'),
+(126, 'Tecnología de productos metálicos', 'LD', 10, 'ac'),
+(127, 'Tecnología de vehículos de motor', 'LD', 10, 'ac'),
+(128, 'Tecnología minera', 'LD', 10, 'ac'),
+(129, 'Tecnología naval', 'LD', 10, 'ac'),
+(130, 'Tecnología nuclear', 'LD', 10, 'ac'),
+(131, 'Tecnología del carbón y del petróleo', 'LD', 10, 'ac'),
+(132, 'Tecnología energética', 'LD', 10, 'ac'),
+(133, 'Tecnología de los ferrocarriles', 'LD', 10, 'ac'),
+(134, 'Tecnología del espacio', 'LD', 10, 'ac'),
+(135, 'Tecnología de las telecomunicaciones', 'LD', 10, 'ac'),
+(136, 'Tecnología textil ', 'LD', 10, 'ac'),
+(137, 'Tecnología de los sistemas de transporte', 'LD', 10, 'ac'),
+(138, 'Procesos tecnológicos', 'LD', 10, 'ac'),
+(139, 'Planificación urbana', 'LD', 10, 'ac'),
+(140, 'Otras especialidades tecnológicas (especificar)', 'LD', 10, 'ac'),
+(141, 'Antropología cultural', 'LD', 11, 'ac'),
+(142, 'Etnografía y etnología', 'LD', 11, 'ac'),
+(143, 'Antropología social', 'LD', 11, 'ac'),
+(144, 'Otras especialidades (especificar)', 'LD', 11, 'ac'),
+(145, 'Fertilidad', 'LD', 12, 'ac'),
+(146, 'Demografía general', 'LD', 12, 'ac'),
+(147, 'Demografía geográfica', 'LD', 12, 'ac'),
+(148, 'Demografía histórica', 'LD', 12, 'ac'),
+(149, 'Mortalidad', 'LD', 12, 'ac'),
+(150, 'Características de la población', 'LD', 12, 'ac'),
+(151, 'Tamaño de la población y evolución demográfica', 'LD', 12, 'ac'),
+(152, 'Otras especialidades demograficas (especificar)', 'LD', 12, 'ac'),
+(153, 'Política fiscal y hacienda públlca nacionales', 'LD', 13, 'ac'),
+(154, 'Econometría', 'LD', 13, 'ac'),
+(155, 'Contabilidad económica', 'LD', 13, 'ac'),
+(156, 'Actividad económica', 'LD', 13, 'ac'),
+(157, 'Sistemas económicos', 'LD', 13, 'ac'),
+(158, 'Economía del cambio tecnológico', 'LD', 13, 'ac'),
+(159, 'Teoría económica', 'LD', 13, 'ac'),
+(160, 'Economía general', 'LD', 13, 'ac'),
+(161, 'Organización industrial y politicas gubernamentales', 'LD', 13, 'ac'),
+(162, 'Economía internacional tecnología', 'LD', 13, 'ac'),
+(163, 'Organización y dirección de empresas', 'LD', 13, 'ac'),
+(164, 'Economía sectorial', 'LD', 13, 'ac'),
+(165, 'Otras especialidades económicas (especificar)', 'LD', 13, 'ac'),
+(166, 'Geografía económica', 'LD', 14, 'ac'),
+(167, 'Geografía histórica', 'LD', 14, 'ac'),
+(168, 'Geografía humana', 'LD', 14, 'ac'),
+(169, 'Geografía regional', 'LD', 14, 'ac'),
+(170, 'Otras especialidades geográficas (especificar)', 'LD', 14, 'ac'),
+(171, 'Biografías', 'LD', 15, 'ac'),
+(172, 'Historia general', 'LD', 15, 'ac'),
+(173, 'Historia de países', 'LD', 15, 'ac'),
+(174, 'Historia por épocas', 'LD', 15, 'ac'),
+(175, 'Ciencias auxiliares de la historia', 'LD', 15, 'ac'),
+(176, 'Historia por especialidades', 'LD', 15, 'ac'),
+(177, 'Otras especialidades históricas (especificar)', 'LD', 15, 'ac'),
+(178, 'Derecho canónico', 'LD', 16, 'ac'),
+(179, 'Teoría y métodos generales', 'LD', 16, 'ac'),
+(180, 'Derecho internacional', 'LD', 16, 'ac'),
+(181, 'Organización jurídica', 'LD', 16, 'ac'),
+(182, 'Derecho y legislación nacionales', 'LD', 16, 'ac'),
+(183, 'Otras especialidades jurídicas (especificar)', 'LD', 16, 'ac'),
+(184, 'Linguística aplicada', 'LD', 17, 'ac'),
+(185, 'Linguística diacrónica', 'LD', 17, 'ac'),
+(186, 'Geografia linguística', 'LD', 17, 'ac'),
+(187, 'Teoria linguística', 'LD', 17, 'ac'),
+(188, 'Linguística sincrónica', 'LD', 17, 'ac'),
+(189, 'Otras especialidades linguísticas (especificar)', 'LD', 17, 'ac'),
+(190, 'Teoria y métodos educativos', 'LD', 18, 'ac'),
+(191, 'Organización y planificación', 'LD', 18, 'ac'),
+(192, 'Preparación y empleo de profesores', 'LD', 18, 'ac'),
+(193, 'Otras especialidades pedagógicas (especificar)', 'LD', 18, 'ac'),
+(194, 'Relaciones internacionales', 'LD', 19, 'ac'),
+(195, 'Ciencias políticas', 'LD', 19, 'ac'),
+(196, 'Ideologías políticas', 'LD', 19, 'ac'),
+(197, 'Vida política', 'LD', 19, 'ac'),
+(198, 'Sociología política', 'LD', 19, 'ac'),
+(199, 'Sistemas políticos', 'LD', 19, 'ac'),
+(200, 'Teoría política', 'LD', 19, 'ac'),
+(201, 'Administración pública', 'LD', 19, 'ac'),
+(202, 'Opinión pública', 'LD', 19, 'ac'),
+(203, 'Otras especialidades políticas (especificar)', 'LD', 19, 'ac'),
+(204, 'Patología', 'LD', 20, 'ac'),
+(205, 'Psicología del niño y del adolescente', 'LD', 20, 'ac'),
+(206, 'Asesoramiento y orientación', 'LD', 20, 'ac'),
+(207, 'Psicopedagogía', 'LD', 20, 'ac'),
+(208, 'Evaluación y diagnóstico en psicología', 'LD', 20, 'ac'),
+(209, 'Psicología experimental', 'LD', 20, 'ac'),
+(210, 'Psicología general', 'LD', 20, 'ac'),
+(211, 'Psicología de la vejez', 'LD', 20, 'ac'),
+(212, 'Psicología industrial', 'LD', 20, 'ac'),
+(213, 'Parapsicología', 'LD', 20, 'ac'),
+(214, 'Personalidad', 'LD', 20, 'ac'),
+(215, 'Estudio psicológico detemas sociales', 'LD', 20, 'ac'),
+(216, 'Psicofarmacologia', 'LD', 20, 'ac'),
+(217, 'Psicologia social', 'LD', 20, 'ac'),
+(218, 'Otras especialidades psicológicas (especificar)', 'LD', 20, 'ac'),
+(219, 'Arquitectura', 'LD', 21, 'ac'),
+(220, 'Teoría, análisis y crítica literarias', 'LD', 21, 'ac'),
+(221, 'Teoria, análisis y critica de las Bellas Artes', 'LD', 21, 'ac'),
+(222, 'Otras especialidades artisticas (especificar)', 'LD', 21, 'ac'),
+(223, 'Sociologia cultural', 'LD', 22, 'ac'),
+(224, 'Sociología experimental', 'LD', 22, 'ac'),
+(225, 'Sociologia general', 'LD', 22, 'ac'),
+(226, 'Problemas internacionale', 'LD', 22, 'ac'),
+(227, 'Sociologia matemática', 'LD', 22, 'ac'),
+(228, 'Sociologia del trabajo', 'LD', 22, 'ac'),
+(229, 'Cambio y desarrollo social', 'LD', 22, 'ac'),
+(230, 'Comunicaciones sociales', 'LD', 22, 'ac'),
+(231, 'Grupos sociales', 'LD', 22, 'ac'),
+(232, 'Problemas sociales', 'LD', 22, 'ac'),
+(233, 'Sociología de los asentamientos humanos', 'LD', 22, 'ac'),
+(234, 'Otras especialidades sociológicas (especificar)', 'LD', 22, 'ac'),
+(235, 'Etica clasica', 'LD', 23, 'ac'),
+(236, 'Etica de individuos', 'LD', 23, 'ac'),
+(237, 'Etica de grupo', 'LD', 23, 'ac'),
+(238, 'La ética en perspeciva (especificar)', 'LD', 23, 'ac'),
+(239, 'Otras especialidades relacionadas con la ética', 'LD', 23, 'ac'),
+(240, 'Filosofía del conocimiento', 'LD', 24, 'ac'),
+(241, 'Antropología filosófica', 'LD', 24, 'ac'),
+(242, 'Filosofía general', 'LD', 24, 'ac'),
+(243, 'Sistemas filosóficos', 'LD', 24, 'ac'),
+(244, 'Filosofía de la ciencia', 'LD', 24, 'ac'),
+(245, 'Filosofía de la naturaleza', 'LD', 24, 'ac'),
+(246, 'Filosofía social', 'LD', 24, 'ac'),
+(247, 'Doctrinas filosóficas', 'LD', 24, 'ac'),
+(248, 'Otras especialidades filosóficas (especificar)', 'LD', 24, 'ac');
 
 -- --------------------------------------------------------
 
@@ -1607,16 +1910,18 @@ CREATE TABLE IF NOT EXISTS `titularizacion` (
   `facultad_id` int(11) DEFAULT NULL,
   `documento_titularidad_id` int(11) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
+  `archivo` varchar(200) DEFAULT NULL,
+  `observacion` varchar(300) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `titularizacion`
 --
 
-INSERT INTO `titularizacion` (`id`, `fecha_resolucion`, `materia_doc`, `carrera_doc`, `departamento_doc`, `facultad_doc`, `vb`, `nro_documento`, `facultad_id`, `documento_titularidad_id`, `funcionario_id`, `estado`) VALUES
-(2, '--wertwer', 'twertw', 'twert', 'wtwert', 'twert', 'wtwer', 0x747477657274, 0, 0, 1, 'Pendiente');
+INSERT INTO `titularizacion` (`id`, `fecha_resolucion`, `materia_doc`, `carrera_doc`, `departamento_doc`, `facultad_doc`, `vb`, `nro_documento`, `facultad_id`, `documento_titularidad_id`, `funcionario_id`, `archivo`, `observacion`, `estado`) VALUES
+(3, '2014-06-19', 'vfsdf', 'sdfg', 'gsdfg', 'gsdfg', '', 0x35353636, 0, 0, 1, 'uploads/41402455078.jpg', 'fdddddddddddddddddddddd', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -1630,7 +1935,7 @@ CREATE TABLE IF NOT EXISTS `unidad_tiempo` (
   `sigla_unidad_tiempo` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `unidad_tiempo`

@@ -13,7 +13,7 @@
 		if ( msg )
     {
 			$.ajax({
-				url: 'eliminar.php',
+				url: 'desempenio_profesional_eliminar.php',
 				type: "GET",
 				data: "id="+id,
 				success: function(datos){
@@ -27,28 +27,41 @@
 	}
 
          </script> 
-          <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
-		
+   	  <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+    
+      	
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Concluci&oacute;n</th><!--Estado-->
-                        <th>Tipo Gesti&oacute;n</th>
-                        <th>Nro. Gestiones</th>
-                        <th>Unidad Academica</th>
-                        <th>Ambito</th>
-                         <th>Editar</th>
+                       <th>V.B.</th><!--Estado-->
+                        <th>Nro.</th><!--Estado-->
+                        <th>Instituci&oacute;n</th>
+                        <th>Cargo</th>
+                        <th>Nivel del Cargo</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Fecha de Conclusi&oacute;n</th>
+                        <th>&Aacute;rea</th><!--Estado-->
+                        <th>Sub&aacute;rea</th>
+                        <th>Pa&iacute;s</th>
+                        <th>Certificado</th>
+                        <th>Observacion</th>
+                        <th>Validar</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                      <th></th>
-                         <th></th>
+                       <th></th>
                         <th></th>
-                         <th></th>
-                           <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                          <th></th>
                         <th></th>
                          <th></th>
@@ -64,31 +77,41 @@
                     require('../_start.php');
                     if(!isUserSession())
                     header("Location: index.php"); 
-                    leerClase("Usuario");
-                    leerClase("Ambito");
-                    leerClase("Tipo_gestion");
-                    $idfuncionario=  getSessionUser()->getFuncionario()->id;
-                    $listado=  mysql_query("select d.*  from dedicacion_exclusiva d WHERE d.funcionario_id=$idfuncionario");
-
+                   leerClase("Area");
+                  leerClase("Subarea");
+                  leerClase("Pais");
+                     $funcionario_id= $_GET['funcionario_id'];
+             $listado=  mysql_query("select d.* from  desemp_prof_externo d where d.funcionario_id=$funcionario_id");
+              
+     $contador=1;
                     while( $resultado = mysql_fetch_array($listado) ){
-                        $tipogestion= new Tipo_gestion($resultado['tipo_gestion_id']);
-                        $ambito = new Ambito($resultado['ambito_id']);
+                       $area= new Area($resultado['area_id']);
+                      $subarea= new Subarea($resultado['subarea_id']);
+                     $pasis = new Pais($resultado['pais_id']);
+                        
                         
                   	?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
-                 	  <td><?php echo $resultado['fecha_inicio'] ?></td>
-			  <td><?php echo $resultado['fecha_fin'] ?></td>
-                           <td><?php echo $tipogestion->descripcion; ?></td>
-                             <td><?php echo $resultado['numero_gestiones'] ?></td>
-                              <td><?php echo $resultado['unidad_academica'] ?></td>
-                              <td><?php echo $ambito->nombre_ambito; ?></td>
-                          
-                              <td><span class="modi"><a href="registro.php?area_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
-			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
+                        <td><?php echo $resultado['estado'] ?></td>
+                 	 <td><?php echo $contador; ?></td>
+                           <td><?php echo $resultado['institucion']; ?></td>
+                           <td><?php echo $resultado['cargo']; ?></td>
+                           <td><?php echo $resultado['nivel_cargo']; ?></td>
+                           <td><?php echo $resultado['fecha_inicio']; ?></td>
+                           <td><?php echo $resultado['fecha_conclusion']; ?></td>
+                           <td><?php echo $area->nombre; ?></td>
+                           <td><?php echo $subarea->nombre_subarea; ?></td>
+                             <td><?php echo $pasis-> nombre_pais?></td>
+		          <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
+			<td><?php echo $resultado['observacion']; ?></td>
+                              <td><span class="modi"><a href="desempenio_profesional_detalle.php?desemp_prof_externo_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="desempenio_profesional_eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
 		  </tr>
 	<?php
+        $contador++;
 	}
   ?>   
                 <tbody>
             </table>
+          </div>

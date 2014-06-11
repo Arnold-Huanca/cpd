@@ -17,7 +17,7 @@
      
      
 
-             <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
+             <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" enctype="multipart/form-data">
            
             
             <p>
@@ -27,7 +27,7 @@
             <p>
               <input type="text" name="cargo_actividad" id="cargo_actividad" value="{$ejercicio_liberal_prof->cargo_actividad}"  placeholder="Nombre del Cargo o Actividad" size="100"  >
               <label for="nombre"><small>Nombre del Cargo Actividad o Actividad </small></label>
-            </p>
+            </p><br>
               <p>
               <label for="rol"><small>Tipo</small></label>
               <select  class="select-style gender" name="tipo" id="tipo">
@@ -58,12 +58,13 @@
            
             
             <p>
-              <label for="rol"><small>Pais</small></label>
+                <label for="rol"><small>Pa&iacute;s</small></label>
               <select  class="select-style gender" name="pais_id" id="pais_id" >
               {html_options values=$paises_values selected=$ejercicio_liberal_prof->pais_id output=$paises_output}
               </select>
             </p>
             <p>
+                 <label for="rol"><small>V.B.</small></label>
                     {if ($ejercicio_liberal_prof->estado eq "Pendiente" || $ejercicio_liberal_prof->estado eq "Aceptado" )}
                       <input type="radio" name="estado" value="Aceptado"  checked />Aceptar
                       <input type="radio" name="estado" dovalue="Observado" /> Rechazar
@@ -74,13 +75,24 @@
                         {/if}
           </p>
          
+          
            <p>
-              <input type="hidden" name="ejercicio_liberal_prof_id"    value="{$ejercicio_liberal_prof->id}">
-                <input type="hidden" name="tarea" value="registrar">
+               <label for="rol"><small>Archivo</small></label>
+                 <input type="file" name="archivo" id="archivo" value=""  size="100"  >
+           
+              </p>
+           <p>
+               <label for="rol"><small>Observaci&oacute;n</small></label>
+               <textarea name="observacion" id="observacion" > {$ejercicio_liberal_prof->observacion}</textarea>
+            </p>
+         
+                    <p>
+              <input type="hidden" name="id"    value="{$ejercicio_liberal_prof->id}">
+              <input type="hidden" name="funcionario_id"  id="funcionario_id"  value="{$ejercicio_liberal_prof->funcionario_id}">
+              <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
-               <button class="submit" type="submit">Guardar</button> 
-                <button class="submit" type="reset" >Cancelar</button> 
-
+              <button class="submit" type="submit">Guardar</button> 
+              <button class="submit" type="button" onclick="enviar()">Cancelar</button>  
             </p>
           </form>
        
@@ -114,9 +126,29 @@
       
 </script>
 <script>
+jQuery('#area_id').change(function () {
+var numero =document.getElementById("area_id").value;
+var poblacio = jQuery(this).attr("poblacioattri");
+var to=document.getElementById("Buscando");
+to.innerHTML="buscando....";
+jQuery.ajax({
+type: "POST", 
+url: "buscar.php",
+data: 'idnumero='+numero,
+success: function(a) {
+jQuery('#subarea_id').html(a);
+var to=document.getElementById("Buscando");
+to.innerHTML="";
+}
+});
+})
+.change();
+</script> 
+<script>
   
   function enviar(){
-    window.location.href="index.php";
+     var id = $("#funcionario_id").val();
+    window.location.href="ejercicio_liberal.php?menus=mostrar&funcionario_id="+id;
   
   }
 </script>

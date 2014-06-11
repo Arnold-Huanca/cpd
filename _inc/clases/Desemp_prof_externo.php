@@ -11,7 +11,7 @@ class Desemp_prof_externo extends Objectbase
   * @var VARCHAR(100)
   */
   var $funcionario_id;
-  
+   var $area_id;
   var $subarea_id;
   
   var $pais_id;
@@ -28,28 +28,9 @@ class Desemp_prof_externo extends Objectbase
   
   var $vb;
   
-  var $descripcion;
-  
-  
-
-  public function getByLogin ($login, $verSifueTomado = false ) {
-    $sql       = "select * from ".$this->getTableName()." where login = '$login'";
-    $result = mysql_query($sql);
-    if ($result === false)
-      throw new Exception("?".$this->getTableName ()."&m=Cant getByEmail <br />$sql<br /> ".$this->getTableName() . ' -> '. mysql_error() );
-
-    if ($verSifueTomado)
-    {
-      if (mysql_num_rows($result))
-        throw new Exception("?login&m=Este login ya fue tomado");
-      return;
-    }
-
-    $usuario = mysql_fetch_array($result,MYSQL_BOTH);
-    self::__construct($usuario['id']);
-    return true;
-  }
-  
+  var $archivo;
+   var $observacion;
+ 
   /**
    * Validamos al usuario ya sea para actualizar o para crear uno nuevo
    * @param type $es_nuevo
