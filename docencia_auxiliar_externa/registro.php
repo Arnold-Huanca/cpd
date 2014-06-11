@@ -78,7 +78,28 @@ $ERROR = '';
   }
   $smarty->assign("paises_values", $paises_values);
   $smarty->assign("paises_output", $paises_output);
+   leerClase('Area');
+  $area   = new Area();
+  $areas   = $area->getAll();  ///retorna todas las clases
+  $area_values[] = '';
+  $area_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($areas[0])) 
+  {
+    $area_values[] = $row['id'];
+    $area_output[] = $row['nombre'];
+  }
+  $smarty->assign("area_values", $area_values);
+  $smarty->assign("area_output", $area_output);
+   $condicion_values[] = '';
+  $condicion_output[] = '- Seleccione -';
   
+    $condicion_values[] = 'Docente';
+   $condicion_output[] = 'Docente';
+     $condicion_values[] = 'Auxiliar';
+   $condicion_output[] = 'Auxiliar';
+  
+  $smarty->assign("condicion_values", $condicion_values);
+  $smarty->assign("condicion_output", $condicion_output);
   // combo box unidad_tiempo
   leerClase('Unidad_tiempo');
   $unidad_tiempo   = new Unidad_tiempo();
@@ -93,6 +114,17 @@ $ERROR = '';
   $smarty->assign("unidad_tiempos_values", $unidad_tiempos_values);
   $smarty->assign("unidad_tiempos_output", $unidad_tiempos_output);
   
+  $duracion_values[] = '';
+  $duracion_output[] = '- Seleccione -';
+
+   
+ 
+    for ($index = 1; $index < 100; $index++){
+         $duracion_values[] = $index;
+         $duracion_output[] =$index;
+    }
+  $smarty->assign("duracion_values", $duracion_values);
+  $smarty->assign("duracion_output", $duracion_output);
     // combo box nivel_formacion
   leerClase('Nivel_formacion');
   $nivel_formacion   = new Nivel_formacion();
@@ -142,6 +174,7 @@ $ERROR = '';
     mysql_query("BEGIN");
     $docencia_axuliar_externa->objBuidFromPost();
     $docencia_axuliar_externa->estado           = Objectbase::estado_pendiente;
+    $docencia_axuliar_externa->funcionario_id=  getSessionUser()->getFuncionario()->id;
     $docencia_axuliar_externa->save();
     mysql_query("COMMIT");
     $ir = "Location: index.php";

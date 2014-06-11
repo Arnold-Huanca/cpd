@@ -1,6 +1,6 @@
 <?php
 try {
- define ("MODULO", "Docencia Auxiliar Externa");
+ define ("MODULO", "Solicitante");
   require('../_start.php');
   if(!isUserSession())
   header("Location: index.php"); 

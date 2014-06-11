@@ -33,11 +33,18 @@
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>id</th><!--Estado-->
-                         <th>Carrera</th>
-                         <th>Departamento</th><!--Estado-->
-                         <th>Facultad</th>
+                         <th>id</th><!--Estado-->
+                         <th>Mater&iacute;n</th>
                          <th>Fecha Inicio</th><!--Estado-->
+                         <th>Duraci&oacute;n</th>
+                         <th>&Aacute;rea</th>
+                         <th>Sub&aacute;rea</th><!--Estado-->
+                         <th>Nivel</th>
+                         <th>Carrera</th><!--Estado-->
+                         <th>Departamento</th><!--Estado-->
+                         <th>Facultad</th><!--Estado-->
+                         <th>Universidad</th><!--Estado-->
+                         <th>Condici&oacute;n</th><!--Estado-->
                          <th>Estado</th><!--Estado-->
                          <th>Editar</th>
                         <th>Eliminar</th>
@@ -47,38 +54,62 @@
                     <tr>
                         <th></th>
                         <th></th>
-                         <th></th>
                         <th></th>
-                         <th></th>
-                        
-                       
-                     
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </tfoot>
                   <tbody>
                    
                     <?php
-              define ("MODULO", "Docencia Auxiliatura Umss");
+              define ("MODULO", "Docencia Auxiliar Externa");
                     require('../_start.php');
                     if(!isUserSession())
                     header("Location: index.php"); 
                     
                   leerClase("Usuario");
                   $idfuncionario=  getSessionUser()->getFuncionario()->id;
-              $listado=  mysql_query("select d.* from  docencia_auxiliatura_umss d where d.funcionario_id=$idfuncionario");
-
+                  $listado=  mysql_query("select d.* from  docencia_axuliar_externa d where d.funcionario_id=$idfuncionario");
+                  leerClase('Nivel_formacion');
+                  leerClase('Unidad_tiempo');
+                  leerClase('Area');
+                  leerClase('Subarea');
+                  leerClase('Universidad');
                     while( $resultado = mysql_fetch_array($listado) ){
+                    $area= new Area($resultado['area_id']);
+                    $subarea= new Subarea($resultado['subarea_id']);
+                    $unidadtiempo= new Unidad_tiempo($resultado['unidad_tiempo_id']);
+                    $nivel_gestion= new Nivel_formacion($resultado['nivel_formacion_id']);
+                    $universidad= new Universidad($resultado['universidad_id']);
                         
                   	?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
                            <td><?php echo $resultado['id'] ?></td>
+                           <td><?php echo $resultado['materia'] ?></td>
+                           <td><?php echo $resultado['fecha_inicio'] ?></td>
+                           <td><?php echo $resultado['duracion'] .' '. $unidadtiempo->nombre_unidad_tiempo?></td>
+                           <td><?php echo  $area->nombre ?></td>
+                           <td><?php echo $subarea->nombre_subarea ?></td>
+                           <td><?php echo  $nivel_gestion->nombre_nivel_formacion ?></td>
+                         
 			  <td><?php echo $resultado['carrera'] ?></td>
 			  <td><?php echo $resultado['departamento'] ?></td>
-                           <td><?php echo $resultado['facultad'] ?></td>
-                             <td><?php echo $resultado['fecha_inicio'] ?></td>
-                             <td><?php echo $resultado['estado'] ?></td>
-			   <td><span class="modi"><a href="registro.php?id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+                          <td><?php echo $resultado['facultad'] ?></td>
+                          <td><?php echo   $universidad->nombre_uni; ?></td>
+                          <td><?php echo $resultado['condicion'] ?></td>
+                          <td><?php echo $resultado['estado'] ?></td>
+			  <td><span class="modi"><a href="registro.php?docencia_axuliar_externa_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
 		  </tr>
 	<?php

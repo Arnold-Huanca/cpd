@@ -114,21 +114,6 @@ $ERROR = '';
   $smarty->assign("nivel_formaciones_values", $nivel_formaciones_values);
   $smarty->assign("nivel_formaciones_output", $nivel_formaciones_output);
   
-  
-  //combo box funcionario
-  leerClase('Funcionario');
-  $funcionario    = new Funcionario();
-  $funcionarios   = $funcionario->getAll();  ///retorna todas las clases
-  $funcionarios_values[] = '';
-  $funcionarios_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($funcionarios[0])) 
-  {
-    $funcionarios_values[] = $row['id'];
-    $funcionarios_output[] = $row['nombre'];
-  }
-  $smarty->assign("funcionarios_values", $funcionarios_values);
-  $smarty->assign("funcionarios_output", $funcionarios_output);
-  
  
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
@@ -137,7 +122,7 @@ $ERROR = '';
     $docencia_auxiliatura_umss->objBuidFromPost();
     
     $docencia_auxiliatura_umss->estado           = Objectbase::estado_pendiente;
-     $docencia_auxiliatura_umss->funcionario_id=  getSessionUser()->getFuncionario()->id;
+    $docencia_auxiliatura_umss->funcionario_id=  getSessionUser()->getFuncionario()->id;
    $docencia_auxiliatura_umss->save();
     mysql_query("COMMIT");
     $ir = "Location: index.php";
