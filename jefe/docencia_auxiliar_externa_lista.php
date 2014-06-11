@@ -26,9 +26,9 @@
 	}
 
          </script> 
-        	 <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+        		 <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
   	
-         <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
+         <table cellpadding="0" cellspacing="0" border="0" class="display" >
                 <thead>
                     <tr>
                          <th>V.B.</th><!--Estado-->
@@ -46,8 +46,7 @@
                          <th>Condici&oacute;n</th><!--Estado-->
                          <th>Certificado</th><!--Estado-->
                          <th>Observaci&oacute;n</th><!--Estado-->
-                         <th>Validar</th>
-                        <th>Eliminar</th>
+                        
                     </tr>
                 </thead>
                 <tfoot>
@@ -77,7 +76,7 @@
                   <tbody>
                    
                     <?php
-              define ("MODULO", "Solicitante");
+            define ("MODULO", "Jefe");
                     require('../_start.php');
                     if(!isUserSession())
                     header("Location: index.php"); 
@@ -116,9 +115,7 @@
                            <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
 		
                              <td><?php echo $resultado['observacion'] ?></td>
-			   <td><span class="modi"><a href="docencia_auxiliar_externa_detalle.php?docencia_axuliar_externa_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
-			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
-		  </tr>
+			  		  </tr>
 	<?php
          $contador++;
 	}

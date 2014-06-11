@@ -1,5 +1,6 @@
 {include file="header.tpl"}
 {include file="menu.tpl"}
+
  <script type="text/javascript">
          
 $(document).ready(function(){
@@ -24,7 +25,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                 <div class="art-content-layout">
                     <div class="art-content-layout-row">
                       
-      <div class="art-layout-cell art-sidebar1 clearfix">
+       <div class="art-layout-cell art-sidebar1 clearfix">
 <div class="art-vmenublock clearfix">
   
    {if (isUserSession())}
@@ -82,7 +83,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                    
                  {section name=ic loop=$menuizquierda}
                   {assign var="menu" value=$menuizquierda[ic]}
-                     {if {$menu->nombre_menu} == "Pertenece"} 
+                     {if {$menu->nombre_menu} == "Solicitudes"} 
                      {if ( $menu->getItemTotal() > 1 ) }
                   <li class="dropdown active dropdownactiveli" >
                      <a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>
@@ -151,8 +152,10 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
         </div>
 </div>
 </div>
-                 
+      <div class="art-layout-cell art-content clearfix">
       <article id="contenido">
+          
+          
         </article>
    </div>
 
@@ -172,3 +175,24 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
 
     </div>
  {include file="footer.tpl"}    
+                        
+                        
+                        <!--{include file="menuizquierdo.tpl"}
+      <div class="art-layout-cell art-content clearfix">
+  
+         <article id="contenido">
+        </article>
+      </div>
+
+
+</div>
+</div>
+</div>
+</div>
+      
+      <footer class="art-footer clearfix">
+<p>Pie de pagina</p>
+</footer>
+
+    </div>
+ {include file="footer.tpl"}    -->

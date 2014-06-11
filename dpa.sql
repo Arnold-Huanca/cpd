@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2014 a las 18:26:46
+-- Tiempo de generación: 11-06-2014 a las 20:54:19
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -677,7 +677,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `descripcion` varchar(255) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Volcado de datos para la tabla `funcionario`
@@ -698,7 +698,8 @@ INSERT INTO `funcionario` (`id`, `nombre`, `apellido_p`, `apellido_m`, `ci`, `ex
 (12, NULL, 'ely', '', 0, '', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 14, '', 'AC'),
 (13, NULL, 'jenny', '', 0, '', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 15, '', 'AC'),
 (14, NULL, 'Huna', '', 0, '', NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 2, '', 'AC'),
-(15, 'miranda', 'tmasnnn', '', 0, '', 0, '0000-00-00', 0, '', '', '', 0, '', '', '', '', '', 0, 0, '', 0, 0, 0, 0, '', '', '', '0000-00-00', 17, '', 'AC');
+(15, 'miranda', 'tmasnnn', '', 0, '', 0, '0000-00-00', 0, '', '', '', 0, '', '', '', '', '', 0, 0, '', 0, 0, 0, 0, '', '', '', '0000-00-00', 17, '', 'AC'),
+(16, 'Juan', 'Perez', 'Mendoza', 5566767, '', 0, '0000-00-00', 0, '', '', '', 0, '', '', 'juansperez@gmail.com', '', '', 0, 0, '', 0, 0, 0, 0, '', '', '', '0000-00-00', 19, '', 'AC');
 
 -- --------------------------------------------------------
 
@@ -890,7 +891,7 @@ CREATE TABLE IF NOT EXISTS `modulo` (
   `descripcion` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
 
 --
 -- Volcado de datos para la tabla `modulo`
@@ -948,7 +949,8 @@ INSERT INTO `modulo` (`id`, `codigo`, `nombre`, `url`, `descripcion`, `estado`) 
 (62, 'Datos Familiares', '', '', 'M&oacute;dulo: Datos Familiares', 'AC'),
 (63, 'Ejercicio liberal profesion', '', '', 'M&oacute;dulo: Ejercicio liberal profesion', 'AC'),
 (64, 'Perfeccionamiento Profesional', '', '', 'M&oacute;dulo: Perfeccionamiento Profesional', 'AC'),
-(65, 'Desempeño Profesional Externo', '', '', 'M&oacute;dulo: Desempeño Profesional Externo', 'AC');
+(65, 'Desempeño Profesional Externo', '', '', 'M&oacute;dulo: Desempeño Profesional Externo', 'AC'),
+(68, 'Jefe', '', '', 'M&oacute;dulo: Jefe', 'AC');
 
 -- --------------------------------------------------------
 
@@ -1097,7 +1099,7 @@ CREATE TABLE IF NOT EXISTS `permiso` (
   `grupo_id` int(11) DEFAULT NULL,
   `estado` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=107 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
 
 --
 -- Volcado de datos para la tabla `permiso`
@@ -1149,7 +1151,6 @@ INSERT INTO `permiso` (`id`, `ver`, `crear`, `editar`, `eliminar`, `modulo_id`, 
 (81, '1', '', '', '', 25, 4, 'AC'),
 (82, '1', '', '', '', 31, 4, 'AC'),
 (83, '1', '', '', '', 21, 4, 'AC'),
-(85, '1', '', '', '', 58, 2, 'AC'),
 (87, '1', '', '', '', 20, 4, 'AC'),
 (88, '1', '1', '1', '1', 59, 1, 'AC'),
 (89, '1', '1', '1', '1', 60, 1, 'AC'),
@@ -1164,7 +1165,11 @@ INSERT INTO `permiso` (`id`, `ver`, `crear`, `editar`, `eliminar`, `modulo_id`, 
 (101, '1', '1', '1', '1', 63, 1, 'AC'),
 (102, '1', '', '', '', 63, 4, 'AC'),
 (104, '1', '', '', '', 64, 4, 'AC'),
-(106, '1', '', '', '', 65, 4, 'AC');
+(106, '1', '', '', '', 65, 4, 'AC'),
+(108, '1', '', '', '', 66, 2, 'AC'),
+(109, '1', '', '', '', 66, 2, 'AC'),
+(110, '1', '1', '1', '1', 67, 1, 'AC'),
+(112, '1', '', '', '', 68, 2, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1178,7 +1183,7 @@ CREATE TABLE IF NOT EXISTS `pertenece` (
   `usuario_id` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=44 ;
 
 --
 -- Volcado de datos para la tabla `pertenece`
@@ -1189,7 +1194,6 @@ INSERT INTO `pertenece` (`id`, `grupo_id`, `usuario_id`, `estado`) VALUES
 (23, 4, 3, 'AC'),
 (24, 1, 1, 'AC'),
 (25, 1, 1, 'AC'),
-(27, 2, 4, 'AC'),
 (28, 4, 5, 'AC'),
 (29, 4, 6, 'AC'),
 (30, 4, 7, 'AC'),
@@ -1199,7 +1203,9 @@ INSERT INTO `pertenece` (`id`, `grupo_id`, `usuario_id`, `estado`) VALUES
 (37, 4, 14, 'AC'),
 (38, 4, 15, 'AC'),
 (39, 2, 15, 'AC'),
-(41, 4, 17, 'AC');
+(41, 4, 17, 'AC'),
+(42, 2, 19, 'AC'),
+(43, 3, 4, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1411,7 +1417,7 @@ CREATE TABLE IF NOT EXISTS `secuencia` (
   `nivel` int(11) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
 
 --
 -- Volcado de datos para la tabla `secuencia`
@@ -1457,7 +1463,9 @@ INSERT INTO `secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `es
 (48, 32, 'Modulos', 'no', 19, 'AC'),
 (49, 53, 'Vida Universitaria Nacional', 'si', 21, 'AC'),
 (50, 54, 'Vida Universitaria Extranjera', 'si', 22, 'AC'),
-(51, 65, 'Desempeño Profesional Externo', 'si', 16, 'AC');
+(51, 65, 'Desempeño Profesional Externo', 'si', 16, 'AC'),
+(52, 66, 'jefe', 'no', 30, 'AC'),
+(53, 68, 'jefe', 'no', 34, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1999,7 +2007,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `fecha_inscripcion` date DEFAULT NULL,
   `estado` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -2017,7 +2025,8 @@ INSERT INTO `usuario` (`id`, `nombre`, `apellido_p`, `apellido_m`, `ci`, `email`
 (13, 'afd', 'fasdf', 'fasd', NULL, 'sss@gmail.com', '123456', '123456', '0000-00-00', 'AC'),
 (14, 'ely', 'ely', 'ely', NULL, 'ely@gmail.com', 'elyza', 'bravo', '0000-00-00', 'AC'),
 (15, 'jhen', 'jenny', 'jjjj', NULL, 'jheny@hotmail.com', 'jhenny', 'jhenny', '0000-00-00', 'AC'),
-(17, 'miranda', 'tmasnnn', 'fsadff', NULL, 'miranda@hotmail.com', 'miranda', 'miranda', '0000-00-00', 'AC');
+(17, 'miranda', 'tmasnnn', 'fsadff', NULL, 'miranda@hotmail.com', 'miranda', 'miranda', '0000-00-00', 'AC'),
+(19, 'Juan', 'Perez', 'Mendoza', 5566767, 'juansperez@gmail.com', 'juanperes', 'juanperes', '0000-00-00', 'AC');
 
 -- --------------------------------------------------------
 

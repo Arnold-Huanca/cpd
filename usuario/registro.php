@@ -30,7 +30,11 @@ try {
 
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
+  
+  
   leerClase('Menu');
+  leerClase('Pertenece');
+  leerClase('Funcionario');
   $menuizquierda = new Menu('');
   $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
 
@@ -46,6 +50,22 @@ $ERROR = '';
   }
   
   $usuario    = new Usuario($id);
+  
+  
+      // combo box facultad
+  leerClase('Grupo');
+  $grupo    = new Grupo();
+  $grupos   =$grupo->getAll();  ///retorna todas las clases
+  $grupos_values[] = '';
+  $grupos_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($grupos[0])) 
+  {
+    $grupos_values[] = $row['id'];
+    $grupos_output[] = $row['codigo'];
+  }
+  $smarty->assign("grupos_values", $grupos_values);
+  $smarty->assign("grupos_output", $grupos_output);
+  
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
@@ -53,6 +73,29 @@ $ERROR = '';
     $usuario->objBuidFromPost();
     $usuario->estado           = Objectbase::STATUS_AC;
     $usuario->save();
+    
+      $grupoid= $_POST['grupo_id'];     
+             
+            $perteneces= new Pertenece();
+            $perteneces->grupo_id= $grupoid;
+            $perteneces->usuario_id=$usuario->id;
+            $perteneces->estado=  Objectbase::STATUS_AC;
+            $perteneces->save();
+            
+            $funicionarios= new Funcionario();
+            $funicionarios->usuario_id=$usuario->id;
+            $funicionarios->nombre=$usuario->nombre;
+            $funicionarios->apellido_p=$usuario->apellido_p;
+            $funicionarios->apellido_m=$usuario->apellido_m;
+            $funicionarios->ci=$usuario->ci;
+            $funicionarios->email1=$usuario->email;
+         //   $formacion_postgrado->email= $usuario->email;
+            $funicionarios->estado=  Objectbase::STATUS_AC;
+            $funicionarios->save();
+    
+    
+    
+    
     mysql_query("COMMIT");
     
     $ir = "Location: index.php";
