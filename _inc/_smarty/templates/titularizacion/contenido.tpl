@@ -17,34 +17,26 @@
             </p>
             <p>
               <input type="text" name="materia_doc" id="materia_doc" value="{$titularizacion->materia_doc}"  placeholder="Materia Doc" size="100"  >
-              <label for="nombre"><small>Materia Doc</small></label>
+              <label for="nombre"><small>Materia</small></label>
             </p>
             <p>
               <input type="text" name="carrera_doc" id="carrera_doc" value="{$titularizacion->carrera_doc}"  placeholder="Carrera Doc" size="100"  >
-              <label for="nombre"><small>Carrera Doc</small></label>
+              <label for="nombre"><small>Carrera</small></label>
             </p>
             <p>
               <input type="text" name="departamento_doc" id="departamento_doc" value="{$titularizacion->departamento_doc}"  placeholder="Departamento Doc" size="100"  >
-              <label for="nombre"><small>Departamento Doc</small></label>
+              <label for="nombre"><small>Departamento</small></label>
             </p>
             <p>
               <input type="text" name="facultad_doc" id="facultad_doc" value="{$titularizacion->facultad_doc}"  placeholder="Facultad Doc" size="100"  >
-              <label for="nombre"><small>Facultad Doc</small></label>
+              <label for="nombre"><small>Facultad</small></label>
             </p>
                   <p>
               <input type="text" name="nro_documento" id="nro_documento" value="{$titularizacion->nro_documento}"  placeholder="Nro de Documento" size="100"  >
               <label for="nombre"><small>Nro de Documento</small></label>
             </p>
              
-            <p>
-              <label for="rol"><small>Facultad</small></label>
-              <select  class="select-style gender" name="facultad_id" id="facultad_id" >
-              {html_options values=$facultades_values selected=$titularizacion->facultad_id output=$facultades_output}
-              </select>
-              
-              
-            </p>
-<p>         <p>
+          <p>
               <label for="rol"><small>Documento Titularidad</small></label>
               <select  class="select-style gender" name="documento_titularidad_id" id="documento_titularidad_id" >
               {html_options values=$documento_titularidades_values selected=$titularizacion->documento_titularidad_id output=$documento_titularidades_output}
@@ -66,6 +58,19 @@
         </div>
         <p>{$ERROR}</p>
 </article>
+
+<script type="text/javascript">
+           $(function(){
+            $('#fecha_resolucion').datepicker({
+              dateFormat:'dd/mm/yy',
+              changeMonth: true,
+              changeYear: true,
+              yearRange: "1920:{date('Y')}"
+        
+            });
+          });
+        </script>
+        
 <script>
   
   function enviar(){

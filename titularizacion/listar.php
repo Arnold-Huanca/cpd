@@ -79,8 +79,8 @@ $listado=  mysql_query("select * from titularizacion where funcionario_id=$idfun
                                echo '<td >'.mb_convert_encoding($reg['departamento_doc'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['facultad_doc'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['estado'], "UTF-8").'</td>';
-                               echo '<td  ><a href=registro.php?editar=editando&municipio_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a><img src="../images/edit.png" title="Editar" alt="Editar" /></td>';
-                               echo '<td><span class="dele"><a onClick="EliminarDato('.$reg['id'].'); return false" href="eliminar.php?municipio_id='.$reg['id'].'"><center><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></center></a></span></td>';
+                               echo '<td  ><a href=registro.php?editar=editando&titularizacion_id='.mb_convert_encoding($reg['id'], "UTF-8").'>Editar</a><img src="../images/edit.png" title="Editar" alt="Editar" /></td>';
+                               echo '<td><span class="dele"><a onClick="EliminarDato('.$reg['id'].'); return false" href="eliminar.php?titularizacion_id='.$reg['id'].'"><center><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></center></a></span></td>';
 						                   echo '</tr>';
                               
                      }

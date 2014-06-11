@@ -32,6 +32,8 @@ class Titularizacion extends Objectbase
    var $documento_titularidad_id;
    
    var $funcionario_id;
+    var $archivo;
+     var $observacion;
    
  
 
