@@ -1,0 +1,4 @@
+jefe o funcionario  nombre usuario: juanperes   clave : juanperes 
+secretaria nombre: funcionario clave : funcionario
+admin : nombre admin  clave :  admin
+docente : nombre pedro  clave : pedro
