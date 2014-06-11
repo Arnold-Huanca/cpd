@@ -33,11 +33,14 @@
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
+                        <th>Tipo</th>
                         <th>Nombre Distic&oacute;n</th>
-                        <th>Otra Instituci&oacute;n</th>
-                        <th>Descripci&oacute;n</th><!--Estado-->
-                         <th>Estado</th><!--Estado-->
-                         <th>Detalle</th>
+                        <th>Instituci&oacute;n que lo Distingue</th>
+                        <th>Fecha</th><!--Estado-->
+                         <th>Universitaria Si/No</th><!--Estado-->
+                         <th>&Aacute;mbito</th>
+                         <th>Pa&iacute;s</th>
+                          <th>Estado</th>
                          <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -48,6 +51,9 @@
                         <th></th>
                          <th></th>
                         <th></th>
+                         <th></th>
+                           <th></th>
+                           <th></th>
                          <th></th>
                            <th></th>
                         
@@ -66,24 +72,30 @@
                   leerClase("Usuario");
                   $idfuncionario=  getSessionUser()->getFuncionario()->id;
                   $listado=  mysql_query("select * from distincion where funcionario_id='$idfuncionario'");
-
+                  leerClase('Pais');
+                  leerClase('Tipo_distincion');
                     while( $resultado = mysql_fetch_array($listado) ){
-                        
-                  	?>
+                        $pais= new Pais($resultado['pais_id'] );
+                        $tipodistincion= new Tipo_distincion($resultado['tipo_distincion_id'] );
+
+                        ?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
                            <td><?php echo $resultado['id'] ?></td>
+                             <td><?php echo $tipodistincion->sigla ?></td>
 			  <td><?php echo $resultado['nombre_distincion'] ?></td>
-			  <td><?php echo $resultado['otra_institucion'] ?></td>
+			  <td><?php echo $resultado['institucion'] ?></td>
                             <td><?php echo $resultado['fecha'] ?></td>
-                             <td><?php echo $resultado['estado'] ?></td>
-                            <td><span class="modi"><a href="detalle.php?ver=ver&distincion_id=<?php echo $resultado['id'] ?>"><img width="20" height="20" src="../images/view.png" title="Ver" alt="Ver" /></a></span></td>
-			   <td><span class="modi"><a href="registro.php?distincion_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+                             <td><?php echo $resultado['universitaria'] ?></td>
+                           <td><?php echo $resultado['ambitodistincion'] ?></td>
+                             <td><?php echo $pais->nombre_pais;?></td>
+                            <td><?php echo $resultado['estado'] ?></td>
+                           <td><span class="modi"><a href="registro.php?distincion_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
 		  </tr>
 	<?php
 	}
   ?>   
-                <tbody>
+                </tbody>
             </table>
                  </div>

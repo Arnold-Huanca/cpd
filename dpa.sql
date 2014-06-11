@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2014 a las 16:40:07
+-- Tiempo de generación: 11-06-2014 a las 18:26:46
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -316,18 +316,28 @@ CREATE TABLE IF NOT EXISTS `distincion` (
   `funcionario_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
   `universidad_id` int(11) DEFAULT NULL,
+  `universidad` varchar(100) DEFAULT NULL,
   `tipo_distincion_id` int(11) DEFAULT NULL,
   `nombre_distincion` varchar(100) DEFAULT NULL,
-  `otra_institucion` varchar(100) DEFAULT NULL,
+  `institucion` varchar(100) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
   `universitaria` varchar(100) DEFAULT NULL,
   `ambitodistincion` varchar(100) DEFAULT NULL,
   `vb` varchar(45) DEFAULT NULL,
+  `archivo` varchar(100) DEFAULT NULL,
   `observacion` varchar(500) DEFAULT NULL,
   `fecha_visado` date DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `distincion`
+--
+
+INSERT INTO `distincion` (`id`, `funcionario_id`, `pais_id`, `universidad_id`, `universidad`, `tipo_distincion_id`, `nombre_distincion`, `institucion`, `fecha`, `universitaria`, `ambitodistincion`, `vb`, `archivo`, `observacion`, `fecha_visado`, `estado`) VALUES
+(1, 1, 2, 0, NULL, 1, 'fads', 'fgdd', '0000-00-00', 'Si', 'Nacional', '', '', '', '0000-00-00', 'Pendiente'),
+(2, 1, 2, 0, NULL, 1, 'ja', 'umss', '0000-00-00', '', 'Internacional', '', 'uploads/41402503987.jpg', 'sfgsdg', '0000-00-00', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -1010,26 +1020,26 @@ CREATE TABLE IF NOT EXISTS `patente` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `numero_patente` varchar(105) DEFAULT NULL,
   `titulo_descripcion` varchar(105) DEFAULT NULL,
-  `fecha` date DEFAULT NULL,
+  `fechas` date DEFAULT NULL,
   `vb` int(11) DEFAULT NULL,
   `funcionario_id` int(11) DEFAULT NULL,
   `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `pais_id` int(11) DEFAULT NULL,
-  `descripcion` varchar(250) DEFAULT NULL,
+  `archivo` varchar(100) DEFAULT NULL,
+  `observacion` varchar(250) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `patente`
 --
 
-INSERT INTO `patente` (`id`, `numero_patente`, `titulo_descripcion`, `fecha`, `vb`, `funcionario_id`, `area_id`, `subarea_id`, `pais_id`, `descripcion`, `estado`) VALUES
-(3, 'sgsd', 'hsdfh', '0000-00-00', 0, 3, NULL, 0, 0, '', 'AC'),
-(4, 'fgjd', 'fghf', '0000-00-00', 0, 1, 0, 3, 2, '', 'Pendiente'),
-(5, 'dfdfsgsdfg', 'dfgsd', '0000-00-00', 0, 1, 0, 3, 2, '', 'Pendiente'),
-(7, 'fdasf', 'afasdfasf', '0000-00-00', 0, 1, 1, 5, 1, '', 'Pendiente');
+INSERT INTO `patente` (`id`, `numero_patente`, `titulo_descripcion`, `fechas`, `vb`, `funcionario_id`, `area_id`, `subarea_id`, `pais_id`, `archivo`, `observacion`, `estado`) VALUES
+(3, 'sgsd', 'hsdfh', NULL, 0, 3, NULL, 0, 0, NULL, '', 'AC'),
+(4, 'fgjd', 'fghf', '0000-00-00', 0, 1, 22, 227, 2, 'uploads/41402500795.jpg', 'fgssf', 'Aceptado'),
+(8, '555', 'afasd', '0000-00-00', 0, 1, 23, 239, 2, 'uploads/41402500676.jpg', 'wertwe', 'Aceptado');
 
 -- --------------------------------------------------------
 

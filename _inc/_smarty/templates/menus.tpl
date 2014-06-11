@@ -74,6 +74,8 @@
    <li><a href="ejercicio_liberal.php?menus=mostrar&funcionario_id={$funcionario->id}">Ejercicio Liberal de Profesi&oacute;n (Free Lance) </a></li>
    <li><a href="produccion.php?menus=mostrar&funcionario_id={$funcionario->id}"> Producci&oacute;n </a></li>
    <li><a href="patente.php?menus=mostrar&funcionario_id={$funcionario->id}">Patente </a></li>
+   <li><a href="distincion.php?menus=mostrar&funcionario_id={$funcionario->id}">Distinciones </a></li>
+  
    <li><a href="membresia.php?menus=mostrar&funcionario_id={$funcionario->id}">Membresia </a></li>
  
   </ul>

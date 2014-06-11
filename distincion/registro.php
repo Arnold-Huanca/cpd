@@ -44,10 +44,10 @@ $ERROR = '';
   $id     = '';
   $editar = FALSE;
   $ver='';
-  if ( isset($_GET['id']) && is_numeric($_GET['id']) )
+  if ( isset($_GET['distincion_id']) && is_numeric($_GET['distincion_id']) )
   {
     $editar = TRUE;
-    $id     = $_GET['id'];
+    $id     = $_GET['distincion_id'];
   }
   
   $distincion    = new Distincion($id);
@@ -95,6 +95,20 @@ $ERROR = '';
   $smarty->assign("tipo_distinciones_values", $tipo_distinciones_values);
   $smarty->assign("tipo_distinciones_output", $tipo_distinciones_output);
  
+  
+  $ambitos_values[] = '';
+ $ambitos_output[] = '- Seleccione -';
+ 
+    $ambitos_values[] = 'Regional';
+   $ambitos_output[] = 'Regional';
+     $ambitos_values[] = 'Nacional';
+   $ambitos_output[] = 'Nacional';
+     $ambitos_values[] = 'Internacional';
+   $ambitos_output[] = 'Internacional';
+  
+  $smarty->assign("ambitos_values", $ambitos_values);
+  $smarty->assign("ambitos_output", $ambitos_output);
+  
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {

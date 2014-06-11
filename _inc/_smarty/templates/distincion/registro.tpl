@@ -63,7 +63,7 @@
                    
                  {section name=ic loop=$menuizquierda}
                   {assign var="menu" value=$menuizquierda[ic]}
-                  {$menu->nombre_menu}
+        
                      {if {$menu->nombre_menu} == "Distinciones"} 
                      {if ( $menu->getItemTotal() > 1 ) }
                   <li class="dropdown active dropdownactiveli" >

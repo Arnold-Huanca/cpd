@@ -52,16 +52,68 @@ $ERROR = '';
   }
  
    $distincion= new Distincion($id);
-   $universidad= new Universidad($distincion->universidad_id);
-   $pasis = new Pais($distincion->pais_id);
-   $tipodistincion= new Tipo_distincion($distincion->tipo_distincion_id);
-   $funcionario= new Funcionario($distincion->funcionario_id);
+   
+   
+     $funcionario= new Funcionario($distincion->funcionario_id);
   
   $smarty->assign("funcionario",$funcionario);
-  $smarty->assign("universidad",$universidad);
-   $smarty->assign("tipodistincion",$tipodistincion);
-   $smarty->assign("pais",$pasis);
   
+  
+      //combo box pais
+  leerClase('Pais');
+  $pais    = new Pais();
+  $paises   = $pais->getAll();  ///retorna todas las clases
+  $paises_values[] = '';
+  $paises_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($paises[0])) 
+  {
+    $paises_values[] = $row['id'];
+    $paises_output[] = $row['nombre_pais'];
+  }
+  $smarty->assign("paises_values", $paises_values);
+  $smarty->assign("paises_output", $paises_output);
+  
+        //combo box universidad
+  leerClase('Universidad');
+  $universidad    = new Universidad();
+  $universidades   = $universidad->getAll();  ///retorna todas las clases
+  $universidades_values[] = '';
+  $universidades_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($universidades[0])) 
+  {
+    $universidades_values[] = $row['id'];
+    $universidades_output[] = $row['nombre_uni'];
+  }
+  $smarty->assign("universidades_values", $universidades_values);
+  $smarty->assign("universidades_output", $universidades_output);
+  
+          //combo box tipo_distincion
+  leerClase('Tipo_distincion');
+  $tipo_distincion   = new Tipo_distincion();
+  $tipo_distinciones   = $tipo_distincion->getAll();  ///retorna todas las clases
+  $tipo_distinciones_values[] = '';
+  $tipo_distinciones_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($tipo_distinciones[0])) 
+  {
+    $tipo_distinciones_values[] = $row['id'];
+    $tipo_distinciones_output[] = $row['sigla'];
+  }
+  $smarty->assign("tipo_distinciones_values", $tipo_distinciones_values);
+  $smarty->assign("tipo_distinciones_output", $tipo_distinciones_output);
+ 
+  
+  $ambitos_values[] = '';
+ $ambitos_output[] = '- Seleccione -';
+ 
+    $ambitos_values[] = 'Regional';
+   $ambitos_output[] = 'Regional';
+     $ambitos_values[] = 'Nacional';
+   $ambitos_output[] = 'Nacional';
+     $ambitos_values[] = 'Internacional';
+   $ambitos_output[] = 'Internacional';
+  
+  $smarty->assign("ambitos_values", $ambitos_values);
+  $smarty->assign("ambitos_output", $ambitos_output);
   
   
   
@@ -72,16 +124,42 @@ $ERROR = '';
   $menus='';
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
     {
-   $menus="mostrar";
+      
+      
+       leerClase("Upload");
     mysql_query("BEGIN");
-    $distincion->estado=$_POST['valora'];
-    $distincion->fecha_visado= date();
-    $distincion->observacion= $_POST['observacion'];
-    $distincion->save();
+     $distincion->objBuidFromPost();
+    
+             
+		$max_length = (1024*1024)*10;
+		$upload = new Upload(); // upload
+		$upload -> SetDirectory("../uploads");
+		$file = $_FILES['archivo']['name'];
+		if ($_FILES['archivo']['name'] != "")
+		  {
+			$tipo_archivo = $_FILES['archivo']['type'];
+		            {
+				$tamanio = $_FILES['archivo']['size'];
+				if ($tamanio > $max_length) {
+					$todoOK = false;
+					echo "<script>alert('el archivo  es demasiado grande');</script>";
+				} else {
+					$name = getSessionUser()->id.time();
+					$upload -> SetFile("archivo");
+					if ($upload -> UploadFile($name)){
+						  $distincion->archivo = "uploads/".$name.".".$upload->ext;
+					}
+				}
+			}
+		}
+		
+        
+     $distincion->save();
     mysql_query("COMMIT");
-    $ir = "Location: distincion.php?menus=mostrar&funcionario_id=$distincion->funcionario_id";
+   $ir = "Location: distincion.php?menus=mostrar&funcionario_id=  $distincion->funcionario_id";
     header($ir);
-    exit();
+     exit();
+   
     }
   $smarty->assign("menus", $menus);
   $smarty->assign("distincion", $distincion);
