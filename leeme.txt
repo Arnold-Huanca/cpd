@@ -2,3 +2,10 @@ jefe o funcionario  nombre usuario: juanperes   clave : juanperes
 secretaria nombre: funcionario clave : funcionario
 admin : nombre admin  clave :  admin
 docente : nombre pedro  clave : pedro
+
+
+
+Hilda
+
+Ojo  en la base de datos en la tabla Menbresias hay  q 
+ cambiar el el atributo "investigacion" por "Institucion" Con 100 de varchar

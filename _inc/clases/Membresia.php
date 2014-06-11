@@ -15,7 +15,7 @@ class Membresia extends Objectbase
    
    var $funcionario_id;
    
-   var $investigacion;
+   var $institucion;
    
    var $fecha_inicio;
    

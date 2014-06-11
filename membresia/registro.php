@@ -55,7 +55,7 @@ $ERROR = '';
   while ($row = mysql_fetch_array($tipo_organizaciones[0])) 
   {
     $tipo_organizaciones_values[] = $row['id'];
-    $tipo_organizaciones_output[] = $row['descripcion'];
+    $tipo_organizaciones_output[] = $row['sigla'];
   }
   $smarty->assign("tipo_organizaciones_values", $tipo_organizaciones_values);
   $smarty->assign("tipo_organizaciones_output", $tipo_organizaciones_output);

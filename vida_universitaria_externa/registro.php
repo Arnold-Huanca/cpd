@@ -70,7 +70,7 @@ $ERROR = '';
   while ($row = mysql_fetch_array($tipo_participaciones[0])) 
   {
     $tipo_participaciones_values[] = $row['id'];
-    $tipo_participaciones_output[] = $row['sigla'];
+    $tipo_participaciones_output[] = $row['descripcion'];
   }
   $smarty->assign("tipo_participaciones_values", $tipo_participaciones_values);
   $smarty->assign("tipo_participaciones_output", $tipo_participaciones_output);

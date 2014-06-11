@@ -42,7 +42,7 @@ $listado=  mysql_query("select * from membresia  where funcionario_id = $idfunci
                         <th>id</th><!--Estado-->
                         <th>ID Tipo de Organizacion</th>
                         <th>ID Funcionario</th><!--Estado-->
-                        <th>Investigacion</th>
+                        <th>Institucion</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
                         <th>Otra Organizacion</th>
@@ -71,7 +71,7 @@ $listado=  mysql_query("select * from membresia  where funcionario_id = $idfunci
                                echo '<td >'.mb_convert_encoding($reg['id'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['tipo_organizacion_id'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['funcionario_id'], "UTF-8").'</td>';
-                               echo '<td >'.mb_convert_encoding($reg['investigacion'], "UTF-8").'</td>';
+                               echo '<td >'.mb_convert_encoding($reg['institucion'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['fecha_inicio'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['fecha_fin'], "UTF-8").'</td>';
                                echo '<td >'.mb_convert_encoding($reg['otra_organizacion'], "UTF-8").'</td>';
