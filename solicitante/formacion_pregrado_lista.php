@@ -28,10 +28,13 @@
 
          </script> 
              <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
-                <thead>
+              
                     <tr>
                         <th>id</th><!--Estado-->
+                    <tr/>
+                    <tr>
                         <th>Titulo</th>
+                        </tr>
                         <th>Tesis</th>
                         <th>Ciudad</th>
                         <th>Fecha</th> 
@@ -39,7 +42,7 @@
                         <th>Ver Datos </th>
                        
                     </tr>
-                </thead>
+                
                 <tfoot>
                     <tr>
                         <th></th>
