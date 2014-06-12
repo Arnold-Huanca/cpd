@@ -40,7 +40,7 @@ class Formacion_pregrado extends Objectbase
    var $unidad_tiempo_id;
    
    var $grado_academico_id;
-   
+    var $area_id;
    var $subarea_id;
    
    var $descripcion;

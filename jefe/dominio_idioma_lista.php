@@ -54,7 +54,7 @@
                    
                     <?php
                   require  '../_start.php';
-                   define ("MODULO", "Solicitante");
+                              define ("MODULO", "Jefe");
                   if(!isUserSession())
                   header("Location: index.php"); 
                      $idfuncionario=  $_GET['funcionario_id'];
@@ -79,12 +79,12 @@
                                      if($resuldomi['habla']=="bien")
                                      {
                                     ?>
-                                    <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&habla=bien&idioma_id=<?php echo  $resultado['id']; ?>"><img src="../images/addd.png" title="Seleccione"/></a> Bien</span><br>
+                                    <span class="modi"><a href=""><img src="../images/addd.png" title="Seleccione"/></a> Bien</span><br>
                                 
                                     <?php 
                                      }else{?>
                                     
-                                      <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&habla=bien&idioma_id=<?php echo  $resultado['id']; ?>"><img src="../images/delete.png" title="Seleccione"/></a> Bien</span><br>
+                                      <span class="modi"><a href=""><img src="../images/delete.png" title="Seleccione"/></a> Bien</span><br>
                                 
                                     <?php 
                                      }?>
@@ -94,12 +94,12 @@
                                      if($resuldomi['habla']=="regular")
                                      {
                                     ?>
-                                      <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&habla=regular&idioma_id=<?php echo  $resultado['id']; ?> "><img src="../images/addd.png" title="Seleccione" /></a> Regular</span><br>
+                                      <span class="modi"><a href=""><img src="../images/addd.png" title="Seleccione" /></a> Regular</span><br>
                                 
                                     <?php 
                                      }else{?>
                                     
-                                       <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&habla=regular&idioma_id=<?php echo  $resultado['id']; ?> "><img src="../images/delete.png" title="Seleccione" /></a> Regular</span><br>
+                                       <span class="modi"><a href=""><img src="../images/delete.png" title="Seleccione" /></a> Regular</span><br>
                                 
                                     <?php 
                                      }?>
@@ -108,11 +108,11 @@
                                      if($resuldomi['habla']=="no")
                                      {
                                     ?>
-                                       <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&habla=no&idioma_id=<?php echo  $resultado['id']; ?>  "><img src="../images/addd.png" title="Seleccione" /></a>No</span>
+                                       <span class="modi"><a href=""><img src="../images/addd.png" title="Seleccione" /></a>No</span>
                            
                                     <?php 
                                      }else{?>
-                                         <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&habla=no&idioma_id=<?php echo  $resultado['id']; ?>  "><img src="../images/delete.png" title="Seleccione" /></a>No</span>
+                                         <span class="modi"><a href=""><img src="../images/delete.png" title="Seleccione" /></a>No</span>
                            
                                     <?php 
                                      }?>
@@ -129,12 +129,12 @@
                                      if($resuldomi['lee']=="bien")
                                      {
                                     ?>
-                                      <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&lee=bien&idioma_id=<?php echo  $resultado['id']; ?>"><img src="../images/addd.png" title="Seleccione" /></a> Bien</span><br>
+                                      <span class="modi"><a href=""><img src="../images/addd.png" title="Seleccione" /></a> Bien</span><br>
                                 
                                     <?php 
                                      }else{?>
                                     
-                                    <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&lee=bien&idioma_id=<?php echo  $resultado['id']; ?>"><img src="../images/delete.png" title="Seleccione" /></a> Bien</span><br>
+                                    <span class="modi"><a href=""><img src="../images/delete.png" title="Seleccione" /></a> Bien</span><br>
                                 
                                     <?php 
                                      }?>
@@ -144,12 +144,12 @@
                                      if($resuldomi['lee']=="regular")
                                      {
                                     ?>
-                                    <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&lee=regular&idioma_id=<?php echo  $resultado['id']; ?> "><img src="../images/addd.png" title="Seleccione" /></a> Regular</span><br>
+                                    <span class="modi"><a href=""><img src="../images/addd.png" title="Seleccione" /></a> Regular</span><br>
                             
                                     <?php 
                                      }else{?>
                                     
-                                        <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&lee=regular&idioma_id=<?php echo  $resultado['id']; ?> "><img src="../images/delete.png" title="Seleccione" /></a> Regular</span><br>
+                                        <span class="modi"><a href=" "><img src="../images/delete.png" title="Seleccione" /></a> Regular</span><br>
                             
                                     <?php 
                                      }?>
@@ -158,11 +158,11 @@
                                      if($resuldomi['lee']=="no")
                                      {
                                     ?>
-                                        <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&lee=no&idioma_id=<?php echo  $resultado['id']; ?>  "><img src="../images/addd.png" title="Seleccione" /></a>No</span>
+                                        <span class="modi"><a href=""><img src="../images/addd.png" title="Seleccione" /></a>No</span>
                            
                                     <?php 
                                      }else{?>
-                                             <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&lee=no&idioma_id=<?php echo  $resultado['id']; ?>  "><img src="../images/delete.png" title="Seleccione" /></a>No</span>
+                                             <span class="modi"><a href=""><img src="../images/delete.png" title="Seleccione" /></a>No</span>
                            
                                     <?php 
                                      }?>
@@ -178,12 +178,12 @@
                                      if($resuldomi['escribe']=="bien")
                                      {
                                     ?>
-                                           <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&escribe=bien&idioma_id=<?php echo  $resultado['id']; ?>"><img src="../images/addd.png" title="Seleccione"  /></a> Bien</span><br>
+                                           <span class="modi"><a href=""><img src="../images/addd.png" title="Seleccione"  /></a> Bien</span><br>
                                
                                     <?php 
                                      }else{?>
                                     
-                                     <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&escribe=bien&idioma_id=<?php echo  $resultado['id']; ?>"><img src="../images/delete.png" title="Seleccione"  /></a> Bien</span><br>
+                                     <span class="modi"><a href=""><img src="../images/delete.png" title="Seleccione"  /></a> Bien</span><br>
                                
                                     <?php 
                                      }?>
@@ -193,11 +193,11 @@
                                      if($resuldomi['escribe']=="regular")
                                      {
                                     ?>
-                                     <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&escribe=regular&idioma_id=<?php echo  $resultado['id']; ?>"><img src="../images/addd.png" title="Seleccione"  /></a> Regular</span><br>
+                                     <span class="modi"><a href=""><img src="../images/addd.png" title="Seleccione"  /></a> Regular</span><br>
                              
                                     <?php 
                                      }else{?>
-                                       <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&escribe=regular&idioma_id=<?php echo  $resultado['id']; ?>"><img src="../images/delete.png" title="Seleccione"  /></a>  Regular</span><br>
+                                       <span class="modi"><a href=""><img src="../images/delete.png" title="Seleccione"  /></a>  Regular</span><br>
                              
                                     <?php 
                                      }?>
@@ -206,11 +206,11 @@
                                      if($resuldomi['escribe']=="no")
                                      {
                                     ?>
-                                       <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&escribe=no&idioma_id=<?php echo  $resultado['id']; ?>  "><img src="../images/addd.png" title="Seleccione"  /></a>No</span>
+                                       <span class="modi"><a href=" "><img src="../images/addd.png" title="Seleccione"  /></a>No</span>
                        
                                     <?php 
                                      }else{?>
-                                              <span class="modi"><a href="?dominio=<?php echo $resuldomi['id']; ?>&escribe=no&idioma_id=<?php echo  $resultado['id']; ?>  "><img src="../images/delete.png" title="Seleccione"  /></a>No</span>
+                                              <span class="modi"><a href=""><img src="../images/delete.png" title="Seleccione"  /></a>No</span>
                        
                                     <?php 
                                      }?>
