@@ -96,7 +96,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                     </ul>
                    </li>
                     {else}
-                     <li class="active"><a href=""><span class="iconfa-laptop"></span> {$menu->nombre_menu}</a></li>
+                     <li class="active"><a href="{$URL}{$menu->menu_items[0]->link}"><span class="iconfa-laptop"></span> {$menu->nombre_menu}</a></li>
                      {/if}
                   {else}
                     {if ( $menu->getItemTotal() > 1 ) }

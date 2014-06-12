@@ -4,9 +4,9 @@
            </ul>
      <article class="art-post art-article">
                                 
-          <h2></h2>                                        
+                                            
    <div class="art-postcontent art-postcontent-0 clearfix">
-     
+      <h2>Registro de Dedicaci&oacute;n</h2>    
      
       <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
            
