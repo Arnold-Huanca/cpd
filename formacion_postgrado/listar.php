@@ -15,7 +15,7 @@
 			$.ajax({
 				url: 'eliminar.php',
 				type: "GET",
-				data: "ambito_id="+id,
+				data: "id="+id,
 				success: function(datos){
 					//alert(datos);
 					$("#fila-"+id).remove();

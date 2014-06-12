@@ -26,8 +26,8 @@
             </p>
             <p>
               <input type="text" name="duracion_curso_pregrado" id="duracion_curso_pregrado" value="{$formacion_pregrado->duracion_curso_pregrado}"  placeholder="Duracion de Curso Pregrado" size="100"  >
-              <label for="nombre"><small>Duracion de Curso Pregrado</small></label>
-            </p>
+              <label for="nombre"><small>Duraci&oacute;n de Curso Pregrado</small></label>
+            </p><br>
             <p>
               <input type="text" name="otra_institucio" id="otra_institucio" value="{$formacion_pregrado->otra_institucion}"  placeholder="Otra Institucion" size="100"  >
               <label for="nombre"><small>Otra Institucion</small></label>
@@ -50,6 +50,12 @@
               {html_options values=$paises_values selected=$formacion_pregrado->pais_id output=$paises_output}
               </select>
             </p>
+            <p>
+               <label for="email"><small>Duraci&oacute;n del Curso</small></label>
+               <select  class="select-style gender" name="duracion_curso_pregrado" id="duracion_curso_pregrado" >
+              {html_options values=$duracion_values selected=$formacion_pregrado->duracion_curso output=$duracion_output}
+              </select>
+            </p>
             
             <p>
               <label for="rol"><small>Unidad de Tiempo</small></label>
@@ -64,26 +70,27 @@
               {html_options values=$grado_academicos_values selected=$formacion_pregrado->grado_academico_id output=$grado_academicos_output}
               </select>
             </p>
-            
+          <p>
+              <label for="rol"><small>&Aacute;rea</small></label>
+              <select  class="select-style gender" name="area_id" id="area_id" poblacioattri=''>
+              {html_options values=$area_values selected=$formacion_pregrado->area_id output=$area_output}
+              </select>&nbsp;<span id='Buscando'></span>
+            </p>
             <p>
-              <label for="rol"><small>Subarea</small></label>
-              <select  class="select-style gender" name="subarea_id" id="subarea_id" >
-              {html_options values=$subareas_values selected=$formacion_pregrado->subarea_id output=$subareas_output}
-              </select>
+              <label for="rol"><small>Sub &Aacute;rea</small></label>
+               <select  class="select-style gender" name="subarea_id" id="subarea_id"   >
+                  
+             </select>
             </p>
              <p>
-              <input type="date" name="fecha_diploma" id="fecha_diploma" value="{$formacion_pregrado->fecha_diploma}"  placeholder="Fecha Diploma" size="100"  >
+                 <input type="text" name="fecha_diploma" id="fecha_diploma" value="{$formacion_pregrado->fecha_diploma}"  placeholder="Fecha Diploma" size="100"  >
               <label for="nombre"><small>Fecha Diploma</small></label>
             </p>
             <p>
-              <input type="date" name="fecha_titulo" id="fecha_titulo" value="{$formacion_pregrado->fecha_titulo}"  placeholder="Fecha de Titulo" size="100"  >
+                <input type="text" name="fecha_titulo" id="fecha_titulo" value="{$formacion_pregrado->fecha_titulo}"  placeholder="Fecha de Titulo" size="100"  >
               <label for="nombre"><small>Fecha de Titulo</small></label>
             </p>
-            <p>
-              <input type="text" name="descripcion" id="descripcion" value="{$formacion_pregrado->descripcion}"  placeholder="Descripcion" size="100"  >
-              <label for="nombre"><small>Descripcion</small></label>
-            </p>
-         
+               
            <p>
               <input type="hidden" name="formacion_pregrado_id"    value="{$formacion_pregrado->id}">
                 <input type="hidden" name="tarea" value="registrar">
@@ -98,6 +105,29 @@
         <p>{$ERROR}</p>
 </article>
 
+<script type="text/javascript">
+           $(function(){
+            $('#fecha_diploma').datepicker({
+              dateFormat:'dd/mm/yy',
+              changeMonth: true,
+              changeYear: true,
+              yearRange: "1920:{date('Y')}"
+        
+            });
+          });
+        </script>
+        
+<script type="text/javascript">
+           $(function(){
+            $('#fecha_titulo').datepicker({
+              dateFormat:'dd/mm/yy',
+              changeMonth: true,
+              changeYear: true,
+              yearRange: "1920:{date('Y')}"
+        
+            });
+          });
+        </script>
 <script>
   
   function enviar(){
@@ -105,5 +135,25 @@
   
   }
 </script>
+
+ <script>
+jQuery('#area_id').change(function () {
+var numero =document.getElementById("area_id").value;
+var poblacio = jQuery(this).attr("poblacioattri");
+var to=document.getElementById("Buscando");
+to.innerHTML="buscando....";
+jQuery.ajax({
+type: "POST", 
+url: "buscar.php",
+data: 'idnumero='+numero,
+success: function(a) {
+jQuery('#subarea_id').html(a);
+var to=document.getElementById("Buscando");
+to.innerHTML="";
+}
+});
+})
+.change();
+</script> 
 </div>
      

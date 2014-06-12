@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2014 a las 20:54:19
+-- Tiempo de generación: 12-06-2014 a las 20:28:34
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -296,7 +296,7 @@ CREATE TABLE IF NOT EXISTS `desemp_prof_externo` (
   `observacion` varchar(300) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `desemp_prof_externo`
@@ -459,7 +459,7 @@ CREATE TABLE IF NOT EXISTS `dominio_idioma` (
 --
 
 INSERT INTO `dominio_idioma` (`id`, `id_idioma`, `funcionario_id`, `habla`, `lee`, `escribe`, `dominio_idioma`, `descripcion`, `observacion`, `fecha_visado`, `estado`) VALUES
-(19, 3, 1, 'no', 'regular', 'bien', '', '', '', '0000-00-00', NULL),
+(19, 3, 1, 'regular', 'regular', 'bien', '', '', '', '0000-00-00', NULL),
 (21, 1, 1, 'regular', 'bien', 'bien', '', '', '', '0000-00-00', NULL),
 (22, 2, 1, 'regular', 'bien', 'bien', '', '', '', '0000-00-00', NULL);
 
@@ -485,7 +485,7 @@ CREATE TABLE IF NOT EXISTS `ejercicio_liberal_prof` (
   `observacion` varchar(300) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `ejercicio_liberal_prof`
@@ -616,6 +616,7 @@ CREATE TABLE IF NOT EXISTS `formacion_pregrado` (
   `pais_funcionario_id` int(11) DEFAULT NULL,
   `unidad_tiempo_id` int(11) DEFAULT NULL,
   `grado_academico_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `subarea_id` int(11) DEFAULT NULL,
   `descripcion` varchar(500) DEFAULT NULL,
   `observacion` varchar(500) DEFAULT NULL,
@@ -623,19 +624,17 @@ CREATE TABLE IF NOT EXISTS `formacion_pregrado` (
   `archivo` varchar(200) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `formacion_pregrado`
 --
 
-INSERT INTO `formacion_pregrado` (`id`, `fecha_diploma`, `fecha_titulo`, `nombre_titulo`, `tesis_pregrado`, `titulo_tesis_pregrado`, `duracion_curso_pregrado`, `otra_institucion`, `ciudad_pregrado`, `vb_pregrado`, `funcionario_id`, `universidad_id`, `pais_id`, `pais_funcionario_id`, `unidad_tiempo_id`, `grado_academico_id`, `subarea_id`, `descripcion`, `observacion`, `fecha_visado`, `archivo`, `estado`) VALUES
-(1, '0000-00-00', '0000-00-00', 'ildfihj', 'hhjjh', 'hjhjhj', 'hjhj', '', 'hjhj', '', 3, 0, 0, 0, 0, 0, 0, '', NULL, NULL, NULL, 'AC'),
-(2, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 1, 0, 0, 0, 0, 0, 0, '', '						\r\n			\r\n			kkk', '0000-00-00', NULL, 'Aceptado'),
-(3, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, '', '			\r\n			afdsfasf', '0000-00-00', NULL, 'mala'),
-(4, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, '', '			\r\n		lkl	', '0000-00-00', NULL, 'mala'),
-(5, '0000-00-00', '0000-00-00', 'trew', 'twer', 'ttrrwe', 'ttwer', '', 'ttrwertr', '', 1, 0, 0, 0, 0, 0, 0, '', '', '0000-00-00', NULL, 'Pendiente'),
-(6, '0000-00-00', '0000-00-00', 'fasdf', 'fasdf', 'fasdf', 'fasdf', '', 'fasdf', '', 1, 1, 2, 0, 0, 1, 0, '', '', '0000-00-00', NULL, 'Pendiente');
+INSERT INTO `formacion_pregrado` (`id`, `fecha_diploma`, `fecha_titulo`, `nombre_titulo`, `tesis_pregrado`, `titulo_tesis_pregrado`, `duracion_curso_pregrado`, `otra_institucion`, `ciudad_pregrado`, `vb_pregrado`, `funcionario_id`, `universidad_id`, `pais_id`, `pais_funcionario_id`, `unidad_tiempo_id`, `grado_academico_id`, `area_id`, `subarea_id`, `descripcion`, `observacion`, `fecha_visado`, `archivo`, `estado`) VALUES
+(1, '0000-00-00', '0000-00-00', 'ildfihj', 'hhjjh', 'hjhjhj', 'hjhj', '', 'hjhj', '', 3, 0, 0, 0, 0, 0, NULL, 0, '', NULL, NULL, NULL, 'AC'),
+(3, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, NULL, 0, '', '			\r\n			afdsfasf', '0000-00-00', NULL, 'mala'),
+(4, '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, NULL, 0, '', '			\r\n		lkl	', '0000-00-00', NULL, 'mala'),
+(6, '0000-00-00', '0000-00-00', 'fasdf', 'fasdf', 'fasdf', '', '', 'fasdf', '', 1, 1, 2, 0, 0, 1, 0, 0, '', 'erw', '0000-00-00', 'uploads/41402596863.jpg', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -684,7 +683,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id`, `nombre`, `apellido_p`, `apellido_m`, `ci`, `extendido_ci`, `run`, `fecha_nac`, `num_libreta_militar`, `nacionalidad`, `sexo`, `estado_civil`, `numero_hijos`, `grupo_sanguineo`, `factor`, `email1`, `email2`, `direccion_domicilio`, `numero_domicilio`, `telefono_domicilio`, `casilla_correo`, `pais_id`, `departamento_id`, `provincia_id`, `municipio_id`, `colegio_egreso`, `tipo_colegio`, `area_colegio`, `fecha_titulo_bachiller`, `usuario_id`, `descripcion`, `estado`) VALUES
-(1, 'Pedro', 'ppaapp', 'fgsdgf', 766757, '', 0, '2014-05-16', 455666, 'Boliviana', 'Masculino', 'Soltero', 0, '', '', 'pedro@mail.com', 'pedrito@gmail.com', '', 0, 0, '', 0, 7, 0, 0, 'Jaaaaaaaaa', 'Particular', 'Urbano', '2014-05-15', 3, '', 'AC'),
+(1, 'Pedro', 'ppaapp', 'fgsdgf', 766757, '', 0, '2014-05-16', 455666, 'Boliviana', 'Masculino', 'Soltero', 0, '', '', 'pedro@mail.com', 'pedrito@gmail.com', '', 0, 0, '', 0, 7, 0, 0, 'Jaaaaaaaaa', 'Particular', 'Urbano', '2014-05-16', 3, '', 'AC'),
 (2, NULL, 'funcionario', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '', 0, 0, '', NULL, 0, NULL, 0, NULL, NULL, '0', NULL, 4, '', 'AC'),
 (3, NULL, 'jkjkjk', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '', 0, 0, '', NULL, 0, NULL, 0, NULL, NULL, '0', NULL, 5, '', 'AC'),
 (4, NULL, 'fasdf', 'fasd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '', 0, 0, '', NULL, 7, NULL, 0, NULL, NULL, '0', NULL, 0, '', 'AC'),
@@ -1032,7 +1031,7 @@ CREATE TABLE IF NOT EXISTS `patente` (
   `observacion` varchar(250) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `patente`
@@ -1099,7 +1098,7 @@ CREATE TABLE IF NOT EXISTS `permiso` (
   `grupo_id` int(11) DEFAULT NULL,
   `estado` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=115 ;
 
 --
 -- Volcado de datos para la tabla `permiso`
@@ -1169,7 +1168,8 @@ INSERT INTO `permiso` (`id`, `ver`, `crear`, `editar`, `eliminar`, `modulo_id`, 
 (108, '1', '', '', '', 66, 2, 'AC'),
 (109, '1', '', '', '', 66, 2, 'AC'),
 (110, '1', '1', '1', '1', 67, 1, 'AC'),
-(112, '1', '', '', '', 68, 2, 'AC');
+(112, '1', '', '', '', 68, 2, 'AC'),
+(114, '1', '', '', '', 58, 3, 'AC');
 
 -- --------------------------------------------------------
 
@@ -1837,7 +1837,18 @@ CREATE TABLE IF NOT EXISTS `tipo_organizacion` (
   `descripcion` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `tipo_organizacion`
+--
+
+INSERT INTO `tipo_organizacion` (`id`, `sigla`, `descripcion`, `estado`) VALUES
+(1, 'Otra Aclarar', NULL, NULL),
+(2, 'Sociedad de Beneficencia', NULL, NULL),
+(3, 'Institucion Civia', NULL, NULL),
+(4, 'Socieda Profecional', NULL, NULL),
+(5, 'Sociedad Cientifica', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1852,17 +1863,39 @@ CREATE TABLE IF NOT EXISTS `tipo_participacion` (
   `dominio_participacion` varchar(100) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`,`sigla`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
 -- Volcado de datos para la tabla `tipo_participacion`
 --
 
 INSERT INTO `tipo_participacion` (`id`, `sigla`, `descripcion`, `dominio_participacion`, `estado`) VALUES
-(1, 'D', 'Disertante', '', 'AC'),
-(2, 'O', 'Organizador', '', 'AC'),
-(3, 'A', 'Asesor', '', 'AC'),
-(4, 'M', 'Moderador', '', 'AC');
+(1, 'ASE', 'Asesor', NULL, NULL),
+(2, 'COE', 'Consejero Elegido', NULL, NULL),
+(3, 'COG', 'Consejero Gremial', NULL, NULL),
+(4, 'COO', 'Coordinador', NULL, NULL),
+(5, 'DEC', 'Decano o Director de Escuela', NULL, NULL),
+(6, 'DIA', 'Director Acadmico de Facultad o Escuela', NULL, NULL),
+(7, 'DIC', 'Director de Carrera', NULL, NULL),
+(8, 'DII', 'Diretcor de Instituto de Investigaciones', NULL, NULL),
+(9, 'DIU', 'Director Universitario', NULL, NULL),
+(10, 'JEF', 'Jefe de Departamento Facultativo', NULL, NULL),
+(11, 'JEU', 'Jefe de Departamento Univesitario', NULL, NULL),
+(12, 'JPP', 'Jefe de Programa, Proyecto o Laboratorio', NULL, NULL),
+(13, 'GT', 'Miembro De Tribunal de Grado', NULL, NULL),
+(14, 'PRE', 'Presidente', NULL, NULL),
+(15, 'REC', 'Rector', NULL, NULL),
+(16, 'ADS', 'Respresentante/ Delegado de Base adscripto', NULL, NULL),
+(17, 'SUP', 'Respresentante/ Delegado de Base suplente', NULL, NULL),
+(18, 'TIT', 'Respresentante/ Delegado de Base titular', NULL, NULL),
+(19, 'SEI', 'Secretario de Investigacin', NULL, NULL),
+(20, 'SEE', 'Secretario Ejecutivo', NULL, NULL),
+(21, 'SEC', 'Secretario General', NULL, NULL),
+(22, 'VPR', 'Vice-Presidente', NULL, NULL),
+(23, 'VRC', 'Vicerrector', NULL, NULL),
+(24, 'VOC', 'Vocal', NULL, NULL),
+(25, 'OT', 'Otro(Aclarar)', NULL, NULL),
+(26, 'TU', 'Tutoria en la Elaboracion de Pryectos de Grado, tesis u otro', NULL, NULL);
 
 -- --------------------------------------------------------
 

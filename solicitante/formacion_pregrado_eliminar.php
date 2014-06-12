@@ -1,6 +1,6 @@
 <?php
 try {
-  define ("MODULO", "Formación Pregrado");
+  define ("MODULO", "Jefe");
   require('../_start.php');
   if(!isUserSession())
   header("Location: index.php"); 
