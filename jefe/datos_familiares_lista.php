@@ -6,30 +6,9 @@
 })
 
 
-
-	function EliminarDato(id)
-  {
-		var msg = confirm("Desea eliminar este dato?")
-		if ( msg )
-    {
-			$.ajax({
-				url: 'eliminar.php',
-				type: "GET",
-				data: "id="+id,
-				success: function(datos){
-					//alert(datos);
-					$("#fila-"+id).remove();
-				}
-			});
-			 // window.location = "index.php"; 
-		}
-		return false;
-	}
-
          </script> 
-          <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
-	 <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>	
-         <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
+         <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>	
+         <table cellpadding="0" cellspacing="0" border="0" class="display" >
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
@@ -57,7 +36,7 @@
                   <tbody>
                    
                <?php
-               define ("MODULO", "Solicitante");
+                         define ("MODULO", "Jefe");
                 require('../_start.php');
                 if(!isUserSession())
                 header("Location: index.php"); 
@@ -79,6 +58,6 @@
 	<?php
 	}
   ?>   
-                <tbody>
+                </tbody>
             </table>
          </div>
