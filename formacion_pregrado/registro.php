@@ -27,7 +27,10 @@ try {
    $JS[]  = URL_JS . "script/script.responsive.js";
     $JS[]  = URL_JS . "validator.min.js";
          
-
+ 
+  $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+  $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
+  $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
 leerClase('Menu');
@@ -87,20 +90,64 @@ $ERROR = '';
   }
   $smarty->assign("paises_values", $paises_values);
   $smarty->assign("paises_output", $paises_output);
+   
+// combo box subarea
+  leerClase('Area');
+  $area   = new Area();
+  $areas   = $area->getAll();  ///retorna todas las clases
+  $area_values[] = '';
+  $area_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($areas[0])) 
+  {
+    $area_values[] = $row['id'];
+    $area_output[] = $row['nombre'];
+  }
+  $smarty->assign("area_values", $area_values);
+  $smarty->assign("area_output", $area_output);
+
   
-    // combo box unidad_tiempo
+  
+  // combo box subarea
+  leerClase('Subarea');
+  $subarea   = new Subarea();
+  $subareas   = $subarea->getAll();  ///retorna todas las clases
+  $subareas_values[] = '';
+  $subareas_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($subareas[0])) 
+  {
+    $subareas_values[] = $row['id'];
+    $subareas_output[] = $row['nombre_subarea'];
+  }
+  $smarty->assign("subareas_values", $subareas_values);
+  $smarty->assign("subareas_output", $subareas_output);
+  
+  // combo box unidad_tiempo
   leerClase('Unidad_tiempo');
-  $unidad_tiempo    = new Unidad_tiempo();
+  $unidad_tiempo   = new Unidad_tiempo();
   $unidad_tiempos   = $unidad_tiempo->getAll();  ///retorna todas las clases
   $unidad_tiempos_values[] = '';
   $unidad_tiempos_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($unidad_tiempos[0])) 
+   while ($row = mysql_fetch_array($unidad_tiempos[0])) 
   {
     $unidad_tiempos_values[] = $row['id'];
     $unidad_tiempos_output[] = $row['nombre_unidad_tiempo'];
   }
   $smarty->assign("unidad_tiempos_values", $unidad_tiempos_values);
   $smarty->assign("unidad_tiempos_output", $unidad_tiempos_output);
+  
+
+  $duracion_values[] = '';
+  $duracion_output[] = '- Seleccione -';
+
+   
+ 
+    for ($index = 1; $index < 100; $index++){
+         $duracion_values[] = $index;
+         $duracion_output[] =$index;
+    }
+  $smarty->assign("duracion_values", $duracion_values);
+  $smarty->assign("duracion_output", $duracion_output);
+  
   
     // combo box grado academico
   leerClase('Grado_academico');
