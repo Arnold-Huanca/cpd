@@ -6,6 +6,26 @@
 $(document).ready(function(){
     verlistado()
     //CARGAMOS EL ARCHIVO QUE NOS LISTA LOS REGISTROS, CUANDO EL DOCUMENTO ESTA LISTO
+         
+        var randomnumber=Math.random()*11;
+            $.post("vivienda_lista.php?funcionario_id={$funcionario->id}", {
+                randomnumber:randomnumber
+            }, function(data){
+              $("#vivienda").html(data);
+            });     
+        var randomnumber=Math.random()*10;
+            $.post("datos_familiares_lista.php?funcionario_id={$funcionario->id}", {
+                randomnumber:randomnumber
+            }, function(data){
+              $("#datosfamiliares").html(data);
+            });
+
+           var randomnumber=Math.random()*11;
+            $.post("dominio_idioma_lista.php?funcionario_id={$funcionario->id}", {
+                randomnumber:randomnumber
+            }, function(data){
+              $("#dominioidioma").html(data);
+            });
 
              var randomnumber=Math.random()*11;
             $.post("formacion_pregrado_lista.php?funcionario_id={$funcionario->id}", {
@@ -15,7 +35,7 @@ $(document).ready(function(){
             });
             
              var randomnumber=Math.random()*11;
-            $.post("formacion_pregrado_lista.php?funcionario_id={$funcionario->id}", {
+            $.post("formacion_postgrado_lista.php?funcionario_id={$funcionario->id}", {
                 randomnumber:randomnumber
             }, function(data){
               $("#formacionpostgrado").html(data);
@@ -190,15 +210,35 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
       <div class="art-layout-cell art-content clearfix">
   
          <article>
-              <h3 class="t">Datos Generales</h3>
+            <h3 class="t">Vivienda</h3>
+              <div id="vivienda">
+               
+              </div><br>
+            
+           <h3 class="t">Datos Familiares</h3>
+              <div id="datosfamiliares">
+               
+              </div><br>
+              
+              <h3 class="t">Dominio Idioma</h3>
+              <div id="dominioidioma">
+               
+              </div><br>
+              
+              <h3 class="t">Formaci&oacute;n Pregado</h3>
               <div id="formacionpregrado">
+               
+              </div><br>
+              
+              <h3 class="t"> Formaci&oacute;n Postgrado</h3>
+              <div id="formacionpostgrado">
                
               </div><br>
               
               <h3 class="t">Perfeccionamiento Profesional</h3>
               <div id="perfecionamientoprofesional">
                
-           </div>
+             </div>
               
               <h3 class="t">Eventos</h3>
               <div id="evento">
@@ -206,7 +246,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                </div>
               
               
-               <h3 class="t">Asistencia a Eventos</h3>
+              <h3 class="t">Asistencia a Eventos</h3>
               <div id="asistenciaevento">
                
                </div>
