@@ -92,7 +92,7 @@
                              <td><?php echo $resultado['universitaria'] ?></td>
                             <td><?php echo $resultado['ambitodistincion'] ?></td>
                              <td><?php echo $pais->nombre_pais;?></td>
-                                 <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
+                                 <td><span class="modi"><a  href="<?php echo '../'.$resultado['archivo'] ?>  " target="_blank"  ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
 		
                                <td><?php echo $resultado['observacion']; ?></td>
                  	  </tr>

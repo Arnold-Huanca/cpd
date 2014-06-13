@@ -11,7 +11,7 @@ $(document).ready(function(){
 })
 function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
               var randomnumber=Math.random()*11;
-            $.post("dominio_idioma_lista.php?funcionario_id={$funcionario->id}", {
+            $.post("dedicacion_lista.php?funcionario_id={$funcionario->id}", {
                 randomnumber:randomnumber
             }, function(data){
               $("#contenido").html(data);
