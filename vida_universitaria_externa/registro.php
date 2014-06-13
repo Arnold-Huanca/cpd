@@ -39,6 +39,7 @@ $ERROR = '';
   leerClase('Vida_universitaria_externa');
   $id     = '';
   $editar = FALSE;
+  $ver='';
   if ( isset($_GET['vida_universitaria_externa_id']) && is_numeric($_GET['vida_universitaria_externa_id']) )
   {
     $editar = TRUE;
@@ -131,7 +132,7 @@ $ERROR = '';
      header($ir);
       exit();
     }
-
+  $smarty->assign("ver",$ver);
   $smarty->assign("vida_universitaria_externa", $vida_universitaria_externa);
     
   $smarty->assign("ERROR",$ERROR);

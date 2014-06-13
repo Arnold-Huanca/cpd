@@ -15,7 +15,7 @@
 			$.ajax({
 				url: 'eliminar.php',
 				type: "GET",
-				data: "id="+id,
+				data: "ambito_id="+id,
 				success: function(datos){
 					//alert(datos);
 					$("#fila-"+id).remove();
@@ -33,15 +33,8 @@
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
-                        <th>Grado</th>
-                          <th>Fecha Titulo</th>
-                           <th>com Tesis</th>
-                            <th>Titulo Tesis, Trabajo final</th>
-                            <th>Duraci&oacute;n</th>
-                            <th>&Aacute;rea</th>
-                            <th>Sub&aacute;rea</th>
-                             <th>Institucion donde Obtuvo el Grado</th>
-                             <th>Pa&iacute;s</th><!--Estado-->
+                        <th>Nombre</th>
+                        <th>Descripci&oacute;n</th><!--Estado-->
                          <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -52,14 +45,6 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th></th>
-                          <th></th>
-                        <th></th>
-                        <th></th>
-                    
-                            <th></th>
-                        <th></th>
-                            <th></th>
                         <th></th>
                         
                        
@@ -73,41 +58,24 @@
                   define ("MODULO", "Formación Pregrado");
                   if(!isUserSession())
                   header("Location: index.php"); 
-		 $idfuncionario=  getSessionUser()->getFuncionario()->id;
+				  $idfuncionario=  getSessionUser()->getFuncionario()->id;
+                
                   $listado=  mysql_query("select * from  formacion_pregrado where  funcionario_id=$idfuncionario");
-                  leerClase('Grado_academico');
-                  leerClase('Unidad_tiempo');
-                  leerClase('Area');
-                  leerClase('Subarea');
-                  leerClase('Pais');
-                  while( $resultado = mysql_fetch_array($listado) )
-                  {
-                      $grado= new Grado_academico($resultado['grado_academico_id']);
-                        $area= new Area($resultado['area_id']);
-                         $subarea= new Subarea($resultado['subarea_id']);
-                        
-                         $pais= new Pais($resultado['pais_id']);
-                        $unidad_tiempo= new Unidad_tiempo($resultado['unidad_tiempo_id']);
-                  
-                  ?>
+                     while( $resultado = mysql_fetch_array($listado) ){
+                  	?>
 	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
-                     <td><?php echo $resultado['id'] ?></td>
-                         <td><?php echo $grado->descripcion ?></td>
-                          <td><?php echo $resultado['fecha_titulo'] ?></td>
-                          <td><?php echo $resultado['tesis_pregrado'] ?></td>
-                          <td><?php echo $resultado['titulo_tesis_pregrado'] ?></td>
-			  <td><?php echo $resultado['duracion_curso_pregrado'] .' '.$unidad_tiempo->nombre_unidad_tiempo?></td>
-			  <td><?php echo $area->nombre ?></td>
-			  <td><?php echo $subarea->nombre_subarea ?></td>
-                           <td><?php echo $resultado['otra_institucion'] ?></td>
-                            <td><?php echo $pais->nombre_pais ?></td>
-			   <td><span class="modi"><a href="registro.php?formacion_pregrado_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+                          <td><?php echo $resultado['id'] ?></td>
+			  <td><?php echo $resultado['nombre_titulo'] ?></td>
+			  <td><?php echo $resultado['tesis_pregrado'] ?></td>
+			  <td><?php echo $resultado['otra_institucion'] ?></td>
+			  <td><?php echo $resultado['ciudad_pregrado'] ?></td>
+			   <td><span class="modi"><a href="registro.php?ambito_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
 			  <td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?ambito_id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 		  </tr>
-                <?php
-                }
-          ?>   
+	<?php
+	}
+  ?>   
                 <tbody>
             </table>
                  </div>

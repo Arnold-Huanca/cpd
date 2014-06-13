@@ -123,7 +123,7 @@
                           <td><?php echo $resultado['otra_institucion'] ?></td>
                           <td><?php echo $pasis-> nombre_pais?></td>
                            <td><?php echo $resultado['observacion'] ?></td>
-		       <td><span class="modi"><a href="<?php echo '../'.$resultado['archivo'] ?>  " target="_blank" ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>"  /></a></span></td>
+		       <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>"  /></a></span></td>
 			
                       </tr>
 	<?php

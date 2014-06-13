@@ -118,7 +118,7 @@
                             <td><?php echo $subarea->nombre_subarea; ?></td>
                            <td><?php echo $ambito->nombre_ambito; ?></td>
                            <td><?php echo $tipoparticipacion->descripcion; ?></td>
-                               <td><span class="modi"><a  href="<?php echo '../'.$resultado['archivo'] ?>  " target="_blank" ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
+                               <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
 			
                            <td><?php echo $resultado['observacion'] ?></td>
                                       </tr>

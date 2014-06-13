@@ -63,7 +63,7 @@
                    
                  {section name=ic loop=$menuizquierda}
                   {assign var="menu" value=$menuizquierda[ic]}
-     
+                  {$menu->nombre_menu}
                      {if {$menu->nombre_menu} == "Datos Generales"} 
                      {if ( $menu->getItemTotal() > 1 ) }
                   <li class="dropdown active dropdownactiveli" >
@@ -78,7 +78,7 @@
                     </ul>
                    </li>
                     {else}
-                     <li class="active"><a href="{$URL}{$menu->menu_items[0]->link}"><span class="iconfa-laptop"></span> {$menu->nombre_menu}</a></li>
+                     <li class="active"><a href=""><span class="iconfa-laptop"></span> {$menu->nombre_menu}</a></li>
                      {/if}
                   {else}
                     {if ( $menu->getItemTotal() > 1 ) }
@@ -133,10 +133,11 @@
         </div>
 </div>
 </div>
-       
-         
+        {if ($ver)}
+          {include file="dedicacion/detalle.tpl"}   
+           {else}
                {include file="dedicacion/contenido.tpl"}
-      
+        {/if}
       
     
       

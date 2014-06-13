@@ -8,10 +8,10 @@ try {
 
     leerClase('Formacion_postgrado');
    
-if(isset($_GET['id']) && is_numeric($_GET['id']) )
+if(isset($_GET['formacion_postgrado_id']) && is_numeric($_GET['formacion_postgrado_id']) )
   {
        
-      $formacion_postgrado= new Formacion_postgrado($_GET['id']);
+      $formacion_postgrado= new Formacion_postgrado($_GET['formacion_postgrado_id']);
       $formacion_postgrado->delete();
      
   }

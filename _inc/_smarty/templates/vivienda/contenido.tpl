@@ -1,7 +1,4 @@
      <div class="art-layout-cell art-content clearfix">
-         <ul class="breadcrumbs">
-         <li><a href=""><i class="iconfa-home"></i> Vivienda</a> <span class="separator"></span></li>
-           </ul>
      <article class="art-post art-article">
                                 
           <h2></h2>                                        

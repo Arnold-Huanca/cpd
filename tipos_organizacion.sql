@@ -1,4 +1,4 @@
-INSERT INTO `tipo_organizacion` (`id`, `sigla`, `descripcion`, `estado`)
+INSERT INTO `dpa`.`tipo_organizacion` (`id`, `sigla`, `descripcion`, `estado`)
  VALUES
 			('1', 'Otra Aclarar', NULL, NULL), 
 			
@@ -12,13 +12,13 @@ INSERT INTO `tipo_organizacion` (`id`, `sigla`, `descripcion`, `estado`)
 			
 // isercion de  datos para la tabla tipo participacion
 
-INSERT INTO `tipo_participacion` (`id`, `sigla`, `descripcion`, `dominio_participacion`, `estado`) 
+INSERT INTO `dpa`.`tipo_participacion` (`id`, `sigla`, `descripcion`, `dominio_participacion`, `estado`) 
 VALUES ('1', 'ASE', 'Asesor', NULL, NULL),
 		     ('2', 'COE', 'Consejero Elegido', NULL, NULL),
 		     ('3', 'COG', 'Consejero Gremial', NULL, NULL),
 		     ('4', 'COO', 'Coordinador', NULL, NULL),
 		     ('5', 'DEC', 'Decano o Director de Escuela', NULL, NULL),
-		     ('6', 'DIA', 'Director Acadmico de Facultad o Escuela', NULL, NULL),
+		     ('6', 'DIA', 'Director Académico de Facultad o Escuela', NULL, NULL),
 		     ('7', 'DIC', 'Director de Carrera', NULL, NULL),
 		     ('8', 'DII', 'Diretcor de Instituto de Investigaciones', NULL, NULL),
 		     ('9', 'DIU', 'Director Universitario', NULL, NULL),
@@ -31,7 +31,7 @@ VALUES ('1', 'ASE', 'Asesor', NULL, NULL),
 		     ('16', 'ADS', 'Respresentante/ Delegado de Base adscripto', NULL, NULL),
 		     ('17', 'SUP', 'Respresentante/ Delegado de Base suplente', NULL, NULL),
 		     ('18', 'TIT', 'Respresentante/ Delegado de Base titular', NULL, NULL),
-		     ('19', 'SEI', 'Secretario de Investigacin', NULL, NULL),
+		     ('19', 'SEI', 'Secretario de Investigación', NULL, NULL),
 		     ('20', 'SEE', 'Secretario Ejecutivo', NULL, NULL),
 		     ('21', 'SEC', 'Secretario General', NULL, NULL),
 		     ('22', 'VPR', 'Vice-Presidente', NULL, NULL),

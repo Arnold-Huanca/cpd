@@ -102,7 +102,7 @@
 			  <td><?php echo $resultado['departamento'] ?></td>
                            <td><?php echo $resultado['facultad'] ?></td>
                             <td><?php echo $resultado['condicion'] ?></td>
-                         <td><span class="modi"><a  href="<?php echo '../'.$resultado['archivo'] ?>  " target="_blank"  ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
+                         <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
 			
                       
                             <td><?php echo $resultado['observacion'] ?></td>

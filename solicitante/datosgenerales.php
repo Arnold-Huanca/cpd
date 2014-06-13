@@ -16,19 +16,17 @@ try {
   //CSS
   $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
- $CSS[]  = URL_CSS . "tables.css";
-    
-  $CSS[]  = URL_CSS . "demo_table.css";
-  $CSS[]  = URL_CSS . "style_table.css";
+   $CSS[]  = URL_CSS . "styleform.css";
     
   //$CSS[]  = URL_CSS . "pg.css";
  // $smarty->assign('CSS',$CSS);
 
   
-    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/jquery.js";
+   $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
-   $JS[]  =URL_JS . 'table/jquery.dataTables.js';
+   $JS[]  = URL_JS . "validator.min.js";
+         
 
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
@@ -39,24 +37,16 @@ try {
 
 $ERROR = ''; 
 
-  leerClase('Funcionario');
+  leerClase('Ambito');
   $id     = '';
-  $menus='';
   $editar = FALSE;
-  if ( isset($_GET['menus']) && $_GET['menus']== "mostrar" && isset($_GET['funcionario_id']) && is_numeric($_GET['funcionario_id']) )
+  if ( isset($_GET['ambito_id']) && is_numeric($_GET['ambito_id']) )
   {
-    $menus="mostrar";
-    $id     = $_GET['funcionario_id'];
+    $editar = TRUE;
+    $id     = $_GET['ambito_id'];
   }
-  $funcionarios   = new Funcionario($id);
- 
- //$datosgenerales= $funcionario->getDatosGenerales();
-   $smarty->assign("menus", $menus);
-   $smarty->assign("formacionpregrado",  $funcionarios->getFormacionPregrado());
-   $smarty->assign("formacionpostgrado",  $funcionarios->getFormacionPosgrado());
-
   
-  
+  $ambito    = new Ambito($id);
  
  //echo $usuario->nombre;
   if (isset($_POST['tarea']) && $_POST['tarea'] == 'registrar' && isset($_POST['token']) && $_SESSION['register'] == $_POST['token'])
@@ -70,9 +60,8 @@ $ERROR = '';
      header($ir);
       exit();
     }
-    
 
-  $smarty->assign("funcionario",  $funcionarios);
+  $smarty->assign("ambito", $ambito);
     
   $smarty->assign("ERROR",$ERROR);
 
@@ -87,6 +76,6 @@ $_SESSION['register'] = $token;
 $smarty->assign('token', $token);
 
 
-$TEMPLATE_TOSHOW = 'solicitante/formacion_pregrado.tpl';
+$TEMPLATE_TOSHOW = 'ambito/registro.tpl';
 $smarty->display($TEMPLATE_TOSHOW);
 ?>

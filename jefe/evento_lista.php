@@ -45,7 +45,7 @@
                         <th>Instituci&oacute;n Organizadora</th>
                         <th>Organizado Por Instancia U.</th>
                         <th>Pa&iacute;s</th> 
-                         <th>Certificado</th> 
+                         <th>Archivo</th> 
                         
                        
                     </tr>
@@ -111,7 +111,7 @@
                             <td><?php echo $resultado['entidad_organizadora'] ?></td>
 			  <td><?php echo $resultado['organizado_por_instacia_univ'] ?></td>
 			  <td><?php echo $pasis-> nombre_pais?></td>
-                            <td><span class="modi"><a  href="<?php echo '../'.$resultado['archivo'] ?>  " target="_blank" ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
+                            <td><span class="modi"><a ><img  width="20" height="20" src="<?php echo '../'.$resultado['archivo'] ?>" /></a></span></td>
 			
 		        
      			  </tr>
