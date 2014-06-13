@@ -3,7 +3,7 @@ try {
   define ("MODULO", "Datos Familiares");
   require('../_start.php');
   if(!isUserSession())
-  header("Location: index.php"); 
+  header("Location: ../index.php"); 
   
   $ERROR = '';
 

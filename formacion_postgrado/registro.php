@@ -26,7 +26,10 @@ try {
    $JS[]  = URL_JS . "script/script.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
     $JS[]  = URL_JS . "validator.min.js";
-         
+    
+    $CSS[]  = URL_JS . "ui/cafe-theme/jquery-ui-1.10.2.custom.min.css";
+  $JS[]  = URL_JS . "ui/jquery-ui-1.10.2.custom.min.js";
+  $JS[]  = URL_JS . "ui/i18n/jquery.ui.datepicker-es.js";      
 
   $smarty->assign('CSS',$CSS);
   $smarty->assign('JS', $JS);
@@ -61,20 +64,7 @@ $ERROR = '';
   $smarty->assign("universidades_values", $universidades_values);
   $smarty->assign("universidades_output", $universidades_output);
   
-        // combo box funcionario
-  leerClase('Funcionario');
-  $funcionario  = new Funcionario();
-  $funcionarios   = $funcionario->getAll();  ///retorna todas las clases
-  $funcionarios_values[] = '';
-  $funcionarios_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($funcionarios[0])) 
-  {
-    $funcionarios_values[] = $row['id'];
-    $funcionarios_output[] = $row['nombre'];
-  }
-  $smarty->assign("funcionarios_values", $funcionarios_values);
-  $smarty->assign("funcionarios_output", $funcionarios_output);
-  
+
           // combo box pais
   leerClase('Pais');
   $pais  = new Pais();
@@ -89,6 +79,21 @@ $ERROR = '';
   $smarty->assign("paises_values", $paises_values);
   $smarty->assign("paises_output", $paises_output);
  
+  // combo box subarea
+  leerClase('Area');
+  $area   = new Area();
+  $areas   = $area->getAll();  ///retorna todas las clases
+  $area_values[] = '';
+  $area_output[] = '- Seleccione -';
+  while ($row = mysql_fetch_array($areas[0])) 
+  {
+    $area_values[] = $row['id'];
+    $area_output[] = $row['nombre'];
+  }
+  $smarty->assign("area_values", $area_values);
+  $smarty->assign("area_output", $area_output);
+
+  
             // combo box subarea
   leerClase('Subarea');
   $subarea  = new Subarea();
@@ -104,18 +109,32 @@ $ERROR = '';
   $smarty->assign("subareas_output", $subareas_output);
   
               // combo box unidad_tiempo
+  // combo box unidad_tiempo
   leerClase('Unidad_tiempo');
-  $unidad_tiempo  = new Unidad_tiempo();
+  $unidad_tiempo   = new Unidad_tiempo();
   $unidad_tiempos   = $unidad_tiempo->getAll();  ///retorna todas las clases
   $unidad_tiempos_values[] = '';
   $unidad_tiempos_output[] = '- Seleccione -';
-  while ($row = mysql_fetch_array($unidad_tiempos[0])) 
+   while ($row = mysql_fetch_array($unidad_tiempos[0])) 
   {
     $unidad_tiempos_values[] = $row['id'];
     $unidad_tiempos_output[] = $row['nombre_unidad_tiempo'];
   }
   $smarty->assign("unidad_tiempos_values", $unidad_tiempos_values);
   $smarty->assign("unidad_tiempos_output", $unidad_tiempos_output);
+  
+
+  $duracion_values[] = '';
+  $duracion_output[] = '- Seleccione -';
+
+   
+ 
+    for ($index = 1; $index < 100; $index++){
+         $duracion_values[] = $index;
+         $duracion_output[] =$index;
+    }
+  $smarty->assign("duracion_values", $duracion_values);
+  $smarty->assign("duracion_output", $duracion_output);
   
   // combo box grado_academico
   leerClase('Grado_academico');
@@ -140,8 +159,7 @@ $ERROR = '';
     $formacion_postgrado->funcionario_id=  getSessionUser()->getFuncionario()->id;
     $formacion_postgrado->save();
     mysql_query("COMMIT");
-   // var_dump($formacion_postgrado);
-    $ir = "Location: index.php";
+     $ir = "Location: index.php";
    header($ir);
    exit();
     }

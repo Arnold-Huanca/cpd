@@ -10,16 +10,21 @@
      
       <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
            
-            
-           
+          
+          
+            <p>
+                <input type="text" name="fecha_titulo" id="fecha_titulo" value="{$formacion_pregrado->fecha_titulo}"  placeholder="Fecha de Titulo" size="100"  >
+              <label for="nombre"><small>Fecha de Titulo</small></label>
+            </p>
+              <p>
+              <input type="text" name="tesis_pregrado" id="tesis_pregrado" value="{$formacion_pregrado->tesis_pregrado}"  placeholder="Tesis de Pregrado" size="100"  >
+              <label for="nombre"><small>Tesis de Pregrado</small></label>
+            </p>
             <p>
               <input type="text" name="nombre_titulo" id="nombre_titulo" value="{$formacion_pregrado->nombre_titulo}"  placeholder="Nombre del Titulo" size="100"  >
               <label for="nombre"><small>Nombre del Titulo</small></label>
             </p>
-            <p>
-              <input type="text" name="tesis_pregrado" id="tesis_pregrado" value="{$formacion_pregrado->tesis_pregrado}"  placeholder="Tesis de Pregrado" size="100"  >
-              <label for="nombre"><small>Tesis de Pregrado</small></label>
-            </p>
+         
             <p>
               <input type="text" name="titulo_tesis_pregrado" id="titulo_tesis_pregrado" value="{$formacion_pregrado->titulo_tesis_pregrado}"  placeholder="Titulo de Tesis Pregrado" size="100"  >
               <label for="nombre"><small>Titulo de Tesis Pregrado</small></label>
@@ -45,7 +50,7 @@
             </p>
             
             <p>
-              <label for="rol"><small>Pais</small></label>
+             <label for="rol"><small>Pa&iacute;s</small></label>
               <select  class="select-style gender" name="pais_id" id="pais_id" >
               {html_options values=$paises_values selected=$formacion_pregrado->pais_id output=$paises_output}
               </select>
@@ -86,10 +91,7 @@
                  <input type="text" name="fecha_diploma" id="fecha_diploma" value="{$formacion_pregrado->fecha_diploma}"  placeholder="Fecha Diploma" size="100"  >
               <label for="nombre"><small>Fecha Diploma</small></label>
             </p>
-            <p>
-                <input type="text" name="fecha_titulo" id="fecha_titulo" value="{$formacion_pregrado->fecha_titulo}"  placeholder="Fecha de Titulo" size="100"  >
-              <label for="nombre"><small>Fecha de Titulo</small></label>
-            </p>
+            
                
            <p>
               <input type="hidden" name="formacion_pregrado_id"    value="{$formacion_pregrado->id}">

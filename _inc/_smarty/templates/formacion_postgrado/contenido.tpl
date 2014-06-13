@@ -7,7 +7,17 @@
      
       <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
            
-        
+            <p>
+              <label for="rol"><small>Grado Academico</small></label>
+              <select  class="select-style gender" name="grado_academico_id" id="grado_academico_id" >
+              {html_options values=$grado_academicos_values selected=$formacion_postgrado->grado_academico_id output=$grado_academicos_output}
+              </select>
+            </p>
+             <p>
+              <input type="text" name="fecha_titulo_post" id="fecha_titulo_post" value="{$formacion_postgrado->fecha_titulo_post}"  placeholder="Fecha Titulo" size="100"  >
+              <label for="nombre"><small>Fecha Titulo</small></label>
+            </p>
+          
             <p>
               <input type="text" name="tesis_post" id="tesis_post" value="{$formacion_postgrado->tesis_post}"  placeholder="Tesis Postgrado" size="100"  >
               <label for="nombre"><small>Tesis Postgrado</small></label>
@@ -17,18 +27,18 @@
               <label for="nombre"><small>Titulo Postgrado</small></label>
             </p>
             <p>
-              <input type="text" name="duracion_curso_post" id="duracion_curso_post" value="{$formacion_postgrado->duracion_curso_post}"  placeholder="Duracion Curso Postgrado" size="100"  >
-              <label for="nombre"><small>Duracion Curso Postgrado</small></label>
+               <label for="email"><small>Duraci&oacute;n del Curso</small></label>
+               <select  class="select-style gender" name="duracion_curso_pregrado" id="duracion_curso_pregrado" >
+              {html_options values=$duracion_values selected=$formacion_postgrado->duracion_curso output=$duracion_output}
+              </select>
             </p>
             <p>
-              <input type="text" name="otra_institucion_post" id="otra_institucion_post" value="{$formacion_postgrado->otra_institucion_post}"  placeholder="Otra Institucion de Postgrado" size="100"  >
-              <label for="nombre"><small>Otra Institucion de Postgrado</small></label>
+              <label for="rol"><small>Unidad de Tiempo</small></label>
+              <select  class="select-style gender" name="unidad_tiempo_id" id="unidad_tiempo_id" >
+              {html_options values=$unidad_tiempos_values selected=$formacion_postgrado->unidad_tiempo_id output=$unidad_tiempos_output}
+              </select>
             </p>
-            <p>
-              <input type="text" name="ciudad_post" id="ciudad_post" value="{$formacion_postgrado->ciudad_post}"  placeholder="Ciudad de Postgrado" size="100"  >
-              <label for="nombre"><small>Ciudad de Postgrado</small></label>
-            </p>
-           
+            
             <p>
               <input type="text" name="hrs_presenciales_post" id="hrs_presenciales_post" value="{$formacion_postgrado->hrs_presenciales_post}"  placeholder="Horas Prensenciales" size="100"  >
               <label for="nombre"><small>Horas Prensenciales</small></label>
@@ -41,51 +51,34 @@
               <input type="text" name="creditos_post" id="creditos_post" value="{$formacion_postgrado->creditos_post}"  placeholder="Creditos Postgrado" size="100"  >
               <label for="nombre"><small>Creditos Postgrado</small></label>
             </p>
-             
-            <p>
-              <label for="rol"><small>Universidad</small></label>
-              <select  class="select-style gender" name="universidad_id" id="universidad_id" >
-              {html_options values=$universidades_values selected=$formacion_postgrado->universidad_id output=$universidades_output}
-              </select>
+            
+               <p>
+              <label for="rol"><small>&Aacute;rea</small></label>
+              <select  class="select-style gender" name="area_id" id="area_id" poblacioattri=''>
+              {html_options values=$area_values selected=$formacion_postgrado->area_id output=$area_output}
+              </select>&nbsp;<span id='Buscando'></span>
             </p>
-          
+            <p>
+              <label for="rol"><small>Sub &Aacute;rea</small></label>
+               <select  class="select-style gender" name="subarea_id" id="subarea_id"   >
+                  
+             </select>
+            </p>
+             <p>
+             <input type="text" name="institucion_post" id="institucion_post" value="{$formacion_postgrado->institucion_post}"  placeholder="Instituci&oacute;n donde obtuvo el grado" size="100"  >
+              <label for="nombre"><small>Instituci&oacute;n donde Obtuvo el Grado</small></label>
+            </p> <br>
+           
             <p>
               <label for="rol"><small>Pais</small></label>
               <select  class="select-style gender" name="pais_id" id="pais_id" >
               {html_options values=$paises_values selected=$formacion_postgrado->pais_id output=$paises_output}
               </select>
             </p>
-            
-           <p>
-              <label for="rol"><small>Subarea</small></label>
-              <select  class="select-style gender" name="subarea_id" id="subarea_id" >
-              {html_options values=$subareas_values selected=$formacion_postgrado->subarea_id output=$subareas_output}
-              </select>
-            </p>
-            
-            <p>
-              <label for="rol"><small>Unidad Tiempo</small></label>
-              <select  class="select-style gender" name="unidad_tiempo_id" id="unidad_tiempo_id" >
-              {html_options values=$unidad_tiempos_values selected=$formacion_postgrado->unidad_tiempo_id output=$unidad_tiempos_output}
-              </select>
-            </p>
-            
-            <p>
-              <label for="rol"><small>Grado Academico</small></label>
-              <select  class="select-style gender" name="grado_academico_id" id="grado_academico_id" >
-              {html_options values=$grado_academicos_values selected=$formacion_postgrado->grado_academico_id output=$grado_academicos_output}
-              </select>
-            </p>
                 
-            <p>
-              <input type="text" name="fecha_titulo_post" id="fecha_titulo_post" value="{$formacion_postgrado->fecha_titulo_post}"  placeholder="Fecha Titulo" size="100"  >
-              <label for="nombre"><small>Fecha Titulo</small></label>
-            </p>
+           
             
-            <p>
-                <input type="text" name="descripci&oacute;n" id="descripcion" value="{$formacion_postgrado->descripcion}"  placeholder="Descripcion" size="100"  >
-                <label for="nombre"><small>Descripci&oacute;n</small></label>
-            </p>
+           
            
            <p>
               <input type="hidden" name="formacion_postgrado_id"    value="{$formacion_postgrado->id}">
@@ -100,6 +93,30 @@
         </div>
         <p>{$ERROR}</p>
 </article>
+
+<script type="text/javascript">
+           $(function(){
+            $('#fecha_diploma').datepicker({
+              dateFormat:'dd/mm/yy',
+              changeMonth: true,
+              changeYear: true,
+              yearRange: "1920:{date('Y')}"
+        
+            });
+          });
+        </script>
+        
+<script type="text/javascript">
+           $(function(){
+            $('#fecha_titulo_post').datepicker({
+              dateFormat:'dd/mm/yy',
+              changeMonth: true,
+              changeYear: true,
+              yearRange: "1920:{date('Y')}"
+        
+            });
+          });
+        </script>
 <script>
   
   function enviar(){
@@ -108,5 +125,24 @@
   }
 </script>
 
+ <script>
+jQuery('#area_id').change(function () {
+var numero =document.getElementById("area_id").value;
+var poblacio = jQuery(this).attr("poblacioattri");
+var to=document.getElementById("Buscando");
+to.innerHTML="buscando....";
+jQuery.ajax({
+type: "POST", 
+url: "buscar.php",
+data: 'idnumero='+numero,
+success: function(a) {
+jQuery('#subarea_id').html(a);
+var to=document.getElementById("Buscando");
+to.innerHTML="";
+}
+});
+})
+.change();
+</script> 
 </div>
      

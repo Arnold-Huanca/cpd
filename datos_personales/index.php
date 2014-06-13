@@ -3,7 +3,7 @@ try {
  define ("MODULO", "Datos Personales");
   require('../_start.php');
   if(!isUserSession())
-  header("Location: index.php"); 
+  header("Location: ../index.php"); 
   /** HEADER */
   $smarty->assign('title', 'Registro de Usuario');
   $smarty->assign('description', 'P&aacute;gina de Registro de Usuario');

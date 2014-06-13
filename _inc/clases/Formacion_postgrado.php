@@ -19,7 +19,7 @@ class Formacion_postgrado extends Objectbase
    
    var $duracion_curso_post;
    
-   var $otra_institucion_post;
+   var $institucion_post;
    
    var $ciudad_post;
    
@@ -36,17 +36,16 @@ class Formacion_postgrado extends Objectbase
    var $funcionario_id;
    
    var $pais_id;
-   
+   var $area_id;
    var $subarea_id;
-   
    var $unidad_tiempo_id;
-   
+
    var $grado_academico_id;
    
    var $descripcion;
    var $observacion;
-  
-  var $fecha_visado;
+   var $archivo;
+   var $fecha_visado;
   
   
   public function getByLogin ($login, $verSifueTomado = false ) {

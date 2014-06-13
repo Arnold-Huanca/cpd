@@ -3,7 +3,7 @@ try {
    define ("MODULO", "Formación Postgrado");
   require('../_start.php');
   if(!isUserSession())
-  header("Location: index.php"); 
+  header("Location: ../index.php"); 
   leerClase('Formacion_postgrado');
  
   $ERROR = '';
@@ -14,9 +14,9 @@ try {
   $smarty->assign('keywords','');
 
     //CSS
-   $CSS[]  = URL_CSS . "style.css";
+  $CSS[]  = URL_CSS . "style.css";
   $CSS[]  = URL_CSS . "style.responsive.css";
- $CSS[]  = URL_CSS . "tables.css";
+  $CSS[]  = URL_CSS . "tables.css";
     
   $CSS[]  = URL_CSS . "demo_table.css";
   $CSS[]  = URL_CSS . "style_table.css";
