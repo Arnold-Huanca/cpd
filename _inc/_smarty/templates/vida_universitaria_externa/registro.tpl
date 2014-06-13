@@ -132,7 +132,11 @@
         </div>
 </div>
 </div>
-      {include file="vida_universitaria_externa/contenido.tpl"}
+       {if ($ver)}
+          {include file="vida_universitaria_externa/detalle.tpl"}   
+           {else}
+               {include file="vida_universitaria/contenido.tpl"}
+        {/if}
     
       
                     </div>
