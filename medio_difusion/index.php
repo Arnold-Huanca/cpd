@@ -4,7 +4,7 @@ try {
   require('../_start.php');
   if(!isUserSession())
   header("Location: ../index.php"); 
-  leerClase('Medio_difunsion');
+ // leerClase('Medio_difunsion');
  
   $ERROR = '';
 

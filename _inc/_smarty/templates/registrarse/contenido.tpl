@@ -2,9 +2,9 @@
      <article class="art-post art-article">
                                 
           <h2>
-           <p>{$ci}</p>
+               <p>{$ci}</p>
            <p>{$email}</p>
-           <p>{$login}</p>
+            <p>{$login}</p>
           </h2>                                        
    <div class="art-postcontent art-postcontent-0 clearfix">
      

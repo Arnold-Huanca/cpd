@@ -27,7 +27,7 @@
 	}
 
          </script> 
-             <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
+             <table cellpadding="0" cellspacing="0" border="0" class="display" >
                 <thead>
                     <tr>
                         <th>id</th><!--Estado-->
