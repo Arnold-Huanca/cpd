@@ -22,7 +22,6 @@
               
            <p>
               <input type="hidden" name="dedicacion_id"    value="{$dedicacion->id}">
-              <input type="hidden" name="id_usuario"    value="{$dedicacion->id}">
               <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
