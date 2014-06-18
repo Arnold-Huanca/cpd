@@ -94,7 +94,7 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
 					where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=pe.grupo_id and c.grupo='$gruposmenus' and  p.ver=1 and pe.usuario_id=$usuario->id GROUP BY m.codigo ORDER BY c.nivel ASC
 					");
 						
-						 
+			//echo $listadomenus;			 
 			$thise = new Menu($resultado["grupo"]);
 			while( $resultados= mysql_fetch_array($listadomenus) )
                           {
@@ -102,7 +102,7 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
                         $cadena=str_replace(' ', '_',$texto);
                         $menus= str_replace('ó', 'o',$cadena);
                         $cadena= str_replace('ñ', 'n',$cadena);
-                   //  echo   $resultado["grupo"];
+                     //echo   $resultado["grupo"];
 			$link =  $cadena;
                         $thise->agregarItem($texto,'Registro y modificaciones para Docentes','basicset/user4.png',$cadena);
                           }
@@ -110,7 +110,7 @@ where c.modulo_id=p.modulo_id and m.id=p.modulo_id and g.id=p.grupo_id and g.id=
 						
 						
                 }
-       return $thises;
+            return $thises;
   }
   
 }
