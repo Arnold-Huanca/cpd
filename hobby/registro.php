@@ -57,7 +57,7 @@ $ERROR = '';
     mysql_query("BEGIN");
     $dedicacion->objBuidFromPost();
     $dedicacion->estado           = Objectbase::STATUS_AC;
-
+    $dedicacion->id_usuario =  getSessionUser()->getFuncionario()->id;
     $dedicacion->save();
 
     mysql_query("COMMIT");

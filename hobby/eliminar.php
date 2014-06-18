@@ -1,6 +1,6 @@
 <?php
 try {
- define ("MODULO", "Hobby");
+ define ("MODULO", "Dedicación");
   require('../_start.php');
   if(!isUserSession())
   header("Location: index.php"); 

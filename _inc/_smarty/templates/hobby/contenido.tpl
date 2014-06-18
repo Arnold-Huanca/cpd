@@ -1,6 +1,6 @@
      <div class="art-layout-cell art-content clearfix">
           <ul class="breadcrumbs">
-         <li><a href=""><i class="iconfa-home"></i> hobby</a> <span class="separator"></span></li>
+         <li><a href=""><i class="iconfa-home"></i> Hobby</a> <span class="separator"></span></li>
            </ul>
      <article class="art-post art-article">
                                 
@@ -12,20 +12,21 @@
            
             
             <p>
-              <input type="text" name="nombre_dedicacion" id="nombre_dedicacion" value="{$dedicacion->nombre_dedicacion}"  placeholder="Nombre Dedicacion" size="100"  >
-              <label for="nombre"><small>Nombre Dedicacion</small></label>
+              <input type="text" name="nombre_dedicacion" id="nombre_dedicacion" value="{$dedicacion->nombre_dedicacion}"  placeholder="Nombre Hobby" size="100"  >
+              <label for="nombre"><small>Hobby</small></label>
             </p>
              <p>
-              <input type="text" name="dedicacioncol" id="dedicacioncol" value="{$dedicacion->dedicacioncol}"  placeholder="Dedicacion Col" size="100"  >
-              <label for="nombre"><small>Dedicacion Col</small></label>
+              <input type="text" name="dedicacioncol" id="dedicacioncol" value="{$dedicacion->dedicacioncol}"  placeholder="Descripcion" size="100"  >
+              <label for="nombre"><small>Descripcion</small></label>
             </p>
               
            <p>
               <input type="hidden" name="dedicacion_id"    value="{$dedicacion->id}">
+              <input type="hidden" name="id_usuario"    value="{$dedicacion->id}">
               <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 
-              <button class="submit" type="button" onclick="enviar()">Cancelar</button>  
+              <button class="submit" type="button" onclick="enviar()">Cancelar</button>   
          
 
             </p>
@@ -43,7 +44,7 @@ $(document).ready(function() {
 			//agree: "required"
 		},
 		messages: {
-			nombre_dedicacion: "Por favor ingrese el Nombre",
+			nombre_dedicacion: "Por favor ingrese su Hobby",
 		
 		},
 		
@@ -51,6 +52,12 @@ $(document).ready(function() {
 	});
 
 });
+
+function enviar(){
+  window.location.href="index.php";
+
+}
+
 </script>
 </div>
      

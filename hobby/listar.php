@@ -55,8 +55,8 @@
                 require('../_start.php');
                 if(!isUserSession())
                 header("Location: index.php"); 
-				
-     $listado=  mysql_query("select d.id,d.nombre_dedicacion,d.dedicacioncol from dedicacion d");
+                $id_usuario=  getSessionUser()->getFuncionario()->id;
+     			$listado=  mysql_query("select d.id,d.nombre_dedicacion,d.dedicacioncol from dedicacion d where id_usuario = $id_usuario;");
 
                     while( $resultado = mysql_fetch_array($listado) ){
                   	?>
