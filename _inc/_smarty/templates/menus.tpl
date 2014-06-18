@@ -58,7 +58,7 @@
   <li><a href="datos_personales.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Datos Personales</a></li>
  <li><a href="vivienda.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Vivienda</a></li>
  <li><a href="datos_familiares.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Datos Familiares</a></li>
-  <li><a href="dominio_idioma.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Dominio de Idiomas</a></li>
+  <!--<li><a href="dominio_idioma.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Dominio de Idiomas</a></li>-->
   
    <li><a href="formacion_pregrado.php?menus=mostrar&funcionario_id={$funcionario->id}" class="active">Formaci&oacute;n Pregrado</a></li>
    <li><a href="formacion_postgrado.php?menus=mostrar&funcionario_id={$funcionario->id}">Formaci&oacute;n Postgrado</a></li>
