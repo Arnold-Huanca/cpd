@@ -6,8 +6,8 @@ try {
   header("Location: index.php");  
 
   /** HEADER */
-  $smarty->assign('title', 'Registro de Usuario');
-  $smarty->assign('description', 'P&aacute;gina de Registro de Usuario');
+  $smarty->assign('title', 'Registro de dominio idioma');
+  $smarty->assign('description', 'P&aacute;gina de Registro de domino idioma');
    /**
    * Menu superior
    */
@@ -61,6 +61,17 @@ $ERROR = '';
   $smarty->assign("idiomas_values", $idiomas_values);
   $smarty->assign("idiomas_output", $idiomas_output);
   
+  // Valores para seleccionar nivel de idioma
+  $smarty->assign('myOptions', array(
+  		'- Seleccione -' => '- Seleccione -',
+  		'Basico' => 'Basico',
+  		'Intermedio' => 'Intermedio',
+  		'Avanzado' => 'Avanzado',
+  		'No' => 'No')
+  );
+  $smarty->assign('mySelect', '- Seleccione -');
+  /////////////////////////////////////
+  
     // combo box funcionario
   leerClase('Funcionario');
   $funcionario    = new Funcionario();
@@ -81,7 +92,7 @@ $ERROR = '';
     mysql_query("BEGIN");
     $dominio_idioma->objBuidFromPost();
     $dominio_idioma->estado           = Objectbase::estado_pendiente;
-   $dominio_idioma->funcionario_id=  getSessionUser()->getFuncionario()->id;
+    $dominio_idioma->funcionario_id=  getSessionUser()->getFuncionario()->id;
     $dominio_idioma->save();
     mysql_query("COMMIT");
     $ir = "Location: index.php";

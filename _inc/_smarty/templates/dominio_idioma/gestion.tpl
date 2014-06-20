@@ -129,28 +129,6 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
  
  </div>
 </div>
-<div class="art-block clearfix">
-        <div class="art-blockheader">
-            <h3 class="t">  nota</h3>
-        </div>
-        <div class="art-blockcontent">
-           
-          
-          <p>
-          comentario
-          
-          </p>
-        </div>
-</div>
- <div class="art-block clearfix">
-        <div class="art-blockheader">
-            <h3 class="t">Nuevo Bloque</h3>
-        </div>
-        <div class="art-blockcontent"><p>
-            nuevo
-            <br /></p>
-        </div>
-</div>
 </div>
       <div class="art-layout-cell art-content clearfix">
    <ul class="breadcrumbs">

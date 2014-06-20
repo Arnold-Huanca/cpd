@@ -14,7 +14,7 @@
               </select>
             </p>
              <p>
-              <input type="text" name="nombre_distincion" id="tipo_vivienda" value="{$vivienda->tipo_vivienda}" placeholder="Tipo Vivienda"  size="22" >
+              <input type="text" name="tipo_vivienda" id="tipo_vivienda" value="{$vivienda->tipo_vivienda}" placeholder="Tipo Vivienda"  size="22" >
               <label for="email"><small> Tipo Vivienda</small></label>
             </p>
             <p>

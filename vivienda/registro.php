@@ -7,7 +7,7 @@ try {
 
   /** HEADER */
   $smarty->assign('title', 'Registro de Usuario');
-  $smarty->assign('description', 'P&aacute;gina de Registro de Usuario');
+  $smarty->assign('description', 'P&aacute;gina de Registro de vivienda');
    /**
    * Menu superior
    */

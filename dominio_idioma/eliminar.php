@@ -8,10 +8,10 @@ try {
 
     leerClase('Dominio_idioma');
    
-if(isset($_GET['eliminar']) && isset($_GET['dominio_idioma_id']) && is_numeric($_GET['dominio_idioma_id']) )
+if(isset($_GET['id']) && is_numeric($_GET['id']) )
   {
        
-      $dominio_idioma= new Dominio_idioma($_GET['dominio_idioma_id']);
+      $dominio_idioma= new Dominio_idioma($_GET['id']);
       $dominio_idioma->delete();
      
   }

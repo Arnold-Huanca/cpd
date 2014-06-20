@@ -13,11 +13,11 @@
             
             <p>
               <input type="text" name="nombre_dedicacion" id="nombre_dedicacion" value="{$dedicacion->nombre_dedicacion}"  placeholder="Nombre Hobby" size="100"  >
-              <label for="nombre"><small>Hobby</small></label>
+              <label for="nombre"><small>Hobby *:</small></label>
             </p>
              <p>
               <input type="text" name="dedicacioncol" id="dedicacioncol" value="{$dedicacion->dedicacioncol}"  placeholder="Descripcion" size="100"  >
-              <label for="nombre"><small>Descripcion</small></label>
+              <label for="nombre"><small>Descripcion:</small></label>
             </p>
               
            <p>

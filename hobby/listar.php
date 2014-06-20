@@ -29,7 +29,7 @@
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>id</th><!--Estado-->
+                        <th>#</th><!--Estado-->
                         <th>Nombre</th>
                         <th>Descripci&oacute;n</th><!--Estado-->
                          <th>Editar</th>
@@ -57,12 +57,13 @@
                 header("Location: index.php"); 
                 $id_usuario=  getSessionUser()->getFuncionario()->id;
      			$listado=  mysql_query("select d.id,d.nombre_dedicacion,d.dedicacioncol from dedicacion d where id_usuario = $id_usuario;");
-
+     			$num = 0;
                     while( $resultado = mysql_fetch_array($listado) ){
+					$num = $num + 1;
                   	?>
-	
+                  	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
-        <td><?php echo $resultado['id'] ?></td>
+        <td><?php echo $num ?></td>
 			  <td><?php echo $resultado['nombre_dedicacion'] ?></td>
 			  <td><?php echo $resultado['dedicacioncol'] ?></td>
 			   <td><span class="modi"><a href="registro.php?dedicacion_id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
