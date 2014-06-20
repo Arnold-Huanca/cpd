@@ -24,8 +24,18 @@
               <label for="apellido_materno"><small>Apellido Materno</small></label>
             </p>
              <p>
-              <input type="text" name="parentesco" id="parentesco" value="{$datos->parentesco}"  placeholder="Parentesco" size="200">
-              <label for="apellido_materno"><small>Apellido Materno</small></label>
+             
+              <label for="apellido_materno"><small>Parentesco</small></label>
+              <Select class="select-style gender" name="parentesco" id="habla">
+              {html_options options="- Seleccione -" selected="- Seleccione -"}
+              {html_options options="Esposo/a" selected="Esposo/a"}
+              {html_options options="Hermano/a" selected="Hermano/a"}
+              {html_options options="Padre" selected="Padre"}
+              {html_options options="Madre" selected="Madre"}
+              {html_options options="Abuelo/a" selected="Abuelo/a"}
+              {html_options options="Nieto/a" selected="Nieto/a"}
+             
+              </Select>
             </p>
             <p>
               {if ( $datos->sexo eq "Mujer" )}
@@ -41,7 +51,7 @@
      
             <p>
               <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" value="{$datos->fecha_nacimiento}"  placeholder="Fecha Nacimiento" size="200">
-              <label for="apellido_materno"><small>Apellido Materno</small></label>
+              <label for="apellido_materno"><small>Fecha de Nacimiento</small></label>
             </p>
             <p>
                 <input type="text" name="profesion" id="profesion" value="{$datos->profesion}"  placeholder="Profesi&oacute;n" size="200">
