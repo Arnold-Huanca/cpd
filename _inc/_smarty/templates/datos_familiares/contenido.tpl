@@ -25,8 +25,8 @@
             </p>
              <p>
              
-              <label for="apellido_materno"><small>Parentesco</small></label>
-              <Select class="select-style gender" name="parentesco" id="habla">
+              <label for="parentesco"><small>Parentesco</small></label>
+              <Select class="select-style gender" name="parentesco" id="parentesco">
               {html_options options="- Seleccione -" selected="- Seleccione -"}
               {html_options options="Esposo/a" selected="Esposo/a"}
               {html_options options="Hermano/a" selected="Hermano/a"}
