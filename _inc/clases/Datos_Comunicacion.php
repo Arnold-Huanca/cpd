@@ -23,6 +23,7 @@ class Datos_Comunicacion extends Objectbase
   * Nombre del usuario
   * @var VARCHAR(100)
   */
+    
   var $funcionario_id;
   
   var $tipo;
