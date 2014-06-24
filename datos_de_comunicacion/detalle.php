@@ -1,6 +1,6 @@
 <?php
 try {
-  define ("MODULO", "Datos Familiares");
+  define ("MODULO", "Datos de Comunicacion");
   require('../_start.php');
   if(!isUserSession())
   header("Location: index.php");  
