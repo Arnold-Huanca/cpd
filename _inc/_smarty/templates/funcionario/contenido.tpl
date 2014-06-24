@@ -76,7 +76,8 @@
               <label for="nombre"><small>     Estado.:  </small></label>
               <select  class="select-style gender" name="estado_civil" id="estado_civil" >
               {html_options values=$estado_values selected=$funcionario->estado_civil output=$estado_output}
-              </select>             </p>
+              </select>
+                 </p>
                  
                  <p>
               <label for="nombre"><small>    Email 1.: </small></label>
@@ -104,7 +105,7 @@
                 
                 
                  <p>
-              <label for="nombre"><small>   Fecha : </small></label>
+              <label for="nombre"><small>   Fecha titulo Bachiller: </small></label>
    <input type="text" name="fecha_titulo_bachiller" id="fecha_titulo_bachiller" placeholder="Fecha de Egreso" value="{$funcionario->fecha_titulo_bachiller}"/>
                  </p>
                 

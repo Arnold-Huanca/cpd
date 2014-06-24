@@ -58,11 +58,8 @@ $ERROR = '';
   $universidades_output[] = '- Seleccione -';
   while ($row = mysql_fetch_array($universidades[0])) 
   {
-       var_dump($row);
-    die();
     $universidades_values[] = $row['id'];
     $universidades_output[] = $row['nombre_uni'];
-   
   }
   $smarty->assign("universidades_values", $universidades_values);
   $smarty->assign("universidades_output", $universidades_output);
