@@ -86,11 +86,11 @@
                   while( $resultado = mysql_fetch_array($listado) )
                   {
                       $grado= new Grado_academico($resultado['grado_academico_id']);
-                        $area= new Area($resultado['area_id']);
-                         $subarea= new Subarea($resultado['subarea_id']);
+                      $area= new Area($resultado['area_id']);
+                      $subarea= new Subarea($resultado['subarea_id']);
                         
-                         $pais= new Pais($resultado['pais_id']);
-                        $unidad_tiempo= new Unidad_tiempo($resultado['unidad_tiempo_id']);
+                      $pais= new Pais($resultado['pais_id']);
+                      $unidad_tiempo= new Unidad_tiempo($resultado['unidad_tiempo_id']);
                   
                   ?>
 	
