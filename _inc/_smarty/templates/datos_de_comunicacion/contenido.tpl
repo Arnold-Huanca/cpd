@@ -10,32 +10,24 @@
      
       <form  class="contact_form"  id="contact_form"  action="#" method="post" id="registro" name="registro" >
        
-           <p>
-              <label for="tipo"><small>Tipo De Telefono: </small></label>
-              <select  class="select-style gender" name="tipo" id="tipo" >
-              {html_options options="- Seleccione -" selected="- Seleccione -"}
-              {html_options options="Celular" selected="Celular" }
-              {html_options options="Domicilio" selected="Domicilio"}
-              {html_options options="Oficina" selected="Oficina"}
-              {html_options options="Trabajo" selected="Trabajo"}
-              {html_options options="Emergencia" selected="Emergencia"}
-              {html_options options="Fax" selected="Fax" output="Fax"}
-              
-              
+         
+              <p>
+              <label for="tipo"><small>    Tipo .:  </small></label>
+              <select  class="select-style gender" name="tipo" id="estado_civil" >
+              {html_options values= $tipo_telefono_values selected=$datos->tipo output=$tipo_telefono_values}
               </select>
-              
-            </p>
-            
+                 </p>
+           
            
             <p>
-              <input type="text" name="numero" id="numero" value=""  placeholder="Numero" size="200">
+              <input type="text" name="numero" id="numero" value="{$datos->numero}"  placeholder="Numero" size="200">
               <label for="numero"><small>Numero</small></label>
             </p>
             
           
            
            <p>
-              <input type="hidden" name="datos_de_communicacion"    value="{$datos_de_comunicacion->id}">
+              <input type="hidden" name="datos_de_communicacion"    value="{$datos->id}">
               <input type="hidden" name="tarea" value="registrar">
               <input type="hidden" name="token" value="{$token}">
                <button class="submit" type="submit">Guardar</button> 

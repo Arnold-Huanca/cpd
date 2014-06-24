@@ -11,8 +11,8 @@ try {
 if(isset($_GET['id']) && is_numeric($_GET['id']) )
   {
        
-      $dominio_idioma= new Datos_Comunicacion($_GET['id']);
-      $dominio_idioma->delete();
+      $datos= new Datos_Comunicacion($_GET['id']);
+      $datos->delete();
      
   }
    

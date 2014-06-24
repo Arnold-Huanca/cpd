@@ -25,7 +25,7 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
                 <div class="art-content-layout">
                     <div class="art-content-layout-row">
                       
-    <div class="art-layout-cell art-sidebar1 clearfix">
+      <div class="art-layout-cell art-sidebar1 clearfix">
 <div class="art-vmenublock clearfix">
   
    {if (isUserSession())}
@@ -129,10 +129,32 @@ function verlistado(){ //FUNCION PARA MOSTRAR EL LISTADO EN EL INDEX POR JQUERY
  
  </div>
 </div>
+<div class="art-block clearfix">
+        <div class="art-blockheader">
+            <h3 class="t">  nota</h3>
+        </div>
+        <div class="art-blockcontent">
+           
+          
+          <p>
+          comentario
+          
+          </p>
+        </div>
+</div>
+ <div class="art-block clearfix">
+        <div class="art-blockheader">
+            <h3 class="t">Nuevo Bloque</h3>
+        </div>
+        <div class="art-blockcontent"><p>
+            nuevo
+            <br /></p>
+        </div>
+</div>
 </div>
       <div class="art-layout-cell art-content clearfix">
    <ul class="breadcrumbs">
-         <li><a href=""><i class="iconfa-home"></i> Datos de comunicacion</a> <span class="separator"></span></li>
+         <li><a href=""><i class="iconfa-home"></i> Datos de Comunicacion</a> <span class="separator"></span></li>
            </ul>
          <article id="contenido">
         </article>

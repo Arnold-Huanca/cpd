@@ -63,7 +63,7 @@
                    
                  {section name=ic loop=$menuizquierda}
                   {assign var="menu" value=$menuizquierda[ic]}
-                     {if {$menu->nombre_menu} == "Dominio Idioma"} 
+                     {if {$menu->nombre_menu} == "Datos Generales"} 
                      {if ( $menu->getItemTotal() > 1 ) }
                   <li class="dropdown active dropdownactiveli" >
                      <a href=""><span class="iconfa-briefcase"></span> {$menu->nombre_menu}</a>
@@ -132,7 +132,12 @@
         </div>
 </div>
 </div>
-      {include file="datos_de_comunicacion/contenido.tpl"}
+        {if ($ver)}
+          {include file="datos_de_comunicacion/detalle.tpl"}   
+           {else}
+               {include file="datos_de_comunicacion/contenido.tpl"}
+        {/if}
+      
     
       
                     </div>

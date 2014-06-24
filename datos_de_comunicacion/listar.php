@@ -4,6 +4,9 @@
         "sPaginationType": "full_numbers" //DAMOS FORMATO A LA PAGINACION(NUMEROS)
     } );
 })
+
+
+
 	function EliminarDato(id)
   {
 		var msg = confirm("Desea eliminar este dato?")
@@ -25,57 +28,64 @@
 
          </script> 
           <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
-		 <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
+	 <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>	
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
                 <thead>
                     <tr>
-                        <th>Num</th><!--Estado-->
-                        <th>Tipo</th>
-                        <th>Numero</th>
-		       <th>Lugar</th>
-                        <th>Editar</th>
+                        <th>id</th><!--Estado-->
+                        <th>Tipo </th>
+                        <th>Numero </th>
+                        <th>Lugar</th><!--Estado-->
+                         <th>Estado</th><!--Estado-->
+                         <th>Detalle</th>
+                         <th>Editar</th>
                         <th>Eliminar</th>
-                   
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th></th>
                         <th></th>
+                         <th></th>
                         <th></th>
-                        <th></th>
-                        <th></th>
-                       
+                         <th></th>
+                           <th></th>
+                         <th></th>
+                           <th></th>
+                        
                        
                      
                     </tr>
                 </tfoot>
                   <tbody>
                    
-                    <?php
-                   require  '../_start.php';
-                   define ("MODULO", "Datos de Comunicacion");
-                   if(!isUserSession())
-                   header("Location: index.php"); 
-                     $idfuncionario=  getSessionUser()->getFuncionario()->id;
-                     $num = 0;
-                     $datos_comunicacion=  mysql_query("select distinct id tipo, numero, lugar from datos_comunicacion  d where d.funcionario_id = $idfuncionario ;");
-					 while( $resultado = mysql_fetch_array($datos_comunicacion)){
-						$num = $num + 1;
+               <?php
+               define ("MODULO", "Datos de Comunicacion");
+                require('../_start.php');
+                if(!isUserSession())
+                header("Location: index.php"); 
+
+                  leerClase("Usuario");
+                  $idfuncionario=  getSessionUser()->getFuncionario()->id;
+                  $listado=  mysql_query("select * from datos_comunicacion where funcionario_id='$idfuncionario'");
+
+                    while( $resultado = mysql_fetch_array($listado) ){
+                        
                   	?>
-                  	
+	
 		   <tr id="fila-<?php echo $resultado['id'] ?>">
-				<td><?php echo $num ?></td>
-				<td><?php echo $resultado['tipo'] ?></td>
-				<td><?php echo $resultado['numero'] ?></td>
-				<td><?php echo $resultado['lugar'] ?></td>
-				
-				<td><span class="modi"><a href="registro.php?datos_de_comunciacion=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
-				<td><span class="dele"><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
+                           <td><?php echo $resultado['id'] ?></td>
+			  <td><?php echo $resultado['tipo'] ?></td>
+			  <td><?php echo $resultado['numero'] ?></td>
+                            <td><?php echo $resultado['lugar'] ?></td>
+                             <td><?php echo $resultado['estado'] ?></td>
+                            <td><span class="modi"><a href="detalle.php?ver=ver&id=<?php echo $resultado['id'] ?>"><img width="20" height="20" src="../images/view.png" title="Ver" alt="Ver" /></a></span></td>
+			   <td><span class="modi"><a href="registro.php?id=<?php echo $resultado['id'] ?>"><img src="../images/edit.png" title="Editar" alt="Editar" /></a></span></td>
+			  <td><a onClick="EliminarDato(<?php echo $resultado['id'] ?>); return false" href="eliminar.php?id=<?php echo $resultado['id'] ?>"><img src="../images/delete.png" title="Eliminar" alt="Eliminar" /></a></td>
 		  </tr>
 	<?php
 	}
   ?>   
-                </tbody>
+                <tbody>
             </table>
-                 </div>
+         </div>
