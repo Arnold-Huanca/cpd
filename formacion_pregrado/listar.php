@@ -29,7 +29,9 @@
          </script> 
          <center><h2>Formacion Academica Profecional </h2></center>
          <br>
+        
          <h4>Grados optenidos dentro el sistema de universidades de Bolivia </h4>
+          <br>
           <span class="modi"><a href="registro.php"><img src="../images/add.png" title="Nuevo" alt="Nuevo" /></a></span>
 		 <div style='height:auto; width: 100%; font-size: 12px; overflow: auto;'>
          <table cellpadding="0" cellspacing="0" border="0" class="display" id="tabla_lista_paises">
@@ -116,5 +118,6 @@
                      
                
                  </div>
+          <br>
           <br>
                <h4>Titulos en provición nacional obetenidos dentro del sistema de universidades de Bolivia </h4>  
