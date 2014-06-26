@@ -7,19 +7,11 @@
  */
 
 /**
- * Description of Titulo_Provicion
+ * Description of Modalidad_graduacion
  *
  * @author DPA
  */
-class Titulo_Provicion extends Objectbase{
+class Modalidad_graduacion extends Objectbase{
+    var $modalaidad;
     //put your code here
-    var $funcionario_id;
-    var $titulo_otorgado;
-    var $fecha_titulo;
-    var $numero_titulo;
-    var $universidad_id;
-    
-    
-    
-    
 }

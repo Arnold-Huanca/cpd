@@ -39,3 +39,16 @@ VALUES ('1', 'ASE', 'Asesor', NULL, NULL),
 		     ('24', 'VOC', 'Vocal', NULL, NULL),
 		     ('25', 'OT', 'Otro(Aclarar)', NULL, NULL),
 		     ('26', 'TU', 'Tutoria en la Elaboracion de Pryectos de Grado, tesis u otro', NULL, NULL);
+		     
+		     
+		     // paara  formacion pregrado (grados obtenidos, titulos en  provicion nacional)
+		     INSERT INTO `dpa`.`modulo` (`id`, `codigo`, `nombre`, `url`, `descripcion`, `estado`) 
+		     VALUES ('71', 'Grados Academicos', 'Grados Academicos', NULL, NULL, NULL), 
+					   ('72', 'titulos en provicion nacional', NULL, NULL, NULL, NULL);
+					   
+					   INSERT INTO `dpa`.`permiso` (`id`, `ver`, `crear`, `editar`, `eliminar`, `modulo_id`, `grupo_id`, `estado`) 
+					   VALUES ('117', '1', '1', '1', '1', '71', '4', NULL), ('118', '1', '1', '1', '1', '71', '4', NULL);
+					   
+					   
+		INSERT INTO `dpa`.`secuencia` (`id`, `modulo_id`, `grupo`, `importancia`, `nivel`, `estado`) 
+		VALUES ('55', '71', 'Formacion pregrado', 'si', '1', NULL), ('56', '72', 'Formacion Pregrado', 'si', '2', NULL);

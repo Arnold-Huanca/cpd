@@ -1,10 +1,11 @@
 <?php
 try {
-  define ("MODULO", "Datos Familiares");
+  define ("MODULO", "Titulo Provicion");
   require('../_start.php');
   if(!isUserSession())
-  header("Location: ../index.php"); 
-  
+  header("Location: ../index.php");  
+  leerClase('Titulo_Provicion');
+ 
   $ERROR = '';
 
   /** HEADER */
@@ -14,14 +15,17 @@ try {
 
     //CSS
    $CSS[]  = URL_CSS . "style.css";
-   $CSS[]  = URL_CSS . "style.responsive.css";
-   $CSS[]  = URL_CSS . "tables.css";
+  $CSS[]  = URL_CSS . "style.responsive.css";
+ $CSS[]  = URL_CSS . "tables.css";
     
   $CSS[]  = URL_CSS . "demo_table.css";
   $CSS[]  = URL_CSS . "style_table.css";
-  $CSS[]  = URL_CSS . "style.default.css";
- // $CSS[] = '../css/editablegrid.css';
- 
+ $CSS[]  = URL_CSS . "style.default.css"; 
+  $smarty->assign('CSS',$CSS);
+  leerClase('Menu');
+  $menuizquierda = new Menu('');
+  $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
+
   //JS
   //
   
@@ -30,23 +34,16 @@ try {
    $JS[]  = URL_JS . "script/jquery.js";
    $JS[]  = URL_JS . "script/script.responsive.js";
    $JS[]  =URL_JS . 'table/jquery.dataTables.js';
-
-
   
-   $smarty->assign('CSS',$CSS);
-
   $smarty->assign('JS',$JS);
-  leerClase('Menu');
-  $menuizquierda = new Menu('');
-  $smarty->assign("menuizquierda", $menuizquierda->getAdminIndex());
+  
  
   //No hay ERROR
   $smarty->assign("ERROR",$ERROR);
 }
 catch(Exception $e) 
 {
-
   $smarty->assign("ERROR", handleError($e));
 }
-  $smarty->display('datos_familiares/gestion.tpl');
+  $smarty->display('titulo_provicion/gestion.tpl');
 ?>
